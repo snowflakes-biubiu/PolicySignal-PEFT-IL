@@ -1,0 +1,15 @@
+$ C:\Users\snowf\CAPC-CG-Project\.venv\Scripts\python.exe C:\Users\snowf\CAPC-CG-Project\05_incremental_learning\scripts\train\train_ewc.py --task 2 --seed 42
+
+Traceback (most recent call last):
+  File "C:\Users\snowf\CAPC-CG-Project\05_incremental_learning\scripts\train\train_ewc.py", line 10, in <module>
+    method_main("ewc")
+  File "C:\Users\snowf\CAPC-CG-Project\05_incremental_learning\scripts\continual_training.py", line 934, in method_main
+    run_continual_training(
+  File "C:\Users\snowf\CAPC-CG-Project\05_incremental_learning\scripts\continual_training.py", line 673, in run_continual_training
+    import torch
+  File "C:\Users\snowf\CAPC-CG-Project\.venv\Lib\site-packages\torch\__init__.py", line 274, in <module>
+    _load_dll_libraries()
+  File "C:\Users\snowf\CAPC-CG-Project\.venv\Lib\site-packages\torch\__init__.py", line 250, in _load_dll_libraries
+    res = kernel32.LoadLibraryExW(dll, None, 0x00001100)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

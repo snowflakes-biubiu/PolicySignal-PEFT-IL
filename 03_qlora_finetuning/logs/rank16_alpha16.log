@@ -1,0 +1,76 @@
+
+======================================================================
+Experiment: Rank16_Alpha16
+Model: Qwen/Qwen2.5-1.5B-Instruct
+Rank: 16
+Alpha: 16
+Dropout: 0.05
+Learning rate: 0.0002
+Epochs: 2
+Max length: 768
+Output directory: peft\qwen15b_level1_qlora_rank16_alpha16
+======================================================================
+Encoding training dataset...
+Training examples: 600
+Encoding validation dataset...
+Validation examples: 300
+Loading Qwen2.5-1.5B model...
+GPU: NVIDIA GeForce GTX 1660 Ti with Max-Q Design
+Total GPU memory: 6.00 GiB
+Calling from_pretrained()...
+Model loaded successfully.
+GPU memory allocated after loading: 1.96 GiB
+Step 1/3: Preparing k-bit model...
+Step 1/3 complete.
+Step 2/3: Creating LoRA configuration...
+Step 2/3 complete.
+Step 3/3: Injecting LoRA adapters...
+Step 3/3 complete.
+QLoRA preparation complete.
+GPU memory allocated after QLoRA preparation: 2.41 GiB
+Starting training...
+Wait for the first loss log; the first step may take longer.
+Training started. Estimated total steps: 300
+[Progress] Step 1/300 | Epoch=0.01 | Loss=1.811808 | LR=2.00e-04
+[Progress] Step 10/300 | Epoch=0.07 | Loss=1.358350 | LR=1.95e-04
+[Progress] Step 20/300 | Epoch=0.13 | Loss=0.847408 | LR=1.88e-04
+[Progress] Step 30/300 | Epoch=0.20 | Loss=1.101439 | LR=1.81e-04
+[Progress] Step 40/300 | Epoch=0.27 | Loss=0.874262 | LR=1.75e-04
+[Progress] Step 50/300 | Epoch=0.33 | Loss=0.834795 | LR=1.68e-04
+[Progress] Step 60/300 | Epoch=0.40 | Loss=0.733885 | LR=1.61e-04
+[Progress] Step 70/300 | Epoch=0.47 | Loss=0.648412 | LR=1.55e-04
+[Progress] Step 80/300 | Epoch=0.53 | Loss=0.586535 | LR=1.48e-04
+[Progress] Step 90/300 | Epoch=0.60 | Loss=0.634505 | LR=1.41e-04
+[Progress] Step 100/300 | Epoch=0.67 | Loss=1.037210 | LR=1.35e-04
+[Progress] Step 110/300 | Epoch=0.73 | Loss=0.493542 | LR=1.28e-04
+[Progress] Step 120/300 | Epoch=0.80 | Loss=0.354076 | LR=1.21e-04
+[Progress] Step 130/300 | Epoch=0.87 | Loss=0.230011 | LR=1.15e-04
+[Progress] Step 140/300 | Epoch=0.93 | Loss=0.812903 | LR=1.08e-04
+[Progress] Step 150/300 | Epoch=1.00 | Loss=0.431052 | LR=1.01e-04
+[Progress] Epoch 1.00 ended.
+[Progress] Step 150/300 | Epoch=1.00 | Eval Loss=0.539727
+[Progress] Step 160/300 | Epoch=1.07 | Loss=0.439667 | LR=9.47e-05
+[Progress] Step 170/300 | Epoch=1.13 | Loss=0.283893 | LR=8.80e-05
+[Progress] Step 180/300 | Epoch=1.20 | Loss=0.518114 | LR=8.20e-05
+[Progress] Step 190/300 | Epoch=1.27 | Loss=0.993475 | LR=7.53e-05
+[Progress] Step 200/300 | Epoch=1.33 | Loss=0.162438 | LR=6.87e-05
+[Progress] Step 210/300 | Epoch=1.40 | Loss=0.220053 | LR=6.20e-05
+[Progress] Step 220/300 | Epoch=1.47 | Loss=0.755815 | LR=5.53e-05
+[Progress] Step 230/300 | Epoch=1.53 | Loss=0.751959 | LR=4.87e-05
+[Progress] Step 240/300 | Epoch=1.60 | Loss=0.280172 | LR=4.20e-05
+[Progress] Step 250/300 | Epoch=1.67 | Loss=0.130771 | LR=3.53e-05
+[Progress] Step 260/300 | Epoch=1.73 | Loss=0.235822 | LR=2.87e-05
+[Progress] Step 270/300 | Epoch=1.80 | Loss=0.297174 | LR=2.20e-05
+[Progress] Step 280/300 | Epoch=1.87 | Loss=0.475759 | LR=1.53e-05
+[Progress] Step 290/300 | Epoch=1.93 | Loss=0.713496 | LR=8.67e-06
+[Progress] Step 300/300 | Epoch=2.00 | Loss=0.170410 | LR=2.00e-06
+[Progress] Epoch 2.00 ended.
+[Progress] Step 300/300 | Epoch=2.00 | Eval Loss=0.417716
+[Progress] Step 300/300 | Epoch=2.00
+Saving LoRA adapter...
+======================================================================
+Experiment completed: Rank16_Alpha16
+Adapter directory: peft\qwen15b_level1_qlora_rank16_alpha16
+Training time: 179.2 minutes
+======================================================================
+Model and training resources released.

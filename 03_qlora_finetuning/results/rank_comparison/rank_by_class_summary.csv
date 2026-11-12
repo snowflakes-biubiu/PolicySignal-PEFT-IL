@@ -1,0 +1,10 @@
+﻿gold_label,model,samples,correct,wrong,accuracy
+N,rank4,100,85,15,0.85
+N,rank8,100,82,18,0.82
+N,rank16,100,88,12,0.88
+R,rank4,100,94,6,0.94
+R,rank8,100,95,5,0.95
+R,rank16,100,95,5,0.95
+W,rank4,100,79,21,0.79
+W,rank8,100,93,7,0.93
+W,rank16,100,92,8,0.92

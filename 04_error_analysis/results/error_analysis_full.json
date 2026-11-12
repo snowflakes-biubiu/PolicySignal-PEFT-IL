@@ -1,0 +1,2028 @@
+{
+  "DeepSeek_Level1_ZS": {
+    "sample_count": 300,
+    "correct_count": 235,
+    "accuracy": 0.7833333333333333,
+    "confusion_matrix": {
+      "N": {
+        "N": 89,
+        "R": 12,
+        "W": 24
+      },
+      "R": {
+        "N": 2,
+        "R": 74,
+        "W": 4
+      },
+      "W": {
+        "N": 9,
+        "R": 14,
+        "W": 72
+      }
+    },
+    "label_order": [
+      "N",
+      "R",
+      "W"
+    ],
+    "per_class": {
+      "N": {
+        "gold_count": 100,
+        "predicted_count": 125,
+        "correct": 89,
+        "false_positive": 36,
+        "false_negative": 11,
+        "precision": 0.712,
+        "recall": 0.89,
+        "f1": 0.7911111111111112,
+        "error_rate": 0.10999999999999999
+      },
+      "R": {
+        "gold_count": 100,
+        "predicted_count": 80,
+        "correct": 74,
+        "false_positive": 6,
+        "false_negative": 26,
+        "precision": 0.925,
+        "recall": 0.74,
+        "f1": 0.8222222222222222,
+        "error_rate": 0.26
+      },
+      "W": {
+        "gold_count": 100,
+        "predicted_count": 95,
+        "correct": 72,
+        "false_positive": 23,
+        "false_negative": 28,
+        "precision": 0.7578947368421053,
+        "recall": 0.72,
+        "f1": 0.7384615384615385,
+        "error_rate": 0.28
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "W",
+        "prediction": "N",
+        "count": 24,
+        "rate_within_gold": 0.24
+      },
+      {
+        "gold": "R",
+        "prediction": "W",
+        "count": 14,
+        "rate_within_gold": 0.14
+      },
+      {
+        "gold": "R",
+        "prediction": "N",
+        "count": 12,
+        "rate_within_gold": 0.12
+      },
+      {
+        "gold": "N",
+        "prediction": "W",
+        "count": 9,
+        "rate_within_gold": 0.09
+      },
+      {
+        "gold": "W",
+        "prediction": "R",
+        "count": 4,
+        "rate_within_gold": 0.04
+      },
+      {
+        "gold": "N",
+        "prediction": "R",
+        "count": 2,
+        "rate_within_gold": 0.02
+      }
+    ],
+    "experiment": "DeepSeek_Level1_ZS",
+    "source_file": "deepseek_level1_zero_shot_300.json",
+    "original_accuracy": 0.7833333333333333,
+    "original_macro_f1": 0.783931623931624
+  },
+  "DeepSeek_Level1_k3": {
+    "sample_count": 300,
+    "correct_count": 233,
+    "accuracy": 0.7766666666666666,
+    "confusion_matrix": {
+      "N": {
+        "N": 88,
+        "R": 17,
+        "W": 22
+      },
+      "R": {
+        "N": 1,
+        "R": 70,
+        "W": 3
+      },
+      "W": {
+        "N": 11,
+        "R": 13,
+        "W": 75
+      }
+    },
+    "label_order": [
+      "N",
+      "R",
+      "W"
+    ],
+    "per_class": {
+      "N": {
+        "gold_count": 100,
+        "predicted_count": 127,
+        "correct": 88,
+        "false_positive": 39,
+        "false_negative": 12,
+        "precision": 0.6929133858267716,
+        "recall": 0.88,
+        "f1": 0.7753303964757708,
+        "error_rate": 0.12
+      },
+      "R": {
+        "gold_count": 100,
+        "predicted_count": 74,
+        "correct": 70,
+        "false_positive": 4,
+        "false_negative": 30,
+        "precision": 0.9459459459459459,
+        "recall": 0.7,
+        "f1": 0.8045977011494254,
+        "error_rate": 0.30000000000000004
+      },
+      "W": {
+        "gold_count": 100,
+        "predicted_count": 99,
+        "correct": 75,
+        "false_positive": 24,
+        "false_negative": 25,
+        "precision": 0.7575757575757576,
+        "recall": 0.75,
+        "f1": 0.7537688442211055,
+        "error_rate": 0.25
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "W",
+        "prediction": "N",
+        "count": 22,
+        "rate_within_gold": 0.22
+      },
+      {
+        "gold": "R",
+        "prediction": "N",
+        "count": 17,
+        "rate_within_gold": 0.17
+      },
+      {
+        "gold": "R",
+        "prediction": "W",
+        "count": 13,
+        "rate_within_gold": 0.13
+      },
+      {
+        "gold": "N",
+        "prediction": "W",
+        "count": 11,
+        "rate_within_gold": 0.11
+      },
+      {
+        "gold": "W",
+        "prediction": "R",
+        "count": 3,
+        "rate_within_gold": 0.03
+      },
+      {
+        "gold": "N",
+        "prediction": "R",
+        "count": 1,
+        "rate_within_gold": 0.01
+      }
+    ],
+    "experiment": "DeepSeek_Level1_k3",
+    "source_file": "deepseek_level1_fewshot3_300.json",
+    "original_accuracy": 0.7766666666666666,
+    "original_macro_f1": 0.7778989806154338
+  },
+  "DeepSeek_Level1_k6": {
+    "sample_count": 300,
+    "correct_count": 228,
+    "accuracy": 0.76,
+    "confusion_matrix": {
+      "N": {
+        "N": 90,
+        "R": 22,
+        "W": 24
+      },
+      "R": {
+        "N": 0,
+        "R": 66,
+        "W": 4
+      },
+      "W": {
+        "N": 10,
+        "R": 12,
+        "W": 72
+      }
+    },
+    "label_order": [
+      "N",
+      "R",
+      "W"
+    ],
+    "per_class": {
+      "N": {
+        "gold_count": 100,
+        "predicted_count": 136,
+        "correct": 90,
+        "false_positive": 46,
+        "false_negative": 10,
+        "precision": 0.6617647058823529,
+        "recall": 0.9,
+        "f1": 0.7627118644067796,
+        "error_rate": 0.09999999999999998
+      },
+      "R": {
+        "gold_count": 100,
+        "predicted_count": 70,
+        "correct": 66,
+        "false_positive": 4,
+        "false_negative": 34,
+        "precision": 0.9428571428571428,
+        "recall": 0.66,
+        "f1": 0.7764705882352942,
+        "error_rate": 0.33999999999999997
+      },
+      "W": {
+        "gold_count": 100,
+        "predicted_count": 94,
+        "correct": 72,
+        "false_positive": 22,
+        "false_negative": 28,
+        "precision": 0.7659574468085106,
+        "recall": 0.72,
+        "f1": 0.7422680412371133,
+        "error_rate": 0.28
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "W",
+        "prediction": "N",
+        "count": 24,
+        "rate_within_gold": 0.24
+      },
+      {
+        "gold": "R",
+        "prediction": "N",
+        "count": 22,
+        "rate_within_gold": 0.22
+      },
+      {
+        "gold": "R",
+        "prediction": "W",
+        "count": 12,
+        "rate_within_gold": 0.12
+      },
+      {
+        "gold": "N",
+        "prediction": "W",
+        "count": 10,
+        "rate_within_gold": 0.1
+      },
+      {
+        "gold": "W",
+        "prediction": "R",
+        "count": 4,
+        "rate_within_gold": 0.04
+      }
+    ],
+    "experiment": "DeepSeek_Level1_k6",
+    "source_file": "deepseek_level1_fewshot6_300.json",
+    "original_accuracy": 0.76,
+    "original_macro_f1": 0.7604834979597291,
+    "original_kappa": 0.64
+  },
+  "QwenMax_Level1_ZS": {
+    "sample_count": 299,
+    "correct_count": 260,
+    "accuracy": 0.8695652173913043,
+    "confusion_matrix": {
+      "N": {
+        "N": 96,
+        "R": 14,
+        "W": 14
+      },
+      "R": {
+        "N": 0,
+        "R": 78,
+        "W": 0
+      },
+      "W": {
+        "N": 4,
+        "R": 7,
+        "W": 86
+      }
+    },
+    "label_order": [
+      "N",
+      "R",
+      "W"
+    ],
+    "per_class": {
+      "N": {
+        "gold_count": 100,
+        "predicted_count": 124,
+        "correct": 96,
+        "false_positive": 28,
+        "false_negative": 4,
+        "precision": 0.7741935483870968,
+        "recall": 0.96,
+        "f1": 0.8571428571428571,
+        "error_rate": 0.040000000000000036
+      },
+      "R": {
+        "gold_count": 99,
+        "predicted_count": 78,
+        "correct": 78,
+        "false_positive": 0,
+        "false_negative": 21,
+        "precision": 1.0,
+        "recall": 0.7878787878787878,
+        "f1": 0.8813559322033898,
+        "error_rate": 0.21212121212121215
+      },
+      "W": {
+        "gold_count": 100,
+        "predicted_count": 97,
+        "correct": 86,
+        "false_positive": 11,
+        "false_negative": 14,
+        "precision": 0.8865979381443299,
+        "recall": 0.86,
+        "f1": 0.8730964467005077,
+        "error_rate": 0.14
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "R",
+        "prediction": "N",
+        "count": 14,
+        "rate_within_gold": 0.1414141414141414
+      },
+      {
+        "gold": "W",
+        "prediction": "N",
+        "count": 14,
+        "rate_within_gold": 0.14
+      },
+      {
+        "gold": "R",
+        "prediction": "W",
+        "count": 7,
+        "rate_within_gold": 0.0707070707070707
+      },
+      {
+        "gold": "N",
+        "prediction": "W",
+        "count": 4,
+        "rate_within_gold": 0.04
+      }
+    ],
+    "experiment": "QwenMax_Level1_ZS",
+    "source_file": "qwen_level1_zero_shot_300_fixed.json",
+    "original_accuracy": 0.8691275167785235,
+    "original_macro_f1": 0.8700797679477882,
+    "original_kappa": 0.8035430541938537
+  },
+  "QwenMax_Level1_k3": {
+    "sample_count": 299,
+    "correct_count": 266,
+    "accuracy": 0.8896321070234113,
+    "confusion_matrix": {
+      "N": {
+        "N": 95,
+        "R": 10,
+        "W": 11
+      },
+      "R": {
+        "N": 0,
+        "R": 85,
+        "W": 3
+      },
+      "W": {
+        "N": 4,
+        "R": 5,
+        "W": 86
+      }
+    },
+    "label_order": [
+      "N",
+      "R",
+      "W"
+    ],
+    "per_class": {
+      "N": {
+        "gold_count": 99,
+        "predicted_count": 116,
+        "correct": 95,
+        "false_positive": 21,
+        "false_negative": 4,
+        "precision": 0.8189655172413793,
+        "recall": 0.9595959595959596,
+        "f1": 0.8837209302325582,
+        "error_rate": 0.04040404040404044
+      },
+      "R": {
+        "gold_count": 100,
+        "predicted_count": 88,
+        "correct": 85,
+        "false_positive": 3,
+        "false_negative": 15,
+        "precision": 0.9659090909090909,
+        "recall": 0.85,
+        "f1": 0.9042553191489362,
+        "error_rate": 0.15000000000000002
+      },
+      "W": {
+        "gold_count": 100,
+        "predicted_count": 95,
+        "correct": 86,
+        "false_positive": 9,
+        "false_negative": 14,
+        "precision": 0.9052631578947369,
+        "recall": 0.86,
+        "f1": 0.8820512820512821,
+        "error_rate": 0.14
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "W",
+        "prediction": "N",
+        "count": 11,
+        "rate_within_gold": 0.11
+      },
+      {
+        "gold": "R",
+        "prediction": "N",
+        "count": 10,
+        "rate_within_gold": 0.1
+      },
+      {
+        "gold": "R",
+        "prediction": "W",
+        "count": 5,
+        "rate_within_gold": 0.05
+      },
+      {
+        "gold": "N",
+        "prediction": "W",
+        "count": 4,
+        "rate_within_gold": 0.04040404040404041
+      },
+      {
+        "gold": "W",
+        "prediction": "R",
+        "count": 3,
+        "rate_within_gold": 0.03
+      }
+    ],
+    "experiment": "QwenMax_Level1_k3",
+    "source_file": "qwen_level1_fewshot3_300.json",
+    "original_accuracy": 0.8896321070234113,
+    "original_macro_f1": 0.8900091771442588,
+    "original_kappa": 0.8344935169498633
+  },
+  "QwenMax_Level1_k6": {
+    "sample_count": 300,
+    "correct_count": 269,
+    "accuracy": 0.8966666666666666,
+    "confusion_matrix": {
+      "N": {
+        "N": 94,
+        "R": 11,
+        "W": 8
+      },
+      "R": {
+        "N": 0,
+        "R": 84,
+        "W": 1
+      },
+      "W": {
+        "N": 6,
+        "R": 5,
+        "W": 91
+      }
+    },
+    "label_order": [
+      "N",
+      "R",
+      "W"
+    ],
+    "per_class": {
+      "N": {
+        "gold_count": 100,
+        "predicted_count": 113,
+        "correct": 94,
+        "false_positive": 19,
+        "false_negative": 6,
+        "precision": 0.831858407079646,
+        "recall": 0.94,
+        "f1": 0.8826291079812206,
+        "error_rate": 0.06000000000000005
+      },
+      "R": {
+        "gold_count": 100,
+        "predicted_count": 85,
+        "correct": 84,
+        "false_positive": 1,
+        "false_negative": 16,
+        "precision": 0.9882352941176471,
+        "recall": 0.84,
+        "f1": 0.9081081081081082,
+        "error_rate": 0.16000000000000003
+      },
+      "W": {
+        "gold_count": 100,
+        "predicted_count": 102,
+        "correct": 91,
+        "false_positive": 11,
+        "false_negative": 9,
+        "precision": 0.8921568627450981,
+        "recall": 0.91,
+        "f1": 0.900990099009901,
+        "error_rate": 0.08999999999999997
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "R",
+        "prediction": "N",
+        "count": 11,
+        "rate_within_gold": 0.11
+      },
+      {
+        "gold": "W",
+        "prediction": "N",
+        "count": 8,
+        "rate_within_gold": 0.08
+      },
+      {
+        "gold": "N",
+        "prediction": "W",
+        "count": 6,
+        "rate_within_gold": 0.06
+      },
+      {
+        "gold": "R",
+        "prediction": "W",
+        "count": 5,
+        "rate_within_gold": 0.05
+      },
+      {
+        "gold": "W",
+        "prediction": "R",
+        "count": 1,
+        "rate_within_gold": 0.01
+      }
+    ],
+    "experiment": "QwenMax_Level1_k6",
+    "source_file": "qwen_level1_fewshot6_300_fixed.json",
+    "original_accuracy": 0.8993288590604027,
+    "original_macro_f1": 0.8999453103636861,
+    "original_kappa": 0.8489609731373543
+  },
+  "DeepSeek_Level2_ZS": {
+    "sample_count": 400,
+    "correct_count": 219,
+    "accuracy": 0.5475,
+    "confusion_matrix": {
+      "B": {
+        "B": 63,
+        "C": 24,
+        "G": 21,
+        "Y": 34
+      },
+      "C": {
+        "B": 0,
+        "C": 37,
+        "G": 11,
+        "Y": 0
+      },
+      "G": {
+        "B": 12,
+        "C": 19,
+        "G": 57,
+        "Y": 4
+      },
+      "Y": {
+        "B": 25,
+        "C": 20,
+        "G": 11,
+        "Y": 62
+      }
+    },
+    "label_order": [
+      "B",
+      "C",
+      "G",
+      "Y"
+    ],
+    "per_class": {
+      "B": {
+        "gold_count": 100,
+        "predicted_count": 142,
+        "correct": 63,
+        "false_positive": 79,
+        "false_negative": 37,
+        "precision": 0.44366197183098594,
+        "recall": 0.63,
+        "f1": 0.5206611570247934,
+        "error_rate": 0.37
+      },
+      "C": {
+        "gold_count": 100,
+        "predicted_count": 48,
+        "correct": 37,
+        "false_positive": 11,
+        "false_negative": 63,
+        "precision": 0.7708333333333334,
+        "recall": 0.37,
+        "f1": 0.5,
+        "error_rate": 0.63
+      },
+      "G": {
+        "gold_count": 100,
+        "predicted_count": 92,
+        "correct": 57,
+        "false_positive": 35,
+        "false_negative": 43,
+        "precision": 0.6195652173913043,
+        "recall": 0.57,
+        "f1": 0.59375,
+        "error_rate": 0.43000000000000005
+      },
+      "Y": {
+        "gold_count": 100,
+        "predicted_count": 118,
+        "correct": 62,
+        "false_positive": 56,
+        "false_negative": 38,
+        "precision": 0.5254237288135594,
+        "recall": 0.62,
+        "f1": 0.5688073394495413,
+        "error_rate": 0.38
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "Y",
+        "prediction": "B",
+        "count": 34,
+        "rate_within_gold": 0.34
+      },
+      {
+        "gold": "B",
+        "prediction": "Y",
+        "count": 25,
+        "rate_within_gold": 0.25
+      },
+      {
+        "gold": "C",
+        "prediction": "B",
+        "count": 24,
+        "rate_within_gold": 0.24
+      },
+      {
+        "gold": "G",
+        "prediction": "B",
+        "count": 21,
+        "rate_within_gold": 0.21
+      },
+      {
+        "gold": "C",
+        "prediction": "Y",
+        "count": 20,
+        "rate_within_gold": 0.2
+      },
+      {
+        "gold": "C",
+        "prediction": "G",
+        "count": 19,
+        "rate_within_gold": 0.19
+      },
+      {
+        "gold": "B",
+        "prediction": "G",
+        "count": 12,
+        "rate_within_gold": 0.12
+      },
+      {
+        "gold": "G",
+        "prediction": "C",
+        "count": 11,
+        "rate_within_gold": 0.11
+      },
+      {
+        "gold": "G",
+        "prediction": "Y",
+        "count": 11,
+        "rate_within_gold": 0.11
+      },
+      {
+        "gold": "Y",
+        "prediction": "G",
+        "count": 4,
+        "rate_within_gold": 0.04
+      }
+    ],
+    "experiment": "DeepSeek_Level2_ZS",
+    "source_file": "deepseek_level2_zero_shot_400.json",
+    "original_accuracy": 0.5475,
+    "original_macro_f1": 0.5458046241185837,
+    "original_kappa": 0.3966666666666666
+  },
+  "DeepSeek_Level2_k3": {
+    "sample_count": 400,
+    "correct_count": 243,
+    "accuracy": 0.6075,
+    "confusion_matrix": {
+      "B": {
+        "B": 79,
+        "C": 31,
+        "G": 20,
+        "Y": 30
+      },
+      "C": {
+        "B": 0,
+        "C": 51,
+        "G": 19,
+        "Y": 3
+      },
+      "G": {
+        "B": 4,
+        "C": 8,
+        "G": 47,
+        "Y": 1
+      },
+      "Y": {
+        "B": 17,
+        "C": 10,
+        "G": 14,
+        "Y": 66
+      }
+    },
+    "label_order": [
+      "B",
+      "C",
+      "G",
+      "Y"
+    ],
+    "per_class": {
+      "B": {
+        "gold_count": 100,
+        "predicted_count": 160,
+        "correct": 79,
+        "false_positive": 81,
+        "false_negative": 21,
+        "precision": 0.49375,
+        "recall": 0.79,
+        "f1": 0.6076923076923078,
+        "error_rate": 0.20999999999999996
+      },
+      "C": {
+        "gold_count": 100,
+        "predicted_count": 73,
+        "correct": 51,
+        "false_positive": 22,
+        "false_negative": 49,
+        "precision": 0.6986301369863014,
+        "recall": 0.51,
+        "f1": 0.5895953757225434,
+        "error_rate": 0.49
+      },
+      "G": {
+        "gold_count": 100,
+        "predicted_count": 60,
+        "correct": 47,
+        "false_positive": 13,
+        "false_negative": 53,
+        "precision": 0.7833333333333333,
+        "recall": 0.47,
+        "f1": 0.5874999999999999,
+        "error_rate": 0.53
+      },
+      "Y": {
+        "gold_count": 100,
+        "predicted_count": 107,
+        "correct": 66,
+        "false_positive": 41,
+        "false_negative": 34,
+        "precision": 0.616822429906542,
+        "recall": 0.66,
+        "f1": 0.6376811594202898,
+        "error_rate": 0.33999999999999997
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "C",
+        "prediction": "B",
+        "count": 31,
+        "rate_within_gold": 0.31
+      },
+      {
+        "gold": "Y",
+        "prediction": "B",
+        "count": 30,
+        "rate_within_gold": 0.3
+      },
+      {
+        "gold": "G",
+        "prediction": "B",
+        "count": 20,
+        "rate_within_gold": 0.2
+      },
+      {
+        "gold": "G",
+        "prediction": "C",
+        "count": 19,
+        "rate_within_gold": 0.19
+      },
+      {
+        "gold": "B",
+        "prediction": "Y",
+        "count": 17,
+        "rate_within_gold": 0.17
+      },
+      {
+        "gold": "G",
+        "prediction": "Y",
+        "count": 14,
+        "rate_within_gold": 0.14
+      },
+      {
+        "gold": "C",
+        "prediction": "Y",
+        "count": 10,
+        "rate_within_gold": 0.1
+      },
+      {
+        "gold": "C",
+        "prediction": "G",
+        "count": 8,
+        "rate_within_gold": 0.08
+      },
+      {
+        "gold": "B",
+        "prediction": "G",
+        "count": 4,
+        "rate_within_gold": 0.04
+      },
+      {
+        "gold": "Y",
+        "prediction": "C",
+        "count": 3,
+        "rate_within_gold": 0.03
+      },
+      {
+        "gold": "Y",
+        "prediction": "G",
+        "count": 1,
+        "rate_within_gold": 0.01
+      }
+    ],
+    "experiment": "DeepSeek_Level2_k3",
+    "source_file": "deepseek_level2_fewshot3_400.json",
+    "original_accuracy": 0.6075,
+    "original_macro_f1": 0.6056172107087852,
+    "original_kappa": 0.4766666666666667
+  },
+  "DeepSeek_Level2_k6": {
+    "sample_count": 400,
+    "correct_count": 241,
+    "accuracy": 0.6025,
+    "confusion_matrix": {
+      "B": {
+        "B": 63,
+        "C": 18,
+        "G": 20,
+        "Y": 20
+      },
+      "C": {
+        "B": 1,
+        "C": 67,
+        "G": 22,
+        "Y": 6
+      },
+      "G": {
+        "B": 14,
+        "C": 5,
+        "G": 41,
+        "Y": 4
+      },
+      "Y": {
+        "B": 22,
+        "C": 10,
+        "G": 17,
+        "Y": 70
+      }
+    },
+    "label_order": [
+      "B",
+      "C",
+      "G",
+      "Y"
+    ],
+    "per_class": {
+      "B": {
+        "gold_count": 100,
+        "predicted_count": 121,
+        "correct": 63,
+        "false_positive": 58,
+        "false_negative": 37,
+        "precision": 0.5206611570247934,
+        "recall": 0.63,
+        "f1": 0.5701357466063348,
+        "error_rate": 0.37
+      },
+      "C": {
+        "gold_count": 100,
+        "predicted_count": 96,
+        "correct": 67,
+        "false_positive": 29,
+        "false_negative": 33,
+        "precision": 0.6979166666666666,
+        "recall": 0.67,
+        "f1": 0.6836734693877551,
+        "error_rate": 0.32999999999999996
+      },
+      "G": {
+        "gold_count": 100,
+        "predicted_count": 64,
+        "correct": 41,
+        "false_positive": 23,
+        "false_negative": 59,
+        "precision": 0.640625,
+        "recall": 0.41,
+        "f1": 0.5,
+        "error_rate": 0.5900000000000001
+      },
+      "Y": {
+        "gold_count": 100,
+        "predicted_count": 119,
+        "correct": 70,
+        "false_positive": 49,
+        "false_negative": 30,
+        "precision": 0.5882352941176471,
+        "recall": 0.7,
+        "f1": 0.6392694063926941,
+        "error_rate": 0.30000000000000004
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "B",
+        "prediction": "Y",
+        "count": 22,
+        "rate_within_gold": 0.22
+      },
+      {
+        "gold": "G",
+        "prediction": "C",
+        "count": 22,
+        "rate_within_gold": 0.22
+      },
+      {
+        "gold": "G",
+        "prediction": "B",
+        "count": 20,
+        "rate_within_gold": 0.2
+      },
+      {
+        "gold": "Y",
+        "prediction": "B",
+        "count": 20,
+        "rate_within_gold": 0.2
+      },
+      {
+        "gold": "C",
+        "prediction": "B",
+        "count": 18,
+        "rate_within_gold": 0.18
+      },
+      {
+        "gold": "G",
+        "prediction": "Y",
+        "count": 17,
+        "rate_within_gold": 0.17
+      },
+      {
+        "gold": "B",
+        "prediction": "G",
+        "count": 14,
+        "rate_within_gold": 0.14
+      },
+      {
+        "gold": "C",
+        "prediction": "Y",
+        "count": 10,
+        "rate_within_gold": 0.1
+      },
+      {
+        "gold": "Y",
+        "prediction": "C",
+        "count": 6,
+        "rate_within_gold": 0.06
+      },
+      {
+        "gold": "C",
+        "prediction": "G",
+        "count": 5,
+        "rate_within_gold": 0.05
+      },
+      {
+        "gold": "Y",
+        "prediction": "G",
+        "count": 4,
+        "rate_within_gold": 0.04
+      },
+      {
+        "gold": "B",
+        "prediction": "C",
+        "count": 1,
+        "rate_within_gold": 0.01
+      }
+    ],
+    "experiment": "DeepSeek_Level2_k6",
+    "source_file": "deepseek_level2_fewshot6_400.json",
+    "original_accuracy": 0.6025,
+    "original_macro_f1": 0.598269655596696,
+    "original_kappa": 0.47
+  },
+  "QwenFlash_Level2_ZS": {
+    "sample_count": 400,
+    "correct_count": 219,
+    "accuracy": 0.5475,
+    "confusion_matrix": {
+      "B": {
+        "B": 60,
+        "C": 37,
+        "G": 28,
+        "Y": 33
+      },
+      "C": {
+        "B": 0,
+        "C": 48,
+        "G": 17,
+        "Y": 2
+      },
+      "G": {
+        "B": 21,
+        "C": 7,
+        "G": 48,
+        "Y": 2
+      },
+      "Y": {
+        "B": 19,
+        "C": 8,
+        "G": 7,
+        "Y": 63
+      }
+    },
+    "label_order": [
+      "B",
+      "C",
+      "G",
+      "Y"
+    ],
+    "per_class": {
+      "B": {
+        "gold_count": 100,
+        "predicted_count": 158,
+        "correct": 60,
+        "false_positive": 98,
+        "false_negative": 40,
+        "precision": 0.379746835443038,
+        "recall": 0.6,
+        "f1": 0.46511627906976744,
+        "error_rate": 0.4
+      },
+      "C": {
+        "gold_count": 100,
+        "predicted_count": 67,
+        "correct": 48,
+        "false_positive": 19,
+        "false_negative": 52,
+        "precision": 0.7164179104477612,
+        "recall": 0.48,
+        "f1": 0.5748502994011977,
+        "error_rate": 0.52
+      },
+      "G": {
+        "gold_count": 100,
+        "predicted_count": 78,
+        "correct": 48,
+        "false_positive": 30,
+        "false_negative": 52,
+        "precision": 0.6153846153846154,
+        "recall": 0.48,
+        "f1": 0.5393258426966293,
+        "error_rate": 0.52
+      },
+      "Y": {
+        "gold_count": 100,
+        "predicted_count": 97,
+        "correct": 63,
+        "false_positive": 34,
+        "false_negative": 37,
+        "precision": 0.6494845360824743,
+        "recall": 0.63,
+        "f1": 0.6395939086294417,
+        "error_rate": 0.37
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "C",
+        "prediction": "B",
+        "count": 37,
+        "rate_within_gold": 0.37
+      },
+      {
+        "gold": "Y",
+        "prediction": "B",
+        "count": 33,
+        "rate_within_gold": 0.33
+      },
+      {
+        "gold": "G",
+        "prediction": "B",
+        "count": 28,
+        "rate_within_gold": 0.28
+      },
+      {
+        "gold": "B",
+        "prediction": "G",
+        "count": 21,
+        "rate_within_gold": 0.21
+      },
+      {
+        "gold": "B",
+        "prediction": "Y",
+        "count": 19,
+        "rate_within_gold": 0.19
+      },
+      {
+        "gold": "G",
+        "prediction": "C",
+        "count": 17,
+        "rate_within_gold": 0.17
+      },
+      {
+        "gold": "C",
+        "prediction": "Y",
+        "count": 8,
+        "rate_within_gold": 0.08
+      },
+      {
+        "gold": "C",
+        "prediction": "G",
+        "count": 7,
+        "rate_within_gold": 0.07
+      },
+      {
+        "gold": "G",
+        "prediction": "Y",
+        "count": 7,
+        "rate_within_gold": 0.07
+      },
+      {
+        "gold": "Y",
+        "prediction": "C",
+        "count": 2,
+        "rate_within_gold": 0.02
+      },
+      {
+        "gold": "Y",
+        "prediction": "G",
+        "count": 2,
+        "rate_within_gold": 0.02
+      }
+    ],
+    "experiment": "QwenFlash_Level2_ZS",
+    "source_file": "qwen_level2_zero_shot_400.json",
+    "original_accuracy": 0.5475,
+    "original_macro_f1": 0.554721582449259,
+    "original_kappa": 0.3966666666666666
+  },
+  "QwenFlash_Level2_k3": {
+    "sample_count": 400,
+    "correct_count": 257,
+    "accuracy": 0.6425,
+    "confusion_matrix": {
+      "B": {
+        "B": 61,
+        "C": 22,
+        "G": 13,
+        "Y": 20
+      },
+      "C": {
+        "B": 1,
+        "C": 67,
+        "G": 22,
+        "Y": 4
+      },
+      "G": {
+        "B": 21,
+        "C": 6,
+        "G": 59,
+        "Y": 6
+      },
+      "Y": {
+        "B": 17,
+        "C": 5,
+        "G": 6,
+        "Y": 70
+      }
+    },
+    "label_order": [
+      "B",
+      "C",
+      "G",
+      "Y"
+    ],
+    "per_class": {
+      "B": {
+        "gold_count": 100,
+        "predicted_count": 116,
+        "correct": 61,
+        "false_positive": 55,
+        "false_negative": 39,
+        "precision": 0.5258620689655172,
+        "recall": 0.61,
+        "f1": 0.5648148148148149,
+        "error_rate": 0.39
+      },
+      "C": {
+        "gold_count": 100,
+        "predicted_count": 94,
+        "correct": 67,
+        "false_positive": 27,
+        "false_negative": 33,
+        "precision": 0.7127659574468085,
+        "recall": 0.67,
+        "f1": 0.6907216494845361,
+        "error_rate": 0.32999999999999996
+      },
+      "G": {
+        "gold_count": 100,
+        "predicted_count": 92,
+        "correct": 59,
+        "false_positive": 33,
+        "false_negative": 41,
+        "precision": 0.6413043478260869,
+        "recall": 0.59,
+        "f1": 0.6145833333333333,
+        "error_rate": 0.41000000000000003
+      },
+      "Y": {
+        "gold_count": 100,
+        "predicted_count": 98,
+        "correct": 70,
+        "false_positive": 28,
+        "false_negative": 30,
+        "precision": 0.7142857142857143,
+        "recall": 0.7,
+        "f1": 0.7070707070707072,
+        "error_rate": 0.30000000000000004
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "C",
+        "prediction": "B",
+        "count": 22,
+        "rate_within_gold": 0.22
+      },
+      {
+        "gold": "G",
+        "prediction": "C",
+        "count": 22,
+        "rate_within_gold": 0.22
+      },
+      {
+        "gold": "B",
+        "prediction": "G",
+        "count": 21,
+        "rate_within_gold": 0.21
+      },
+      {
+        "gold": "Y",
+        "prediction": "B",
+        "count": 20,
+        "rate_within_gold": 0.2
+      },
+      {
+        "gold": "B",
+        "prediction": "Y",
+        "count": 17,
+        "rate_within_gold": 0.17
+      },
+      {
+        "gold": "G",
+        "prediction": "B",
+        "count": 13,
+        "rate_within_gold": 0.13
+      },
+      {
+        "gold": "C",
+        "prediction": "G",
+        "count": 6,
+        "rate_within_gold": 0.06
+      },
+      {
+        "gold": "G",
+        "prediction": "Y",
+        "count": 6,
+        "rate_within_gold": 0.06
+      },
+      {
+        "gold": "Y",
+        "prediction": "G",
+        "count": 6,
+        "rate_within_gold": 0.06
+      },
+      {
+        "gold": "C",
+        "prediction": "Y",
+        "count": 5,
+        "rate_within_gold": 0.05
+      },
+      {
+        "gold": "Y",
+        "prediction": "C",
+        "count": 4,
+        "rate_within_gold": 0.04
+      },
+      {
+        "gold": "B",
+        "prediction": "C",
+        "count": 1,
+        "rate_within_gold": 0.01
+      }
+    ],
+    "experiment": "QwenFlash_Level2_k3",
+    "source_file": "qwen_level2_fewshot3_400.json",
+    "original_accuracy": 0.6425,
+    "original_macro_f1": 0.6442976261758478,
+    "original_kappa": 0.5233333333333333
+  },
+  "QwenFlash_Level2_k6": {
+    "sample_count": 397,
+    "correct_count": 243,
+    "accuracy": 0.6120906801007556,
+    "confusion_matrix": {
+      "B": {
+        "B": 47,
+        "C": 7,
+        "G": 11,
+        "Y": 6
+      },
+      "C": {
+        "B": 2,
+        "C": 62,
+        "G": 18,
+        "Y": 3
+      },
+      "G": {
+        "B": 7,
+        "C": 5,
+        "G": 47,
+        "Y": 2
+      },
+      "Y": {
+        "B": 44,
+        "C": 26,
+        "G": 23,
+        "Y": 87
+      }
+    },
+    "label_order": [
+      "B",
+      "C",
+      "G",
+      "Y"
+    ],
+    "per_class": {
+      "B": {
+        "gold_count": 100,
+        "predicted_count": 71,
+        "correct": 47,
+        "false_positive": 24,
+        "false_negative": 53,
+        "precision": 0.6619718309859155,
+        "recall": 0.47,
+        "f1": 0.5497076023391813,
+        "error_rate": 0.53
+      },
+      "C": {
+        "gold_count": 100,
+        "predicted_count": 85,
+        "correct": 62,
+        "false_positive": 23,
+        "false_negative": 38,
+        "precision": 0.7294117647058823,
+        "recall": 0.62,
+        "f1": 0.6702702702702702,
+        "error_rate": 0.38
+      },
+      "G": {
+        "gold_count": 99,
+        "predicted_count": 61,
+        "correct": 47,
+        "false_positive": 14,
+        "false_negative": 52,
+        "precision": 0.7704918032786885,
+        "recall": 0.47474747474747475,
+        "f1": 0.5875,
+        "error_rate": 0.5252525252525253
+      },
+      "Y": {
+        "gold_count": 98,
+        "predicted_count": 180,
+        "correct": 87,
+        "false_positive": 93,
+        "false_negative": 11,
+        "precision": 0.48333333333333334,
+        "recall": 0.8877551020408163,
+        "f1": 0.6258992805755396,
+        "error_rate": 0.11224489795918369
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "B",
+        "prediction": "Y",
+        "count": 44,
+        "rate_within_gold": 0.44
+      },
+      {
+        "gold": "C",
+        "prediction": "Y",
+        "count": 26,
+        "rate_within_gold": 0.26
+      },
+      {
+        "gold": "G",
+        "prediction": "Y",
+        "count": 23,
+        "rate_within_gold": 0.23232323232323232
+      },
+      {
+        "gold": "G",
+        "prediction": "C",
+        "count": 18,
+        "rate_within_gold": 0.18181818181818182
+      },
+      {
+        "gold": "G",
+        "prediction": "B",
+        "count": 11,
+        "rate_within_gold": 0.1111111111111111
+      },
+      {
+        "gold": "B",
+        "prediction": "G",
+        "count": 7,
+        "rate_within_gold": 0.07
+      },
+      {
+        "gold": "C",
+        "prediction": "B",
+        "count": 7,
+        "rate_within_gold": 0.07
+      },
+      {
+        "gold": "Y",
+        "prediction": "B",
+        "count": 6,
+        "rate_within_gold": 0.061224489795918366
+      },
+      {
+        "gold": "C",
+        "prediction": "G",
+        "count": 5,
+        "rate_within_gold": 0.05
+      },
+      {
+        "gold": "Y",
+        "prediction": "C",
+        "count": 3,
+        "rate_within_gold": 0.030612244897959183
+      },
+      {
+        "gold": "B",
+        "prediction": "C",
+        "count": 2,
+        "rate_within_gold": 0.02
+      },
+      {
+        "gold": "Y",
+        "prediction": "G",
+        "count": 2,
+        "rate_within_gold": 0.02040816326530612
+      }
+    ],
+    "experiment": "QwenFlash_Level2_k6",
+    "source_file": "qwen_level2_fewshot6_400.json",
+    "original_accuracy": 0.6120906801007556,
+    "original_macro_f1": 0.6083442882962478,
+    "original_kappa": 0.4833262908814333
+  },
+  "Qwen27B_P1": {
+    "sample_count": 100,
+    "correct_count": 49,
+    "accuracy": 0.49,
+    "confusion_matrix": {
+      "B": {
+        "B": 10,
+        "C": 6,
+        "G": 5,
+        "Y": 6
+      },
+      "C": {
+        "B": 1,
+        "C": 12,
+        "G": 7,
+        "Y": 1
+      },
+      "G": {
+        "B": 9,
+        "C": 3,
+        "G": 10,
+        "Y": 1
+      },
+      "Y": {
+        "B": 5,
+        "C": 4,
+        "G": 3,
+        "Y": 17
+      }
+    },
+    "label_order": [
+      "B",
+      "C",
+      "G",
+      "Y"
+    ],
+    "per_class": {
+      "B": {
+        "gold_count": 25,
+        "predicted_count": 27,
+        "correct": 10,
+        "false_positive": 17,
+        "false_negative": 15,
+        "precision": 0.37037037037037035,
+        "recall": 0.4,
+        "f1": 0.3846153846153846,
+        "error_rate": 0.6
+      },
+      "C": {
+        "gold_count": 25,
+        "predicted_count": 21,
+        "correct": 12,
+        "false_positive": 9,
+        "false_negative": 13,
+        "precision": 0.5714285714285714,
+        "recall": 0.48,
+        "f1": 0.5217391304347826,
+        "error_rate": 0.52
+      },
+      "G": {
+        "gold_count": 25,
+        "predicted_count": 23,
+        "correct": 10,
+        "false_positive": 13,
+        "false_negative": 15,
+        "precision": 0.43478260869565216,
+        "recall": 0.4,
+        "f1": 0.41666666666666663,
+        "error_rate": 0.6
+      },
+      "Y": {
+        "gold_count": 25,
+        "predicted_count": 29,
+        "correct": 17,
+        "false_positive": 12,
+        "false_negative": 8,
+        "precision": 0.5862068965517241,
+        "recall": 0.68,
+        "f1": 0.6296296296296295,
+        "error_rate": 0.31999999999999995
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "B",
+        "prediction": "G",
+        "count": 9,
+        "rate_within_gold": 0.36
+      },
+      {
+        "gold": "G",
+        "prediction": "C",
+        "count": 7,
+        "rate_within_gold": 0.28
+      },
+      {
+        "gold": "C",
+        "prediction": "B",
+        "count": 6,
+        "rate_within_gold": 0.24
+      },
+      {
+        "gold": "Y",
+        "prediction": "B",
+        "count": 6,
+        "rate_within_gold": 0.24
+      },
+      {
+        "gold": "B",
+        "prediction": "Y",
+        "count": 5,
+        "rate_within_gold": 0.2
+      },
+      {
+        "gold": "G",
+        "prediction": "B",
+        "count": 5,
+        "rate_within_gold": 0.2
+      },
+      {
+        "gold": "C",
+        "prediction": "Y",
+        "count": 4,
+        "rate_within_gold": 0.16
+      },
+      {
+        "gold": "C",
+        "prediction": "G",
+        "count": 3,
+        "rate_within_gold": 0.12
+      },
+      {
+        "gold": "G",
+        "prediction": "Y",
+        "count": 3,
+        "rate_within_gold": 0.12
+      },
+      {
+        "gold": "B",
+        "prediction": "C",
+        "count": 1,
+        "rate_within_gold": 0.04
+      },
+      {
+        "gold": "Y",
+        "prediction": "C",
+        "count": 1,
+        "rate_within_gold": 0.04
+      },
+      {
+        "gold": "Y",
+        "prediction": "G",
+        "count": 1,
+        "rate_within_gold": 0.04
+      }
+    ],
+    "experiment": "Qwen27B_P1",
+    "source_file": "prompt_sensitivity/qwen27b_prompt_P1_100.json",
+    "original_accuracy": 0.49,
+    "original_macro_f1": 0.4881627028366159,
+    "original_kappa": 0.31999999999999995
+  },
+  "Qwen27B_P2": {
+    "sample_count": 100,
+    "correct_count": 49,
+    "accuracy": 0.49,
+    "confusion_matrix": {
+      "B": {
+        "B": 9,
+        "C": 2,
+        "G": 4,
+        "Y": 4
+      },
+      "C": {
+        "B": 1,
+        "C": 14,
+        "G": 4,
+        "Y": 1
+      },
+      "G": {
+        "B": 13,
+        "C": 5,
+        "G": 15,
+        "Y": 9
+      },
+      "Y": {
+        "B": 2,
+        "C": 4,
+        "G": 2,
+        "Y": 11
+      }
+    },
+    "label_order": [
+      "B",
+      "C",
+      "G",
+      "Y"
+    ],
+    "per_class": {
+      "B": {
+        "gold_count": 25,
+        "predicted_count": 19,
+        "correct": 9,
+        "false_positive": 10,
+        "false_negative": 16,
+        "precision": 0.47368421052631576,
+        "recall": 0.36,
+        "f1": 0.40909090909090906,
+        "error_rate": 0.64
+      },
+      "C": {
+        "gold_count": 25,
+        "predicted_count": 20,
+        "correct": 14,
+        "false_positive": 6,
+        "false_negative": 11,
+        "precision": 0.7,
+        "recall": 0.56,
+        "f1": 0.6222222222222222,
+        "error_rate": 0.43999999999999995
+      },
+      "G": {
+        "gold_count": 25,
+        "predicted_count": 42,
+        "correct": 15,
+        "false_positive": 27,
+        "false_negative": 10,
+        "precision": 0.35714285714285715,
+        "recall": 0.6,
+        "f1": 0.44776119402985076,
+        "error_rate": 0.4
+      },
+      "Y": {
+        "gold_count": 25,
+        "predicted_count": 19,
+        "correct": 11,
+        "false_positive": 8,
+        "false_negative": 14,
+        "precision": 0.5789473684210527,
+        "recall": 0.44,
+        "f1": 0.5,
+        "error_rate": 0.56
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "B",
+        "prediction": "G",
+        "count": 13,
+        "rate_within_gold": 0.52
+      },
+      {
+        "gold": "Y",
+        "prediction": "G",
+        "count": 9,
+        "rate_within_gold": 0.36
+      },
+      {
+        "gold": "C",
+        "prediction": "G",
+        "count": 5,
+        "rate_within_gold": 0.2
+      },
+      {
+        "gold": "C",
+        "prediction": "Y",
+        "count": 4,
+        "rate_within_gold": 0.16
+      },
+      {
+        "gold": "G",
+        "prediction": "B",
+        "count": 4,
+        "rate_within_gold": 0.16
+      },
+      {
+        "gold": "G",
+        "prediction": "C",
+        "count": 4,
+        "rate_within_gold": 0.16
+      },
+      {
+        "gold": "Y",
+        "prediction": "B",
+        "count": 4,
+        "rate_within_gold": 0.16
+      },
+      {
+        "gold": "B",
+        "prediction": "Y",
+        "count": 2,
+        "rate_within_gold": 0.08
+      },
+      {
+        "gold": "C",
+        "prediction": "B",
+        "count": 2,
+        "rate_within_gold": 0.08
+      },
+      {
+        "gold": "G",
+        "prediction": "Y",
+        "count": 2,
+        "rate_within_gold": 0.08
+      },
+      {
+        "gold": "B",
+        "prediction": "C",
+        "count": 1,
+        "rate_within_gold": 0.04
+      },
+      {
+        "gold": "Y",
+        "prediction": "C",
+        "count": 1,
+        "rate_within_gold": 0.04
+      }
+    ],
+    "experiment": "Qwen27B_P2",
+    "source_file": "prompt_sensitivity/qwen27b_prompt_P2_100.json",
+    "original_accuracy": 0.49,
+    "original_macro_f1": 0.4947685813357455,
+    "original_kappa": 0.31999999999999995
+  },
+  "Qwen27B_P3": {
+    "sample_count": 100,
+    "correct_count": 49,
+    "accuracy": 0.49,
+    "confusion_matrix": {
+      "B": {
+        "B": 10,
+        "C": 3,
+        "G": 3,
+        "Y": 8
+      },
+      "C": {
+        "B": 0,
+        "C": 13,
+        "G": 3,
+        "Y": 1
+      },
+      "G": {
+        "B": 13,
+        "C": 7,
+        "G": 16,
+        "Y": 6
+      },
+      "Y": {
+        "B": 2,
+        "C": 2,
+        "G": 3,
+        "Y": 10
+      }
+    },
+    "label_order": [
+      "B",
+      "C",
+      "G",
+      "Y"
+    ],
+    "per_class": {
+      "B": {
+        "gold_count": 25,
+        "predicted_count": 24,
+        "correct": 10,
+        "false_positive": 14,
+        "false_negative": 15,
+        "precision": 0.4166666666666667,
+        "recall": 0.4,
+        "f1": 0.4081632653061225,
+        "error_rate": 0.6
+      },
+      "C": {
+        "gold_count": 25,
+        "predicted_count": 17,
+        "correct": 13,
+        "false_positive": 4,
+        "false_negative": 12,
+        "precision": 0.7647058823529411,
+        "recall": 0.52,
+        "f1": 0.6190476190476191,
+        "error_rate": 0.48
+      },
+      "G": {
+        "gold_count": 25,
+        "predicted_count": 42,
+        "correct": 16,
+        "false_positive": 26,
+        "false_negative": 9,
+        "precision": 0.38095238095238093,
+        "recall": 0.64,
+        "f1": 0.4776119402985074,
+        "error_rate": 0.36
+      },
+      "Y": {
+        "gold_count": 25,
+        "predicted_count": 17,
+        "correct": 10,
+        "false_positive": 7,
+        "false_negative": 15,
+        "precision": 0.5882352941176471,
+        "recall": 0.4,
+        "f1": 0.4761904761904762,
+        "error_rate": 0.6
+      }
+    },
+    "error_migrations": [
+      {
+        "gold": "B",
+        "prediction": "G",
+        "count": 13,
+        "rate_within_gold": 0.52
+      },
+      {
+        "gold": "Y",
+        "prediction": "B",
+        "count": 8,
+        "rate_within_gold": 0.32
+      },
+      {
+        "gold": "C",
+        "prediction": "G",
+        "count": 7,
+        "rate_within_gold": 0.28
+      },
+      {
+        "gold": "Y",
+        "prediction": "G",
+        "count": 6,
+        "rate_within_gold": 0.24
+      },
+      {
+        "gold": "C",
+        "prediction": "B",
+        "count": 3,
+        "rate_within_gold": 0.12
+      },
+      {
+        "gold": "G",
+        "prediction": "B",
+        "count": 3,
+        "rate_within_gold": 0.12
+      },
+      {
+        "gold": "G",
+        "prediction": "C",
+        "count": 3,
+        "rate_within_gold": 0.12
+      },
+      {
+        "gold": "G",
+        "prediction": "Y",
+        "count": 3,
+        "rate_within_gold": 0.12
+      },
+      {
+        "gold": "B",
+        "prediction": "Y",
+        "count": 2,
+        "rate_within_gold": 0.08
+      },
+      {
+        "gold": "C",
+        "prediction": "Y",
+        "count": 2,
+        "rate_within_gold": 0.08
+      },
+      {
+        "gold": "Y",
+        "prediction": "C",
+        "count": 1,
+        "rate_within_gold": 0.04
+      }
+    ],
+    "experiment": "Qwen27B_P3",
+    "source_file": "prompt_sensitivity/qwen27b_prompt_P3_100.json",
+    "original_accuracy": 0.49,
+    "original_macro_f1": 0.4952533252106813,
+    "original_kappa": 0.31999999999999995
+  }
+}

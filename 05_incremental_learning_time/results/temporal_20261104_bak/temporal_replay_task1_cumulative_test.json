@@ -1,0 +1,80 @@
+{
+  "experiment": "Qwen2.5-1.5B temporal incremental QLoRA",
+  "trained_through_task": 1,
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "adapter": "C:\\Users\\snowf\\CAPC-CG-Project\\05_incremental_learning_time\\artifacts\\models\\qwen15b_temporal_task1_e2_r16_a32_lr2e-4",
+  "evaluated_tasks": [
+    "T1_1949_1978"
+  ],
+  "total_samples": 300,
+  "parameters": {
+    "epochs": 2,
+    "rank": 16,
+    "alpha": 32,
+    "learning_rate": 0.0002
+  },
+  "metrics_by_test_task": {
+    "T1_1949_1978": {
+      "samples": 300,
+      "accuracy": 0.7433333333333333,
+      "macro_f1": 0.7411265432098766,
+      "cohen_kappa": 0.615,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          72,
+          13,
+          15
+        ],
+        [
+          2,
+          86,
+          12
+        ],
+        [
+          18,
+          17,
+          65
+        ]
+      ],
+      "classification_report": {
+        "N": {
+          "precision": 0.782608695652174,
+          "recall": 0.72,
+          "f1-score": 0.75,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.7413793103448276,
+          "recall": 0.86,
+          "f1-score": 0.7962962962962963,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.7065217391304348,
+          "recall": 0.65,
+          "f1-score": 0.6770833333333334,
+          "support": 100.0
+        },
+        "accuracy": 0.7433333333333333,
+        "macro avg": {
+          "precision": 0.7435032483758123,
+          "recall": 0.7433333333333333,
+          "f1-score": 0.7411265432098766,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.7435032483758122,
+          "recall": 0.7433333333333333,
+          "f1-score": 0.7411265432098766,
+          "support": 300.0
+        }
+      }
+    }
+  },
+  "predictions_csv": "C:\\Users\\snowf\\CAPC-CG-Project\\05_incremental_learning_time\\results\\temporal\\temporal_task1_cumulative_test_predictions.csv"
+}

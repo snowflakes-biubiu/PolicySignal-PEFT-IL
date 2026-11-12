@@ -1,0 +1,47 @@
+$ /root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning/scripts/evaluate/evaluate_task3_cumulative.py --method adapter --model-path /root/CAPC-CG-Project/05_incremental_learning/artifacts/models/adapter_task3 --model-seed 42 --split test --adapter-inference route --output-dir /root/CAPC-CG-Project/05_incremental_learning/results/temporal
+
+数据检查通过：5 个任务均为 train=600 / test=300，val=120（每类 40），类别均衡、年份合法、文档和文本无交叉。
+基础模型: Qwen/Qwen2.5-1.5B-Instruct
+训练参数: Epoch=2, Rank=16, Alpha=32, LR=0.0002
+CUDA 可用: NVIDIA GeForce RTX 4090
+[人工调试豁免] CAPC_ALLOW_LOCAL_GPU 已显式设置，跳过本地 GPU 限制（自动化助手不得使用）
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:42,  7.90it/s]Loading weights:   5%|▍         | 16/338 [00:00<00:03, 80.73it/s]Loading weights:  16%|█▋        | 55/338 [00:00<00:01, 211.62it/s]Loading weights:  29%|██▉       | 99/338 [00:00<00:00, 292.68it/s]Loading weights:  41%|████      | 137/338 [00:00<00:00, 315.23it/s]Loading weights:  54%|█████▍    | 183/338 [00:00<00:00, 357.19it/s]Loading weights:  65%|██████▌   | 221/338 [00:00<00:00, 356.71it/s]Loading weights:  79%|███████▉  | 267/338 [00:00<00:00, 384.50it/s]Loading weights:  91%|█████████ | 306/338 [00:00<00:00, 378.10it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 327.02it/s]
+已加载 adapters: ['task1', 'task2', 'task3']（实际激活策略由 --adapter-inference 决定）
+[adapter] 评估 T1_1949_1978：激活 adapter = ['task1']（策略 route）
+[adapter] 训练至 Task3，评估 T1_1949_1978 test (300 条)
+  50/300
+  100/300
+  150/300
+  200/300
+  250/300
+  300/300
+[adapter] 评估 T2_1979_1992：激活 adapter = ['task2']（策略 route）
+[adapter] 训练至 Task3，评估 T2_1979_1992 test (300 条)
+  50/300
+  100/300
+  150/300
+  200/300
+  250/300
+  300/300
+[adapter] 评估 T3_1993_2002：激活 adapter = ['task3']（策略 route）
+[adapter] 训练至 Task3，评估 T3_1993_2002 test (300 条)
+  50/300
+  100/300
+  150/300
+  200/300
+  250/300
+  300/300
+
+累计测试结果
+ACC=0.7844
+BWT=0.0
+Forgetting=0.0
+Complete: all earlier stages have same-method cumulative evaluations.
+T1_1949_1978: ACC=0.7667, Macro-F1=0.7652, Kappa=0.6500, N/R/W-F1=[0.7872, 0.8, 0.7083]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[74, 13, 13], [1, 88, 11], [13, 19, 68]]
+T2_1979_1992: ACC=0.8067, Macro-F1=0.8040, Kappa=0.7100, N/R/W-F1=[0.8186, 0.8529, 0.7403]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[88, 6, 6], [5, 87, 8], [22, 11, 67]]
+T3_1993_2002: ACC=0.7800, Macro-F1=0.7761, Kappa=0.6700, N/R/W-F1=[0.8, 0.8251, 0.7033]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[78, 9, 13], [3, 92, 5], [14, 22, 64]]
+JSON: /root/CAPC-CG-Project/05_incremental_learning/results/temporal/temporal_adapter_task3_cumulative_test.json
+CSV:  /root/CAPC-CG-Project/05_incremental_learning/results/temporal/temporal_adapter_task3_cumulative_test_predictions.csv

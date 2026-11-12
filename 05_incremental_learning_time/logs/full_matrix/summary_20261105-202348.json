@@ -1,0 +1,56 @@
+{
+  "stamp": "20261105-202348",
+  "seed": 42,
+  "run_tag": null,
+  "methods": [
+    "sequential_ft",
+    "ewc",
+    "replay",
+    "adapter"
+  ],
+  "tasks": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "train_units": 1,
+  "eval_units": 0,
+  "test_groups": 0,
+  "evaluate_split": "test",
+  "adapter_inference": "route",
+  "allow_nonprimary_adapter_inference": false,
+  "ewc": {
+    "lambda": 100.0,
+    "normalize": "param"
+  },
+  "replay": {
+    "capacity": 300,
+    "ratio": 3.0,
+    "mode": "class_balanced"
+  },
+  "max_steps": null,
+  "gate_current_acc": null,
+  "stopped_methods": [],
+  "records": [
+    {
+      "label": "train_sequential_ft_task1",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_task1.py --seed 42",
+      "returncode": 0,
+      "minutes": 2.3,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/full_matrix/20261105-202348/train_sequential_ft_task1.log",
+      "attempts": 1,
+      "kind": "train",
+      "method": "sequential_ft",
+      "task": 1,
+      "model_dir": "/root/CAPC-CG-Project/05_incremental_learning_time/artifacts/models/qwen15b_temporal_task1_e2_r16_a32_lr2e-4"
+    }
+  ],
+  "mode": "train",
+  "retries": 1,
+  "retry_wait": 5,
+  "conflict_policy": "archive",
+  "state_input": null,
+  "single": "sequential_ft:1"
+}

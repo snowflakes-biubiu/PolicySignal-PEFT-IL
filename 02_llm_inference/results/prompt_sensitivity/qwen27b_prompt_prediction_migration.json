@@ -1,0 +1,1992 @@
+{
+  "experiment": "prompt_prediction_migration",
+  "model": "qwen3.8-27b",
+  "sample_size": 100,
+  "label_order": [
+    "B",
+    "C",
+    "G",
+    "Y"
+  ],
+  "pairs": {
+    "P1_to_P2": {
+      "migration_matrix": {
+        "B": {
+          "B": 15,
+          "C": 3,
+          "G": 8,
+          "Y": 1
+        },
+        "C": {
+          "B": 1,
+          "C": 14,
+          "G": 6,
+          "Y": 0
+        },
+        "G": {
+          "B": 0,
+          "C": 2,
+          "G": 21,
+          "Y": 0
+        },
+        "Y": {
+          "B": 3,
+          "C": 1,
+          "G": 7,
+          "Y": 18
+        }
+      }
+    },
+    "P1_to_P3": {
+      "migration_matrix": {
+        "B": {
+          "B": 13,
+          "C": 5,
+          "G": 8,
+          "Y": 1
+        },
+        "C": {
+          "B": 5,
+          "C": 10,
+          "G": 6,
+          "Y": 0
+        },
+        "G": {
+          "B": 1,
+          "C": 1,
+          "G": 20,
+          "Y": 1
+        },
+        "Y": {
+          "B": 5,
+          "C": 1,
+          "G": 8,
+          "Y": 15
+        }
+      }
+    },
+    "P2_to_P3": {
+      "migration_matrix": {
+        "B": {
+          "B": 14,
+          "C": 2,
+          "G": 3,
+          "Y": 0
+        },
+        "C": {
+          "B": 2,
+          "C": 12,
+          "G": 5,
+          "Y": 1
+        },
+        "G": {
+          "B": 6,
+          "C": 2,
+          "G": 28,
+          "Y": 6
+        },
+        "Y": {
+          "B": 2,
+          "C": 1,
+          "G": 6,
+          "Y": 10
+        }
+      }
+    }
+  },
+  "correctness_transitions": {
+    "P1_to_P2": {
+      "counts": {
+        "wrong_to_wrong": 40,
+        "correct_to_correct": 38,
+        "correct_to_wrong": 11,
+        "wrong_to_correct": 11
+      },
+      "details": {
+        "correct_to_correct": [
+          {
+            "index": 3,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 6,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 7,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 10,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 12,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 17,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 27,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 30,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 36,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 40,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 42,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 44,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 46,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 47,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 50,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 52,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 54,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 55,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 57,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 58,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 59,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 61,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 62,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 63,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 65,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 67,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 70,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 72,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 75,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 84,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 85,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 87,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 88,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 98,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 102,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 104,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 114,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 116,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          }
+        ],
+        "correct_to_wrong": [
+          {
+            "index": 5,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 8,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 9,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 15,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 18,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 20,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 26,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 37,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 60,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "B"
+          },
+          {
+            "index": 83,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 91,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          }
+        ],
+        "wrong_to_correct": [
+          {
+            "index": 29,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 31,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 39,
+            "gold": "C",
+            "prediction_a": "G",
+            "prediction_b": "C"
+          },
+          {
+            "index": 43,
+            "gold": "G",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 48,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "C"
+          },
+          {
+            "index": 56,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "C"
+          },
+          {
+            "index": 78,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 79,
+            "gold": "C",
+            "prediction_a": "G",
+            "prediction_b": "C"
+          },
+          {
+            "index": 86,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 95,
+            "gold": "B",
+            "prediction_a": "Y",
+            "prediction_b": "B"
+          },
+          {
+            "index": 113,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "C"
+          }
+        ],
+        "wrong_to_wrong": [
+          {
+            "index": 0,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 1,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 2,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 4,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "B"
+          },
+          {
+            "index": 11,
+            "gold": "C",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 13,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 14,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 16,
+            "gold": "C",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 19,
+            "gold": "Y",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 21,
+            "gold": "B",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 22,
+            "gold": "B",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 23,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 24,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 25,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 28,
+            "gold": "C",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 32,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 33,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 34,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 35,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 38,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 41,
+            "gold": "Y",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 45,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 49,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 51,
+            "gold": "G",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 53,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 64,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 66,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 68,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 69,
+            "gold": "B",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 71,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 73,
+            "gold": "B",
+            "prediction_a": "Y",
+            "prediction_b": "C"
+          },
+          {
+            "index": 76,
+            "gold": "C",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 81,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 82,
+            "gold": "B",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 90,
+            "gold": "C",
+            "prediction_a": "Y",
+            "prediction_b": "B"
+          },
+          {
+            "index": 97,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 99,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 100,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 101,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 103,
+            "gold": "G",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          }
+        ]
+      }
+    },
+    "P1_to_P3": {
+      "counts": {
+        "wrong_to_wrong": 36,
+        "correct_to_correct": 34,
+        "correct_to_wrong": 15,
+        "wrong_to_correct": 15
+      },
+      "details": {
+        "correct_to_correct": [
+          {
+            "index": 3,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 5,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 6,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 7,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 9,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 15,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 20,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 26,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 27,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 36,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 42,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 46,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 50,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 52,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 54,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 55,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 57,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 58,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 61,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 62,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 63,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 65,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 67,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 70,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 72,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 75,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 85,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 87,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 88,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 98,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 102,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 104,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 114,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 116,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          }
+        ],
+        "correct_to_wrong": [
+          {
+            "index": 8,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 10,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 12,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 17,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 18,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 30,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "B"
+          },
+          {
+            "index": 37,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 40,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 44,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 47,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "B"
+          },
+          {
+            "index": 59,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 60,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "B"
+          },
+          {
+            "index": 83,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 84,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "B"
+          },
+          {
+            "index": 91,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "B"
+          }
+        ],
+        "wrong_to_correct": [
+          {
+            "index": 11,
+            "gold": "C",
+            "prediction_a": "Y",
+            "prediction_b": "C"
+          },
+          {
+            "index": 13,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "B"
+          },
+          {
+            "index": 19,
+            "gold": "Y",
+            "prediction_a": "G",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 25,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "C"
+          },
+          {
+            "index": 29,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 31,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 33,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 39,
+            "gold": "C",
+            "prediction_a": "G",
+            "prediction_b": "C"
+          },
+          {
+            "index": 45,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 56,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "C"
+          },
+          {
+            "index": 69,
+            "gold": "B",
+            "prediction_a": "C",
+            "prediction_b": "B"
+          },
+          {
+            "index": 78,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 86,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 95,
+            "gold": "B",
+            "prediction_a": "Y",
+            "prediction_b": "B"
+          },
+          {
+            "index": 113,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "C"
+          }
+        ],
+        "wrong_to_wrong": [
+          {
+            "index": 0,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 1,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 2,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 4,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "B"
+          },
+          {
+            "index": 14,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 16,
+            "gold": "C",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 21,
+            "gold": "B",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 22,
+            "gold": "B",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 23,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 24,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 28,
+            "gold": "C",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 32,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 34,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 35,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 38,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 41,
+            "gold": "Y",
+            "prediction_a": "C",
+            "prediction_b": "B"
+          },
+          {
+            "index": 43,
+            "gold": "G",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 48,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 49,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 51,
+            "gold": "G",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 53,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 64,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 66,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 68,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "C"
+          },
+          {
+            "index": 71,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 73,
+            "gold": "B",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 76,
+            "gold": "C",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 79,
+            "gold": "C",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 81,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 82,
+            "gold": "B",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 90,
+            "gold": "C",
+            "prediction_a": "Y",
+            "prediction_b": "B"
+          },
+          {
+            "index": 97,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "C"
+          },
+          {
+            "index": 99,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 100,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 101,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 103,
+            "gold": "G",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          }
+        ]
+      }
+    },
+    "P2_to_P3": {
+      "counts": {
+        "wrong_to_wrong": 39,
+        "correct_to_correct": 37,
+        "wrong_to_correct": 12,
+        "correct_to_wrong": 12
+      },
+      "details": {
+        "correct_to_correct": [
+          {
+            "index": 3,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 6,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 7,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 27,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 29,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 31,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 36,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 39,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 42,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 46,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 50,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 52,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 54,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 55,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 56,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 57,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 58,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 61,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 62,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 63,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 65,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 67,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 70,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 72,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 75,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 78,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 85,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 86,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 87,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 88,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 95,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 98,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 102,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 104,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 113,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 114,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 116,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          }
+        ],
+        "correct_to_wrong": [
+          {
+            "index": 10,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 12,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 17,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 30,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "B"
+          },
+          {
+            "index": 40,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 43,
+            "gold": "G",
+            "prediction_a": "G",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 44,
+            "gold": "B",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 47,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "B"
+          },
+          {
+            "index": 48,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 59,
+            "gold": "Y",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 79,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 84,
+            "gold": "C",
+            "prediction_a": "C",
+            "prediction_b": "B"
+          }
+        ],
+        "wrong_to_correct": [
+          {
+            "index": 5,
+            "gold": "Y",
+            "prediction_a": "G",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 9,
+            "gold": "C",
+            "prediction_a": "G",
+            "prediction_b": "C"
+          },
+          {
+            "index": 11,
+            "gold": "C",
+            "prediction_a": "Y",
+            "prediction_b": "C"
+          },
+          {
+            "index": 13,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "B"
+          },
+          {
+            "index": 15,
+            "gold": "Y",
+            "prediction_a": "G",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 19,
+            "gold": "Y",
+            "prediction_a": "G",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 20,
+            "gold": "Y",
+            "prediction_a": "G",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 25,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "C"
+          },
+          {
+            "index": 26,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "B"
+          },
+          {
+            "index": 33,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 45,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "G"
+          },
+          {
+            "index": 69,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "B"
+          }
+        ],
+        "wrong_to_wrong": [
+          {
+            "index": 0,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 1,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 2,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 4,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 8,
+            "gold": "Y",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 14,
+            "gold": "Y",
+            "prediction_a": "G",
+            "prediction_b": "B"
+          },
+          {
+            "index": 16,
+            "gold": "C",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 18,
+            "gold": "Y",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 21,
+            "gold": "B",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 22,
+            "gold": "B",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 23,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 24,
+            "gold": "Y",
+            "prediction_a": "G",
+            "prediction_b": "B"
+          },
+          {
+            "index": 28,
+            "gold": "C",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 32,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 34,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "G"
+          },
+          {
+            "index": 35,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 37,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 38,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 41,
+            "gold": "Y",
+            "prediction_a": "C",
+            "prediction_b": "B"
+          },
+          {
+            "index": 49,
+            "gold": "G",
+            "prediction_a": "C",
+            "prediction_b": "C"
+          },
+          {
+            "index": 51,
+            "gold": "G",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 53,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 60,
+            "gold": "Y",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 64,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 66,
+            "gold": "C",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 68,
+            "gold": "Y",
+            "prediction_a": "G",
+            "prediction_b": "C"
+          },
+          {
+            "index": 71,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 73,
+            "gold": "B",
+            "prediction_a": "C",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 76,
+            "gold": "C",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          },
+          {
+            "index": 81,
+            "gold": "C",
+            "prediction_a": "Y",
+            "prediction_b": "G"
+          },
+          {
+            "index": 82,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 83,
+            "gold": "C",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 90,
+            "gold": "C",
+            "prediction_a": "B",
+            "prediction_b": "B"
+          },
+          {
+            "index": 91,
+            "gold": "C",
+            "prediction_a": "G",
+            "prediction_b": "B"
+          },
+          {
+            "index": 97,
+            "gold": "G",
+            "prediction_a": "B",
+            "prediction_b": "C"
+          },
+          {
+            "index": 99,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 100,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 101,
+            "gold": "B",
+            "prediction_a": "G",
+            "prediction_b": "G"
+          },
+          {
+            "index": 103,
+            "gold": "G",
+            "prediction_a": "Y",
+            "prediction_b": "Y"
+          }
+        ]
+      }
+    }
+  },
+  "major_transitions": {
+    "P1_to_P2": {
+      "B→G": 8,
+      "Y→G": 7,
+      "C→G": 6,
+      "B→C": 3,
+      "Y→B": 3,
+      "G→C": 2,
+      "C→B": 1,
+      "Y→C": 1,
+      "B→Y": 1
+    },
+    "P1_to_P3": {
+      "Y→G": 8,
+      "B→G": 8,
+      "C→G": 6,
+      "C→B": 5,
+      "B→C": 5,
+      "Y→B": 5,
+      "Y→C": 1,
+      "G→B": 1,
+      "G→Y": 1,
+      "B→Y": 1,
+      "G→C": 1
+    },
+    "P2_to_P3": {
+      "G→Y": 6,
+      "G→B": 6,
+      "Y→G": 6,
+      "C→G": 5,
+      "B→G": 3,
+      "G→C": 2,
+      "B→C": 2,
+      "Y→B": 2,
+      "C→B": 2,
+      "Y→C": 1,
+      "C→Y": 1
+    }
+  }
+}

@@ -1,0 +1,36 @@
+==============================================================================
+矩阵计划（mode=full, seed=42, run_tag=-）
+  训练单元 1 个（T1 只训练一次，四方法共享）
+  评估调用 4 次 → 覆盖测试组 4 组（每个评估单元测 T1..T_i）
+  重试 1 次，冲突策略 archive
+==============================================================================
+  train_sequential_ft_task1    /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task1.py --seed 42
+注意：本轮将重训共享 T1 基线（qwen15b_domain_task1_e2_r16_a32_lr2e-4），旧目录若存在会被训练脚本拒绝覆盖，请先备份或移走。
+
+===== 方法 sequential_ft =====
+[16:34:23] train_sequential_ft_task1
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task1.py --seed 42
+    -> OK  2.2 min  -> train_sequential_ft_task1.log
+[16:36:34] eval_sequential_ft_task1
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task1_cumulative.py --method sequential_ft --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task1_e2_r16_a32_lr2e-4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  0.4 min  -> eval_sequential_ft_task1.log
+
+===== 方法 ewc =====
+[16:36:59] eval_ewc_task1
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task1_cumulative.py --method ewc --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task1_e2_r16_a32_lr2e-4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  0.4 min  -> eval_ewc_task1.log
+
+===== 方法 replay =====
+[16:37:21] eval_replay_task1
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task1_cumulative.py --method replay --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task1_e2_r16_a32_lr2e-4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  0.4 min  -> eval_replay_task1.log
+
+===== 方法 adapter =====
+[16:37:45] eval_adapter_task1
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task1_cumulative.py --method adapter --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task1_e2_r16_a32_lr2e-4 --model-seed 42 --split test --adapter-inference route --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  0.4 min  -> eval_adapter_task1.log
+
+==============================================================================
+训练成功 1/1  评估成功 4/4
+台账: /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/logs/full_matrix/summary_20261110-163423.json
+==============================================================================

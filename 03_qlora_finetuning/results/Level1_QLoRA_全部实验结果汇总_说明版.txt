@@ -1,0 +1,70 @@
+============================================================
+【实验总表】
+============================================================
+实验名称                                        Epoch  LoRA_Rank  Alpha_Rank比  LoRA_Alpha  学习率     Accuracy  Macro-F1  Kappa  N-F1    R-F1    W-F1    验证样本数  模型
+level1_qlora_checkpoint300_validation_300   2      8          2            16          -       0.9067    0.9065    0.86   0.883   0.9604  0.8762  300    Qwen/Qwen2.5-1.5B-Instruct
+level1_qlora_epoch1_validation_300          1      -          -            -           -       0.8233    0.8219    0.735  0.7795  0.9223  0.7638  300    Qwen/Qwen2.5-1.5B-Instruct
+level1_qlora_rank16_alpha16_validation_300  -      16         1            16          -       0.9       0.8998    -      0.8844  0.9406  0.8744  300    -
+level1_qlora_rank16_validation_300          -      16         -            -           -       0.9167    0.9168    0.875  0.898   0.9548  0.8976  300    Qwen/Qwen2.5-1.5B-Instruct
+level1_qlora_rank4_alpha16_validation_300   -      4          4            16          -       0.8833    0.8828    -      0.86    0.9458  0.8426  300    -
+level1_qlora_rank4_validation_300           -      4          -            -           -       0.86      0.8595    0.79   0.8374  0.9307  0.8103  300    Qwen/Qwen2.5-1.5B-Instruct
+level1_qlora_validation_300                 3      8          2            16          -       0.9       0.9001    0.85   0.8723  0.9548  0.8732  300    Qwen/Qwen2.5-1.5B-Instruct
+level1_qlora_rank16_lr1e4_validation_300    -      16         -            -           0.0001  0.8767    0.8763    0.815  0.8585  0.9353  0.8351  300    Qwen/Qwen2.5-1.5B-Instruct
+
+============================================================
+【分类指标详情】
+============================================================
+实验名称                                        类别  Precision  Recall  F1      Support
+level1_qlora_checkpoint300_validation_300   N   0.9432     0.83    0.883   100
+level1_qlora_checkpoint300_validation_300   R   0.951      0.97    0.9604  100
+level1_qlora_checkpoint300_validation_300   W   0.8364     0.92    0.8762  100
+level1_qlora_epoch1_validation_300          N   0.8        0.76    0.7795  100
+level1_qlora_epoch1_validation_300          R   0.8962     0.95    0.9223  100
+level1_qlora_epoch1_validation_300          W   0.7677     0.76    0.7638  100
+level1_qlora_rank16_alpha16_validation_300  N   0.8889     0.88    0.8844  100
+level1_qlora_rank16_alpha16_validation_300  R   0.9314     0.95    0.9406  100
+level1_qlora_rank16_alpha16_validation_300  W   0.8788     0.87    0.8744  100
+level1_qlora_rank16_validation_300          N   0.9167     0.88    0.898   100
+level1_qlora_rank16_validation_300          R   0.9596     0.95    0.9548  100
+level1_qlora_rank16_validation_300          W   0.8762     0.92    0.8976  100
+level1_qlora_rank4_alpha16_validation_300   N   0.86       0.86    0.86    100
+level1_qlora_rank4_alpha16_validation_300   R   0.932      0.96    0.9458  100
+level1_qlora_rank4_alpha16_validation_300   W   0.8557     0.83    0.8426  100
+level1_qlora_rank4_validation_300           N   0.8252     0.85    0.8374  100
+level1_qlora_rank4_validation_300           R   0.9216     0.94    0.9307  100
+level1_qlora_rank4_validation_300           W   0.8316     0.79    0.8103  100
+level1_qlora_validation_300                 N   0.9318     0.82    0.8723  100
+level1_qlora_validation_300                 R   0.9596     0.95    0.9548  100
+level1_qlora_validation_300                 W   0.823      0.93    0.8732  100
+level1_qlora_rank16_lr1e4_validation_300    N   0.8381     0.88    0.8585  100
+level1_qlora_rank16_lr1e4_validation_300    R   0.9307     0.94    0.9353  100
+level1_qlora_rank16_lr1e4_validation_300    W   0.8617     0.81    0.8351  100
+
+============================================================
+【混淆矩阵】
+============================================================
+实验名称                                        真实类别  预测 N  预测 R  预测 W
+level1_qlora_checkpoint300_validation_300   N     83    1     16
+level1_qlora_checkpoint300_validation_300   R     1     97    2
+level1_qlora_checkpoint300_validation_300   W     4     4     92
+level1_qlora_epoch1_validation_300          N     76    3     21
+level1_qlora_epoch1_validation_300          R     3     95    2
+level1_qlora_epoch1_validation_300          W     16    8     76
+level1_qlora_rank16_alpha16_validation_300  N     88    2     10
+level1_qlora_rank16_alpha16_validation_300  R     3     95    2
+level1_qlora_rank16_alpha16_validation_300  W     8     5     87
+level1_qlora_rank16_validation_300          N     88    2     10
+level1_qlora_rank16_validation_300          R     2     95    3
+level1_qlora_rank16_validation_300          W     6     2     92
+level1_qlora_rank4_alpha16_validation_300   N     86    2     12
+level1_qlora_rank4_alpha16_validation_300   R     2     96    2
+level1_qlora_rank4_alpha16_validation_300   W     12    5     83
+level1_qlora_rank4_validation_300           N     85    2     13
+level1_qlora_rank4_validation_300           R     3     94    3
+level1_qlora_rank4_validation_300           W     15    6     79
+level1_qlora_validation_300                 N     82    1     17
+level1_qlora_validation_300                 R     2     95    3
+level1_qlora_validation_300                 W     4     3     93
+level1_qlora_rank16_lr1e4_validation_300    N     88    2     10
+level1_qlora_rank16_lr1e4_validation_300    R     3     94    3
+level1_qlora_rank16_lr1e4_validation_300    W     14    5     81

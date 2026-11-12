@@ -1,0 +1,15 @@
+﻿index,gold_rank8,pred_rank8,correct_rank8,gold_rank4,pred_rank4,correct_rank4,gold_rank16,pred_rank16,correct_rank16,gold,rank8_to_rank16,error_rank8,error_rank16,wrong_rank4,wrong_rank8,wrong_rank16
+21,W,W,True,W,N,False,W,W,True,W,正确 -> 正确,正确,正确,True,False,False
+26,W,W,True,W,N,False,W,W,True,W,正确 -> 正确,正确,正确,True,False,False
+85,W,W,True,W,R,False,W,W,True,W,正确 -> 正确,正确,正确,True,False,False
+87,N,N,True,N,W,False,N,N,True,N,正确 -> 正确,正确,正确,True,False,False
+93,W,W,True,W,N,False,W,W,True,W,正确 -> 正确,正确,正确,True,False,False
+98,R,R,True,R,W,False,R,R,True,R,正确 -> 正确,正确,正确,True,False,False
+103,R,R,True,R,N,False,R,R,True,R,正确 -> 正确,正确,正确,True,False,False
+107,W,W,True,W,N,False,W,W,True,W,正确 -> 正确,正确,正确,True,False,False
+109,N,N,True,N,W,False,N,N,True,N,正确 -> 正确,正确,正确,True,False,False
+156,W,W,True,W,N,False,W,W,True,W,正确 -> 正确,正确,正确,True,False,False
+205,W,W,True,W,N,False,W,W,True,W,正确 -> 正确,正确,正确,True,False,False
+224,W,W,True,W,N,False,W,W,True,W,正确 -> 正确,正确,正确,True,False,False
+252,W,W,True,W,R,False,W,W,True,W,正确 -> 正确,正确,正确,True,False,False
+264,W,W,True,W,N,False,W,W,True,W,正确 -> 正确,正确,正确,True,False,False

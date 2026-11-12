@@ -1,0 +1,90 @@
+{
+  "stamp": "20261104-092428",
+  "smoke": false,
+  "results": [
+    {
+      "label": "train_ewc_task2",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_ewc.py --task 2",
+      "returncode": 0,
+      "minutes": 9.3,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/train_ewc_task2_20261104-092428.log"
+    },
+    {
+      "label": "train_ewc_task3",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_ewc.py --task 3",
+      "returncode": 0,
+      "minutes": 6.6,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/train_ewc_task3_20261104-092428.log"
+    },
+    {
+      "label": "train_ewc_task4",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_ewc.py --task 4",
+      "returncode": 0,
+      "minutes": 6.6,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/train_ewc_task4_20261104-092428.log"
+    },
+    {
+      "label": "train_ewc_task5",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_ewc.py --task 5",
+      "returncode": 0,
+      "minutes": 7.1,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/train_ewc_task5_20261104-092428.log"
+    },
+    {
+      "label": "train_replay_task2",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_replay.py --task 2",
+      "returncode": 0,
+      "minutes": 3.0,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/train_replay_task2_20261104-092428.log"
+    },
+    {
+      "label": "train_replay_task3",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_replay.py --task 3",
+      "returncode": 0,
+      "minutes": 3.4,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/train_replay_task3_20261104-092428.log"
+    },
+    {
+      "label": "train_replay_task4",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_replay.py --task 4",
+      "returncode": 0,
+      "minutes": 3.6,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/train_replay_task4_20261104-092428.log"
+    },
+    {
+      "label": "train_replay_task5",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_replay.py --task 5",
+      "returncode": 0,
+      "minutes": 3.8,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/train_replay_task5_20261104-092428.log"
+    },
+    {
+      "label": "train_adapter_cl_task2",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_adapter_cl.py --task 2",
+      "returncode": 0,
+      "minutes": 2.9,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/train_adapter_cl_task2_20261104-092428.log"
+    },
+    {
+      "label": "train_adapter_cl_task3",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_adapter_cl.py --task 3",
+      "returncode": 0,
+      "minutes": 3.1,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/train_adapter_cl_task3_20261104-092428.log"
+    },
+    {
+      "label": "train_adapter_cl_task4",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_adapter_cl.py --task 4",
+      "returncode": 0,
+      "minutes": 3.6,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/train_adapter_cl_task4_20261104-092428.log"
+    },
+    {
+      "label": "train_adapter_cl_task5",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_adapter_cl.py --task 5",
+      "returncode": 0,
+      "minutes": 3.2,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/train_adapter_cl_task5_20261104-092428.log"
+    }
+  ]
+}

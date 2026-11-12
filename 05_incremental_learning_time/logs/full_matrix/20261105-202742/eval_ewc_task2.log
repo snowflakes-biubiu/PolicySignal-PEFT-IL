@@ -1,0 +1,24 @@
+$ /root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning/scripts/evaluate/evaluate_task2_cumulative.py --method ewc --model-path /root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/continual/ewc_task2 --model-seed 42 --split test --limit 2 --output-dir /root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/eval
+
+数据检查通过：5 个任务均为 train=600 / test=300，val=120（每类 40），类别均衡、年份合法、文档和文本无交叉。
+基础模型: Qwen/Qwen2.5-1.5B-Instruct
+训练参数: Epoch=2, Rank=16, Alpha=32, LR=0.0002
+CUDA 可用: NVIDIA GeForce RTX 4090
+[人工调试豁免] CAPC_ALLOW_LOCAL_GPU 已显式设置，跳过本地 GPU 限制（自动化助手不得使用）
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:39,  8.52it/s]Loading weights:   8%|▊         | 27/338 [00:00<00:02, 139.67it/s]Loading weights:  21%|██        | 71/338 [00:00<00:00, 267.81it/s]Loading weights:  33%|███▎      | 112/338 [00:00<00:00, 321.69it/s]Loading weights:  47%|████▋     | 159/338 [00:00<00:00, 373.36it/s]Loading weights:  60%|██████    | 203/338 [00:00<00:00, 394.18it/s]Loading weights:  72%|███████▏  | 245/338 [00:00<00:00, 397.84it/s]Loading weights:  86%|████████▋ | 292/338 [00:00<00:00, 416.21it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 363.45it/s]
+/root/miniconda3/lib/python3.12/site-packages/sklearn/metrics/_classification.py:758: RuntimeWarning: invalid value encountered in scalar divide
+  k = np.sum(w_mat * confusion) / np.sum(w_mat * expected)
+[ewc] 训练至 Task2，评估 T1_1949_1978 test (2 条)
+[ewc] 训练至 Task2，评估 T2_1979_1992 test (2 条)
+
+累计测试结果
+ACC=0.5000
+BWT=N/A
+Forgetting=N/A
+Missing same-method historical evaluation results for stages: [1].
+T1_1949_1978: ACC=0.0000, Macro-F1=0.0000, Kappa=0.0000, N/R/W-F1=[0.0, 0.0, 0.0]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[0, 0, 0], [0, 0, 2], [0, 0, 0]]
+T2_1979_1992: ACC=1.0000, Macro-F1=0.3333, Kappa=nan, N/R/W-F1=[0.0, 0.0, 1.0]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[0, 0, 0], [0, 0, 0], [0, 0, 2]]
+JSON: /root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/eval/temporal_ewc_task2_cumulative_test.json
+CSV:  /root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/eval/temporal_ewc_task2_cumulative_test_predictions.csv

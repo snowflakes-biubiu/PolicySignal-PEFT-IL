@@ -1,0 +1,52 @@
+{
+  "experiment": "E1_baseline_split_v2",
+  "adapter_dir": "04_error_analysis\\artifacts\\baseline_split_v2\\qwen15b_level1_qlora_rank16",
+  "validation_file": "04_error_analysis\\data\\split_v2\\validation.jsonl",
+  "sample_count": 225,
+  "invalid_prediction_count": 2,
+  "accuracy": 0.9022222222222223,
+  "macro_f1": 0.9057953738154584,
+  "cohen_kappa": 0.8654031868662482,
+  "per_class": {
+    "N": {
+      "precision": 0.9,
+      "recall": 0.96,
+      "f1": 0.9290322580645162,
+      "support": 75
+    },
+    "R": {
+      "precision": 0.8831168831168831,
+      "recall": 0.9066666666666666,
+      "f1": 0.8947368421052632,
+      "support": 75
+    },
+    "W": {
+      "precision": 0.9545454545454546,
+      "recall": 0.84,
+      "f1": 0.8936170212765957,
+      "support": 75
+    }
+  },
+  "confusion_matrix_label_order": [
+    "N",
+    "R",
+    "W"
+  ],
+  "confusion_matrix": [
+    [
+      72,
+      1,
+      2
+    ],
+    [
+      6,
+      68,
+      1
+    ],
+    [
+      2,
+      8,
+      63
+    ]
+  ]
+}

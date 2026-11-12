@@ -1,0 +1,27 @@
+$ /root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning/scripts/evaluate/evaluate_task2_cumulative.py --method adapter --model-path /root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/continual/adapter_task2 --model-seed 42 --split test --adapter-inference route --limit 2 --output-dir /root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/eval
+
+数据检查通过：5 个任务均为 train=600 / test=300，val=120（每类 40），类别均衡、年份合法、文档和文本无交叉。
+基础模型: Qwen/Qwen2.5-1.5B-Instruct
+训练参数: Epoch=2, Rank=16, Alpha=32, LR=0.0002
+CUDA 可用: NVIDIA GeForce RTX 4090
+[人工调试豁免] CAPC_ALLOW_LOCAL_GPU 已显式设置，跳过本地 GPU 限制（自动化助手不得使用）
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:40,  8.27it/s]Loading weights:   5%|▍         | 16/338 [00:00<00:03, 84.99it/s]Loading weights:  19%|█▊        | 63/338 [00:00<00:01, 246.65it/s]Loading weights:  30%|██▉       | 101/338 [00:00<00:00, 291.99it/s]Loading weights:  44%|████▍     | 148/338 [00:00<00:00, 347.02it/s]Loading weights:  57%|█████▋    | 191/338 [00:00<00:00, 372.55it/s]Loading weights:  68%|██████▊   | 231/338 [00:00<00:00, 380.35it/s]Loading weights:  81%|████████  | 273/338 [00:00<00:00, 392.53it/s]Loading weights:  96%|█████████▌| 323/338 [00:00<00:00, 424.81it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 349.76it/s]
+/root/miniconda3/lib/python3.12/site-packages/sklearn/metrics/_classification.py:758: RuntimeWarning: invalid value encountered in scalar divide
+  k = np.sum(w_mat * confusion) / np.sum(w_mat * expected)
+已加载 adapters: ['task1', 'task2']（实际激活策略由 --adapter-inference 决定）
+[adapter] 评估 T1_1949_1978：激活 adapter = ['task1']（策略 route）
+[adapter] 训练至 Task2，评估 T1_1949_1978 test (2 条)
+[adapter] 评估 T2_1979_1992：激活 adapter = ['task2']（策略 route）
+[adapter] 训练至 Task2，评估 T2_1979_1992 test (2 条)
+
+累计测试结果
+ACC=0.5000
+BWT=N/A
+Forgetting=N/A
+Missing same-method historical evaluation results for stages: [1].
+T1_1949_1978: ACC=0.0000, Macro-F1=0.0000, Kappa=0.0000, N/R/W-F1=[0.0, 0.0, 0.0]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[0, 0, 0], [0, 0, 2], [0, 0, 0]]
+T2_1979_1992: ACC=1.0000, Macro-F1=0.3333, Kappa=nan, N/R/W-F1=[0.0, 0.0, 1.0]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[0, 0, 0], [0, 0, 0], [0, 0, 2]]
+JSON: /root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/eval/temporal_adapter_task2_cumulative_test.json
+CSV:  /root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/eval/temporal_adapter_task2_cumulative_test_predictions.csv

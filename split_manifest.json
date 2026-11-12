@@ -1,0 +1,50 @@
+{
+  "created": "2026-11-10 08:38:18",
+  "source": "05_incremental_learning",
+  "targets": [
+    "05_incremental_learning_time",
+    "05_incremental_learning_domain"
+  ],
+  "events": [
+    {
+      "op": "dedup_remove",
+      "path": "05_incremental_learning\\data\\domain_v14",
+      "ok": false
+    },
+    {
+      "op": "move",
+      "from": "05_incremental_learning\\data\\domain_incremental",
+      "to": "05_incremental_learning_domain\\data\\domain_incremental"
+    },
+    {
+      "op": "move",
+      "from": "05_incremental_learning\\scripts",
+      "to": "05_incremental_learning_time\\scripts"
+    },
+    {
+      "op": "copy",
+      "from": "time/scripts",
+      "to": "domain/scripts"
+    },
+    {
+      "op": "rewrite",
+      "root": "05_incremental_learning_time",
+      "files": 118,
+      "name": "05_incremental_learning_time"
+    },
+    {
+      "op": "rewrite",
+      "root": "05_incremental_learning_domain",
+      "files": 29,
+      "name": "05_incremental_learning_domain"
+    },
+    {
+      "op": "rewrite",
+      "root": "README.md"
+    },
+    {
+      "op": "source_leftovers",
+      "count": 47
+    }
+  ]
+}

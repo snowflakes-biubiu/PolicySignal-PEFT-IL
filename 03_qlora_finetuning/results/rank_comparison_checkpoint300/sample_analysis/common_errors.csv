@@ -1,0 +1,18 @@
+﻿index,gold_rank8,pred_rank8,correct_rank8,gold_rank4,pred_rank4,correct_rank4,gold_rank16,pred_rank16,correct_rank16,gold,rank8_to_rank16,error_rank8,error_rank16,wrong_rank4,wrong_rank8,wrong_rank16
+4,W,N,False,W,N,False,W,N,False,W,错误 -> 错误,W->N,W->N,True,True,True
+30,N,W,False,N,W,False,N,W,False,N,错误 -> 错误,N->W,N->W,True,True,True
+47,N,W,False,N,W,False,N,W,False,N,错误 -> 错误,N->W,N->W,True,True,True
+53,W,R,False,W,R,False,W,R,False,W,错误 -> 错误,W->R,W->R,True,True,True
+66,W,R,False,W,R,False,W,R,False,W,错误 -> 错误,W->R,W->R,True,True,True
+82,N,W,False,N,W,False,N,W,False,N,错误 -> 错误,N->W,N->W,True,True,True
+91,R,N,False,R,N,False,R,N,False,R,错误 -> 错误,R->N,R->N,True,True,True
+95,W,N,False,W,N,False,W,N,False,W,错误 -> 错误,W->N,W->N,True,True,True
+119,N,W,False,N,R,False,N,R,False,N,错误 -> 错误,N->W,N->R,True,True,True
+138,N,W,False,N,W,False,N,W,False,N,错误 -> 错误,N->W,N->W,True,True,True
+155,N,W,False,N,W,False,N,W,False,N,错误 -> 错误,N->W,N->W,True,True,True
+194,N,W,False,N,W,False,N,W,False,N,错误 -> 错误,N->W,N->W,True,True,True
+223,N,W,False,N,W,False,N,W,False,N,错误 -> 错误,N->W,N->W,True,True,True
+232,R,W,False,R,W,False,R,W,False,R,错误 -> 错误,R->W,R->W,True,True,True
+236,W,N,False,W,N,False,W,N,False,W,错误 -> 错误,W->N,W->N,True,True,True
+256,N,W,False,N,W,False,N,W,False,N,错误 -> 错误,N->W,N->W,True,True,True
+277,N,R,False,N,R,False,N,R,False,N,错误 -> 错误,N->R,N->R,True,True,True

@@ -1,0 +1,22 @@
+$ /root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning/scripts/train/train_ewc.py --task 5 --seed 42 --ewc-lambda 100.0 --ewc-normalize param --smoke
+
+数据检查通过：5 个任务均为 train=600 / test=300，val=120（每类 40），类别均衡、年份合法、文档和文本无交叉。
+基础模型: Qwen/Qwen2.5-1.5B-Instruct
+训练参数: Epoch=2, Rank=16, Alpha=32, LR=0.0002
+CUDA 可用: NVIDIA GeForce RTX 4090
+[人工调试豁免] CAPC_ALLOW_LOCAL_GPU 已显式设置，跳过本地 GPU 限制（自动化助手不得使用）
+冒烟模式：训练样本裁剪为 2 条（上限 2）
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:39,  8.53it/s]Loading weights:   7%|▋         | 23/338 [00:00<00:02, 123.99it/s]Loading weights:  19%|█▉        | 65/338 [00:00<00:01, 248.25it/s]Loading weights:  33%|███▎      | 112/338 [00:00<00:00, 328.95it/s]Loading weights:  47%|████▋     | 160/338 [00:00<00:00, 373.98it/s]Loading weights:  61%|██████    | 207/338 [00:00<00:00, 402.56it/s]Loading weights:  75%|███████▌  | 255/338 [00:00<00:00, 418.29it/s]Loading weights:  88%|████████▊ | 297/338 [00:00<00:00, 407.60it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 361.77it/s]
+trainable params: 4,358,144 || all params: 1,548,072,448 || trainable%: 0.2815
+[EWC 参数对齐] 可训练=224 Fisher=224 anchor=224 三者交集=224
+方法: ewc; 训练至 Task5; parent: /root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/continual/ewc_task4; seed: 42
+新增数据: 600; replay 数据: 0; 合计: 2
+EWC: lambda=100.0; normalize=param; 历史 anchor 套数=4
+  0%|          | 0/1 [00:00<?, ?it/s]/root/miniconda3/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:745: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+100%|██████████| 1/1 [00:00<00:00,  1.13it/s]                                             100%|██████████| 1/1 [00:00<00:00,  1.13it/s]                                             100%|██████████| 1/1 [00:00<00:00,  1.13it/s]100%|██████████| 1/1 [00:00<00:00,  1.09it/s]
+{'loss': '8.71e-06', 'grad_norm': '0.0003123', 'learning_rate': '0.0002', 'epoch': '0.5'}
+{'train_runtime': '0.9172', 'train_samples_per_second': '1.09', 'train_steps_per_second': '1.09', 'train_loss': '8.71e-06', 'epoch': '0.5'}
+Task5 EWC：估计当前阶段 Fisher，以供后续任务使用…
+冒烟测试通过：ewc Task5 完成 1 步训练，产物已写入临时冒烟目录（不产出正式模型）。
+完成：/root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/continual/ewc_task5

@@ -1,0 +1,52 @@
+$ /root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning/scripts/evaluate/evaluate_task4_cumulative.py --method sequential_ft --model-path /root/CAPC-CG-Project/05_incremental_learning/artifacts/models/qwen15b_temporal_task4_e2_r16_a32_lr2e-4 --model-seed 42 --split test --output-dir /root/CAPC-CG-Project/05_incremental_learning/results/temporal
+
+数据检查通过：5 个任务均为 train=600 / test=300，val=120（每类 40），类别均衡、年份合法、文档和文本无交叉。
+基础模型: Qwen/Qwen2.5-1.5B-Instruct
+训练参数: Epoch=2, Rank=16, Alpha=32, LR=0.0002
+CUDA 可用: NVIDIA GeForce RTX 4090
+[人工调试豁免] CAPC_ALLOW_LOCAL_GPU 已显式设置，跳过本地 GPU 限制（自动化助手不得使用）
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:39,  8.59it/s]Loading weights:   6%|▌         | 21/338 [00:00<00:02, 114.01it/s]Loading weights:  19%|█▉        | 65/338 [00:00<00:01, 249.38it/s]Loading weights:  33%|███▎      | 112/338 [00:00<00:00, 328.11it/s]Loading weights:  47%|████▋     | 160/338 [00:00<00:00, 373.30it/s]Loading weights:  61%|██████    | 207/338 [00:00<00:00, 401.46it/s]Loading weights:  75%|███████▌  | 255/338 [00:00<00:00, 417.10it/s]Loading weights:  88%|████████▊ | 297/338 [00:00<00:00, 414.11it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 362.76it/s]
+[sequential_ft] 训练至 Task4，评估 T1_1949_1978 test (300 条)
+  50/300
+  100/300
+  150/300
+  200/300
+  250/300
+  300/300
+[sequential_ft] 训练至 Task4，评估 T2_1979_1992 test (300 条)
+  50/300
+  100/300
+  150/300
+  200/300
+  250/300
+  300/300
+[sequential_ft] 训练至 Task4，评估 T3_1993_2002 test (300 条)
+  50/300
+  100/300
+  150/300
+  200/300
+  250/300
+  300/300
+[sequential_ft] 训练至 Task4，评估 T4_2003_2012 test (300 条)
+  50/300
+  100/300
+  150/300
+  200/300
+  250/300
+  300/300
+
+累计测试结果
+ACC=0.8317
+BWT=0.01666666666666668
+Forgetting=0.010000000000000009
+Complete: all earlier stages have same-method cumulative evaluations.
+T1_1949_1978: ACC=0.7667, Macro-F1=0.7688, Kappa=0.6500, N/R/W-F1=[0.7831, 0.7937, 0.7297]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[74, 9, 17], [1, 75, 24], [14, 5, 81]]
+T2_1979_1992: ACC=0.8300, Macro-F1=0.8314, Kappa=0.7450, N/R/W-F1=[0.8466, 0.8404, 0.8072]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[80, 4, 16], [4, 79, 17], [5, 5, 90]]
+T3_1993_2002: ACC=0.8267, Macro-F1=0.8271, Kappa=0.7400, N/R/W-F1=[0.8333, 0.8517, 0.7962]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[75, 7, 18], [2, 89, 9], [3, 13, 84]]
+T4_2003_2012: ACC=0.9033, Macro-F1=0.9033, Kappa=0.8550, N/R/W-F1=[0.8783, 0.95, 0.8815]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[83, 4, 13], [0, 95, 5], [6, 1, 93]]
+JSON: /root/CAPC-CG-Project/05_incremental_learning/results/temporal/temporal_sequential_ft_task4_cumulative_test.json
+CSV:  /root/CAPC-CG-Project/05_incremental_learning/results/temporal/temporal_sequential_ft_task4_cumulative_test_predictions.csv

@@ -1,0 +1,34 @@
+$ /root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning/scripts/evaluate/evaluate_task2_cumulative.py --method sequential_ft --model-path /root/CAPC-CG-Project/05_incremental_learning/artifacts/models/qwen15b_temporal_task2_e2_r16_a32_lr2e-4 --model-seed 42 --split test --output-dir /root/CAPC-CG-Project/05_incremental_learning/results/temporal
+
+数据检查通过：5 个任务均为 train=600 / test=300，val=120（每类 40），类别均衡、年份合法、文档和文本无交叉。
+基础模型: Qwen/Qwen2.5-1.5B-Instruct
+训练参数: Epoch=2, Rank=16, Alpha=32, LR=0.0002
+CUDA 可用: NVIDIA GeForce RTX 4090
+[人工调试豁免] CAPC_ALLOW_LOCAL_GPU 已显式设置，跳过本地 GPU 限制（自动化助手不得使用）
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:39,  8.45it/s]Loading weights:   6%|▌         | 21/338 [00:00<00:02, 112.73it/s]Loading weights:  19%|█▉        | 64/338 [00:00<00:01, 250.22it/s]Loading weights:  33%|███▎      | 111/338 [00:00<00:00, 327.80it/s]Loading weights:  46%|████▌     | 155/338 [00:00<00:00, 366.91it/s]Loading weights:  58%|█████▊    | 197/338 [00:00<00:00, 377.48it/s]Loading weights:  72%|███████▏  | 244/338 [00:00<00:00, 400.00it/s]Loading weights:  86%|████████▌ | 291/338 [00:00<00:00, 413.13it/s]Loading weights:  99%|█████████▊| 333/338 [00:00<00:00, 414.38it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 356.99it/s]
+[sequential_ft] 训练至 Task2，评估 T1_1949_1978 test (300 条)
+  50/300
+  100/300
+  150/300
+  200/300
+  250/300
+  300/300
+[sequential_ft] 训练至 Task2，评估 T2_1979_1992 test (300 条)
+  50/300
+  100/300
+  150/300
+  200/300
+  250/300
+  300/300
+
+累计测试结果
+ACC=0.8150
+BWT=0.023333333333333317
+Forgetting=-0.023333333333333317
+Complete: all earlier stages have same-method cumulative evaluations.
+T1_1949_1978: ACC=0.7933, Macro-F1=0.7906, Kappa=0.6900, N/R/W-F1=[0.8075, 0.839, 0.7253]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[86, 8, 6], [4, 86, 10], [23, 11, 66]]
+T2_1979_1992: ACC=0.8367, Macro-F1=0.8361, Kappa=0.7550, N/R/W-F1=[0.8756, 0.8325, 0.8]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[88, 7, 5], [4, 87, 9], [9, 15, 76]]
+JSON: /root/CAPC-CG-Project/05_incremental_learning/results/temporal/temporal_sequential_ft_task2_cumulative_test.json
+CSV:  /root/CAPC-CG-Project/05_incremental_learning/results/temporal/temporal_sequential_ft_task2_cumulative_test_predictions.csv

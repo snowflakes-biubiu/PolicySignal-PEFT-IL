@@ -1,0 +1,115 @@
+{
+  "experiment": "Qwen2.5-1.5B temporal continual-learning evaluation",
+  "method": "sequential_ft",
+  "trained_through_task": 1,
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_path": "/root/CAPC-CG-Project/05_incremental_learning_time/artifacts/models/qwen15b_temporal_task1_e2_r16_a32_lr2e-4",
+  "model_format": "peft_adapter",
+  "active_adapters": null,
+  "evaluated_tasks": [
+    "T1_1949_1978"
+  ],
+  "total_samples": 300,
+  "continual_metrics": {
+    "ACC": 0.74,
+    "BWT": null,
+    "Forgetting": null,
+    "accuracy_matrix": {
+      "after_task1": {
+        "T1_1949_1978": 0.74
+      }
+    },
+    "missing_history_stages": [],
+    "status": "BWT and Forgetting require at least two task stages.",
+    "definitions": {
+      "ACC": "Mean accuracy over all test tasks seen after the current training stage.",
+      "BWT": "Mean over prior tasks of current accuracy minus accuracy immediately after first learning that task.",
+      "Forgetting": "Mean over prior tasks of best recorded pre-final accuracy minus current accuracy; may be negative if performance improves beyond the prior best."
+    }
+  },
+  "metrics_by_test_task": {
+    "T1_1949_1978": {
+      "samples": 300,
+      "acc": 0.74,
+      "accuracy": 0.74,
+      "macro_f1": 0.7374750364333136,
+      "cohen_kappa": 0.61,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          72,
+          13,
+          15
+        ],
+        [
+          2,
+          86,
+          12
+        ],
+        [
+          20,
+          16,
+          64
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.7659574468085106,
+          "recall": 0.72,
+          "f1": 0.7422680412371134,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.7478260869565218,
+          "recall": 0.86,
+          "f1": 0.8,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.7032967032967034,
+          "recall": 0.64,
+          "f1": 0.6701570680628273,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.7659574468085106,
+          "recall": 0.72,
+          "f1-score": 0.7422680412371134,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.7478260869565218,
+          "recall": 0.86,
+          "f1-score": 0.8,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.7032967032967034,
+          "recall": 0.64,
+          "f1-score": 0.6701570680628273,
+          "support": 100.0
+        },
+        "accuracy": 0.74,
+        "macro avg": {
+          "precision": 0.7390267456872452,
+          "recall": 0.7400000000000001,
+          "f1-score": 0.7374750364333136,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.7390267456872452,
+          "recall": 0.74,
+          "f1-score": 0.7374750364333136,
+          "support": 300.0
+        }
+      }
+    }
+  },
+  "predictions_csv": "/root/CAPC-CG-Project/05_incremental_learning_time/results/temporal/temporal_sequential_ft_task1_cumulative_test_predictions.csv"
+}

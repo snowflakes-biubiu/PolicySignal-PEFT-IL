@@ -1,0 +1,9 @@
+﻿
+Name           Used (GB)     Free (GB) Provider      Root                      
+----           ---------     --------- --------      ----                      
+C                 469.87          5.37 FileSystem    C:\                       
+D                3677.95         47.80 FileSystem    D:\                       
+
+
+C:\ total=486641MB free=5498MB
+D:\ total=3815166MB free=48944MB

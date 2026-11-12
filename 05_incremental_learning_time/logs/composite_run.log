@@ -1,0 +1,18 @@
+池 8,508 段；主查预计 ≈1.93M token（不含仲裁）
+主查接力: deepseek-v4.1-flash → qwen3.8-max-0902 → kimi-k3 → deepseek-v4-pro-0813，各 1,000,000；终裁: kimi-k3.1-pro（思考模式）
+累计已用: deepseek-v4.1-flash=0  qwen3.8-max-0902=0  kimi-k3=0  deepseek-v4-pro-0813=0  kimi-k3.1-pro=149,781
+待复核 8,508 段（已完成 0）
+  [deepseek-v4.1-flash] r1 40/4,395 tok=7,260
+  [deepseek-v4.1-flash] r1 440/4,395 tok=86,568
+  [deepseek-v4.1-flash] r1 840/4,395 tok=163,306
+  [deepseek-v4.1-flash] r1 1,240/4,395 tok=242,266
+  [deepseek-v4.1-flash] 批次失败 JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2978 (char 2977)
+  [deepseek-v4.1-flash] r1 1,640/4,395 tok=319,933
+  [deepseek-v4.1-flash] r1 2,040/4,395 tok=396,213
+  [deepseek-v4.1-flash] r1 2,440/4,395 tok=473,577
+  [deepseek-v4.1-flash] r1 2,840/4,395 tok=551,760
+  [deepseek-v4.1-flash] r1 3,240/4,395 tok=630,853
+  [deepseek-v4.1-flash] r1 3,640/4,395 tok=707,327
+  [deepseek-v4.1-flash] r1 4,040/4,395 tok=785,986
+  deepseek-v4.1-flash: 本轮 4,395 段，累计 856,307 token
+  [deepseek-v4.1-flash] r1 40/631 tok=864,493

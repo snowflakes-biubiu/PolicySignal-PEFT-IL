@@ -1,0 +1,1465 @@
+CAPC-CG: A Large-Scale, Expert-Directed LLM-Annotated Corpus of
+Adaptive Policy Communication in China
+BolunSun1,2,CharlesChang3,YuenYuenAng1,RuotongMu1,
+YuchenXu1,ZhengxinZhang1,PingxuHao1
+1JohnsHopkinsUniversity,2NorthwesternUniversity,3DukeKunshanUniversity
+Abstract centralizedyetadministrativelyandeconomically
+decentralized (Landry, 2008; Lieberthal and Ok-
+WeintroduceCAPC-CG,theChineseAdap-
+senberg,1988;Ang,2016). TheCommunistParty
+tive Policy Communication (Central Govern-
+and the State Council communicate instructions
+ment) Corpus, the first open dataset of Chi-
+throughwrittenpolicydirectives,whichlocalgov-
+nese policy directives annotated with a five-
+color typology of policy signals, capturing ernmentactorstheninterpretandimplement. These
+clarityandambiguity,groundedinthetheory directives—includingNationalLaws,Administra-
+ofadaptivepolicycommunication. Spanning tiveRegulations,andMinisterialRules—function
+1949–2023, this corpus includes laws, regu- likethenervoussystem,sendingsignalsfromcen-
+lations, and rules issued by Chinese central
+traltolocalauthoritiesacrosspolicydomainsand
+authorities, segmented into 3.3 million para-
+regions.
+graphunits. Wefurtherproposeandvalidatean
+As Ang (2016, 2024) demonstrates, these di-
+expert-directed LLM annotation method that
+integrates codebook design, structured train- rectives operate along a spectrum of clarity and
+ing,atwo-stepworkflow,andLLM-basedscal- ambiguity. Somedirectivesclearlyauthorizeorfor-
+ing. Alongside the corpus, we release meta- bid,whileothersdeliberatelyuseambiguouslan-
+dataandagold-standardlabeledsetdeveloped guagetoallowlocalflexibilityandadaptation. Op-
+by trained coders. Inter-annotator agreement
+erationalizingthisadaptivelogicatscalerequires
+achievesaFleiss’kappaofκ=0.86ondirec-
+systematic annotation, yet no dataset has previ-
+tivelabels,indicatinghighreliability. Wepro-
+ouslyexisted. Wethereforepresentthefirstsuch
+videbaselineclassificationresultswithseveral
+resource: theChineseAdaptivePolicyCommu-
+largelanguagemodels(LLMs),togetherwith
+ourcodebook,anddescribepatternsfromthe nication Corpus (CAPC-CG),1 an open corpus
+data. This release enables downstream tasks ofcentral-governmentpolicydirectivesspanning
+and multilingual NLP research in communi- 1949–2023.
+cationstrategiesundercomplexityanduncer-
+Inspiredbyexpert-annotatedcorpusconstruction
+tainty.
+suchasOPP-115 (Wilsonetal.,2016),wedesign
+1 Introduction an expert-directed LLM annotation method that
+integratesstructuredannotationwithscalablemod-
+Howdocentralauthoritiessteerpolicyimplemen- eling. Thismethodcombinesanexpert-designed
+tation under conditions of complexity and uncer- codebook,rigorousannotatortraining,atwo-round
+tainty? Adaptive policy communication is a the- labeling workflow, and LLM fine-tuning to con-
+oryofgovernanceinsuchsettings,whereleaders structandscalehigh-qualitylabels.
+exercise influence rather than precise control by
+Building on Ang’s original typology of three
+combiningclearandambiguousinstructionstocal-
+policy signals (Black = Authorizing, Red = Pro-
+ibratedisciplineandflexibility(Ang,2016). This
+hibiting,Grey=Ambiguous),weextenditintofive
+logicappliesbroadlytolarge,decentralizedorgani-
+categoriesbyaddingYellow(Pressuring)andChar-
+zations,includingthecommunicationofcomplex
+coal(Flexible). Thisexpandedtypologycaptures
+issues such as geopolitics or central bank policy
+finervariationinpolicysignalsand,inparticular,
+(Blinder et al., 2008), but is especially salient in
+itcapturesYellowandCharcoalsignalsthathave
+China’s governing model of "directed improvisa-
+becomemoresalientunderXiJinping’sleadership.
+tion."
+China’sone-partypoliticalsystemispolitically 1DatasetandScripts
+
+=== PAGE BREAK ===
+
+Usingthismethod,weconstructCAPC-CG,re- notonlylimitsresearchincomputationallinguis-
+leasedwithcode,guidelines,andbaselinemodels tics,butalsosocialscienceresearchonlawmaking
+to support reproducible NLP research. Drawing andpolicymakinginChinaandcomparatively.
+onexpertknowledgeoftheChinesebureaucracy, Among scholars of Chinese bureaucracy, the
+we design a detailed codebook that operational- long-standingimpressionhasbeenthat“thehigher
+izes Chinese policy language into codable cate- levelsgivevaguedirectives”(LieberthalandOksen-
+gories. WetrainedChinese-proficientresearchers berg,1988,p.340)orpronounce“catchyslogans
+toannotateagold-standarddatasetandfine-tuned that... directtheflowofpolicyimplementationat
+large language models (LLMs) to scale annota- alllevels”(BrandtandRawski,2008,p.16). But
+tionacrossthecorpus. Inter-annotatoragreement this conventional view raises a puzzle: How can
+reaches κ = 0.86, indicating highly reliable la- a vast country like China, facing immense chal-
+belsdespitetheheterogeneityofpolicylanguage lengesandnumeroustasks,beeffectivelygoverned
+(Bhowmicketal.,2008;Richieetal.,2022). through slogans and vague expressions from the
+Wehighlightthreecontributions: top?
+Ang (2016) advanced a revisionist account:
+1. We operationalize a five-color typology of
+adaptive policy communication. In How China
+policysignals,groundedinatheoryofadap-
+EscapedthePovertyTrap,shecharacterizespost-
+tive policymaking, yielding a gold-standard
+1979Chinesegovernanceasasystemof“directed
+labeled set of about 6,000 paragraphs with
+improvisation,”inwhichcentralauthoritiessignal
+highinter-annotatoragreement.
+and steer rather than dictate, while local govern-
+2. We produce a large-scale, computable cor- mentsimprovise,producingdiversepathsofpolicy
+pus of Chinese central-government policy implementation and development. A key mecha-
+directives, with normalized metadata, de- nism of “directing” is that central authorities ap-
+duplication, and paragraph-level segmenta- plyvaryingmixturesofambiguousandclearman-
+tion,addressingdatascarcityinChinesepol- dates—declaring and enforcing guardrails while
+icycorpora. allowing flexibility in selected domains or time
+periods.
+3. Weproposeandvalidateanexpert-directedan- Moreprecisely,Anghighlightsthreevarietiesof
+notationmethod,providingevaluationsplits, directives: Black(clearlystateswhatcanbedone),
+scripts,andbaselinemodelsusingLLM. Red (clearlystateswhatcannotbedone),andGrey
+(ambiguousaboutwhatcanorcannotbedone). In
+Alldata,code,andguidelinesarereleasedunder
+otherwords,Blackauthorizes,Redprohibits,while
+apermissivelicense,establishingCAPC-CGasa
+Greyimplicitlypermitsflexibility. Previously,Ang
+standardized testbed for research on policy com-
+(2024)operationalizedthesethreecategoriesusing
+munication, including diachronic analysis, cross-
+apilotsampleofcentralregulations. Inthisproject,
+regimecomparisons,informationextraction,com-
+we refine classification and annotation methods
+pliancemonitoring,andpolicy-impactassessment.
+usingahybridofLLMsandtrainedhumancoders,
+2 TheoreticalFoundation: Adaptive andscaletheanalysistoamuchlargerdataset.
+PolicyCommunication To achieve precision, we segment the vast cor-
+pusofhighlyvariegatedandlengthybureaucratic
+Althoughseverallarge-scaleChinesedatasetshave
+textsintosmaller,analyzableparagraphs,produc-
+beendeveloped,theyaremainlybasedonInternet
+inggold-standard,expert-labeleddataforNLPre-
+andsocialmediacontent,oftenwithlimitedquality
+search. We also share a rigorous and replicable
+control(Yuetal.,2025;Duetal.,2024;Chenetal.,
+workflow that combines source data and human
+2023;Heetal.,2023;Yuanetal.,2021;Xuetal.,
+annotation,helpingmitigatebiasandinaccuracyin
+2020). Incontrast,resourcesforpoliticalandlegal
+LLMapplications(Baumannetal.,2025).
+documents remain scarce: existing datasets lack
+high-qualitysourcetextsandrigorousannotations, 3 CorpusCreationandStructure
+limitingtheabilitytotracepolicymakingatthena-
+tionallevel(Ahrensetal.,2018;Xiaoetal.,2018; This section details how we created CAPC-CG,
+Yao et al., 2022; Duan et al., 2019; Wang et al., fromourdocumentcollection,annotationschema,
+2025;Lietal.,2025;Xiaoetal.,2021). Thisgap to the resulting metadata-rich dataset. Figure 1
+
+=== PAGE BREAK ===
+
+illustratesourworkflowstepbystep. Year 1949-2023
+PolicyDocuments 337,038
+PolicyParagraphs 3,275,477
+AnnotatedPolicyParagraphs 2,647,695
+MeanTextLength 162.50
+MedianTextLength 108.00
+Note:“AnnotatedPolicyParagraphs”includesalllabeled
+paragraphs,includingNeutral(N),andexcludessegments
+shorterthan20Chinesecharactersaswellasformattingnoise.
+Figure1: WorkflowforCorpusCreation Table1: SummaryStatistics
+3.1 ScopeofPolicyDirectives policydocuments. Table1presentssummarystatis-
+tics of the corpus, including its scale before and
+Ouranalysisfocusesonpolicydirectives,defined
+afterannotationattheparagraphlevel.
+as formally issued documents in which a higher-
+Next, wetransformedtherawtextintoastruc-
+levelauthorityaddressesstateorpublic-sectorac-
+turethatcapturesourfive-categoryschema: Black
+torswithactionableimplications—thatis,thebu-
+(Authorizing), Red (Prohibiting), Grey (Ambigu-
+reaucratsareexpectedtonotice,interpret,andre-
+ous),Yellow(Pressuring),Charcoal(Flexible),as
+spond to the directives. Such directives form the
+presented in Table 2.2 Appendix B provides our
+“verticalformalchannels”ofbureaucraticcommu-
+codebookthatdetailstheclassificationrules.
+nication, as Oksenberg (1974) noted. Central di-
+We segmented all documents into paragraphs
+rectives define national priorities and directions,
+using an ensemble of rule-based algorithms and
+thenastheytraveldownthehierarchy,eachlevel
+LLM (see the detailed segmentation method in
+of government further interprets and details their
+AppendixC).Becauseboththestructureandlan-
+implementationoftheinstructions.
+guageofChinesepolicydirectivesarehighlyhet-
+To construct our data set, we collected three
+erogeneous,asingledocumentcancontainmulti-
+typesofcentraldirectives. 1)NationalLawsand
+ple paragraphs and policy signals. To tackle this
+decisions promulgated by the National People’s
+challengingdegreeofvariation,weapplyanLLM
+Congress (NPC), the legislative branch. Among
+tosegmenteachdocumentintounitsboundedby
+thedirectives,theselawscarrythehighestlevelof
+a coherent signal (Merola and Singh, 2025). We
+authority. 2)AdministrativeRegulations,which
+assignedannotatorstomanuallyvalidate4,600ran-
+aretypicallyissuedbytheStateCouncil(thehigh-
+domlysampledsegmentedparagraphsandfound
+estofficeoftheexecutivebranch),ortheGeneral
+that97.74%werecorrectlysegmented. Following
+OfficeoftheCommunistPartyCentralCommittee,
+thisvalidation,weretainednon-actionableunitsun-
+orareco-issuedbytheStateCouncil,theCommu-
+dertheNeutral(N)label(seeAppendixB)while
+nist Party Central, or ministries. 3) Ministerial
+filteringsegmentsshorterthan20Chinesecharac-
+Rulesissuedbycentral-levelministriesandcom-
+tersandformattingnoise. Thisprocedureproduced
+missions.
+afinalsetof2,647,695paragraphs.
+Thisdatasetspans1October1949to13March
+2023, from the founding of the People’s Repub-
+3.2 AnnotationSchemeandProcess
+lic of China through the end of Xi Jinping’s sec-
+We created a gold-standard dataset through a rig-
+ond term. It covers all the central leaders since
+orous, multi-stage annotation procedure carried
+founding,fromMaoZedong,DengXiaoping,Jiang
+outbythreedomainexperts(Marcusetal.,1993;
+Zemin,HuJintao,toXiJinping.
+Tsengetal.,2020),whoannotatedparagraph-level
+For each document, we parsed and created a
+textsoverathree-monthtrainingperiod. Asprepa-
+standardized metadata record with the following
+ration, all three coders read a diverse sample of
+fields: title, validity status, hierarchical level of
+policydirectivescarefullyandanalyzedrepresen-
+legalforce, issuingbody, referencenumber, date
+tative cases of the five categories listed in Table
+ofpromulgation,anddateofentryintoforce. The
+productisamassivelongitudinalcorpus. Spanning
+2Colors are employed solely as mnemonic devices; the
+multipleleadershiperas,itcontains337,038unique analyticalmodelencodestheabstractcategoriesthemselves.
+
+=== PAGE BREAK ===
+
+Colour GovernmentalIntent SignaltoLocalActors Example
+Red(R) Prohibiting “No,youcannot.” Noagencyshallinterceptormisappropriatethesubsidy
+fundsforanyreasonorinanyform.
+Grey(G) Ambiguous “Youmayormaynot.” This matter will be left to “relevant departments” to
+weightheprosandconsanddecideforthemselves.
+Charcoal(C) Flexible “Yes,doitflexibly.” Activelypromotethistechnologythroughpolicyexperi-
+mentsandtailoringtolocalcontexts.
+Black(B) Authorizing “Yes,youcan.” The government encourages, supports, and steers the
+developmentofthenon-publicsector.
+Yellow(Y) Pressuring “Yes,youmust.” Thistargetmustbeachievedbyanymeansnecessary
+andwilldeterminebureaucraticperformance.
+Table2: Five-ColorTypologyofPolicySignals
+2. Then, we organized a workshop dedicated to randomly sampled paragraphs and repeated this
+explainingandtestingthecodebook. Everyweek, processwithoutsamplereplacement. Bytheendof
+theannotatorscodedsmallsamplesofroughly500 theperiod,theyannotated6,000samples,ensuring
+paragraphs,comparedtheirannotationresults,then anevendistributionacrossalllabels.
+discussed the results and refined their interpreta-
+Two-Round Labeling Workflow Each para-
+tion of the coding rules. By the end of the train-
+graphisprocessedthroughatwo-stepclassification
+ingperiod,ourannotatorsreachedK = 0.864of
+procedure(Figure 3):
+inter-coder reliability. Figure 2 shows the inter-
+coderagreementoverthreeroundsofindependent
+Step1. Level-1 screening — Annotators cate-
+coding in the training phase, with no discussion
+gorize the paragraph into one of three
+amongannotatorsduringthecodingprocess. While
+high-levellabels: W(Affirmative),R(Pro-
+theexpectedagreementunderrandomsamplingre-
+hibitive),orN(Neutral). W representsall
+mainedlargelyunchanged,Fleiss’Kappaimproved
+affirmativedirectives,includingB(Autho-
+substantially from 0.670 to 0.864 after iterative
+rizing),C(Flexible),G(Ambiguous),and
+trainingandcalibration. Theimprovementresulted
+Y(Pressuring);Rrepresentsdirectivesin-
+fromstrengthenedcodingrulesafteriterativetrain-
+dicating prohibition; while N is used for
+ing, not from a forced consensus, indicating that
+paragraphsthatcontainnodirectives,con-
+the three annotators reached high agreement and
+sistingsolelyofdescriptiveorcontextual
+thedatasetisrobust.
+information.
+Step2. Level-2 refinement — If a paragraph is
+labeledasW(Affirmative)atLevel-1,An-
+notatorswillspecifytheexactcolorusing
+one of the following codes: B (Authoriz-
+ing), C (Flexible), G (Ambiguous), or Y
+(Pressuring). Theparagraphislabeledas
+B(Authorizing)whenitdemonstratesau-
+thorization, C (Flexible) when it encour-
+agesflexiblemeanstoimplement,G(Am-
+biguous)whenthedirectiveisambiguous
+Note: Expected Agreement fluctuation (0.460 → 0.508) andopentointerpretation,andY(Pressur-
+represents natural variance in label marginal distributions
+ing) when it demands immediate action
+acrosssmallnon-identicalbatches(n=500).
+withasenseofurgencyorcoercion. Ifdi-
+Figure2: Inter-CoderAgreementImprovement
+rectivescannotbeclassifiedintoanyofthe
+fourspecifiedcolors,theparagraphwillbe
+Once we were confident about the annotators’ labeled as U (Unsure) to indicate uncer-
+grasp of the codebook, they proceeded to code tainty.
+paragraphsatscale. Eachweek,weassigned1,000 LabelU WereserveU(Unsure)forgenuinelyunre-
+
+=== PAGE BREAK ===
+
+solvedcasesafterapplyingtheaboverules. experiments demonstrate that this approach can
+U(Unsure)worksasalastresortandwill behighlyunreliable(Dongetal.,2024;Baumann
+onlybeusedwhennecessary. et al., 2025). In our experience, even three re-
+searcherswithknowledgeofChinesepolicymaking
+requiredarigorouslydesignedcodebookandexten-
+sivetrainingtoachieveasatisfactorylevelofagree-
+ment(ArtsteinandPoesio,2008). Aftercomparing
+multiplestrategies,wefindthatfine-tuningLLMs
+onacarefullyconstructed,human-annotatedgold-
+standarddatasetprovidesthemostreliableandef-
+ficient solution. In this section, we present our
+experiments on policy classification using LLMs
+underdifferentsettingsandreportbaselineresults
+thatbothvalidatethereliabilityofourdatasetand
+establish a benchmark for future research. This
+Figure3: Two-RoundLabelingWorkflow approach offers a cost-effective, scalable, and ro-
+bustpathwayforapplyingLLMstosimilartasks
+Thisrigorous,two-stageprotocolbalancestheo- incomputationalsocialscience.
+reticalnuancewithoperationalreliability,enabling
+5.1 ExperimentalSetup
+thecreationofahigh-qualitytrainingsetforsubse-
+quentNLPmodels. Our aim was to create an automated pipeline for
+classifyingpolicyparagraphsaccordingtoourtwo-
+4 CompositionoftheCAPC-CG levelannotationschema. Allexperimentswerecon-
+ductedusingourhuman-annotatedgold-standard
+TheCAPC-CGcorpusisorganizedasarelational
+dataset,whichcontains6,000samples,dividedinto
+databasedesignedtofacilitatemulti-levelanalysis.
+training (80%) and validation (20%) sets. For a
+It adopts a two-level structure across three docu-
+finalevaluation,weusedaseparatetestsetof1,901
+menttypes—Laws,Regulations,andRules—with
+samples, which was collaboratively constructed
+each type represented by a pair of tables: docu-
+andvalidatedbyourthreedomainexperts.
+ments_*tablesthatstoredocument-levelmetadata
+Ourexperimentalprocessfollowedfourstages.
+andparagraphs_*tablesthatstoreparagraph-level
+First,weconductedextensivepromptengineering
+texttogetherwithannotationoutputs. Withineach
+tofindthemosteffectiveinstructionsforourclas-
+pair, the two tables are linked through Documen-
+sification tasks. The optimal prompt, detailed in
+tID,whichfunctionsastheprimarydocumentiden-
+AppendixD,wasidentifiedthroughiterativetesting
+tifier and establishes a one-to-many relationship
+on OpenAI models and applied in all subsequent
+between source documents and their constituent
+experiments. Second,weestablishedbaselinesus-
+paragraphs. Basicdescriptivestatisticsarereported
+ingtraditionalmachinelearningmodels(SVMand
+in Appendix L, while the corpus creation work-
+XGBoost) (Cortes and Vapnik, 1995; Chen and
+flow,annotationprocess,andsegmentationpipeline
+Guestrin,2016)andbenchmarkedarangeofstate-
+aredetailedinAppendixA,AppendixB,andAp-
+of-the-artLLMsforthezero-shotLevel-1classifi-
+pendixC.Thefullfield-levelschemaisprovided
+cationtasktoidentifyamodelthatbalancesperfor-
+inAppendixI.
+manceandcost-efficiency. Weadditionallybench-
+marked representative open-weight encoder-only
+5 PredictionofDirectivesColor
+and decoder-only models under supervised fine-
+Whileourmanualannotationyieldedhighlyaccu- tuning, including BERT-base-Chinese, Qwen2.5-
+ratedata,itisnotfeasibletoscalethismethodto 7B,andLlama-3-8B;thefullbenchmarkisreported
+morethan3.3millionparagraphunits. Fordatasets in Appendix F. Third, using the selected model,
+of such immense size, it is essential to automate wecomparedzero-shot,few-shot,andfine-tuning
+annotationandclassification(Tanetal.,2024). A methods to determine the most effective strategy
+fewrecentstudies(Sunetal.,2025)attemptedto (Brownetal.,2020). Finally,weappliedthisopti-
+annotatedatausingLLMAPIswithprompt-based malstrategytothemoregranularLevel-2(Color)
+instructions;however,existingstudiesandourown classificationtask.
+
+=== PAGE BREAK ===
+
+Fine-tuningdetailsarereportedinAppendixE. icylanguagerequiredforourfine-grainedanalysis.
+In brief, we used the OpenAI fine-tuning Thisresultconfirmsthatourfine-tuningapproach
+API with n_epochs=3, batch_size=auto, and isrobustandeffectiveforbothlevelsofouranno-
+learning_rate_multiplier=auto; the prompts tationschema. AppendixFshowsthatBERT-base-
+usedfortrainingandinferenceareprovidedinAp- Chineseisagainthestrongestopen-weightmodel
+pendixD. on this stage, but it still trails fine-tuned GPT-4o-
+mini (Kappa = 0.800 vs. 0.833; Acc. = 0.850 vs.
+5.2 ResultsandAnalysis
+0.875),especiallyonGrey(Ambiguous)cases. Er-
+5.2.1 Level-1DirectiveClassification(R/W/N) ror analysis further shows that Level-1 mistakes
+For the main text, we focus on the selected zero- mainlyarisewhenthemodelconfusesaffirmative
+shotbaselinesmostrelevanttomodelselectionfor directiveswithprohibitionsinpassagesthatautho-
+scalable inference, while Appendix F reports the rizethestatetosanctionothers. ForLevel-2,most
+errorsconcentrateonthedistinctionbetweenChar-
+broaderbenchmarkwithsupervisedopen-weight
+models. Withinthezero-shotAPIsettinginTable3, coal (Flexible) and Grey (Ambiguous), reflecting
+GPT-4o-mini(OpenAI,2024)attainsthebestover- the pragmatic difficulty of separating explicit en-
+allmetrics(Kappa=0.618;Acc. =0.793;M-F1= couragementofflexibilityfromstrategichedging.
+0.692)atsubstantiallylowercostandlatency. Bal- Thispatternsuggeststhatthetaskisnotsaturated:
+ancing throughput, responsiveness, and unit cost, thelargegapbetweenzero-shotandfine-tunedper-
+we therefore adopt GPT-4o-mini for subsequent formance shows that expert supervision remains
+experimentsandlarge-scaleinference. essential,andambiguitydetectioninLevel-2con-
+Next, we compared the performance of zero- tinues to leave substantial room for future work.
+shot, few-shot (k=3/6), and fine-tuning methods FailurecasesarereportedinAppendixH.
+usingGPT-4o-mini. Theresults, presentedinTa-
+ble 4, unequivocally demonstrate the superiority Model Kappa Acc. R-F1 W-F1 N-F1 M-F1
+offine-tuning. Ourfine-tunedGPT-4o-minimodel XGBoost 0.153 0.487 0.233 0.538 0.488 0.420
+SVM 0.175 0.508 0.260 0.539 0.527 0.442
+achievesaCohen’sKappaof0.841andaMacro-
+DeepSeek-V3 0.481 0.733 0.438 0.613 0.815 0.622
+F1score(SokolovaandLapalme,2009)of0.844, Qwen3-235B 0.570 0.780 0.561 0.705 0.834 0.700
+substantiallyoutperformingthebestfew-shotbase- GPT-4o-mini 0.618 0.793 0.482 0.721 0.873 0.692
+line(Kappa=0.686). Thisrepresentsa22.6%im-
+Table 3: Selected zero-shot baselines for the Level-1
+provementinKappa,withparticularlystronggains
+task.Fullbenchmarkresults,includingsupervisedopen-
+on the minority ‘R’ class, validating our strategy
+weightmodels,arereportedinAppendixF.
+ofleveragingthegold-standarddatasetformodel
+specialization. AppendixFfurthershowsthatfine-
+tunedBERT-base-Chineseisastrongopen-weight
+Method Kappa Acc. R-F1 W-F1 N-F1 M-F1
+Level-1baseline(Kappa=0.817;M-F1=0.846),
+Zero-shot 0.618 0.793 0.482 0.721 0.873 0.692
+butfine-tunedGPT-4o-ministillachievesthehigh-
+Few-shot(k=3) 0.686 0.830 0.489 0.786 0.898 0.724
+estagreementwithexpertlabelsoverall. Few-shot(k=6) 0.659 0.816 0.512 0.763 0.883 0.719
+Fine-tuning 0.841 0.910 0.677 0.905 0.952 0.844
+5.2.2 Level-2ColorClassification(B/C/G/Y)
+Table4: ComparisonofmethodsforLevel-1classifica-
+BuildingonthesuccessofourLevel-1model,we
+tionusingtheGPT-4o-minimodel. Fine-tuningshows
+applied the same fine-tuning methodology to the
+substantialimprovement.
+morenuancedfour-classLevel-2task,whichclas-
+sifiesaffirmativedirectivesintospecificcolors(B,
+C,G,Y).Thefine-tunedGPT-4o-minimodelcon-
+6 DataAnalysis
+tinuedtoexhibithighperformanceandreliability
+on this challenging task. As detailed in Table 5, Our corpus enables nuanced analyses of Chinese
+themodelachievedanoverallaccuracyof87.5% policycommunication. Todemonstrateitsutility,
+and a multi-class Cohen’s Kappa of 0.833, indi- wepresenttwopreliminaryfindings.
+cating a strong agreement with our expert anno- Webeginwiththetemporalevolution. Figure4
+tators. The model performed consistently well shows that certain patterns have remained quite
+across all four categories, demonstrating its ca- consistent: for example, Red (Prohibiting) direc-
+pability to capture the subtle distinctions in pol- tives make up only a small portion, compared to
+
+=== PAGE BREAK ===
+
+Metric Score tationprocedures,technicalstandards,andadmin-
+istrativerequirements. Thissuggeststhatthepolicy
+Cohen’sKappa(4-class) 0.833
+styleinthisdomainrelieslessonexperimentation
+OverallAccuracy 87.5%
+ordifferentiatedlocalpathways,andmoreonstruc-
+AccuracyperClass: tured implementation through defined goals and
+Class‘B’(Authorizing) 92.0% concreteexecutionmethods.
+Class‘C’(Flexible) 85.0%
+Class‘G’(Ambiguous) 84.0% 7 FutureDirections
+Class‘Y’(Pressuring) 89.0%
+Asanewandfoundationalresource,ourcorpuscan
+openupatleastthreeavenuesforfutureresearch.
+Table5:SelectedLevel-2resultsforthefine-tunedGPT-
+4o-minimodel. Fullopen-weightbenchmarkresultsare
+7.1 CAPC-CGasFoundationforMulti-Level
+reportedinAppendixF.
+PolicyCommunication
+As an essential first step, the CAPC-CG corpus
+Black(Authorizing)—especiallyaftertheReform coverscentral-leveldocuments. Futureworkcan
+andOpening-Upperiodbeganin1978. Moreover, collectdirectivesissuedbyprovincialandmunici-
+thispatternappearstobeinfluencedmorebymajor palgovernmentstoenableanalysisofmulti-level
+events, such as economic shifts or public health policycommunicationanddiffusion. Infuture,we
+crises,thanbyleadershiptransitions. alsohopetointegratesupplementarymaterialssuch
+Figure5visualizesthetopicdistributionderived asleaders’speechesandstatemediacommentary.
+fromourLDAmodelthroughheatmap,revealinga
+strongthematicconcentrationforcertainpolicydo- 7.2 Expert-DirectedLLMAnnotationMethod
+mains(y-axis)acrossseveralaction-orientedtopics Ourexperimentshighlightthelimitationsofstate-
+(x-axis). Notably,the‘EnvironmentalProtection’ of-the-art LLMs in capturing the nuances of Chi-
+corpus is almost entirely dominated by the ‘Con- nese policy directives, particularly variations in
+struction’topic,whilethe‘Infrastructure’domain clarityandambiguity. Toaddressthis,weintroduce
+isalsoheavilycharacterizedby‘Construction’,as andvalidateanewmethod: expert-directedLLM
+well as ‘Development’ and ‘Management.’ This annotation. Ratherthanrelyingonprompt-based
+concentrationsuggestsaprimarytextualfocuson annotation alone, our approach integrates expert-
+tangible,project-basedactivitieswithinthesepol- designed codebooks, rigorous annotator training,
+icyareas. Instarkcontrast,socialpolicydomains and fine-tuning on a gold-standard labeled set to
+suchas‘EducationalEquity’and‘SocialSecurity’ capturevariedandambiguouspolicysignals. Un-
+exhibit negligible weights across all these topics, likepriorworkthattreatsLLMsassubstitutesfor
+indicatingthattheirdiscourseisthematicallydis- experthumanannotators,ourmethodtreatsexpert
+tinctandlikelyrepresentedbyotherlatenttopics annotation as the foundation and uses LLMs to
+inthemodel. scalethissystemacrosslargecorpora.
+Figure 6 visualizes the distribution of govern-
+mentalintents(x-axis),asdefinedinTable2,across 7.3 AdaptivePoliticalEconomy: From
+17policydomains. Theanalysis reveals thatspe- ParadigmtoOperationalization
+cificintentsarestronglycorrelatedwithparticular Ourdatasetservesasahigh-resolutionempiricalre-
+typesofdomains. Notably,theintentto“urgeflex- sourceforadaptivepoliticaleconomy(APE)(Ang,
+iblemeans”(C)isalmostexclusivelydominantin 2025),aparadigmforstudyingpoliticaleconomies
+technology-drivendomainssuchas‘DigitalTrans- ascomplexadaptivesystems. APEdevelopscon-
+formation’(0.91)and‘Science&TechnologyIn- cepts, theories, andmethodsthatilluminatecom-
+novation’(0.91), suggesting agovernance model plexsocialfeaturessuchasadaptationanduncer-
+thatprioritizeslocalexperimentation. tainty, rather than assuming them away. Applied
+A useful counterexample is Water Resources, toorganizationalanalysis,APEcontrastsconven-
+where the intent to “urge flexible means” (C) tionalprincipal-agentmodelsthatassumecentral
+is comparatively weak. Unlike technology- or authorities have clear goals and seek to control
+innovation-orienteddomains,watergovernanceof- agents(KiewietandMcCubbins,1991). Adaptive
+tendependsonclearlyspecifiedtargets,implemen- policycommunicationtheorizescommunicationin
+
+=== PAGE BREAK ===
+
+Figure4: TemporalTrendofPolicySignalsaftertheReform&Opening-Up(1978–2023)
+acontextwhereleaderscalibratediscretionbyad-
+justingtheirmixtureofsignalsandwithoutalways
+havingfixedpolicypreferences.
+APEcanincludebutisnotlimitedtoqualitative
+analysis; case studies serve to illustrate a theory
+before it is operationalized at scale (Ang, 2016).
+OurstudydemonstratesthatAPE,asaparadigm,
+can generate new lines of inquiry (how leaders
+communicateundercomplexity),theory(adaptive
+Figure 5: The distribution of action-oriented topics
+policycommunication),typology(fivepolicysig-
+acrossdifferentpolicydomains
+nals), measurement (theory-driven, human-LLM
+annotation), and novel data (CAPC-CG), which
+caninspiremoredatacollection.
+8 Conclusion
+This paper introduces and validates CAPC-CG,
+which,toourknowledge,isthemostcomprehen-
+sive paragraph-level corpus of Chinese policy di-
+rectivesforNLPresearch,builtaroundafive-color
+typologyofpolicysignals. Byinnovatingatheory-
+drivenannotationmethodandleveragingfine-tuned
+LLMs,weconstructedanovel,computabledataset.
+Wehopethisdatasetwillenablestudiesofpol-
+icy language across political systems and the de-
+velopment of more advanced models. We show
+howpoliticalsciencetheorycanbeoperationalized
+atscaleusingcutting-edgemethodsinNLP,posi-
+Figure6: Heatmapofgovernmentalintentsacrosspol- tioningCAPC-CGasafoundationforresearchin
+icydomains
+adaptiveandcomparativepolicycommunication.
+
+=== PAGE BREAK ===
+
+Limitations Acknowledgments
+This material is based upon work supported by
+Weacknowledgethefollowinglimitations,which
+theNationalScienceFoundationunderAwardNo.
+alsopointtoavenuesforfutureresearch.
+2316967.
+First,ourcorpusissubjecttotheinherentchal-
+lengesofarchivalavailabilityandopacityincon-
+References
+temporaryChina. Althoughwehavesystematically
+compiledthemostcomprehensivecollectionpos- Kathleen Ahrens, Huiheng Zeng, and Shun-han Re-
+siblefrompublicandofficialdatabases,thecom- bekahWong.2018. UsingacorpusofEnglishand
+Chinesepoliticalspeechesformetaphoranalysis. In
+pletehistoricalrecordisnotfullyaccessible. No-
+Proceedings of the Eleventh International Confer-
+tably,numerousdocumentsfrompoliticallysensi-
+enceonLanguageResourcesandEvaluation(LREC
+tiveperiods,suchastheCulturalRevolution(1966- 2018), Miyazaki, Japan. European Language Re-
+1976), are intentionally withheld from the public sourcesAssociation(ELRA).
+domain or remain in undigitized archives. Con-
+YuenYuenAng.2016. HowChinaescapedthepoverty
+sequently,whileourdatasetrepresentsthefullest trap. CornellUniversityPress.
+publiclyavailablerecord,itcannotcapturetheen-
+YuenYuenAng.2024. Ambiguityandclarityinchina’s
+tiretyoftheCCP’sinternalpolicydiscourseduring
+adaptive policy communication. The China Quar-
+certain historical junctures. Our analysis should terly,257:20–37.
+therefore be understood as pertaining to China’s
+Yuen Yuen Ang. 2025. Adaptive political economy:
+public-facingpolicylandscape.
+Toward a new paradigm. World Politics, 77(1,
+Second,ourgold-standarddatasetwasannotated suppl.):51–67.
+by a small, dedicated team of three domain ex-
+RonArtsteinandMassimoPoesio.2008. Surveyarticle:
+pertsratherthanalargecrowdsourcedworkforce. Inter-coderagreementforcomputationallinguistics.
+This decision was necessitated by the significant ComputationalLinguistics,34(4):555–596.
+domain knowledge required to interpret Chinese
+Joachim Baumann, Paul Röttger, Aleksandra Urman,
+policylanguageandthecomplexityofourannota-
+Albert Wendsjö, Flor Miriam Plaza-del Arco, Jo-
+tionschema,whichdemandedanintensive,multi- hannesB.Gruber,andDirkHovy.2025. Largelan-
+month training period to ensure reliability. We guagemodelhacking: Quantifyingthehiddenrisks
+of using LLMs for text annotation. arXiv preprint
+deliberatelyprioritizedthequality,depth,andcon-
+arXiv:2509.08825.
+sistencyofannotationsoverthesheerquantityof
+annotators. The high inter-annotator agreement PlabanKumarBhowmick,AnupamBasu,andPabitra
+Mitra.2008. Anagreementmeasurefordetermining
+achieved (Fleiss’ Kappa = 0.864) validates this
+inter-annotatorreliabilityofhumanjudgementson
+expert-driven approach and the reliability of our
+affectivetext. InColing2008: Proceedingsof the
+data,thoughweacknowledgethatalargerpoolof WorkshoponHumanJudgementsinComputational
+annotators could have captured a wider range of Linguistics, pages58–65, Manchester, UK.Coling
+2008OrganizingCommittee.
+interpretations.
+Finally,althoughAppendixFextendstheevalua- AlanS.Blinder,MichaelEhrmann,MarcelFratzscher,
+JakobDeHaan,andDavid-JanJansen.2008. Central
+tiontoseveralrepresentativeopen-weightencoder-
+bankcommunicationandmonetarypolicy: Asurvey
+only and decoder-only models, our experiments
+oftheoryandevidence. NBERWorkingPaper13932,
+are still not exhaustive. Our primary goal was to NationalBureauofEconomicResearch.
+constructandpubliclyreleasetheCAPC-CGcor-
+Loren Brandt and Thomas G Rawski. 2008. China’s
+pus,andthemodelingexperimentsweredesigned
+greateconomictransformation. Cambridgeuniver-
+mainly to illustrate its utility rather than to per- sitypress.
+formafullycomprehensivebenchmarkingexercise.
+TomB.Brown,BenjaminMann,NickRyder,Melanie
+Evaluating a wider array of open-weight models,
+Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind
+adaptationstrategies,andhyperparametersettings Neelakantan,PranavShyam,GirishSastry,Amanda
+willfurtherstrengthenthebaseline. Wehopethat Askell, Sandhini Agarwal, Ariel Herbert-Voss,
+ourreleaseddatasetwillserveasastandardtestbed Gretchen Krueger, Tom Henighan, Rewon Child,
+Aditya Ramesh, Daniel M. Ziegler, Jeffrey Wu,
+for such comparative analyses, supporting more
+Clemens Winter, and 12 others. 2020. Lan-
+extensiveexplorationbythecomputationalsocial
+guage models are few-shot learners. Preprint,
+scienceandNLPcommunity. arXiv:2005.14165.
+
+=== PAGE BREAK ===
+
+JianghaoChen,PuJian,TengxiaoXi,DongyiYi,Qian- KennethLieberthalandMichelOksenberg.1988. Pol-
+long Du, Chenglin Ding, Guibo Zhu, Chengqing icyMakinginChina: Leaders,Structures,andPro-
+Zong,JinqiaoWang,andJiajunZhang.2023. Chi- cesses. PrincetonUniversityPress,Princeton,NJ.
+neseWebText: Large-scalehigh-qualitychineseweb
+textextractedwitheffectiveevaluationmodel. arXiv MitchellP.Marcus,BeatriceSantorini,andMaryAnn
+preprintarXiv:2311.01149. Marcinkiewicz.1993. Buildingalargeannotatedcor-
+pusofenglish: ThePennTreebank. Computational
+Tianqi Chen and Carlos Guestrin. 2016. Xgboost: A Linguistics,19(2):313–330.
+scalabletreeboostingsystem. InProceedingsofthe
+22nd ACM SIGKDD International Conference on CarloMerolaandJaspinderSingh.2025. Reconstruct-
+KnowledgeDiscoveryandDataMining(KDD’16), ingcontext:Evaluatingadvancedchunkingstrategies
+pages785–794,NewYork,NY,USA.ACM. forretrieval-augmentedgeneration. arXivpreprint
+arXiv:2504.19754.
+CorinnaCortesandVladimirVapnik.1995. Support-
+vectornetworks. MachineLearning,20(3):273–297. MichelOksenberg.1974. Methodsofcommunication
+withinthechinesebureaucracy. TheChinaQuarterly,
+QingxiuDong,LeiLi,DamaiDai,CeZheng,Jingyuan 57:1–39.
+Ma,RuiLi,HemingXia,JingjingXu,ZhiyongWu,
+Baobao Chang, Xu Sun, Lei Li, and Zhifang Sui. OpenAI.2024. GPT-4omini: Advancingcost-efficient
+2024. Asurveyonin-contextlearning. InProceed- intelligence. https://openai.com/index/
+ingsofthe2024ConferenceonEmpiricalMethods gpt-4o-mini-advancing-cost-efficient-intelligence/.
+inNaturalLanguageProcessing,pages1107–1128, Accessed: 2026-05-15.
+Miami,Florida,USA.AssociationforComputational
+Russell Richie, Sachin Grover, and Fuchiang (Rich)
+Linguistics.
+Tsui.2022. Inter-annotatoragreementisnottheceil-
+Xinrun Du, Zhouliang Yu, Songyang Gao, Ding Pan, ingofmachinelearningperformance:Evidencefrom
+Yuyang Cheng, Ziyang Ma, Ruibin Yuan, Xing- acomprehensivesetofsimulations. InProceedings
+wei Qu, Jiaheng Liu, Tianyu Zheng, Xinchen ofthe21stWorkshoponBiomedicalLanguagePro-
+Luo, Guorui Zhou, Wenhu Chen, and Ge Zhang. cessing,pages275–284,Dublin,Ireland.Association
+2024. Chinese Tiny LLM: Pretraining a chinese- forComputationalLinguistics.
+centric large language model. arXiv preprint
+arXiv:2404.04167. MarinaSokolovaandGuyLapalme.2009. Asystem-
+aticanalysisofperformancemeasuresforclassifica-
+XingyiDuan,BaoxinWang,ZiyueWang,WentaoMa, tiontasks. InformationProcessing&Management,
+Yiming Cui, Dayong Wu, Shijin Wang, Ting Liu, 45(4):427–437.
+TianxiangHuo,ZhenHu,HengWang,andZhiyuan
+Liu.2019. CJRC:Areliablehuman-annotatedbench- Bolun Sun, Yifan Zhou, and Haiyun Jiang. 2025.
+markdatasetforchinesejudicialreadingcomprehen- Empowering users in digital privacy management
+sion. InChineseComputationalLinguistics,pages throughinteractiveLLM-basedagents. InTheThir-
+teenthInternationalConferenceonLearningRepre-
+439–451.Springer.
+sentations.
+ConghuiHe,ZhenjiangJin,ChaoXu,JiantaoQiu,Bin
+Wang, Wei Li, Hang Yan, Jiaqi Wang, and Dahua Zhen Tan, Dawei Li, Song Wang, Alimohammad
+Lin.2023. WanJuan: Acomprehensivemultimodal Beigi, Bohan Jiang, Amrita Bhattacharjee, Man-
+datasetforadvancingenglishandchineselargemod- soorehKarami,JundongLi,LuCheng,andHuanLiu.
+els. arXivpreprintarXiv:2308.10755. 2024. Largelanguagemodelsfordataannotationand
+synthesis:Asurvey. InProceedingsofthe2024Con-
+Roderick D. Kiewiet and Mathew McCubbins. 1991. ferenceonEmpiricalMethodsinNaturalLanguage
+TheLogicofDelegation: CongressionalPartiesand Processing, pages 930–957, Miami, Florida, USA.
+theAppropriationsProcess. UniversityofChicago AssociationforComputationalLinguistics.
+Press,Chicago.
+TinaTseng,AmandaStent,andDomenicMaida.2020.
+GaryKing,PatrickLam,andMargaretE.Roberts.2017. Bestpracticesformanagingdataannotationprojects.
+Computer-assisted keyword and document set dis- arXivpreprintarXiv:2009.11654.
+coveryfromunstructuredtext. AmericanJournalof
+PoliticalScience,61(4):971–988. XiaoyuWang,HongZhao,WeichongZhang,andFang
+Wang. 2025. Improving the discourse parsing of
+PierreFLandry.2008. DecentralizedAuthoritarianism chinesegovernmentdocuments: Apolicy-basedrein-
+in China: the Communist Party’s control of local forcementlearningmethod. InformationTechnology
+elites in the post-Mao era. Cambridge University andManagement.
+Press.
+Shomir Wilson, Florian Schaub, Aswarth Abhilash
+TianxinLi,XigangKe,andHuiShi.2025. Topicmod- Dara, Frederick Liu, Sushain Cherivirala, Pedro
+eling and evolutionary trends of china’s language Giovanni Leon, Mads Schaarup Andersen, Sebas-
+policy: A LDA-ARIMA approach. PLOS ONE, tian Zimmeck, Kanthashree Mysore Sathyendra,
+20(5):e0324644. N. Cameron Russell, Thomas B. Norton, Eduard
+
+=== PAGE BREAK ===
+
+Hovy, Joel Reidenberg, and Norman Sadeh. 2016.
+Thecreationandanalysisofawebsiteprivacypolicy
+corpus. In Proceedings of the 54th Annual Meet-
+ingoftheAssociationforComputationalLinguistics
+(Volume1: LongPapers),pages1330–1340,Berlin,
+Germany.AssociationforComputationalLinguistics.
+ChaojunXiao, XueyuHu, ZhiyuanLiu, CunchaoTu,
+andMaosongSun.2021. Lawformer: Apre-trained
+languagemodelforchineselegallongdocuments. AI
+Open,2:79–84.
+ChaojunXiao,HaoxiZhong,ZhipengGuo,CunchaoTu,
+ZhiyuanLiu,MaosongSun,YansongFeng,Xianpei
+Han,ZhenHu,HengWang,andJianfengXu.2018.
+CAIL2018: Alarge-scalelegaldatasetforjudgment
+prediction. arXivpreprintarXiv:1807.02478.
+LiangXu,XuanweiZhang,andQianqianDong.2020.
+CLUECorpus2020: A large-scale chinese corpus
+for pre-training language model. arXiv preprint
+arXiv:2003.01355.
+FengYao,ChaojunXiao,XiaozhiWang,ZhiyuanLiu,
+LeiHou,CunchaoTu,JuanziLi,YunLiu,Weixing
+Shen,andMaosongSun.2022. Leven: Alarge-scale
+chineselegaleventdetectiondataset. arXivpreprint
+arXiv:2203.08556.
+YijiongYu,ZiyunDai,ZekunWang,WeiWang,Ran
+Chen,andJiPei.2025. OpenCSGChineseCorpus:
+A series of high-quality chinese datasets for LLM
+training. arXivpreprintarXiv:2501.08197.
+Sha Yuan, Hanyu Zhao, Zhengxiao Du, Ming Ding,
+XiaoLiu,YukuoCen,XuZou,ZhilinYang,andJie
+Tang. 2021. WuDaoCorpora: A super large-scale
+chinesecorporaforpre-traininglanguagemodels. AI
+Open,2:65–68.
+
+=== PAGE BREAK ===
+
+A AppendixRoadmapandCorpus containnoactionabledirectives. Theseparagraphs
+Workflow typically include background information, ideo-
+logicalslogans,personnelnotices,logisticalnotes,
+Thissectionprovidesaroadmaptothesupplemen-
+instructionstargetingnon-stateactors.
+tary materials and a high-level overview of the
+end-to-end CAPC-CG construction process. Ap- B.3 CodingPrinciples
+pendix B summarizes the annotation codebook,
+1. Recipient principle: All directives should be
+AppendixCdetailsthesegmentationpipeline,Ap-
+readfromtheperspectiveofstateactors. Instruc-
+pendixDreportsthepromptsusedforannotation
+tionsdirectedsolelyatindividuals,enterprises,
+and model training, and Appendix E records the
+orsocialgroupswithoutassigningbureaucratic
+corefine-tuningsettings. Thelatersectionsprovide
+tasksarenotconsidereddirectives.
+extended benchmark results, bilingual examples,
+benchmarkerroranalysis,schemadocumentation, 2. Clarity vs. specificity: Code for clarity of in-
+topic-modelingdetails,andadditionaldescriptive tent, not specificity of detail. A directive may
+statistics. Figure 7 presents the overall workflow expressaclearpurposewhileremainingvague
+thatconnectsthesecomponents. initsimplementation,orcontainextensivede-
+tailsyetlackaclearunderlyingintent.
+B CodebookandAnnotationProcess
+3. Avoidkeyword-onlytagging: Keywordslike
+B.1 PurposeandScope
+must, flexible, or forbid can serve as helpful
+To enhance comprehension, this appendix con-
+cues, but they should never be used mechani-
+cisely describes our codebook and workflow for
+callyortreatedasthesolecriteria.
+annotating policy directives in the form of three
+typesofcentralpolicydocuments,issuedbetween B.4 Step-by-StepWorkflow
+1949and2023: (i)NationalLaws,(ii)Administra-
+Thissectionoutlinesourworkflowinatwo-round
+tiveRegulations,and(iii)MinisterialRules.
+annotationprocess.
+B.2 Theory
+Step1: AssignLevel1Label(W/R/N) Deter-
+Adaptivepolicycommunicationistheoryofgover- minewhethertheparagraphbelongsto:
+nanceundercomplexity,proposedbyAng(2016),
+• W(White): Directiveforactions(B,Y,C,G)
+whichexplainshowleaderssteerpolicyimplemen-
+tationbycombiningclearandambiguousinstruc-
+• R(Red): Prohibition
+tions. BuildingonAng(2024),weannotatepolicy
+directivesaroundafive-colortypology: • N(None): Nodirective
+• Red (R): Clear prohibition; often accompa- Step 2: If W, identify B / Y / C / G / U If the
+niedbypenaltiesforviolations. paragraphclearlyfitsonecategory,labelitasR,B,
+Y,CorG.Iftheparagraphcontainsmixedsignals,
+• Black (B): Clear authorization, approval, or
+applytheProportionMethod:
+assignmentofresponsibility.
+• Breaktheparagraphintoindividualsentences
+• Yellow (Y): Clear mandates with urgency
+or intense pressure; often accompanied by • Assignacolorsignaltoeachsentence
+bindingtargets,deadlines,orperformancere-
+views. • Label the entire paragraph based the color
+signalwiththelargestproportion
+• Charcoal(C):Clearmandatestoimplement
+policies flexibly (e.g. experiments and local Step3: UseU(Unsure)onlywhennecessary
+adaptation).
+• AssignUonlyiftheparagraphcannotbecon-
+• Grey (G): Ambiguous language or hedging fidently labeled after applying the first two
+policyintentions steps.
+In addition to this five-color typology, we in- • Use U as a last resort. Do not assign U to
+troduce the label N to designate paragraphs that avoiddifficultjudgments.
+
+=== PAGE BREAK ===
+
+Figure7: OverallWorkflow
+B.5 DataSchema by using the LLM solely for structural identifica-
+tion,whileadeterministicscriptperformsthefinal
+Foreachparagraph,record:
+segmentation.
+• DocumentIDandParagraphID
+C.1 CorpusDescription
+• Level1label: W/R/N
+Thecorpustowhichthispipelinewasappliedcon-
+• Level2label: B/Y/C/G/U sistsof337,038Chinesepolicydocumentsissued
+between1949and2023. Thedocumentsfallinto
+• Optionalnotes(briefrationale/phrase) threemaincategories:
+• Recommendedmetadata: documenttype,is-
+• AdministrativeRegulations: 11,621documents
+suing unit, receiving unit (if any), abbrevia-
+tion/number,title,year. • MinisterialRules: 322,280documents
+B.6 IntendedUse • NationalLaws: 3,137documents
+Thiscodebookundergirdsreliablehumanannota-
+C.2 CostOptimization
+tion,supportstransparencyforexternalresearchers
+andMLcollaborators,andfacilitatesaggregation A central design goal was to mitigate API costs.
+fordownstreammodeling. Thiswasachievedbyarchitectingthepipelineto
+minimizetheexpensivedatatransferintheLLM’s
+C SegmentationMethod
+output. Tofullyappreciatetheinnovation,wecon-
+trastourimplementedpipelinewithastandard,un-
+Thisappendixprovidesacomprehensivetechnical
+optimizedapproach.
+descriptionofthetwo-stagecomputationalpipeline
+developedtosegmentthecorpusofChinesepolicy
+C.2.1 Hypotheticalun-optimizedpipeline
+documents. Theprimaryobjectiveofthismethod-
+A standard approach would involve sending the
+ology is to partition each document into discrete,
+rawdocumenttexttotheLLMandinstructingitto
+semanticallycoherent,andatomicunitsofpolicy
+returnthefulltextwithinsertedsegmentationtags.
+prescription. This process is foundational to our
+Theprocessisasfollows:
+research, as it ensures that subsequent quantita-
+tiveanalysesarebasedonconsistentandreplicable
+1. API Call: Send the entire raw text of docu-
+data, free from the non-deterministic artifacts of
+ment.txttotheLLM.
+purelygenerativeapproaches.
+The core challenge this pipeline solves is the 2. LLMTask: TheLLMinternallyprocessesthe
+inherent unreliability of using an LLM alone for text and embeds XML tags (e.g., <L1>...) di-
+segmentation. A standalone LLM exhibits non- rectlyintothecontent.
+deterministicbehavioronhierarchicaltext,making
+itunsuitableforresearchrequiringreplicabledata 3. LLMOutput: TheLLMreturnsthecomplete,
+processing. Our hybrid approach overcomes this modifiedtextasitsresponse.
+
+=== PAGE BREAK ===
+
+Cost analysis At the project’s pricing of C.3 PipelineWorkflow
+$0.20/1Minputand$0.80/1Moutputtokens,this
+Figure 8 illustrates the end-to-end process, from
+modelisprohibitivelyexpensive. Theoutputtoken
+rawtextfiletofinalsegmentedoutput.
+count is nearly identical to the input count, and
+outputtokensarefourtimesmorecostly. Thetotal
+costforasingledocumentwouldbeapproximately:
+Costun-optimized≈(Tokensinput×$0.20)+(To-
+kensoutput×$0.80)
+SinceTokensoutput≈Tokensinput,thecostis
+dominatedbytheoutput,makingtheprocessfive
+timesmoreexpensivethanjustreadingtheinput.
+C.2.2 Implementedoptimizedpipeline
+Ourimplementedpipelinefundamentallychanges
+the LLM’s task from "text editor" to "structural
+analyst," shifting the workload locally to reduce
+APIcosts. Theprocessisasfollows:
+1. Local Pre-processing: A Python script first
+adds <line #> markers to the document text.
+This step happens locally and incurs no API
+cost.
+2. APICall: SendthenumberedtexttotheGPT-
+4.1-mini-2025-04-14 model via the OpenAI
+BatchAPI.
+Figure8: SegmentationWorkflow
+3. LLMTask: TheLLM’sonlytaskistoidentify
+structuralelementsandoutputacompactJSON
+file listing labels and their corresponding line
+C.3.1 Stage1: LLM-BasedStructural
+numbers.
+Tagging
+4. Local Reconstruction: A local script merges ThisstageisorchestratedbyamasterPythonscript
+the LLM’s JSON output with the original text leveraging the OpenAI and tiktoken libraries. It
+filetocreatetheXML-taggeddocument. preparesfiles,submitsthemtotheBatchAPI,and
+monitors their progress. The core instruction is
+Cost analysis This architecture transforms the
+contained within the system prompt provided to
+cost equation. The output is now a very small
+theGPT-4.1-mini-2025-04-14model:
+JSON object, typically only 5-10% of the input
+token size. The total cost is: Cost optimized ≈
+您是专门用于对中文法律文件进行结构化分
+(Tokensinput×$0.20)+(TokensJSON×$0.80)
+析的AI助理。您的任务是识别文本中的特定
+Thisworkflownearlyeliminatestheexpensive
+段落，并根据其内容和结构进行分类。输入
+outputtokencost,makingtheentireprocessvastly
+文本的每一行都以<line#>作为前缀。核心目
+moreeconomical.
+标：隔离层级列表项 (L#标签) 和无意义的样
+C.2.3 Results 板文本(NEUTRAL_CONTENT标签)，同时保
+Thecost-optimizationstrategywasexceptionally 留有意义的散文段落不进行标记，以供后续分
+effective. Thetotalexpenditureforprocessingthe 析。
+corpuswas$294.99. Incontrast,theun-optimized 输出要求：您的输出必须是一个JSON对
+pipeline, with its 1:1 input-to-output token ratio, 象。此对象包含一个名为“segments”的键，
+wouldhaveincurredanestimatedcostof$1,061.30. 其值为一个数组。数组中的每个对象都应包
+Ourimplementedpipelinethereforeachievedaver- 含：“label”: (string)必须是“L1”,“L2”,“L3”,...,
+ifiablecostreductionof72.20%. Thepipelinewas 或 “NEUTRAL_CONTENT”。“line_numbers”:
+validatedthroughaniterativeprocessofexpertre- (array of integers) 与该标签对应的原始行号列
+view. 表。
+
+=== PAGE BREAK ===
+
+标记规则：层级标签 (L#): 使用 L1、L2 等 HierarchicalAscent Abreakisinsertedifthe
+标签来标记结构化的、有编号或有字母的列表 hierarchicallevelofthecurrenttagisthesame
+项。以第#条开头的列表项是最高层级，必须 as or higher than the previous tag (e.g., <L2>
+标记为L1。 to<L2>,or<L3>to<L2>). Thisrulecorrectly
+中性内容(NEUTRAL_CONTENT):仅用于标 isolatesself-containedarticlesormajorsections.
+记客观的、程序性的、或不具有任何分析意义
+或情感色彩的样板文本。包括但不限于：文件 Punctuation Exception A break is sup-
+标题、文首、目录、人名、引用编号、称呼、 pressed if the preceding text block ends with
+结尾落款和日期、简单的项目列举。 a joining punctuation mark (‘,’, ‘；’, ‘,’, ‘;’)
+不标记的内容: 提供解释、推理、条件或背 and the next tag is at the same level. This so-
+景信息且不属于列表结构的散文段落，被视为 phisticated rule prevents the fragmentation of
+有意义的内容。这些段落必须保持不标记。最 compoundsentencesandrelatedclauses.
+终指令：严格按照上述规则分析提供的文本，
+并仅返回一个JSON对象。不要包含任何额外
+C.4 ValidationandPerformance
+的解释或评论。
+Thesegmentationpipelinewasvalidatedthrough
+C.3.2 Stage2: Rule-BasedAnalysisand a detailed manual review process. We randomly
+Segmentation selectedasetofdocumentsandcomparedthere-
+sultsofmachine-basedsegmentationandmanual
+ThesecondstageusesalocalPythonscriptthatre-
+segmentationbytwoResearchAssistantswithad-
+liesontheBeautifulSouplibrarywiththelxml-xml
+vancedbackgroundknowledgeinChinesepolitics.
+parser. Thisstageperformstwodistinct,sequential
+Theprimarycriterionforevaluationwasseman-
+tasks: first, itanalyzes thedocument’s content to
+ticcoherence,specificallyassessingwhethereach
+generate metadata, and second, it applies a deter-
+segmentservedasacompleteandintelligibleunit
+ministicrulesettoperformthefinalsegmentation.
+ofpolicyinformation. Eachparagraphwasmarked
+1. Metadata Generation: Heuristic Content
+as"Yes"foraccurateor"No"forinaccurate,allow-
+Analysis
+ingforthecalculationofaccuracyrates.
+Before segmentation, the script first analyzes The results demonstrated impressive accuracy,
+thetaggeddocumenttodetermineitsmostsub- with 96.7% for Ministerial Rules and 98.25%
+stantively important structural layer. This is for National Laws, providing strong evidence of
+achievedbyscoringthecontentwithineachhi- thevalidationandreliabilityofoursegmentation
+erarchical layer (e.g., all L1 tags, all L2 tags) methodology.
+basedonasetofheuristicparameters. Thegoal
+ofthisstepistoproduceasinglepieceofmeta- D PromptsforAnnotation
+data—the"optimalsegmentationlayer"—which
+D.1 Level-1(W/R/N)Prompt
+issavedintheheaderoftheoutputfilesforpo-
+角色：你是一名“政策信号一级标注员”。
+tentialuseinlateranalysis.
+Thisscoringprocessisgovernedbytunablepa-
+任务：对给定中文政策文档段落分类标注：
+rametersinTable6.
+2. FinalSegmentation: DeterministicRuleAp- W = 段落中存在对政府/公共部门的肯定性行
+plication 动指令（包含任何“要/应/负责/建立/加强/推
+进/组织/指导/监督/落实/制定/完善/开展/实
+Afterthemetadatahasbeengenerated,asepa-
+施/安排”等对政府主体布置的任务或授权）。
+rate function performs the final, deterministic
+segmentation. This process does not use the
+R=段落中存在对政府/公共部门的禁止性指令
+heuristicscoringparametersabove. Instead,it
+（如“严禁/不得/禁止/停止......（由政府或其
+insertssegmentbreaksbasedonthefollowing
+部门）”）或对政府及公职人员的违法行为进
+purelystructuralrules:
+行处罚。
+StructuralChange Abreakisinsertedwhen
+transitioningbetweenacontenttag(e.g.,<L1>) N=无指令（仅背景介绍、原则口号、定义释
+anda<NEUTRAL_CONTENT>tag. Thisiso- 义、程序性条款、日期/效力条款、对非国家
+latessubstantivepolicyfromboilerplate. 主体的要求而未同时对政府布置任务或责任的
+
+=== PAGE BREAK ===
+
+Parameter Value Rationale
+COLOR_DIVERSITY_WEIGHT 3.0 Emphasizesthepresenceofaction-orientedkeywords.
+LENGTH_WEIGHT 0.5 Favorslonger,moresubstantivetextblocks.
+LAYER_PENALTY_FACTOR 1.5 Penalizesdeeperlayers(L3,L4),creatingabiasforhigher-levelstructure.
+MIN_LENGTH_THRESHOLD 15.0 Minimumcharactercountforablocktobeconsideredscore-worthy.
+CHINESE_ACTION_WORDS 12.0 Setofkeywordsindicatingpolicyinstructionsorlegalmandates:"必须","应","须",
+"可以","可","建议","宜","不得","禁止","严禁","立即","紧急"
+Table6: ParametersandWeightsDescription
+内容）。 / implement / formulate / improve / carry out /
+execute/arrange,”etc.).
+受众原则（极其重要）：只统计指向政府及其
+附属公共机构（包括国务院各部委、地方政 R=Theparagraphcontainsprohibitivedirectives
+府、监管机构、事业单位等）的行动/禁止为 directed at the government/public sector (e.g.,
+指令。 “strictly prohibit / must not / forbidden / stop ...”
+by government or its departments), or imposes
+仅限制或要求企业、个人或社会组织，而没有 penaltiesonillegalactionsbygovernmentofficials
+同时给政府安排任务或责任，则记为 N orpublicinstitutions.
+若同时出现：例如“企业不得......；主管部门 N = No directive (e.g., background information,
+要加强监管......”，则本段视为存在对政府的 general principles or slogans, definitions, pro-
+指令，进入W或R的判断。 cedural clauses, date/effectiveness clauses, or
+requirements directed only at non-state actors
+政府/公共部门的定义为中央或地方政府、公 without assigning tasks or responsibilities to the
+职人员或承担了国家分配的任务的附属机构 government).
+不要只看关键词：是否出现“必须/可以/鼓 Audience Principle (critically important): Only
+励/不得”等词不等于对应标签，必须结合主语 count actions or prohibitions directed at the
+是否为政府/公共机构与句子功能来判断。 government and its affiliated public institutions
+(including central ministries, local governments,
+例如：“企业必须符合××条件方可办理”，若 regulatory agencies, and public service units) as
+仅针对企业且未布置政府任务，则记为 N directives.
+输出要求：只输出最终的结果W/N/R If the paragraph only restricts or requires en-
+terprises, individuals, or social organizations,
+待判断政策内容如下： withoutassigninganytaskorresponsibilitytothe
+government,labelitasN.
+«待判断政策段落»
+If both appear, e.g., “Enterprises must not ...;
+Role: Youarea“first-levelpolicysignalannotator.” supervisoryauthoritiesshouldstrengthenoversight
+...”, thentheparagraphisconsideredtocontaina
+Task: ClassifythegivenChinesepolicydocument government directive and should be classified as
+paragraphintooneofthefollowingcategories: WorR.
+W = The paragraph contains affirmative action DefinitionofGovernment/PublicSector: Central
+directivesdirectedatthegovernment/publicsector orlocalgovernments,publicofficials,oraffiliated
+(includinganyassignmentoftasks,responsibilities, institutionsthatundertakestate-assignedresponsi-
+or authorization to government actors, such bilities.
+as “should / shall / responsible for / establish /
+strengthen/promote/organize/guide/supervise Important Instruction: Do not rely solely on
+
+=== PAGE BREAK ===
+
+keywords. Thepresenceofwordslike“must/may «待判断政策段落»
+/ encourage / must not” does not determine the
+label. Youmustconsiderwhetherthesubjectisa Role: Youarea“first-levelpolicysignalannotator.”
+government/publicinstitutionandthefunctionof
+thesentence. Task: ClassifythegivenChinesepolicydocument
+paragraphintooneofthefollowingcategories. The
+Example: “Enterprises must meet certain condi- paragraphhasalreadybeenidentifiedascontaining
+tionsbeforeapproval”;ifitonlytargetsenterprises an affirmative policy directive. Your task is to
+and does not assign any task to the government, furtherdeterminewhichtypeofsignalitrepresents:
+labelitasN.
+B(Black,“youcan”)=Explicitapproval,endorse-
+OutputRequirement: Outputonlyonelabel: W/ ment, or neutral deployment (e.g., “establish /
+N/R promote / build / implement”), without strong
+enforcement pressure, no flexibility, and no
+Policyparagraphtoclassify: ambiguity.
+<Policyparagraph> Y(Yellow,“youmust”)=Directivewithclearpres-
+sureorurgency,requiringstrictorcomprehensive
+implementation. Common expressions include
+D.2 Level-2(B/Y/C/G)Prompt
+“graspfirmly/assoonaspossible/promptly/must
+角色：你是一名“政策信号一级标注员”。 /strictlyimplement/fullyimplement.” Inclusion
+in evaluation, accountability, or auditing also
+任务：对给定的中文政策文档段落进行分类 countsasY.Important: If“must”isusedonlyas
+标注, 该段落已经被判定为含有肯定性政策指 aconditionoreligibilityrequirement(e.g.,“must
+令，请你进一步判断它属于以下哪一类信号： meetconditionstoapply”),itdoesnotcountasY.
+B（Black，你可以）：明确同意、批准或中性 C(Charcoal,“youshoulddoflexibly”)=Directive
+部署（如“建立/推进/构建/实现”），没有强制 is clear, but emphasizes flexible implementation
+性、没有因地制宜的灵活性、也不含糊。 paths,suchas“adapttolocalconditions/multiple
+forms / pilot programs / experimentation / learn
+Y（Yellow，你必须）：带有明显压力或紧迫 andadjust/feedbackmechanisms.”
+性，要求全面落实或严格执行，常出现“抓
+紧/尽快/及时/必须/严格执行/全面落实”等； G (Grey, “you may or may not do”) = Vague,
+纳入考核、问责、审计也属于 Y。注意：如 ambiguous, or conditional directives. Common
+果“必须”只是作为条件或资格要求（例如“必 expressions include “under the premise that...”,
+须符合条件方可申请”），则不算Y。 “moderately”,“whereconditionspermit”,“may”,
+“encourageexploration”,“graduallypromote”,and
+C（Charcoal，你应当灵活地做）：指令明 “resolvethroughconsultation.” Insuchcases,the
+确，但强调“因地制宜、多种形式、试点示 subjectorlevelofenforcementisunclear.
+范、先行先试、借鉴与反馈”等灵活路径或差
+异化方式。 OutputRequirement: Outputonlyonelabel: B/Y
+/C/G
+G（Grey，你可能做也可能不做）：含糊、模
+糊或保留条件的指令，常见表达包括“在...前 Policyparagraphtoclassify:
+提下” “适度” “具备条件的” “可” “鼓励探索”
+“逐步推进” “协商解决”等，主体或强度不清 <Policyparagraph>
+晰。
+E ReproducibilityDetails
+输出要求：只输出最终的结果B/Y/C/G
+GPT-4o-mini fine-tuning We fine-tuned
+待判断政策内容如下： GPT-4o-mini using the OpenAI fine-tuning
+API with n_epochs=3, batch_size=auto, and
+
+=== PAGE BREAK ===
+
+learning_rate_multiplier=auto. The gold- F ExtendedBenchmarkResults
+standard annotation set contains 6,000 examples
+This section reports the broader benchmark that
+and was split 80/20 into training and validation
+complements the selected main-text tables. In
+subsets. Final evaluation was conducted on a
+addition to traditional ML baselines and API-
+held-outtestsetof1,901examples.
+basedprompting,weevaluatedrepresentativeopen-
+Forbothtrainingandinference,weusedtheprompt
+weightmodelsundersupervisedfine-tuning: one
+templatesreportedinAppendixD.Themodelwas
+encoder-onlymodel(BERT-base-Chinese)andtwo
+required to return exactly one valid label per in-
+decoder-onlymodels(Qwen2.5-7BandLlama-3-
+stance. We normalized minor output-formatting
+8B).Detailedoptimizationsettingsarereportedin
+variants in post-processing so that predictions
+AppendixE.ForLevel-1,evaluationusestheheld-
+mapped cleanly onto the valid label sets {W, R,
+out 1,901-example test set with its natural class
+N}forLevel-1and{B,C,G,Y}forLevel-2.
+distribution. ForLevel-2,evaluationusesthe400-
+Extended open-weight benchmark configura- examplebalancedvalidationsplitavailableforthis
+tion The broader benchmark reported in Ap- task,becauseaseparateheld-outtestsetisnotyet
+pendix F used a common local training setup available.
+across supervised baselines. Unless otherwise
+F.1 Level-1FullBenchmark(R/W/N)
+noted, models were trained with AdamW, max-
+imum sequence length 512, warmup_ratio=0.1, Table7reportsthecompleteLevel-1comparison.
+weight_decay=0.01,andearlystoppingwithpa- Amongopen-weightmodels,BERT-base-Chinese
+tience 2 on macro-F1. Traditional ML baselines and Llama-3-8B deliver the strongest Level-1 re-
+usedTF-IDFfeatureswith1–2gramsanda5,000- sults, substantially outperforming zero-shot API
+featurecap;theSVMbaselineusedalinearkernel baselinesandtraditionalML.BERT-base-Chinese
+withC=1,andXGBoostused200treeswithmaxi- is especially competitive given its small size and
+mumdepth6. fullreproducibility,whileGPT-4o-minifine-tuning
+still achieves the highest Kappa overall, indicat-
+Open-weight model settings For BERT-base- ingtheclosestagreementwithexpertlabelsonthe
+Chinese,weusedfull-parameterfine-tuningwith natural-distributiontestset. Acrossmodelfamilies,
+learning rate 2e-5, batch size 16, and 4 epochs. theminorityRclassremainsthemainbottleneck.
+For Qwen2.5-7B and Llama-3-8B, we used
+QLoRAwith4-bitNF4quantization,LoRArank F.2 Level-2FullBenchmark(B/C/G/Y)
+r=16, alpha=32, dropout=0.05, target modules Table 8 reports the full Level-2 comparison, and
+[q,k,v,o]_proj, learning rate 1e-4, effective Table9reportsper-classrecall.
+batch size 16, and 3 epochs. For the Level-2 lo- BERT-base-Chineseisthestrongestopen-weight
+calbenchmark,weusedbf16trainingandgradient model on Level-2, outperforming both 7B/8B
+checkpointingfortheQLoRAmodels. LocalLevel- QLoRAbaselinesinKappa,Accuracy,andMacro-
+2fine-tuningusedtheparagraphtextasmodelinput F1. Evenso,fine-tunedGPT-4o-miniremainsbest
+and the gold label as target, omitting the system overall. The gap is driven primarily by the Grey
+promptcontainedintheoriginalJSONLfiles. (Ambiguous) class: GPT-4o-mini reaches 84.0%
+recallonG,comparedwith71.0%forBERT-base-
+Benchmark-specific data splits The extended
+Chineseand72.0%forLlama-3-8B.Thisdifficulty
+benchmarkreliesonbenchmark-specificsplitsin
+inseparatingambiguityfromflexibleimplementa-
+addition to the main GPT-4o-mini training setup
+tionisthemainreasonwekeepGPT-4o-miniasthe
+above. For Level-1, the open-weight benchmark
+productionmodelinthemaintextdespiteBERT’s
+used600balancedtrainingsamples,300balanced
+strongopen-weightperformance.
+validationsamples,andaheld-out1,901-example
+testsetwithnaturallabeldistribution. ForLevel-2, G BilingualAnnotatedExample
+theopen-weightbenchmarkused1,200balanced
+G.1 R(Red-Prohibitive)
+trainingsamplesanda400-examplebalancedval-
+idation/evaluation split (100 instances per class). Chinese:
+Becauseaseparateheld-outLevel-2testsetisnot 地方党委和政府要落实属地责任，严格执行国
+yetavailable,that400-examplesplitservesasthe 家统一的防控政策，严禁随意封校停课、停工
+reportedevaluationsetinAppendixF. 停产、未经批准阻断交通、随意采取“静默”管
+
+=== PAGE BREAK ===
+
+Model Method Kappa Acc. R-F1 W-F1 N-F1 M-F1
+TraditionalML
+XGBoost TF-IDF 0.153 0.487 0.233 0.538 0.488 0.420
+SVM TF-IDF 0.175 0.508 0.260 0.539 0.527 0.442
+API-basedbaselines
+DeepSeek-V3 Zero-shot 0.481 0.733 0.438 0.613 0.815 0.622
+Qwen3-235B Zero-shot 0.570 0.780 0.561 0.705 0.834 0.700
+GPT-4o-mini Zero-shot 0.618 0.793 0.482 0.721 0.873 0.692
+GPT-4o-mini Few-shot(k=3) 0.686 0.830 0.489 0.786 0.898 0.724
+GPT-4o-mini Few-shot(k=6) 0.659 0.816 0.512 0.763 0.883 0.719
+GPT-4o-mini Fine-tuning 0.841 0.910 0.677 0.905 0.952 0.844
+Open-weightsupervisedbaselines
+Qwen2.5-7B QLoRA 0.689 0.824 0.637 0.816 0.859 0.771
+Llama-3-8B QLoRA 0.788 0.882 0.763 0.872 0.906 0.847
+BERT-base-Chinese FullFT 0.817 0.897 0.718 0.894 0.926 0.846
+Table7: FullLevel-1benchmarkontheheld-out1,901-exampletestset.
+Model Method Kappa Acc. B-F1 Y-F1 C-F1 G-F1 M-F1
+Qwen2.5-7B QLoRA 0.757 0.818 0.941 0.890 0.746 0.684 0.816
+Llama-3-8B QLoRA 0.760 0.820 0.897 0.880 0.775 0.731 0.821
+BERT-base-Chinese FullFT 0.800 0.850 0.923 0.900 0.824 0.747 0.849
+GPT-4o-mini Fine-tuning 0.833 0.875 – – – – –
+Table8: Level-2benchmarkonthe400-examplebalancedevaluationsplit. GPT-4o-minisourcelogsreportKappa
+andAccuracybutnotper-classF1.
+理、随意封控、长时间不解封、随意停诊等各 English:
+类层层加码行为。 Build urban big data platforms and establish
+integrated management systems that combine
+English: heterogeneousdatasources,enablingcomprehen-
+Local Party committees and governments must sive monitoring of infrastructure and ecological
+fulfill territorial responsibilities and strictly elements, as well as deeper understanding of
+implement unified national prevention and complexurbansystems.
+control policies. They are strictly prohibited
+from arbitrarily closing schools, suspending Rationale:
+work and production, blocking transportation This is labeled as B because it authorizes and
+withoutapproval,imposingso-called“lockdown” assigns routine administrative tasks to promote
+management at will, or extending restrictions smartcities.
+withoutjustification.
+Rationale: G.3 C(Charcoal-Flexible)
+ThisislabeledasRbecauseitexplicitlyprohibits
+Chinese:
+specificgovernmentactionsusingstrongnegative 各级人民政府和有关部门应当采取多种形式，
+directives such as 严禁, indicating clear restric- 培养和训练幼儿园、托儿所的保教人员，推动
+tionsonadministrativebehavior. 建立以专职为主、专兼结合、数量充足、结构
+合理、素质优良的保教人员队伍。
+G.2 B(Black-Authorizing)
+English:
+Chinese: Governmentsatalllevelsandrelevantdepartments
+建设城市大数据平台，构建多元异构数据融合 should adopt multiple forms of approaches to
+的城市运行管理体系，实现对城市基础设施和 train and develop personnel in kindergartens
+城市绿地、湿地等重要生态要素的全面感知以 and childcare institutions, and promote the
+及对城市复杂系统运行的深度认知。 establishment of a workforce that is primarily
+full-time, complemented by part-time staff, with
+
+=== PAGE BREAK ===
+
+Model BRecall YRecall CRecall GRecall
+Qwen2.5-7B 96.0% 89.0% 78.0% 64.0%
+Llama-3-8B 87.0% 88.0% 81.0% 72.0%
+BERT-base-Chinese 90.0% 95.0% 84.0% 71.0%
+GPT-4o-mini 92.0% 89.0% 85.0% 84.0%
+Table9: Level-2per-classrecall/accuracy. Becausetheevaluationsplitisbalancedwith100examplesperclass,
+recallequalsper-classaccuracy.
+sufficientnumbers,awell-balancedstructure,and clearlytargeted,tasksmustbecloselytracked,and
+highprofessionalquality. implementationmustbecarriedoutinarigorous
+andpersistentmanner,seeingtheblueprintthrough
+Rationale: totheend.
+This is labeled as C because it contains “should”
+(应当),whichsignalsadirective,while“multiple Rationale:
+forms” (多种形式) grants flexibility in how to ThisislabeledasYbecauseituseshigh-pressure
+achieveit. and imperative language, including 必须 and 紧
+盯任务,signalingstrongenforcement,leadership
+responsibility, and a focus on ensuring full goal
+G.4 G(Grey-Ambiguous) completion.
+Chinese:
+各地在疫情发生后，要及时划定高风险区...
+H BenchmarkError
+在疫情传播风险不明确或存在广泛社区传播的
+情况下，可适度扩大高风险区划定范围。 During the first round of coding, our accuracy
+reached 90.85% across a total of 1,901 manually
+English: labeled paragraphs in the validation set, making
+Afteranoutbreakoccurs,localauthoritiesshould 174 errors in total. Our model performs best on
+promptly designate high-risk areas. When trans- Rwith95.6%accuracy,andNcategorywith92%
+missionrisksareunclearorwidespreadcommunity accuracy,withWlaggingslightlybehindat88.7%
+transmission exists, the scope of high-risk areas accuracy. Thelargesterrortypeismisclassifying
+maybemoderatelyexpanded. W as R, which alone accounts for 43.7% of all
+mistakes, followed by misclassifying N as W
+Rationale: (31.6% of all mistakes) misclassifying N as R
+This is labeled as G because, although “should (14.9%), and W as N (6.9%). Taken together,
+promptly”(要及时)indicatesanexpectedaction, themodel reflectsa tendencyto overestimate the
+the qualifier “may be moderately” (可适度) numberofRandunderestimateN.Thefollowing
+introducesambiguityanddiscretion. areafewrepresentativeerrorsforeacherrortype.
+W→RThemodelmisinterpretsstatementsabout
+G.5 Y(Yellow-Pressuring) governmentauthorityorresponsibilitiesasprohibi-
+Chinese: tionsagainstgovernmentactions. Insimpleterms,
+新一代人工智能发展规划是关系全局和长远的 itmistakesanauthorizationtopunishwrongdoing
+前瞻谋划。必须加强组织领导，健全机制，瞄 foraprohibitiononstateaction.
+准目标，紧盯任务，以钉钉子的精神切实抓好
+• 全国人民代表大会有权罢免国务院组成
+落实，一张蓝图干到底。
+人员、最高人民法院院长和最高人民检察
+院检察长。TheNationalPeople’sCongress
+English:
+hasthepowertoremovemembersoftheState
+Thedevelopmentplanfornext-generationartificial
+Council, the President of the Supreme Peo-
+intelligenceisaforward-lookingstrategythatbears
+ple’sCourt,andthePresidentoftheSupreme
+ontheoverallsituationandlong-termdevelopment.
+People’sProcuratorate.
+Organizational leadership must be strengthened,
+mechanisms must be improved, goals must be • 故意毁损人民币的，由公安机关给予警
+
+=== PAGE BREAK ===
+
+告，并处1万元以下的罚款。Forintention- • 人民武装警察部队应当根据执行任务的
+ally damaging RMB, the public security au- 需要，加强教育和训练。 The People’s
+thorityshallissueawarningandmayimpose ArmedPoliceshallstrengtheneducationand
+afineofupto10,000yuan. trainingaccordingtooperationalneeds.
+N→WThemodelmistakesgenerallegalproce- G→Cerrorsarisewhenthemodelconfusescon-
+dures,obligationsforprivateactors,orbackground ditional and restricted implementation with flexi-
+descriptionsforgovernmentdirectives. bility.
+• 调解委员会调解劳动争议，应当自当事人 • 推广农业技术，应当选择有条件的农
+申请调解之日起三十日内结束。A media- 户......进行示范。Agriculturaltechnology
+tioncommitteeshallconcludethemediation should be promoted... through demonstra-
+ofalabordisputewithinthirtydaysfromthe tionamongsuitablefarmersorregions.
+datethepartyappliesformediation.
+C → Y errors occur when the model mistakes
+• 中国公民因公务出境和中国海员因执行 multi-stage targets for strict mandatory enforce-
+任务出境管理办法，另行制订。Therules ment,readingphasedrolloutasurgency.
+governingtheofficialoverseastravelofChi- • 加强调研，为全面推进农村信用社管理
+nesecitizensandtheoutboundtravelofChi- 体制改革做好准备。各分支行和农村信
+nese seafarers performing duties will be for- 用社联合组织要围绕当地农村信用社改
+mulatedseparately. 革和发展中的突出问题，做一些力所能及
+的调查。Strengthen research to prepare for
+N→RThemodelmistakesprohibitionsonbehav-
+thecomprehensivereformoftheruralcredit
+iors of private actors for prohibitions on govern-
+cooperativemanagementsystem. Branchof-
+mentactions.
+ficesandruralcreditcooperativefederations
+• 代表机构应当遵守中国法律，不得 shouldconductinvestigationswithintheirca-
+损 害 中 国 国 家 安 全 和 社 会 公 共 利 pacityonprominentissuesinthereformand
+益。Representativeoffices(offoreignenter- developmentoflocalruralcreditcooperatives.
+prises)mustobeyChineselawandshallnot
+G→Berrorsoccurwhenconditionalornegotiated
+harmnationalsecurityorthepublicinterest.
+arrangementsaremistakenforneutraladministra-
+• 外国教育机构不得在中国境内单独设立学 tiveprocedures.
+校。Foreigneducationalinstitutionsmaynot
+• 选举事宜由省军区与人大常委会协商
+independentlyestablishschoolsinChina.
+决定。 Election matters are to be decided
+throughconsultationbetweenthemilitarydis-
+Duringthesecondroundofcoding,ouraccuracy
+trictandthelocalPeople’sCongress.
+reached 87.5% across 400 manually labeled
+paragraphs, with 50 errors in total. The model
+G → Y The model captures strong words with-
+classifies both B and Y with 93% accuracy,
+outaccountingforthediscretionarynatureofcom-
+but was weaker at 81% for C and 83% for G.
+mands.
+Misclassifying C as G accounts for 26% of all
+mistakes,whilemisclassifyingGasCaccountsfor • 国家行政机关对于违反国家纪律的工作
+14percent. SmallererrortypesincludeCasY,G 人员，在追究纪律责任和给予纪律处分的
+as B, G as Y, each at 10%. Overall, about 90% 时候，必须本着严肃和慎重的方针，按照
+ofallmisclassificationsinvolvemisclassifyingor 所犯错误的性质和情节的轻重，参照本人
+failingtoidentifyeitherCorG.Themaindifficulty 平常的表现和对错误的认识程度，分别予
+inthesecondroundliesincleanlyseparatingthese 以适当的纪律处分或者免予处分。When
+twoconceptuallyadjacentcategories. state administrative organs investigate disci-
+plinaryresponsibilityandimposedisciplinary
+C → G errors occur when the model interprets sanctionsonstaffmemberswhoviolatestate
+ideassuchas“adapttolocalconditions”or“based discipline,theymustfollowaseriousandpru-
+onneeds”asweakoroptionalratherthanasclear dentapproach,and,basedonthenatureofthe
+butadaptableinstructions. violation, the severity of the circumstances,
+
+=== PAGE BREAK ===
+
+theperson’susualperformance,andtheirun- J.2 RecruitmentandCompensation
+derstandingofthewrongdoing,imposeanap-
+Annotatorswererecruitedaspart-timeresearchas-
+propriatesanctionorexemptthemfromsanc-
+sistants under the NSF–funded project and paid
+tion.
+$18perhourfortheirwork. Thisrateisabovethe
+applicablelocalminimumwageandwasintended
+B→GRoutineadministrativerulesaremisreadas
+tofairlycompensatethemforthetimeandexper-
+uncertainandoptional.
+tiserequiredforcarefulannotation. Allactivities
+• 财政部应会同有关部门逐步建立和健全统 relatedtothisresearchadheredtotheNSFRespon-
+一的利用外资的财务、会计制度和债务报 sible and Ethical Conduct of Research (RECR)
+告制度，加强财务管理和财政监督。The guidelines.
+Ministry of Finance, together with relevant
+K TopicModelingDetails
+departments,shallgraduallyestablishandim-
+prove unified financial and accounting sys- Our topic classification follows a computer-
+temsanddebtreportingsystemsfortheuseof assisted, human-guided workflow. We began by
+foreigncapital,andstrengthenfinancialman- constructing a portfolio of China’s 12th to 14th
+agementandoversight. Five-Year Plans as the basis of topic discovery.
+These documents serve as authoritative policy
+I RelationalDatabaseSchema blueprintsfortheChinesestateandprovideuswith
+an authoritative statement of the central govern-
+This section provides the full field-level schema
+ment’spolicyagenda.
+oftheCAPC-CGrelationaldatabase,supplement-
+We then conducted unsupervised topic discovery
+ing the high-level description in Section 4. The
+usingLatentDirichletAllocation(LDA).Weesti-
+complete schema is reported in Table 10. It
+mated a series of LDA models across alternative
+covers both the documents_* tables, which store
+topic numbers and selected K = 15 based on
+document-level metadata, and the paragraphs_*
+coherence score performance. For stability, we
+tables,whichstoreparagraph-leveltextandanno-
+cross-validated the LDA-derived topic structure
+tations.
+withBERTopic,whichyieldedbroadlysimilarre-
+sults.
+J EthicalConsideration
+Following the computer-assisted, human-guided
+J.1 AnnotatorIdentityandTraining logic introduced in King et al. (2017), we used
+expertreviewtointerpretandrefinethecomputa-
+The three annotators are co-authors of this paper.
+tionallyidentifiedtopics. AsmallgroupofChina
+Allannotatorshavenative-levelproficiencyinChi-
+policyspecialistsexaminedthecandidateclusters,
+nesewithmorethantwo-yearexperienceinanalyz-
+reviewedtheirmostrepresentativetermsanddocu-
+ingChinesepolicydocuments. Priortoannotation,
+ments,andmappedeachclusterontoasubstantive
+theycompletedastructuredonboardingandtrain-
+policydomain.
+ing program exceeding 30 hours, which covered
+For each paragraph, LDA estimates a posterior
+theannotationcodebook,illustrativeexamplesand
+probabilitydistributionovertopics. Weassigneach
+edge cases, calibration exercises, and procedures
+paragraph to the policy domain corresponding to
+forrecordinguncertainty. Iterativedeliberationof
+thetopicwiththehighestestimatedprobability. To
+annotationdisparitiesinformedsuccessiverefine-
+assess the accuracy of this procedure, annotators
+mentsoftheguidelinestoenhancecodingconsis-
+manually labeled a random sample of 200 para-
+tencywithoutprivileginganytheoreticalposition.
+graphs;theautomatedassignmentmatchedhuman
+Annotatorsparticipatedincodebookrevisionand
+judgmentin92%ofcases.
+were apprised of the study’s objectives. Their
+linguistic competence and substantive expertise
+L AdditionalDescriptiveStatistics
+were considered necessary for reliable interpre-
+tation of nuanced policy texts not amenable to Thissectionpresentsadditionaldescriptivestatis-
+crowdsourcedannotation. Anonymizedannotator ticsfortheCAPC-CGdataset. Tables11–13report
+identifiers(A1/A2/A3)areretainedinthereleased document-levelcountsandlengths,theLevel-1la-
+datasettofacilitateanalysisofinter-annotatordis- beldistribution,andthefullfive-categorydistribu-
+agreement. tionofpolicydirectives.
+
+=== PAGE BREAK ===
+
+Field Explanation
+Fromdocuments_*tables
+DocumentID Primarykeyforthedocumenttables.Auniqueintegeridentifierforeachpolicydocument.
+Title Officialtitleofthepolicydocument.
+Validity Legalvaliditystatus(e.g.,effective,repealed).
+Content Full,rawtextofthedocument.
+TextLength Totalnumberofcharactersinthedocument.
+EffectivenessLevel Hierarchicalleveloflegalforce(e.g.,NationalLaw,AdministrativeRegulation).
+IssuingDepartment Governmentbodyorbodiesthatissuedthedocument.
+DocumentNumber Officialissuancenumberofthedocument.
+IssueDate Dateonwhichthedocumentwaspromulgated.
+ImplementationDate Dateonwhichthedocumenttookeffect.
+Fromparagraphs_*tables
+ID Primarykeyfortheparagraphtables.Auniqueintegeridentifierforeachparagraph.
+DocumentID Foreignkeylinkingtheparagraphtoitsparentdocument.
+Paragraph_content Rawtextofthespecificparagraph.
+order Sequentialpositionoftheparagraphwithinitsparentdocument.
+topics Topiclabelsassignedtotheparagraph.
+NER/NER_DICT Final,cleaned,andvalidatedNERresults.
+Label_L1 Level-1label
+Label_L2 Level-2label
+Table10: SchemaDescriptionFortheRelationalDatabase
+Type Count Mean Median
+NationalLaw 3,137 3175.13 794.0
+AdministrativeRegulation 11,621 2468.72 1477.0
+MinisterialRule 322,280 1614.91 588.0
+Table11: StatisticsbyDocumentType
+Label Count Percentage
+N(Neutral) 1,472,697 55.6%
+W(Affirmative) 1,051,619 39.7%
+R(Prohibitive) 123,315 4.7%
+Table12: DistributionoftheLevel-1Categories
+Label Count Percentage
+B(Authorizing) 410,704 34.96%
+Y(Pressuring) 274,683 23.38%
+C(Flexible) 224,222 19.08%
+G(Ambiguous) 141,996 12.09%
+R(Prohibitive) 123,315 10.50%
+Table13: DistributionoftheFive-CategoryTaxonomyofPolicyDirectives

@@ -1,0 +1,11 @@
+﻿index,gold_rank8,pred_rank8,correct_rank8,gold_rank4,pred_rank4,correct_rank4,gold_rank16,pred_rank16,correct_rank16,gold,rank8_to_rank16,error_rank8,error_rank16
+5,N,W,False,N,N,True,N,N,True,N,错误 -> 正确,N->W,正确
+14,N,W,False,N,W,False,N,N,True,N,错误 -> 正确,N->W,正确
+20,W,R,False,W,R,False,W,W,True,W,错误 -> 正确,W->R,正确
+40,N,W,False,N,W,False,N,N,True,N,错误 -> 正确,N->W,正确
+77,W,N,False,W,N,False,W,W,True,W,错误 -> 正确,W->N,正确
+88,N,W,False,N,W,False,N,N,True,N,错误 -> 正确,N->W,正确
+175,N,W,False,N,N,True,N,N,True,N,错误 -> 正确,N->W,正确
+200,R,W,False,R,R,True,R,R,True,R,错误 -> 正确,R->W,正确
+231,W,R,False,W,R,False,W,W,True,W,错误 -> 正确,W->R,正确
+241,N,W,False,N,N,True,N,N,True,N,错误 -> 正确,N->W,正确

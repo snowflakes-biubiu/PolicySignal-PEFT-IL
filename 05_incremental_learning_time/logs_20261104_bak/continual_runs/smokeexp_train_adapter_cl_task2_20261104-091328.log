@@ -1,0 +1,15 @@
+数据检查通过：5 个任务均为 train=600 / test=300，类别均衡、年份合法、文档和文本无交叉。
+基础模型: Qwen/Qwen2.5-1.5B-Instruct
+训练参数: Epoch=2, Rank=16, Alpha=32, LR=0.0002
+CUDA 可用: NVIDIA GeForce RTX 4090 D
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:34,  9.79it/s]Loading weights:   6%|▌         | 21/338 [00:00<00:02, 119.86it/s]Loading weights:  19%|█▉        | 65/338 [00:00<00:01, 263.95it/s]Loading weights:  33%|███▎      | 113/338 [00:00<00:00, 342.44it/s]Loading weights:  48%|████▊     | 161/338 [00:00<00:00, 387.13it/s]Loading weights:  62%|██████▏   | 209/338 [00:00<00:00, 413.62it/s]Loading weights:  76%|███████▌  | 257/338 [00:00<00:00, 429.37it/s]Loading weights:  90%|█████████ | 305/338 [00:00<00:00, 441.10it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 383.30it/s]
+Adapter 冻结检查：旧 adapters=['task1']；当前可训练=task2 (4,358,144 params)
+方法: adapter; 训练至 Task2; parent: /root/CAPC-CG-Project/05_incremental_learning/artifacts/models/qwen15b_temporal_task1_e2_r16_a32_lr2e-4
+新增数据: 600; replay 数据: 0; 合计: 600
+  0%|          | 0/1 [00:00<?, ?it/s]/root/miniconda3/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:745: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+100%|██████████| 1/1 [00:01<00:00,  1.08s/it]                                             100%|██████████| 1/1 [00:01<00:00,  1.08s/it]                                             100%|██████████| 1/1 [00:01<00:00,  1.08s/it]100%|██████████| 1/1 [00:01<00:00,  1.12s/it]
+{'loss': '0.3534', 'grad_norm': '17.6', 'learning_rate': '0.0002', 'epoch': '0.001667'}
+{'train_runtime': '1.12', 'train_samples_per_second': '0.893', 'train_steps_per_second': '0.893', 'train_loss': '0.3534', 'epoch': '0.001667'}
+冒烟测试通过：adapter Task2 完成 1 步训练，产物已写入临时冒烟目录（不产出正式模型）。
+完成：/root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/continual/adapter_task2

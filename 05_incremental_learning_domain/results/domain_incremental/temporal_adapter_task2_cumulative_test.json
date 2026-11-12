@@ -1,0 +1,296 @@
+{
+  "experiment": "Qwen2.5-1.5B domain-incremental continual-learning evaluation",
+  "method": "adapter",
+  "trained_through_task": 2,
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "provenance": {
+    "python": "3.12.3",
+    "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "transformers": "5.17.0",
+    "peft": "0.21.2",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.15.0",
+    "base_model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+  },
+  "model_fingerprint": {
+    "hash": "5040cd3a60",
+    "params": {
+      "adapter_inference_primary": "route",
+      "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "method": "adapter",
+      "seed": 42,
+      "task": 2,
+      "code_version": "6c7ba0d0ae",
+      "data_version": "730e38c92c"
+    }
+  },
+  "adapter_weights_source": null,
+  "metric_scope": "label-token-restricted classification（对 N/R/W token 的 logits 取 argmax），非自由生成后解析；非法输出被强制归入三类，故无非法输出率",
+  "deployment_setting": "known_domain_route_oracle（评估时已知测试样本所属领域标签，按领域路由到对应 adapter；BWT/Forgetting 由构造恒为 0，不得与单模型多域方法同表排名）",
+  "route_requires_test_domain": true,
+  "bwt_zero_by_construction": true,
+  "model_path": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/adapter_task2",
+  "model_format": "peft_adapter_bundle",
+  "active_adapters": [
+    "task1",
+    "task2"
+  ],
+  "adapter_inference": "route",
+  "activated_by_test_task": {
+    "D1_经济与财税金融": [
+      "task1"
+    ],
+    "D2_教育": [
+      "task2"
+    ]
+  },
+  "evaluated_split": "test",
+  "eval_seed": 42,
+  "model_seed": 42,
+  "run_tag": null,
+  "truncation_length": 767,
+  "truncation_policy": "text_level（文本层头尾保留）：build_prompt_fitted()，先扣掉 system prompt 固定开销再按 token 保留正文头 60%/尾 40%，训练与评估同一函数/同方向/同长度",
+  "truncation": {
+    "total": 600,
+    "truncated": 2,
+    "ratio": 0.0033,
+    "per_label": {
+      "N": {
+        "n": 200,
+        "truncated": 0,
+        "ratio": 0.0
+      },
+      "R": {
+        "n": 200,
+        "truncated": 1,
+        "ratio": 0.005
+      },
+      "W": {
+        "n": 200,
+        "truncated": 1,
+        "ratio": 0.005
+      }
+    }
+  },
+  "adapter_policy_declared": "route",
+  "adapter_policy_mismatch": null,
+  "adapter_inference_is_primary": true,
+  "adapter_train_active_per_adapter": {
+    "task1": [
+      "task1"
+    ],
+    "task2": [
+      "task2"
+    ]
+  },
+  "adapter_experiment_definition": "正式口径：测试样本所属时间窗口已知，评估窗口 Tj 时只激活该窗口对应的 adapter（route）。weighted / simultaneous 属扩展对照，不是本训练方案的自然结果，不得用于方法排名。若真实部署时未知窗口，需另建路由器并报告路由错误代价，不能用测试窗口编号冒充路由能力。",
+  "train_eval_consistency": "评估窗口 Tj 激活 task_j，与该 adapter 训练时（单独激活 task_j）一致 → 训练/评估一致",
+  "invalid_output_policy": "forced_argmax_3way（无生成解析，无效输出率恒为 0）",
+  "timestamp": "2026-11-10T17:43:46",
+  "shared_baseline_task1": false,
+  "evaluated_tasks": [
+    "D1_经济与财税金融",
+    "D2_教育"
+  ],
+  "total_samples": 600,
+  "continual_metrics": {
+    "ACC": 0.8266666666666667,
+    "BWT": 0.0,
+    "Forgetting": 0.0,
+    "metrics_partial": false,
+    "csa": 0.8266666666666667,
+    "af_including_final": 0.0,
+    "knowledge_retention": 1.0,
+    "final_avg_macro_f1": 0.8258506150545106,
+    "accuracy_matrix": {
+      "after_task1": {
+        "D1_经济与财税金融": 0.8233333333333334
+      },
+      "after_task2": {
+        "D1_经济与财税金融": 0.8233333333333334,
+        "D2_教育": 0.83
+      }
+    },
+    "missing_history_stages": [],
+    "status": "Complete: all earlier stages have same-method cumulative evaluations.",
+    "definitions": {
+      "ACC": "Mean accuracy over all test tasks seen after the current training stage.",
+      "BWT": "Mean over prior tasks of current accuracy minus accuracy immediately after first learning that task.",
+      "Forgetting": "Mean over prior tasks of best recorded pre-final accuracy minus current accuracy; may be negative if performance improves beyond the prior best.",
+      "af_including_final": "Mean over prior tasks of (best accuracy among stages j..t, including the final stage) minus the final accuracy; always >= 0. This is the metric used in the summary workbook.",
+      "knowledge_retention": "Sum of final-stage accuracy on D1..D{n-1} divided by the sum of the accuracy right after each domain was first learned.",
+      "csa": "Mean diagonal accuracy across stages (current-stage adaptation ability).",
+      "metric_note": "Forgetting (script, can be negative) and af_including_final (workbook, >= 0) are different definitions; always state which one is reported."
+    }
+  },
+  "metrics_by_test_task": {
+    "D1_经济与财税金融": {
+      "samples": 300,
+      "acc": 0.8233333333333334,
+      "accuracy": 0.8233333333333334,
+      "macro_f1": 0.8224666142969363,
+      "cohen_kappa": 0.735,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          84,
+          9,
+          7
+        ],
+        [
+          4,
+          88,
+          8
+        ],
+        [
+          13,
+          12,
+          75
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.8316831683168316,
+          "recall": 0.84,
+          "f1": 0.835820895522388,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.8073394495412844,
+          "recall": 0.88,
+          "f1": 0.8421052631578947,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.8333333333333334,
+          "recall": 0.75,
+          "f1": 0.7894736842105263,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.8316831683168316,
+          "recall": 0.84,
+          "f1-score": 0.835820895522388,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.8073394495412844,
+          "recall": 0.88,
+          "f1-score": 0.8421052631578947,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.8333333333333334,
+          "recall": 0.75,
+          "f1-score": 0.7894736842105263,
+          "support": 100.0
+        },
+        "accuracy": 0.8233333333333334,
+        "macro avg": {
+          "precision": 0.8241186503971498,
+          "recall": 0.8233333333333333,
+          "f1-score": 0.8224666142969363,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.8241186503971498,
+          "recall": 0.8233333333333334,
+          "f1-score": 0.8224666142969363,
+          "support": 300.0
+        }
+      }
+    },
+    "D2_教育": {
+      "samples": 300,
+      "acc": 0.83,
+      "accuracy": 0.83,
+      "macro_f1": 0.8292346158120848,
+      "cohen_kappa": 0.7449999999999999,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          82,
+          6,
+          12
+        ],
+        [
+          7,
+          92,
+          1
+        ],
+        [
+          18,
+          7,
+          75
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.7663551401869159,
+          "recall": 0.82,
+          "f1": 0.7922705314009661,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.8761904761904762,
+          "recall": 0.92,
+          "f1": 0.8975609756097561,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.8522727272727273,
+          "recall": 0.75,
+          "f1": 0.7978723404255319,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.7663551401869159,
+          "recall": 0.82,
+          "f1-score": 0.7922705314009661,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.8761904761904762,
+          "recall": 0.92,
+          "f1-score": 0.8975609756097561,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.8522727272727273,
+          "recall": 0.75,
+          "f1-score": 0.7978723404255319,
+          "support": 100.0
+        },
+        "accuracy": 0.83,
+        "macro avg": {
+          "precision": 0.8316061145500399,
+          "recall": 0.8300000000000001,
+          "f1-score": 0.8292346158120848,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.8316061145500397,
+          "recall": 0.83,
+          "f1-score": 0.8292346158120848,
+          "support": 300.0
+        }
+      }
+    }
+  },
+  "predictions_csv": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental/temporal_adapter_task2_cumulative_test_predictions.csv"
+}

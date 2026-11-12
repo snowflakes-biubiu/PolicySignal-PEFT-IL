@@ -1,0 +1,17 @@
+{
+  "P1_vs_P2": {
+    "correct_to_wrong": 11,
+    "wrong_to_correct": 11,
+    "p_value": 1.0
+  },
+  "P1_vs_P3": {
+    "correct_to_wrong": 15,
+    "wrong_to_correct": 15,
+    "p_value": 1.0
+  },
+  "P2_vs_P3": {
+    "correct_to_wrong": 12,
+    "wrong_to_correct": 12,
+    "p_value": 1.0
+  }
+}

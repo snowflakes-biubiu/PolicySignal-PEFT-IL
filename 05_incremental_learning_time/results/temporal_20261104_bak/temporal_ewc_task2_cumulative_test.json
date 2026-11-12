@@ -1,0 +1,202 @@
+{
+  "experiment": "Qwen2.5-1.5B temporal continual-learning evaluation",
+  "method": "ewc",
+  "trained_through_task": 2,
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_path": "/root/CAPC-CG-Project/05_incremental_learning_time/artifacts/models/ewc_task2",
+  "model_format": "peft_adapter",
+  "active_adapters": null,
+  "evaluated_tasks": [
+    "T1_1949_1978",
+    "T2_1979_1992"
+  ],
+  "total_samples": 600,
+  "continual_metrics": {
+    "ACC": 0.7816666666666667,
+    "BWT": 0.023333333333333428,
+    "Forgetting": -0.023333333333333428,
+    "accuracy_matrix": {
+      "after_task1": {
+        "T1_1949_1978": 0.7433333333333333
+      },
+      "after_task2": {
+        "T1_1949_1978": 0.7666666666666667,
+        "T2_1979_1992": 0.7966666666666666
+      }
+    },
+    "missing_history_stages": [],
+    "status": "Complete: all earlier stages have same-method cumulative evaluations.",
+    "definitions": {
+      "ACC": "Mean accuracy over all test tasks seen after the current training stage.",
+      "BWT": "Mean over prior tasks of current accuracy minus accuracy immediately after first learning that task.",
+      "Forgetting": "Mean over prior tasks of best recorded pre-final accuracy minus current accuracy; may be negative if performance improves beyond the prior best."
+    }
+  },
+  "metrics_by_test_task": {
+    "T1_1949_1978": {
+      "samples": 300,
+      "acc": 0.7666666666666667,
+      "accuracy": 0.7666666666666667,
+      "macro_f1": 0.7625700323068744,
+      "cohen_kappa": 0.65,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          83,
+          6,
+          11
+        ],
+        [
+          3,
+          86,
+          11
+        ],
+        [
+          22,
+          17,
+          61
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.7685185185185185,
+          "recall": 0.83,
+          "f1": 0.7980769230769231,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.7889908256880734,
+          "recall": 0.86,
+          "f1": 0.8229665071770335,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.7349397590361446,
+          "recall": 0.61,
+          "f1": 0.6666666666666666,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.7685185185185185,
+          "recall": 0.83,
+          "f1-score": 0.7980769230769231,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.7889908256880734,
+          "recall": 0.86,
+          "f1-score": 0.8229665071770335,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.7349397590361446,
+          "recall": 0.61,
+          "f1-score": 0.6666666666666666,
+          "support": 100.0
+        },
+        "accuracy": 0.7666666666666667,
+        "macro avg": {
+          "precision": 0.7641497010809122,
+          "recall": 0.7666666666666666,
+          "f1-score": 0.7625700323068744,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.7641497010809121,
+          "recall": 0.7666666666666667,
+          "f1-score": 0.7625700323068744,
+          "support": 300.0
+        }
+      }
+    },
+    "T2_1979_1992": {
+      "samples": 300,
+      "acc": 0.7966666666666666,
+      "accuracy": 0.7966666666666666,
+      "macro_f1": 0.7953657592374738,
+      "cohen_kappa": 0.6950000000000001,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          81,
+          10,
+          9
+        ],
+        [
+          2,
+          87,
+          11
+        ],
+        [
+          16,
+          13,
+          71
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.8181818181818182,
+          "recall": 0.81,
+          "f1": 0.8140703517587939,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.7909090909090909,
+          "recall": 0.87,
+          "f1": 0.8285714285714286,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.7802197802197802,
+          "recall": 0.71,
+          "f1": 0.743455497382199,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.8181818181818182,
+          "recall": 0.81,
+          "f1-score": 0.8140703517587939,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.7909090909090909,
+          "recall": 0.87,
+          "f1-score": 0.8285714285714286,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.7802197802197802,
+          "recall": 0.71,
+          "f1-score": 0.743455497382199,
+          "support": 100.0
+        },
+        "accuracy": 0.7966666666666666,
+        "macro avg": {
+          "precision": 0.7964368964368965,
+          "recall": 0.7966666666666667,
+          "f1-score": 0.7953657592374738,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.7964368964368966,
+          "recall": 0.7966666666666666,
+          "f1-score": 0.7953657592374739,
+          "support": 300.0
+        }
+      }
+    }
+  },
+  "predictions_csv": "/root/CAPC-CG-Project/05_incremental_learning_time/results/temporal/temporal_ewc_task2_cumulative_test_predictions.csv"
+}

@@ -1,0 +1,70 @@
+
+[SVM|paper] task1_level1
+  Accuracy   : 0.853
+  Cohen Kappa: 0.780
+  Macro-F1   : 0.853
+    W: P=0.768 R=0.860 F1=0.811
+    R: P=0.949 R=0.940 F1=0.945
+    N: P=0.854 R=0.760 F1=0.804
+
+[XGBoost|paper] task1_level1
+  Accuracy   : 0.820
+  Cohen Kappa: 0.730
+  Macro-F1   : 0.819
+    W: P=0.748 R=0.800 F1=0.773
+    R: P=0.895 R=0.940 F1=0.917
+    N: P=0.818 R=0.720 F1=0.766
+
+[SVM|paper] task2_level2
+  Accuracy   : 0.845
+  Cohen Kappa: 0.793
+  Macro-F1   : 0.843
+    B: P=0.911 R=0.920 F1=0.915
+    Y: P=0.849 R=0.900 F1=0.874
+    C: P=0.811 R=0.860 F1=0.835
+    G: P=0.805 R=0.700 F1=0.749
+
+[XGBoost|paper] task2_level2
+  Accuracy   : 0.848
+  Cohen Kappa: 0.797
+  Macro-F1   : 0.847
+    B: P=0.907 R=0.880 F1=0.893
+    Y: P=0.873 R=0.890 F1=0.881
+    C: P=0.806 R=0.870 F1=0.837
+    G: P=0.806 R=0.750 F1=0.777
+
+[SVM|enhanced] task1_level1
+  Accuracy   : 0.813
+  Cohen Kappa: 0.720
+  Macro-F1   : 0.812
+    W: P=0.708 R=0.850 F1=0.773
+    R: P=0.949 R=0.930 F1=0.939
+    N: P=0.805 R=0.660 F1=0.725
+
+[XGBoost|enhanced] task1_level1
+  Accuracy   : 0.813
+  Cohen Kappa: 0.720
+  Macro-F1   : 0.814
+    W: P=0.750 R=0.780 F1=0.765
+    R: P=0.918 R=0.900 F1=0.909
+    N: P=0.776 R=0.760 F1=0.768
+
+[SVM|enhanced] task2_level2
+  Accuracy   : 0.815
+  Cohen Kappa: 0.753
+  Macro-F1   : 0.814
+    B: P=0.876 R=0.920 F1=0.898
+    Y: P=0.816 R=0.800 F1=0.808
+    C: P=0.777 R=0.800 F1=0.788
+    G: P=0.787 R=0.740 F1=0.763
+
+[XGBoost|enhanced] task2_level2
+  Accuracy   : 0.828
+  Cohen Kappa: 0.770
+  Macro-F1   : 0.827
+    B: P=0.848 R=0.890 F1=0.868
+    Y: P=0.821 R=0.780 F1=0.800
+    C: P=0.847 R=0.830 F1=0.838
+    G: P=0.794 R=0.810 F1=0.802
+
+结果已追加到 C:\Users\snowf\CAPC-CG-Project\results.md

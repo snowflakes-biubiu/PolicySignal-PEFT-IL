@@ -1,0 +1,165 @@
+==============================================================================
+矩阵计划（mode=full, seed=42, run_tag=-）
+  训练单元 21 个（T1 只训练一次，四方法共享）
+  评估调用 24 次 → 覆盖测试组 84 组（每个评估单元测 T1..T_i）
+  重试 2 次，冲突策略 archive
+==============================================================================
+  train_sequential_ft_task1    /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task1.py --seed 42
+  train_sequential_ft_task2    /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task2.py --seed 42
+  train_sequential_ft_task3    /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task3.py --seed 42
+  train_sequential_ft_task4    /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task4.py --seed 42
+  train_sequential_ft_task5    /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task5.py --seed 42
+  train_sequential_ft_task6    /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task6.py --seed 42
+  train_ewc_task2              /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 2 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+  train_ewc_task3              /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 3 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+  train_ewc_task4              /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 4 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+  train_ewc_task5              /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 5 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+  train_ewc_task6              /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 6 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+  train_replay_task2           /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 2 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+  train_replay_task3           /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 3 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+  train_replay_task4           /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 4 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+  train_replay_task5           /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 5 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+  train_replay_task6           /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 6 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+  train_adapter_task2          /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 2 --seed 42
+  train_adapter_task3          /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 3 --seed 42
+  train_adapter_task4          /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 4 --seed 42
+  train_adapter_task5          /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 5 --seed 42
+  train_adapter_task6          /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 6 --seed 42
+注意：本轮将重训共享 T1 基线（qwen15b_domain_task1_e2_r16_a32_lr2e-4），旧目录若存在会被训练脚本拒绝覆盖，请先备份或移走。
+
+===== 方法 sequential_ft =====
+[skip] train_sequential_ft_task1：模型已存在且实验指纹一致 qwen15b_domain_task1_e2_r16_a32_lr2e-4
+[skip] eval_sequential_ft_task1：评估结果与当前模型/划分一致
+[16:47:52] train_sequential_ft_task2
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task2.py --seed 42
+    -> OK  2.2 min  -> train_sequential_ft_task2.log
+[16:50:04] eval_sequential_ft_task2
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task2_cumulative.py --method sequential_ft --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task2_e2_r16_a32_lr2e-4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  0.6 min  -> eval_sequential_ft_task2.log
+[16:50:40] train_sequential_ft_task3
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task3.py --seed 42
+    -> OK  2.2 min  -> train_sequential_ft_task3.log
+[16:52:53] eval_sequential_ft_task3
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task3_cumulative.py --method sequential_ft --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task3_e2_r16_a32_lr2e-4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  0.8 min  -> eval_sequential_ft_task3.log
+[16:53:40] train_sequential_ft_task4
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task4.py --seed 42
+    -> OK  2.3 min  -> train_sequential_ft_task4.log
+[16:55:56] eval_sequential_ft_task4
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task4_cumulative.py --method sequential_ft --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task4_e2_r16_a32_lr2e-4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  1.0 min  -> eval_sequential_ft_task4.log
+[16:56:55] train_sequential_ft_task5
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task5.py --seed 42
+    -> OK  2.2 min  -> train_sequential_ft_task5.log
+[16:59:06] eval_sequential_ft_task5
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task5_cumulative.py --method sequential_ft --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task5_e2_r16_a32_lr2e-4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  1.2 min  -> eval_sequential_ft_task5.log
+[17:00:18] train_sequential_ft_task6
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task6.py --seed 42
+    -> OK  2.2 min  -> train_sequential_ft_task6.log
+[17:02:32] eval_sequential_ft_task6
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task6_cumulative.py --method sequential_ft --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task6_e2_r16_a32_lr2e-4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  1.4 min  -> eval_sequential_ft_task6.log
+
+===== 方法 ewc =====
+[skip] eval_ewc_task1：评估结果与当前模型/划分一致
+[skip] train_ewc_task2：模型已存在且实验指纹一致 ewc_task2
+[skip] eval_ewc_task2：评估结果与当前模型/划分一致
+[17:03:55] train_ewc_task3
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 3 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+    -> OK  3.9 min  -> train_ewc_task3.log
+[17:07:50] eval_ewc_task3
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task3_cumulative.py --method ewc --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/ewc_task3 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  0.8 min  -> eval_ewc_task3.log
+[17:08:37] train_ewc_task4
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 4 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+    -> OK  4.2 min  -> train_ewc_task4.log
+[17:12:47] eval_ewc_task4
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task4_cumulative.py --method ewc --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/ewc_task4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  1.0 min  -> eval_ewc_task4.log
+[17:13:46] train_ewc_task5
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 5 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+    -> OK  4.4 min  -> train_ewc_task5.log
+[17:18:07] eval_ewc_task5
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task5_cumulative.py --method ewc --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/ewc_task5 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  1.2 min  -> eval_ewc_task5.log
+[17:19:20] train_ewc_task6
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 6 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+    -> OK  4.5 min  -> train_ewc_task6.log
+[17:23:48] eval_ewc_task6
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task6_cumulative.py --method ewc --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/ewc_task6 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  1.5 min  -> eval_ewc_task6.log
+
+===== 方法 replay =====
+[skip] eval_replay_task1：评估结果与当前模型/划分一致
+[17:25:15] train_replay_task2
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 2 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+    -> OK  2.1 min  -> train_replay_task2.log
+[17:27:19] eval_replay_task2
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task2_cumulative.py --method replay --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/replay_task2 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  0.6 min  -> eval_replay_task2.log
+[17:27:53] train_replay_task3
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 3 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+    -> OK  2.1 min  -> train_replay_task3.log
+[17:30:01] eval_replay_task3
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task3_cumulative.py --method replay --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/replay_task3 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  0.8 min  -> eval_replay_task3.log
+[17:30:48] train_replay_task4
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 4 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+    -> OK  2.2 min  -> train_replay_task4.log
+[17:33:00] eval_replay_task4
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task4_cumulative.py --method replay --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/replay_task4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  1.0 min  -> eval_replay_task4.log
+[17:33:58] train_replay_task5
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 5 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+    -> OK  2.1 min  -> train_replay_task5.log
+[17:36:04] eval_replay_task5
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task5_cumulative.py --method replay --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/replay_task5 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  1.1 min  -> eval_replay_task5.log
+[17:37:12] train_replay_task6
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 6 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+    -> OK  2.1 min  -> train_replay_task6.log
+[17:39:21] eval_replay_task6
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task6_cumulative.py --method replay --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/replay_task6 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  1.4 min  -> eval_replay_task6.log
+
+===== 方法 adapter =====
+[冲突] eval_adapter_task1：已有评估结果与当前模型或划分不符，将重新评估
+[17:40:43] eval_adapter_task1
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task1_cumulative.py --method adapter --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task1_e2_r16_a32_lr2e-4 --model-seed 42 --split test --adapter-inference route --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  0.4 min  -> eval_adapter_task1.log
+[17:41:06] train_adapter_task2
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 2 --seed 42
+    -> OK  2.1 min  -> train_adapter_task2.log
+[17:43:14] eval_adapter_task2
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task2_cumulative.py --method adapter --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/adapter_task2 --model-seed 42 --split test --adapter-inference route --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  0.6 min  -> eval_adapter_task2.log
+[17:43:47] train_adapter_task3
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 3 --seed 42
+    -> OK  2.2 min  -> train_adapter_task3.log
+[17:45:58] eval_adapter_task3
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task3_cumulative.py --method adapter --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/adapter_task3 --model-seed 42 --split test --adapter-inference route --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  0.7 min  -> eval_adapter_task3.log
+[17:46:43] train_adapter_task4
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 4 --seed 42
+    -> OK  2.3 min  -> train_adapter_task4.log
+[17:49:01] eval_adapter_task4
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task4_cumulative.py --method adapter --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/adapter_task4 --model-seed 42 --split test --adapter-inference route --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  1.0 min  -> eval_adapter_task4.log
+[17:49:58] train_adapter_task5
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 5 --seed 42
+    -> OK  2.3 min  -> train_adapter_task5.log
+[17:52:18] eval_adapter_task5
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task5_cumulative.py --method adapter --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/adapter_task5 --model-seed 42 --split test --adapter-inference route --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  1.2 min  -> eval_adapter_task5.log
+[17:53:28] train_adapter_task6
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 6 --seed 42
+    -> OK  2.4 min  -> train_adapter_task6.log
+[17:55:53] eval_adapter_task6
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task6_cumulative.py --method adapter --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/adapter_task6 --model-seed 42 --split test --adapter-inference route --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  1.4 min  -> eval_adapter_task6.log
+
+==============================================================================
+训练成功 21/21  评估成功 24/24
+台账: /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/logs/full_matrix/summary_20261110-164752.json
+==============================================================================

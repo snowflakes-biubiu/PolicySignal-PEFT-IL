@@ -1,0 +1,9 @@
+{
+  "total": 5400,
+  "unique_texts": 5400,
+  "overlap_with_temporal": 0,
+  "cross_location_docs": 337,
+  "unique_docs": 3652,
+  "problems": [],
+  "pass": true
+}

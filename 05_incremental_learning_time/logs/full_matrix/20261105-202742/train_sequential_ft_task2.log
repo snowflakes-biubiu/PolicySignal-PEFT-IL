@@ -1,0 +1,15 @@
+$ /root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning/scripts/train/train_task2.py --seed 42 --smoke
+
+[人工调试豁免] CAPC_ALLOW_LOCAL_GPU 已显式设置，跳过本地 GPU 限制（自动化助手不得使用）
+任务: T2_1979_1992
+训练样本: 2
+adapter 输出: 临时冒烟测试目录
+继承 adapter: /root/CAPC-CG-Project/05_incremental_learning/artifacts/models/qwen15b_temporal_task1_e2_r16_a32_lr2e-4
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:40,  8.37it/s]Loading weights:   6%|▌         | 21/338 [00:00<00:02, 112.68it/s]Loading weights:  19%|█▉        | 64/338 [00:00<00:01, 246.01it/s]Loading weights:  33%|███▎      | 111/338 [00:00<00:00, 322.96it/s]Loading weights:  46%|████▌     | 155/338 [00:00<00:00, 362.75it/s]Loading weights:  58%|█████▊    | 196/338 [00:00<00:00, 377.87it/s]Loading weights:  72%|███████▏  | 243/338 [00:00<00:00, 401.77it/s]Loading weights:  84%|████████▍ | 284/338 [00:00<00:00, 403.51it/s]Loading weights:  96%|█████████▌| 325/338 [00:00<00:00, 392.94it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 346.02it/s]
+trainable params: 4,358,144 || all params: 1,548,072,448 || trainable%: 0.2815
+  0%|          | 0/1 [00:00<?, ?it/s]/root/miniconda3/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:745: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+100%|██████████| 1/1 [00:00<00:00,  1.20it/s]                                             100%|██████████| 1/1 [00:00<00:00,  1.20it/s]                                             100%|██████████| 1/1 [00:00<00:00,  1.20it/s]100%|██████████| 1/1 [00:00<00:00,  1.20it/s]
+{'loss': '0.0008517', 'grad_norm': '0.01887', 'learning_rate': '0.0002', 'epoch': '1'}
+{'train_runtime': '0.8357', 'train_samples_per_second': '4.786', 'train_steps_per_second': '1.197', 'train_loss': '0.0008517', 'epoch': '1'}
+冒烟测试通过：完成 1 个优化步骤并成功保存 adapter。

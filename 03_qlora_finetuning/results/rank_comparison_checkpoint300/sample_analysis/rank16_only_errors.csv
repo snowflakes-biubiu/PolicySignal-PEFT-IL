@@ -1,0 +1,2 @@
+﻿index,gold_rank8,pred_rank8,correct_rank8,gold_rank4,pred_rank4,correct_rank4,gold_rank16,pred_rank16,correct_rank16,gold,rank8_to_rank16,error_rank8,error_rank16,wrong_rank4,wrong_rank8,wrong_rank16
+180,R,R,True,R,R,True,R,W,False,R,正确 -> 错误,正确,R->W,False,False,True

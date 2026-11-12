@@ -1,0 +1,459 @@
+{
+  "experiment": "Qwen2.5-1.5B domain-incremental continual-learning evaluation",
+  "method": "replay",
+  "trained_through_task": 4,
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "provenance": {
+    "python": "3.12.3",
+    "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "transformers": "5.17.0",
+    "peft": "0.21.2",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.15.0",
+    "base_model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+  },
+  "model_fingerprint": {
+    "hash": "d591fdfe97",
+    "params": {
+      "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "method": "replay",
+      "replay_capacity": 360,
+      "replay_mode": "domain_class_balanced",
+      "replay_per_domain": 60,
+      "replay_sampling": "equal_steps",
+      "seed": 42,
+      "task": 4,
+      "code_version": "6c7ba0d0ae",
+      "data_version": "730e38c92c"
+    }
+  },
+  "adapter_weights_source": null,
+  "metric_scope": "label-token-restricted classification（对 N/R/W token 的 logits 取 argmax），非自由生成后解析；非法输出被强制归入三类，故无非法输出率",
+  "deployment_setting": "single_model_multi_domain（单个模型处理全部已见领域）",
+  "route_requires_test_domain": false,
+  "bwt_zero_by_construction": false,
+  "model_path": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/replay_task4",
+  "model_format": "peft_adapter",
+  "active_adapters": null,
+  "adapter_inference": null,
+  "activated_by_test_task": {},
+  "evaluated_split": "test",
+  "eval_seed": 42,
+  "model_seed": 42,
+  "run_tag": null,
+  "truncation_length": 767,
+  "truncation_policy": "text_level（文本层头尾保留）：build_prompt_fitted()，先扣掉 system prompt 固定开销再按 token 保留正文头 60%/尾 40%，训练与评估同一函数/同方向/同长度",
+  "truncation": {
+    "total": 1200,
+    "truncated": 13,
+    "ratio": 0.0108,
+    "per_label": {
+      "N": {
+        "n": 400,
+        "truncated": 6,
+        "ratio": 0.015
+      },
+      "R": {
+        "n": 400,
+        "truncated": 1,
+        "ratio": 0.0025
+      },
+      "W": {
+        "n": 400,
+        "truncated": 6,
+        "ratio": 0.015
+      }
+    }
+  },
+  "adapter_policy_declared": null,
+  "adapter_policy_mismatch": null,
+  "adapter_inference_is_primary": null,
+  "adapter_train_active_per_adapter": null,
+  "adapter_experiment_definition": null,
+  "train_eval_consistency": null,
+  "invalid_output_policy": "forced_argmax_3way（无生成解析，无效输出率恒为 0）",
+  "timestamp": "2026-11-10T17:33:57",
+  "shared_baseline_task1": false,
+  "evaluated_tasks": [
+    "D1_经济与财税金融",
+    "D2_教育",
+    "D3_卫生健康与食药",
+    "D4_农业与农村"
+  ],
+  "total_samples": 1200,
+  "continual_metrics": {
+    "ACC": 0.8775,
+    "BWT": 0.011111111111111108,
+    "Forgetting": 0.010000000000000009,
+    "metrics_partial": false,
+    "csa": 0.8691666666666666,
+    "af_including_final": 0.013333333333333345,
+    "knowledge_retention": 1.0129032258064516,
+    "final_avg_macro_f1": 0.8763475556386243,
+    "accuracy_matrix": {
+      "after_task1": {
+        "D1_经济与财税金融": 0.8233333333333334
+      },
+      "after_task2": {
+        "D1_经济与财税金融": 0.83,
+        "D2_教育": 0.86
+      },
+      "after_task3": {
+        "D1_经济与财税金融": 0.8666666666666667,
+        "D2_教育": 0.88,
+        "D3_卫生健康与食药": 0.9
+      },
+      "after_task4": {
+        "D1_经济与财税金融": 0.8333333333333334,
+        "D2_教育": 0.89,
+        "D3_卫生健康与食药": 0.8933333333333333,
+        "D4_农业与农村": 0.8933333333333333
+      }
+    },
+    "missing_history_stages": [],
+    "status": "Complete: all earlier stages have same-method cumulative evaluations.",
+    "definitions": {
+      "ACC": "Mean accuracy over all test tasks seen after the current training stage.",
+      "BWT": "Mean over prior tasks of current accuracy minus accuracy immediately after first learning that task.",
+      "Forgetting": "Mean over prior tasks of best recorded pre-final accuracy minus current accuracy; may be negative if performance improves beyond the prior best.",
+      "af_including_final": "Mean over prior tasks of (best accuracy among stages j..t, including the final stage) minus the final accuracy; always >= 0. This is the metric used in the summary workbook.",
+      "knowledge_retention": "Sum of final-stage accuracy on D1..D{n-1} divided by the sum of the accuracy right after each domain was first learned.",
+      "csa": "Mean diagonal accuracy across stages (current-stage adaptation ability).",
+      "metric_note": "Forgetting (script, can be negative) and af_including_final (workbook, >= 0) are different definitions; always state which one is reported."
+    }
+  },
+  "metrics_by_test_task": {
+    "D1_经济与财税金融": {
+      "samples": 300,
+      "acc": 0.8333333333333334,
+      "accuracy": 0.8333333333333334,
+      "macro_f1": 0.8312577112130248,
+      "cohen_kappa": 0.75,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          88,
+          7,
+          5
+        ],
+        [
+          6,
+          92,
+          2
+        ],
+        [
+          20,
+          10,
+          70
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.7719298245614035,
+          "recall": 0.88,
+          "f1": 0.822429906542056,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.8440366972477065,
+          "recall": 0.92,
+          "f1": 0.8803827751196173,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.9090909090909091,
+          "recall": 0.7,
+          "f1": 0.7909604519774012,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.7719298245614035,
+          "recall": 0.88,
+          "f1-score": 0.822429906542056,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.8440366972477065,
+          "recall": 0.92,
+          "f1-score": 0.8803827751196173,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.9090909090909091,
+          "recall": 0.7,
+          "f1-score": 0.7909604519774012,
+          "support": 100.0
+        },
+        "accuracy": 0.8333333333333334,
+        "macro avg": {
+          "precision": 0.8416858103000063,
+          "recall": 0.8333333333333334,
+          "f1-score": 0.8312577112130248,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.8416858103000063,
+          "recall": 0.8333333333333334,
+          "f1-score": 0.8312577112130248,
+          "support": 300.0
+        }
+      }
+    },
+    "D2_教育": {
+      "samples": 300,
+      "acc": 0.89,
+      "accuracy": 0.89,
+      "macro_f1": 0.8885142982703957,
+      "cohen_kappa": 0.835,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          93,
+          2,
+          5
+        ],
+        [
+          2,
+          96,
+          2
+        ],
+        [
+          15,
+          7,
+          78
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.8454545454545455,
+          "recall": 0.93,
+          "f1": 0.8857142857142857,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.9142857142857143,
+          "recall": 0.96,
+          "f1": 0.9365853658536586,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.9176470588235294,
+          "recall": 0.78,
+          "f1": 0.8432432432432433,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.8454545454545455,
+          "recall": 0.93,
+          "f1-score": 0.8857142857142857,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.9142857142857143,
+          "recall": 0.96,
+          "f1-score": 0.9365853658536586,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.9176470588235294,
+          "recall": 0.78,
+          "f1-score": 0.8432432432432433,
+          "support": 100.0
+        },
+        "accuracy": 0.89,
+        "macro avg": {
+          "precision": 0.892462439521263,
+          "recall": 0.89,
+          "f1-score": 0.8885142982703957,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.8924624395212631,
+          "recall": 0.89,
+          "f1-score": 0.8885142982703959,
+          "support": 300.0
+        }
+      }
+    },
+    "D3_卫生健康与食药": {
+      "samples": 300,
+      "acc": 0.8933333333333333,
+      "accuracy": 0.8933333333333333,
+      "macro_f1": 0.8928414791994266,
+      "cohen_kappa": 0.84,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          92,
+          4,
+          4
+        ],
+        [
+          4,
+          94,
+          2
+        ],
+        [
+          12,
+          6,
+          82
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.8518518518518519,
+          "recall": 0.92,
+          "f1": 0.8846153846153846,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.9038461538461539,
+          "recall": 0.94,
+          "f1": 0.9215686274509803,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.9318181818181818,
+          "recall": 0.82,
+          "f1": 0.8723404255319149,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.8518518518518519,
+          "recall": 0.92,
+          "f1-score": 0.8846153846153846,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.9038461538461539,
+          "recall": 0.94,
+          "f1-score": 0.9215686274509803,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.9318181818181818,
+          "recall": 0.82,
+          "f1-score": 0.8723404255319149,
+          "support": 100.0
+        },
+        "accuracy": 0.8933333333333333,
+        "macro avg": {
+          "precision": 0.8958387291720625,
+          "recall": 0.8933333333333332,
+          "f1-score": 0.8928414791994266,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.8958387291720625,
+          "recall": 0.8933333333333333,
+          "f1-score": 0.8928414791994267,
+          "support": 300.0
+        }
+      }
+    },
+    "D4_农业与农村": {
+      "samples": 300,
+      "acc": 0.8933333333333333,
+      "accuracy": 0.8933333333333333,
+      "macro_f1": 0.8927767338716502,
+      "cohen_kappa": 0.84,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          89,
+          1,
+          10
+        ],
+        [
+          3,
+          96,
+          1
+        ],
+        [
+          11,
+          6,
+          83
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.8640776699029126,
+          "recall": 0.89,
+          "f1": 0.8768472906403941,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.9320388349514563,
+          "recall": 0.96,
+          "f1": 0.9458128078817734,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.8829787234042553,
+          "recall": 0.83,
+          "f1": 0.8556701030927835,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.8640776699029126,
+          "recall": 0.89,
+          "f1-score": 0.8768472906403941,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.9320388349514563,
+          "recall": 0.96,
+          "f1-score": 0.9458128078817734,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.8829787234042553,
+          "recall": 0.83,
+          "f1-score": 0.8556701030927835,
+          "support": 100.0
+        },
+        "accuracy": 0.8933333333333333,
+        "macro avg": {
+          "precision": 0.8930317427528748,
+          "recall": 0.8933333333333334,
+          "f1-score": 0.8927767338716502,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.8930317427528746,
+          "recall": 0.8933333333333333,
+          "f1-score": 0.8927767338716505,
+          "support": 300.0
+        }
+      }
+    }
+  },
+  "predictions_csv": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental/temporal_replay_task4_cumulative_test_predictions.csv"
+}

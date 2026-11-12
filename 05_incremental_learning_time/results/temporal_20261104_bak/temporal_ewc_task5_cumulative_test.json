@@ -1,0 +1,469 @@
+{
+  "experiment": "Qwen2.5-1.5B temporal continual-learning evaluation",
+  "method": "ewc",
+  "trained_through_task": 5,
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_path": "/root/CAPC-CG-Project/05_incremental_learning_time/artifacts/models/ewc_task5",
+  "model_format": "peft_adapter",
+  "active_adapters": null,
+  "evaluated_tasks": [
+    "T1_1949_1978",
+    "T2_1979_1992",
+    "T3_1993_2002",
+    "T4_2003_2012",
+    "T5_2013_2023"
+  ],
+  "total_samples": 1500,
+  "continual_metrics": {
+    "ACC": 0.8066666666666666,
+    "BWT": 0.005000000000000032,
+    "Forgetting": 0.004166666666666652,
+    "accuracy_matrix": {
+      "after_task1": {
+        "T1_1949_1978": 0.7433333333333333
+      },
+      "after_task2": {
+        "T1_1949_1978": 0.7666666666666667,
+        "T2_1979_1992": 0.7966666666666666
+      },
+      "after_task3": {
+        "T1_1949_1978": 0.7666666666666667,
+        "T2_1979_1992": 0.7966666666666666,
+        "T3_1993_2002": 0.7866666666666666
+      },
+      "after_task4": {
+        "T1_1949_1978": 0.7733333333333333,
+        "T2_1979_1992": 0.7866666666666666,
+        "T3_1993_2002": 0.7933333333333333,
+        "T4_2003_2012": 0.8333333333333334
+      },
+      "after_task5": {
+        "T1_1949_1978": 0.76,
+        "T2_1979_1992": 0.7933333333333333,
+        "T3_1993_2002": 0.7833333333333333,
+        "T4_2003_2012": 0.8433333333333334,
+        "T5_2013_2023": 0.8533333333333334
+      }
+    },
+    "missing_history_stages": [],
+    "status": "Complete: all earlier stages have same-method cumulative evaluations.",
+    "definitions": {
+      "ACC": "Mean accuracy over all test tasks seen after the current training stage.",
+      "BWT": "Mean over prior tasks of current accuracy minus accuracy immediately after first learning that task.",
+      "Forgetting": "Mean over prior tasks of best recorded pre-final accuracy minus current accuracy; may be negative if performance improves beyond the prior best."
+    }
+  },
+  "metrics_by_test_task": {
+    "T1_1949_1978": {
+      "samples": 300,
+      "acc": 0.76,
+      "accuracy": 0.76,
+      "macro_f1": 0.7563243792801032,
+      "cohen_kappa": 0.64,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          76,
+          13,
+          11
+        ],
+        [
+          1,
+          89,
+          10
+        ],
+        [
+          21,
+          16,
+          63
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.7755102040816326,
+          "recall": 0.76,
+          "f1": 0.7676767676767676,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.7542372881355932,
+          "recall": 0.89,
+          "f1": 0.8165137614678899,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.75,
+          "recall": 0.63,
+          "f1": 0.6847826086956522,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.7755102040816326,
+          "recall": 0.76,
+          "f1-score": 0.7676767676767676,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.7542372881355932,
+          "recall": 0.89,
+          "f1-score": 0.8165137614678899,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.75,
+          "recall": 0.63,
+          "f1-score": 0.6847826086956522,
+          "support": 100.0
+        },
+        "accuracy": 0.76,
+        "macro avg": {
+          "precision": 0.7599158307390752,
+          "recall": 0.7599999999999999,
+          "f1-score": 0.7563243792801032,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.7599158307390753,
+          "recall": 0.76,
+          "f1-score": 0.7563243792801032,
+          "support": 300.0
+        }
+      }
+    },
+    "T2_1979_1992": {
+      "samples": 300,
+      "acc": 0.7933333333333333,
+      "accuracy": 0.7933333333333333,
+      "macro_f1": 0.7930730604041788,
+      "cohen_kappa": 0.69,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          77,
+          13,
+          10
+        ],
+        [
+          1,
+          87,
+          12
+        ],
+        [
+          11,
+          15,
+          74
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.8651685393258427,
+          "recall": 0.77,
+          "f1": 0.8148148148148148,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.7565217391304347,
+          "recall": 0.87,
+          "f1": 0.8093023255813954,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.7708333333333334,
+          "recall": 0.74,
+          "f1": 0.7551020408163265,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.8651685393258427,
+          "recall": 0.77,
+          "f1-score": 0.8148148148148148,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.7565217391304347,
+          "recall": 0.87,
+          "f1-score": 0.8093023255813954,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.7708333333333334,
+          "recall": 0.74,
+          "f1-score": 0.7551020408163265,
+          "support": 100.0
+        },
+        "accuracy": 0.7933333333333333,
+        "macro avg": {
+          "precision": 0.7975078705965369,
+          "recall": 0.7933333333333333,
+          "f1-score": 0.7930730604041788,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.7975078705965369,
+          "recall": 0.7933333333333333,
+          "f1-score": 0.7930730604041789,
+          "support": 300.0
+        }
+      }
+    },
+    "T3_1993_2002": {
+      "samples": 300,
+      "acc": 0.7833333333333333,
+      "accuracy": 0.7833333333333333,
+      "macro_f1": 0.7803307803307803,
+      "cohen_kappa": 0.675,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          72,
+          12,
+          16
+        ],
+        [
+          2,
+          95,
+          3
+        ],
+        [
+          8,
+          24,
+          68
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.8780487804878049,
+          "recall": 0.72,
+          "f1": 0.7912087912087912,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.7251908396946565,
+          "recall": 0.95,
+          "f1": 0.8225108225108225,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.7816091954022989,
+          "recall": 0.68,
+          "f1": 0.7272727272727273,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.8780487804878049,
+          "recall": 0.72,
+          "f1-score": 0.7912087912087912,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.7251908396946565,
+          "recall": 0.95,
+          "f1-score": 0.8225108225108225,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.7816091954022989,
+          "recall": 0.68,
+          "f1-score": 0.7272727272727273,
+          "support": 100.0
+        },
+        "accuracy": 0.7833333333333333,
+        "macro avg": {
+          "precision": 0.79494960519492,
+          "recall": 0.7833333333333333,
+          "f1-score": 0.7803307803307803,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.7949496051949201,
+          "recall": 0.7833333333333333,
+          "f1-score": 0.7803307803307805,
+          "support": 300.0
+        }
+      }
+    },
+    "T4_2003_2012": {
+      "samples": 300,
+      "acc": 0.8433333333333334,
+      "accuracy": 0.8433333333333334,
+      "macro_f1": 0.8422588293722315,
+      "cohen_kappa": 0.765,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          81,
+          3,
+          16
+        ],
+        [
+          2,
+          94,
+          4
+        ],
+        [
+          11,
+          11,
+          78
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.8617021276595744,
+          "recall": 0.81,
+          "f1": 0.8350515463917526,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.8703703703703703,
+          "recall": 0.94,
+          "f1": 0.9038461538461539,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.7959183673469388,
+          "recall": 0.78,
+          "f1": 0.7878787878787878,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.8617021276595744,
+          "recall": 0.81,
+          "f1-score": 0.8350515463917526,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.8703703703703703,
+          "recall": 0.94,
+          "f1-score": 0.9038461538461539,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.7959183673469388,
+          "recall": 0.78,
+          "f1-score": 0.7878787878787878,
+          "support": 100.0
+        },
+        "accuracy": 0.8433333333333334,
+        "macro avg": {
+          "precision": 0.8426636217922946,
+          "recall": 0.8433333333333334,
+          "f1-score": 0.8422588293722315,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.8426636217922946,
+          "recall": 0.8433333333333334,
+          "f1-score": 0.8422588293722314,
+          "support": 300.0
+        }
+      }
+    },
+    "T5_2013_2023": {
+      "samples": 300,
+      "acc": 0.8533333333333334,
+      "accuracy": 0.8533333333333334,
+      "macro_f1": 0.8517704517704517,
+      "cohen_kappa": 0.78,
+      "confusion_matrix_labels": [
+        "N",
+        "R",
+        "W"
+      ],
+      "confusion_matrix": [
+        [
+          81,
+          6,
+          13
+        ],
+        [
+          1,
+          96,
+          3
+        ],
+        [
+          13,
+          8,
+          79
+        ]
+      ],
+      "per_class": {
+        "N": {
+          "precision": 0.8526315789473684,
+          "recall": 0.81,
+          "f1": 0.8307692307692308,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.8727272727272727,
+          "recall": 0.96,
+          "f1": 0.9142857142857143,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.8315789473684211,
+          "recall": 0.79,
+          "f1": 0.8102564102564103,
+          "support": 100.0
+        }
+      },
+      "classification_report": {
+        "N": {
+          "precision": 0.8526315789473684,
+          "recall": 0.81,
+          "f1-score": 0.8307692307692308,
+          "support": 100.0
+        },
+        "R": {
+          "precision": 0.8727272727272727,
+          "recall": 0.96,
+          "f1-score": 0.9142857142857143,
+          "support": 100.0
+        },
+        "W": {
+          "precision": 0.8315789473684211,
+          "recall": 0.79,
+          "f1-score": 0.8102564102564103,
+          "support": 100.0
+        },
+        "accuracy": 0.8533333333333334,
+        "macro avg": {
+          "precision": 0.8523125996810207,
+          "recall": 0.8533333333333334,
+          "f1-score": 0.8517704517704517,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.8523125996810207,
+          "recall": 0.8533333333333334,
+          "f1-score": 0.8517704517704517,
+          "support": 300.0
+        }
+      }
+    }
+  },
+  "predictions_csv": "/root/CAPC-CG-Project/05_incremental_learning_time/results/temporal/temporal_ewc_task5_cumulative_test_predictions.csv"
+}

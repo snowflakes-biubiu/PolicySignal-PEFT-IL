@@ -1,0 +1,69 @@
+{
+  "experiment": "rank4_alpha16",
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "adapter_dir": "peft\\qwen15b_level1_qlora_rank4_alpha16",
+  "validation_samples": 300,
+  "accuracy": 0.8833333333333333,
+  "macro_f1": 0.8828174672634677,
+  "kappa": 0.825,
+  "confusion_matrix_label_order": [
+    "N",
+    "R",
+    "W"
+  ],
+  "confusion_matrix": [
+    [
+      86,
+      2,
+      12
+    ],
+    [
+      2,
+      96,
+      2
+    ],
+    [
+      12,
+      5,
+      83
+    ]
+  ],
+  "classification_report": {
+    "N": {
+      "precision": 0.86,
+      "recall": 0.86,
+      "f1-score": 0.86,
+      "support": 100.0
+    },
+    "R": {
+      "precision": 0.9320388349514563,
+      "recall": 0.96,
+      "f1-score": 0.9458128078817734,
+      "support": 100.0
+    },
+    "W": {
+      "precision": 0.8556701030927835,
+      "recall": 0.83,
+      "f1-score": 0.8426395939086294,
+      "support": 100.0
+    },
+    "accuracy": 0.8833333333333333,
+    "macro avg": {
+      "precision": 0.8825696460147466,
+      "recall": 0.8833333333333333,
+      "f1-score": 0.8828174672634677,
+      "support": 300.0
+    },
+    "weighted avg": {
+      "precision": 0.8825696460147465,
+      "recall": 0.8833333333333333,
+      "f1-score": 0.8828174672634675,
+      "support": 300.0
+    }
+  },
+  "class_f1": {
+    "N": 0.86,
+    "R": 0.9458128078817734,
+    "W": 0.8426395939086294
+  }
+}

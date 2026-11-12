@@ -1,0 +1,11 @@
+$ /root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning/scripts/train/train_task1.py --seed 42
+
+[人工调试豁免] CAPC_ALLOW_LOCAL_GPU 已显式设置，跳过本地 GPU 限制（自动化助手不得使用）
+Traceback (most recent call last):
+  File "/root/CAPC-CG-Project/05_incremental_learning/scripts/train/train_task1.py", line 10, in <module>
+    train_main(1)
+  File "/root/CAPC-CG-Project/05_incremental_learning/scripts/incremental_common.py", line 609, in train_main
+    run_training(task_number, resume=args.resume, smoke=args.smoke,
+  File "/root/CAPC-CG-Project/05_incremental_learning/scripts/incremental_common.py", line 452, in run_training
+    raise FileExistsError(f"输出目录非空；若要从中断的 checkpoint 续训，请添加 --resume: {output_dir}")
+FileExistsError: 输出目录非空；若要从中断的 checkpoint 续训，请添加 --resume: /root/CAPC-CG-Project/05_incremental_learning/artifacts/models/qwen15b_temporal_task1_e2_r16_a32_lr2e-4

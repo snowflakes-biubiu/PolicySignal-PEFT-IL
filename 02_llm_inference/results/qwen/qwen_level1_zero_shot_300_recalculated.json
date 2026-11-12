@@ -1,0 +1,36 @@
+{
+  "experiment": "Qwen Level-1 Zero-shot 实验",
+  "source_file": "qwen_level1_zero_shot_300_fixed.json",
+  "total_samples": 300,
+  "valid_predictions": 299,
+  "failed_predictions": 1,
+  "accuracy": 0.8695652173913043,
+  "macro_f1": 0.8705317453489182,
+  "kappa": 0.8042766746672485,
+  "classification_report": "              precision    recall  f1-score   support\n\n           N       0.77      0.96      0.86       100\n           R       1.00      0.79      0.88        99\n           W       0.89      0.86      0.87       100\n\n    accuracy                           0.87       299\n   macro avg       0.89      0.87      0.87       299\nweighted avg       0.89      0.87      0.87       299\n",
+  "confusion_matrix_labels": [
+    "N",
+    "R",
+    "W"
+  ],
+  "confusion_matrix": [
+    [
+      96,
+      0,
+      4
+    ],
+    [
+      14,
+      78,
+      7
+    ],
+    [
+      14,
+      0,
+      86
+    ]
+  ],
+  "failed_indices": [
+    153
+  ]
+}

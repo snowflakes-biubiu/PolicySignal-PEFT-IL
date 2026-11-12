@@ -1,0 +1,26 @@
+==============================================================================
+矩阵计划（mode=full, seed=42, run_tag=-）
+  训练单元 1 个（T1 只训练一次，四方法共享）
+  评估调用 1 次 → 覆盖测试组 2 组（每个评估单元测 T1..T_i）
+  重试 1 次，冲突策略 archive，单跑 ewc:2
+==============================================================================
+  train_ewc_task2              /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 2 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+
+===== 方法 sequential_ft =====
+
+===== 方法 ewc =====
+[16:39:40] train_ewc_task2
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 2 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+    -> OK  5.7 min  -> train_ewc_task2.log
+[16:45:20] eval_ewc_task2
+    $ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task2_cumulative.py --method ewc --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/ewc_task2 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+    -> OK  0.6 min  -> eval_ewc_task2.log
+
+===== 方法 replay =====
+
+===== 方法 adapter =====
+
+==============================================================================
+训练成功 1/1  评估成功 1/1
+台账: /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/logs/full_matrix/summary_20261110-163940.json
+==============================================================================

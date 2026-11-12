@@ -1,0 +1,8 @@
+池 9,127 段；主查预计 ≈2.08M token（不含仲裁）
+主查接力: deepseek-v4.1-flash → qwen3.8-max-0902 → kimi-k3 → deepseek-v4-pro-0813，各 1,000,000；终裁: kimi-k3.1-pro（思考模式）
+累计已用: deepseek-v4.1-flash=1,001,108  qwen3.8-max-0902=781,640  kimi-k3=0  deepseek-v4-pro-0813=0  kimi-k3.1-pro=167,924
+待复核 619 段（已完成 8,508）
+  [qwen3.8-max-0902] r1 40/619 tok=789,323
+  [qwen3.8-max-0902] r1 440/619 tok=869,571
+  qwen3.8-max-0902: 本轮 619 段，累计 907,364 token
+补抽轮：只做一次主查，跳过二次复核/终裁

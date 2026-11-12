@@ -1,0 +1,48 @@
+{
+  "stamp": "20261104-091519",
+  "smoke": true,
+  "results": [
+    {
+      "label": "train_ewc_task2",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_ewc.py --task 2 --smoke",
+      "returncode": 0,
+      "minutes": 0.4,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/smoke_train_ewc_task2_20261104-091519.log"
+    },
+    {
+      "label": "train_ewc_task3",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_ewc.py --task 3 --smoke",
+      "returncode": 0,
+      "minutes": 0.3,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/smoke_train_ewc_task3_20261104-091519.log"
+    },
+    {
+      "label": "train_replay_task2",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_replay.py --task 2 --smoke",
+      "returncode": 0,
+      "minutes": 0.3,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/smoke_train_replay_task2_20261104-091519.log"
+    },
+    {
+      "label": "train_replay_task3",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_replay.py --task 3 --smoke",
+      "returncode": 0,
+      "minutes": 0.3,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/smoke_train_replay_task3_20261104-091519.log"
+    },
+    {
+      "label": "train_adapter_cl_task2",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_adapter_cl.py --task 2 --smoke",
+      "returncode": 0,
+      "minutes": 0.3,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/smoke_train_adapter_cl_task2_20261104-091519.log"
+    },
+    {
+      "label": "train_adapter_cl_task3",
+      "cmd": "/root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning_time/scripts/train/train_adapter_cl.py --task 3 --smoke",
+      "returncode": 0,
+      "minutes": 0.3,
+      "log": "/root/CAPC-CG-Project/05_incremental_learning_time/logs/continual_runs/smoke_train_adapter_cl_task3_20261104-091519.log"
+    }
+  ]
+}

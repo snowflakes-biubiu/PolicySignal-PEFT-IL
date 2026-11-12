@@ -1,0 +1,5 @@
+池 8,508 段；主查预计 ≈1.93M token（不含仲裁）
+主查接力: deepseek-v4.1-flash → qwen3.8-max-0902 → kimi-k3 → deepseek-v4-pro-0813，各 1,000,000；终裁: kimi-k3.1-pro（思考模式）
+累计已用: deepseek-v4.1-flash=1,001,108  qwen3.8-max-0902=781,640  kimi-k3=0  deepseek-v4-pro-0813=0  kimi-k3.1-pro=149,781
+待终裁 201 段（已有 r3 20）
+  [kimi-k3.1-pro] r3 20/201 tok=167,924

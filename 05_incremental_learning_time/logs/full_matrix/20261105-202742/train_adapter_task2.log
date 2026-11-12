@@ -1,0 +1,19 @@
+$ /root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning/scripts/train/train_adapter_cl.py --task 2 --seed 42 --smoke
+
+数据检查通过：5 个任务均为 train=600 / test=300，val=120（每类 40），类别均衡、年份合法、文档和文本无交叉。
+基础模型: Qwen/Qwen2.5-1.5B-Instruct
+训练参数: Epoch=2, Rank=16, Alpha=32, LR=0.0002
+CUDA 可用: NVIDIA GeForce RTX 4090
+[人工调试豁免] CAPC_ALLOW_LOCAL_GPU 已显式设置，跳过本地 GPU 限制（自动化助手不得使用）
+冒烟模式：训练样本裁剪为 2 条（上限 2）
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:39,  8.43it/s]Loading weights:   5%|▌         | 18/338 [00:00<00:03, 96.63it/s]Loading weights:  19%|█▉        | 64/338 [00:00<00:01, 250.64it/s]Loading weights:  33%|███▎      | 111/338 [00:00<00:00, 327.29it/s]Loading weights:  46%|████▌     | 155/338 [00:00<00:00, 365.94it/s]Loading weights:  58%|█████▊    | 197/338 [00:00<00:00, 375.37it/s]Loading weights:  72%|███████▏  | 244/338 [00:00<00:00, 402.12it/s]Loading weights:  86%|████████▌ | 291/338 [00:00<00:00, 417.79it/s]Loading weights:  99%|█████████▊| 333/338 [00:00<00:00, 417.61it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 357.25it/s]
+Adapter 冻结检查：旧 adapters=['task1']；当前可训练=task2 (4,358,144 params)
+方法: adapter; 训练至 Task2; parent: /root/CAPC-CG-Project/05_incremental_learning/artifacts/models/qwen15b_temporal_task1_e2_r16_a32_lr2e-4; seed: 42
+新增数据: 600; replay 数据: 0; 合计: 2
+  0%|          | 0/1 [00:00<?, ?it/s]/root/miniconda3/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:745: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+100%|██████████| 1/1 [00:00<00:00,  1.06it/s]                                             100%|██████████| 1/1 [00:00<00:00,  1.06it/s]                                             100%|██████████| 1/1 [00:00<00:00,  1.06it/s]100%|██████████| 1/1 [00:00<00:00,  1.01it/s]
+{'loss': '0.01158', 'grad_norm': '0.4898', 'learning_rate': '0.0002', 'epoch': '0.5'}
+{'train_runtime': '0.9949', 'train_samples_per_second': '1.005', 'train_steps_per_second': '1.005', 'train_loss': '0.01158', 'epoch': '0.5'}
+冒烟测试通过：adapter Task2 完成 1 步训练，产物已写入临时冒烟目录（不产出正式模型）。
+完成：/root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/continual/adapter_task2

@@ -1,0 +1,213 @@
+============================================================
+CAPC-CG Level-1 政策信号分类实验记录
+============================================================
+
+一、实验任务
+------------------------------------------------------------
+任务：政策信号一级分类
+类别：
+N = 无政府/公共部门指令
+R = 对政府/公共部门的禁止性指令或违法处罚
+W = 对政府/公共部门的肯定性行动指令
+
+数据集：
+Baron-Sun/CAPC-CG_V1.0
+
+实验验证集：
+task1_level1/validation.parquet
+
+本阶段验证样本：
+300条
+
+------------------------------------------------------------
+二、DeepSeek-V4.1-Flash Zero-shot
+------------------------------------------------------------
+
+模型：
+deepseek-flash
+（DeepSeek-V4.1-Flash）
+
+Prompt：
+论文 Appendix D.1 中文 Prompt
+
+Few-shot：
+0
+
+样本数：
+300
+
+Accuracy：
+0.7833
+
+Macro-F1：
+0.7839
+
+Cohen Kappa：
+0.6750
+
+Confusion Matrix [N, R, W]：
+
+[[89,  2,  9],
+ [12, 74, 14],
+ [24,  4, 72]]
+
+结果文件：
+02_llm_inference/results/deepseek/deepseek_level1_zero_shot_300.json
+
+Checkpoint：
+02_llm_inference/results/deepseek/deepseek_level1_zero_shot_300_checkpoint.json
+
+
+------------------------------------------------------------
+三、DeepSeek-V4.1-Flash Few-shot k=3
+------------------------------------------------------------
+
+模型：
+deepseek-flash
+（DeepSeek-V4.1-Flash）
+
+Prompt：
+论文 Appendix D.1 中文 Prompt
+
+Few-shot：
+3
+N × 1
+R × 1
+W × 1
+
+样本数：
+300
+
+Accuracy：
+0.7767
+
+Macro-F1：
+0.7779
+
+Cohen Kappa：
+0.6650
+
+Confusion Matrix [N, R, W]：
+
+[[88,  1, 11],
+ [17, 70, 13],
+ [22,  3, 75]]
+
+结果文件：
+02_llm_inference/results/deepseek/deepseek_level1_fewshot3_300.json
+
+Checkpoint：
+02_llm_inference/results/deepseek/deepseek_level1_fewshot3_300_checkpoint.json
+
+
+------------------------------------------------------------
+四、DeepSeek-V4.1-Flash Few-shot k=6
+------------------------------------------------------------
+
+模型：
+deepseek-flash
+（DeepSeek-V4.1-Flash）
+
+Prompt：
+论文 Appendix D.1 中文 Prompt
+
+Few-shot：
+6
+N × 2
+R × 2
+W × 2
+
+样本数：
+300
+
+Accuracy：
+0.7600
+
+Macro-F1：
+0.7605
+
+Cohen Kappa：
+0.6400
+
+Confusion Matrix [N, R, W]：
+
+[[90,  0, 10],
+ [22, 66, 12],
+ [24,  4, 72]]
+
+结果文件：
+02_llm_inference/results/deepseek/deepseek_level1_fewshot6_300.json
+
+Checkpoint：
+02_llm_inference/results/deepseek/deepseek_level1_fewshot6_300_checkpoint.json
+
+
+------------------------------------------------------------
+五、DeepSeek实验内部变化
+------------------------------------------------------------
+
+Zero-shot → Few-shot k=3：
+
+Accuracy：
+-0.0066
+
+Macro-F1：
+-0.0060
+
+Kappa：
+-0.0100
+
+
+Zero-shot → Few-shot k=6：
+
+Accuracy：
+-0.0233
+
+Macro-F1：
+-0.0234
+
+Kappa：
+-0.0350
+
+
+Few-shot k=3 → Few-shot k=6：
+
+Accuracy：
+-0.0167
+
+Macro-F1：
+-0.0174
+
+Kappa：
+-0.0250
+
+
+------------------------------------------------------------
+六、论文结果对照
+------------------------------------------------------------
+
+论文：
+GPT-4o-mini
+
+Zero-shot：
+Accuracy 0.793
+Macro-F1 0.692
+Kappa 0.618
+
+Few-shot k=3：
+Accuracy 0.830
+Macro-F1 0.724
+Kappa 0.686
+
+Few-shot k=6：
+Accuracy 0.816
+Macro-F1 0.719
+Kappa 0.659
+
+
+注意：
+论文使用1901条held-out test；
+本实验使用公开数据集中的300条validation。
+因此二者不构成严格的同测试集模型性能比较。
+
+============================================================

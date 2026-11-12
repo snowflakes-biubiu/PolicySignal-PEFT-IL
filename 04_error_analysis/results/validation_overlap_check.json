@@ -1,0 +1,18 @@
+{
+  "task1_validation": 300,
+  "task2_validation": 400,
+  "overlap_count": 1,
+  "overlap_ratio_task1": 0.0033333333333333335,
+  "overlap_ratio_task2": 0.0025,
+  "overlap_level1_distribution": {
+    "W": 1
+  },
+  "overlap_level2_distribution": {
+    "B": 1
+  },
+  "level1_level2_crosstab": {
+    "B": {
+      "W": 1
+    }
+  }
+}

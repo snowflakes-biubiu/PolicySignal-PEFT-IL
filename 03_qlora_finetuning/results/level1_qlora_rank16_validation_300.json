@@ -1,0 +1,2767 @@
+{
+  "experiment": "Qwen2.5-1.5B QLoRA Level-1",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "adapter": "peft\\qwen15b_level1_qlora_rank16",
+  "validation_samples": 300,
+  "max_length": 768,
+  "labels": [
+    "N",
+    "R",
+    "W"
+  ],
+  "accuracy": 0.9166666666666666,
+  "macro_f1": 0.9167646762099864,
+  "cohen_kappa": 0.875,
+  "confusion_matrix": [
+    [
+      88,
+      2,
+      10
+    ],
+    [
+      2,
+      95,
+      3
+    ],
+    [
+      6,
+      2,
+      92
+    ]
+  ],
+  "classification_report": {
+    "N": {
+      "precision": 0.9166666666666666,
+      "recall": 0.88,
+      "f1-score": 0.8979591836734694,
+      "support": 100.0
+    },
+    "R": {
+      "precision": 0.9595959595959596,
+      "recall": 0.95,
+      "f1-score": 0.9547738693467337,
+      "support": 100.0
+    },
+    "W": {
+      "precision": 0.8761904761904762,
+      "recall": 0.92,
+      "f1-score": 0.8975609756097561,
+      "support": 100.0
+    },
+    "accuracy": 0.9166666666666666,
+    "macro avg": {
+      "precision": 0.9174843674843675,
+      "recall": 0.9166666666666666,
+      "f1-score": 0.9167646762099864,
+      "support": 300.0
+    },
+    "weighted avg": {
+      "precision": 0.9174843674843675,
+      "recall": 0.9166666666666666,
+      "f1-score": 0.9167646762099865,
+      "support": 300.0
+    }
+  },
+  "predictions": [
+    {
+      "index": 0,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.75,
+      "score_R": 25.75,
+      "score_W": 20.875
+    },
+    {
+      "index": 1,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.75,
+      "score_R": 17.375,
+      "score_W": 24.75
+    },
+    {
+      "index": 2,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.75,
+      "score_R": 17.75,
+      "score_W": 20.5
+    },
+    {
+      "index": 3,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.625,
+      "score_R": 28.125,
+      "score_W": 21.5
+    },
+    {
+      "index": 4,
+      "gold": "W",
+      "prediction": "N",
+      "correct": false,
+      "score_N": 25.5,
+      "score_R": 19.125,
+      "score_W": 21.75
+    },
+    {
+      "index": 5,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.125,
+      "score_R": 17.5,
+      "score_W": 20.625
+    },
+    {
+      "index": 6,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.875,
+      "score_R": 26.625,
+      "score_W": 20.0
+    },
+    {
+      "index": 7,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.0,
+      "score_R": 17.125,
+      "score_W": 20.0
+    },
+    {
+      "index": 8,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.0,
+      "score_R": 26.875,
+      "score_W": 22.125
+    },
+    {
+      "index": 9,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 20.0,
+      "score_R": 20.75,
+      "score_W": 25.375
+    },
+    {
+      "index": 10,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.75,
+      "score_R": 19.75,
+      "score_W": 22.625
+    },
+    {
+      "index": 11,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 20.25,
+      "score_R": 17.75,
+      "score_W": 24.5
+    },
+    {
+      "index": 12,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 27.0,
+      "score_R": 18.125,
+      "score_W": 20.875
+    },
+    {
+      "index": 13,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.125,
+      "score_R": 18.375,
+      "score_W": 26.25
+    },
+    {
+      "index": 14,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 24.625,
+      "score_R": 17.75,
+      "score_W": 20.875
+    },
+    {
+      "index": 15,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 19.875,
+      "score_R": 26.125,
+      "score_W": 20.25
+    },
+    {
+      "index": 16,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.125,
+      "score_R": 28.375,
+      "score_W": 23.125
+    },
+    {
+      "index": 17,
+      "gold": "N",
+      "prediction": "W",
+      "correct": false,
+      "score_N": 23.375,
+      "score_R": 18.875,
+      "score_W": 25.25
+    },
+    {
+      "index": 18,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 19.75,
+      "score_R": 18.5,
+      "score_W": 25.75
+    },
+    {
+      "index": 19,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.5,
+      "score_R": 17.375,
+      "score_W": 25.625
+    },
+    {
+      "index": 20,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 5.1875,
+      "score_R": 5.65625,
+      "score_W": 6.03125
+    },
+    {
+      "index": 21,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 23.25,
+      "score_R": 18.625,
+      "score_W": 24.25
+    },
+    {
+      "index": 22,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.5,
+      "score_R": 15.0625,
+      "score_W": 18.125
+    },
+    {
+      "index": 23,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.5,
+      "score_R": 26.375,
+      "score_W": 19.125
+    },
+    {
+      "index": 24,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.5,
+      "score_R": 18.5,
+      "score_W": 26.75
+    },
+    {
+      "index": 25,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.875,
+      "score_R": 18.5,
+      "score_W": 26.0
+    },
+    {
+      "index": 26,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 21.25,
+      "score_R": 17.75,
+      "score_W": 24.125
+    },
+    {
+      "index": 27,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.375,
+      "score_R": 17.375,
+      "score_W": 25.5
+    },
+    {
+      "index": 28,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.75,
+      "score_R": 27.625,
+      "score_W": 18.75
+    },
+    {
+      "index": 29,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.25,
+      "score_R": 19.75,
+      "score_W": 26.125
+    },
+    {
+      "index": 30,
+      "gold": "N",
+      "prediction": "W",
+      "correct": false,
+      "score_N": 21.375,
+      "score_R": 19.125,
+      "score_W": 24.75
+    },
+    {
+      "index": 31,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.5,
+      "score_R": 26.5,
+      "score_W": 19.5
+    },
+    {
+      "index": 32,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.75,
+      "score_R": 27.375,
+      "score_W": 19.375
+    },
+    {
+      "index": 33,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 16.875,
+      "score_R": 18.375,
+      "score_W": 26.25
+    },
+    {
+      "index": 34,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.625,
+      "score_R": 18.0,
+      "score_W": 22.25
+    },
+    {
+      "index": 35,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.5,
+      "score_R": 26.375,
+      "score_W": 19.125
+    },
+    {
+      "index": 36,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.375,
+      "score_R": 17.625,
+      "score_W": 20.0
+    },
+    {
+      "index": 37,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.75,
+      "score_R": 28.0,
+      "score_W": 19.5
+    },
+    {
+      "index": 38,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.625,
+      "score_R": 16.625,
+      "score_W": 19.125
+    },
+    {
+      "index": 39,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.375,
+      "score_R": 18.5,
+      "score_W": 21.875
+    },
+    {
+      "index": 40,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.25,
+      "score_R": 19.375,
+      "score_W": 24.0
+    },
+    {
+      "index": 41,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.75,
+      "score_R": 25.5,
+      "score_W": 19.0
+    },
+    {
+      "index": 42,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.0,
+      "score_R": 17.375,
+      "score_W": 18.625
+    },
+    {
+      "index": 43,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 22.5,
+      "score_R": 18.75,
+      "score_W": 26.0
+    },
+    {
+      "index": 44,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 20.25,
+      "score_R": 18.5,
+      "score_W": 25.75
+    },
+    {
+      "index": 45,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 24.625,
+      "score_R": 16.75,
+      "score_W": 19.0
+    },
+    {
+      "index": 46,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.125,
+      "score_R": 18.125,
+      "score_W": 19.375
+    },
+    {
+      "index": 47,
+      "gold": "N",
+      "prediction": "W",
+      "correct": false,
+      "score_N": 24.0,
+      "score_R": 19.75,
+      "score_W": 25.0
+    },
+    {
+      "index": 48,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.625,
+      "score_R": 17.25,
+      "score_W": 20.875
+    },
+    {
+      "index": 49,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 20.5,
+      "score_R": 18.0,
+      "score_W": 25.0
+    },
+    {
+      "index": 50,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.75,
+      "score_R": 19.875,
+      "score_W": 23.625
+    },
+    {
+      "index": 51,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.75,
+      "score_R": 18.875,
+      "score_W": 26.375
+    },
+    {
+      "index": 52,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 19.75,
+      "score_R": 18.75,
+      "score_W": 24.875
+    },
+    {
+      "index": 53,
+      "gold": "W",
+      "prediction": "R",
+      "correct": false,
+      "score_N": 18.125,
+      "score_R": 27.75,
+      "score_W": 23.25
+    },
+    {
+      "index": 54,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.375,
+      "score_R": 26.375,
+      "score_W": 20.0
+    },
+    {
+      "index": 55,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.625,
+      "score_R": 18.25,
+      "score_W": 21.75
+    },
+    {
+      "index": 56,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.125,
+      "score_R": 16.5,
+      "score_W": 18.5
+    },
+    {
+      "index": 57,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 19.0,
+      "score_R": 26.5,
+      "score_W": 20.625
+    },
+    {
+      "index": 58,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.125,
+      "score_R": 17.25,
+      "score_W": 20.0
+    },
+    {
+      "index": 59,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.0,
+      "score_R": 18.375,
+      "score_W": 26.125
+    },
+    {
+      "index": 60,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 19.25,
+      "score_R": 18.625,
+      "score_W": 25.625
+    },
+    {
+      "index": 61,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 16.875,
+      "score_R": 17.0,
+      "score_W": 24.125
+    },
+    {
+      "index": 62,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.625,
+      "score_R": 17.25,
+      "score_W": 20.75
+    },
+    {
+      "index": 63,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.875,
+      "score_R": 26.625,
+      "score_W": 19.625
+    },
+    {
+      "index": 64,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.625,
+      "score_R": 19.125,
+      "score_W": 22.875
+    },
+    {
+      "index": 65,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.0,
+      "score_R": 27.5,
+      "score_W": 20.0
+    },
+    {
+      "index": 66,
+      "gold": "W",
+      "prediction": "R",
+      "correct": false,
+      "score_N": 19.375,
+      "score_R": 25.5,
+      "score_W": 24.5
+    },
+    {
+      "index": 67,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.875,
+      "score_R": 18.375,
+      "score_W": 24.25
+    },
+    {
+      "index": 68,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.0,
+      "score_R": 16.875,
+      "score_W": 20.625
+    },
+    {
+      "index": 69,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 27.0,
+      "score_R": 17.875,
+      "score_W": 21.625
+    },
+    {
+      "index": 70,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.875,
+      "score_R": 17.125,
+      "score_W": 20.25
+    },
+    {
+      "index": 71,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.25,
+      "score_R": 26.75,
+      "score_W": 19.75
+    },
+    {
+      "index": 72,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.5,
+      "score_R": 15.625,
+      "score_W": 19.125
+    },
+    {
+      "index": 73,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.25,
+      "score_R": 28.625,
+      "score_W": 22.375
+    },
+    {
+      "index": 74,
+      "gold": "W",
+      "prediction": "N",
+      "correct": false,
+      "score_N": 24.75,
+      "score_R": 18.25,
+      "score_W": 23.5
+    },
+    {
+      "index": 75,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.25,
+      "score_R": 28.0,
+      "score_W": 20.625
+    },
+    {
+      "index": 76,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.875,
+      "score_R": 18.75,
+      "score_W": 25.0
+    },
+    {
+      "index": 77,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 20.875,
+      "score_R": 19.625,
+      "score_W": 24.5
+    },
+    {
+      "index": 78,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.5,
+      "score_R": 28.125,
+      "score_W": 21.5
+    },
+    {
+      "index": 79,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.875,
+      "score_R": 17.625,
+      "score_W": 19.875
+    },
+    {
+      "index": 80,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 27.125,
+      "score_R": 17.125,
+      "score_W": 21.125
+    },
+    {
+      "index": 81,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.375,
+      "score_R": 20.875,
+      "score_W": 24.25
+    },
+    {
+      "index": 82,
+      "gold": "N",
+      "prediction": "W",
+      "correct": false,
+      "score_N": 21.375,
+      "score_R": 18.25,
+      "score_W": 24.25
+    },
+    {
+      "index": 83,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 19.25,
+      "score_R": 26.875,
+      "score_W": 22.5
+    },
+    {
+      "index": 84,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.125,
+      "score_R": 28.0,
+      "score_W": 20.25
+    },
+    {
+      "index": 85,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 16.5,
+      "score_R": 17.5,
+      "score_W": 24.375
+    },
+    {
+      "index": 86,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.375,
+      "score_R": 25.875,
+      "score_W": 19.75
+    },
+    {
+      "index": 87,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.25,
+      "score_R": 18.75,
+      "score_W": 22.375
+    },
+    {
+      "index": 88,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 24.5,
+      "score_R": 17.875,
+      "score_W": 24.0
+    },
+    {
+      "index": 89,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.75,
+      "score_R": 25.75,
+      "score_W": 20.875
+    },
+    {
+      "index": 90,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.375,
+      "score_R": 27.5,
+      "score_W": 19.75
+    },
+    {
+      "index": 91,
+      "gold": "R",
+      "prediction": "N",
+      "correct": false,
+      "score_N": 25.25,
+      "score_R": 17.375,
+      "score_W": 18.625
+    },
+    {
+      "index": 92,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.75,
+      "score_R": 17.125,
+      "score_W": 19.25
+    },
+    {
+      "index": 93,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 22.5,
+      "score_R": 18.0,
+      "score_W": 25.25
+    },
+    {
+      "index": 94,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.5,
+      "score_R": 27.5,
+      "score_W": 19.25
+    },
+    {
+      "index": 95,
+      "gold": "W",
+      "prediction": "N",
+      "correct": false,
+      "score_N": 25.125,
+      "score_R": 20.5,
+      "score_W": 23.625
+    },
+    {
+      "index": 96,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.625,
+      "score_R": 17.125,
+      "score_W": 25.375
+    },
+    {
+      "index": 97,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 20.5,
+      "score_R": 26.375,
+      "score_W": 21.125
+    },
+    {
+      "index": 98,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.25,
+      "score_R": 27.875,
+      "score_W": 24.625
+    },
+    {
+      "index": 99,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 24.5,
+      "score_R": 17.875,
+      "score_W": 19.125
+    },
+    {
+      "index": 100,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.875,
+      "score_R": 15.1875,
+      "score_W": 17.0
+    },
+    {
+      "index": 101,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.0,
+      "score_R": 17.75,
+      "score_W": 26.75
+    },
+    {
+      "index": 102,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.375,
+      "score_R": 18.0,
+      "score_W": 25.875
+    },
+    {
+      "index": 103,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 21.625,
+      "score_R": 25.5,
+      "score_W": 23.375
+    },
+    {
+      "index": 104,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 19.625,
+      "score_R": 19.5,
+      "score_W": 26.5
+    },
+    {
+      "index": 105,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.125,
+      "score_R": 26.25,
+      "score_W": 20.0
+    },
+    {
+      "index": 106,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.375,
+      "score_R": 28.0,
+      "score_W": 20.375
+    },
+    {
+      "index": 107,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 20.25,
+      "score_R": 17.5,
+      "score_W": 24.375
+    },
+    {
+      "index": 108,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.0,
+      "score_R": 28.625,
+      "score_W": 20.375
+    },
+    {
+      "index": 109,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.0,
+      "score_R": 17.625,
+      "score_W": 20.875
+    },
+    {
+      "index": 110,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 22.5,
+      "score_R": 18.875,
+      "score_W": 24.875
+    },
+    {
+      "index": 111,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.25,
+      "score_R": 17.25,
+      "score_W": 19.875
+    },
+    {
+      "index": 112,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.875,
+      "score_R": 18.0,
+      "score_W": 20.75
+    },
+    {
+      "index": 113,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.875,
+      "score_R": 27.375,
+      "score_W": 19.125
+    },
+    {
+      "index": 114,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 24.625,
+      "score_R": 18.5,
+      "score_W": 24.75
+    },
+    {
+      "index": 115,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 19.0,
+      "score_R": 17.25,
+      "score_W": 24.875
+    },
+    {
+      "index": 116,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.5,
+      "score_R": 27.625,
+      "score_W": 19.625
+    },
+    {
+      "index": 117,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.25,
+      "score_R": 17.0,
+      "score_W": 19.75
+    },
+    {
+      "index": 118,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.375,
+      "score_R": 18.625,
+      "score_W": 25.875
+    },
+    {
+      "index": 119,
+      "gold": "N",
+      "prediction": "R",
+      "correct": false,
+      "score_N": 19.75,
+      "score_R": 25.5,
+      "score_W": 24.375
+    },
+    {
+      "index": 120,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.625,
+      "score_R": 27.375,
+      "score_W": 19.125
+    },
+    {
+      "index": 121,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.125,
+      "score_R": 27.5,
+      "score_W": 20.5
+    },
+    {
+      "index": 122,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.75,
+      "score_R": 17.875,
+      "score_W": 20.375
+    },
+    {
+      "index": 123,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.625,
+      "score_R": 25.75,
+      "score_W": 19.875
+    },
+    {
+      "index": 124,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.625,
+      "score_R": 20.0,
+      "score_W": 26.5
+    },
+    {
+      "index": 125,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.75,
+      "score_R": 27.875,
+      "score_W": 19.875
+    },
+    {
+      "index": 126,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.125,
+      "score_R": 16.5,
+      "score_W": 19.0
+    },
+    {
+      "index": 127,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.75,
+      "score_R": 27.75,
+      "score_W": 20.125
+    },
+    {
+      "index": 128,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 27.125,
+      "score_R": 17.125,
+      "score_W": 20.75
+    },
+    {
+      "index": 129,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.375,
+      "score_R": 28.125,
+      "score_W": 21.75
+    },
+    {
+      "index": 130,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.25,
+      "score_R": 18.125,
+      "score_W": 26.125
+    },
+    {
+      "index": 131,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 19.0,
+      "score_R": 16.875,
+      "score_W": 23.75
+    },
+    {
+      "index": 132,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.125,
+      "score_R": 15.25,
+      "score_W": 17.25
+    },
+    {
+      "index": 133,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.125,
+      "score_R": 17.875,
+      "score_W": 25.25
+    },
+    {
+      "index": 134,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.75,
+      "score_R": 15.4375,
+      "score_W": 18.375
+    },
+    {
+      "index": 135,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.875,
+      "score_R": 27.25,
+      "score_W": 21.25
+    },
+    {
+      "index": 136,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.375,
+      "score_R": 18.0,
+      "score_W": 25.375
+    },
+    {
+      "index": 137,
+      "gold": "R",
+      "prediction": "W",
+      "correct": false,
+      "score_N": 21.0,
+      "score_R": 23.25,
+      "score_W": 25.75
+    },
+    {
+      "index": 138,
+      "gold": "N",
+      "prediction": "W",
+      "correct": false,
+      "score_N": 20.875,
+      "score_R": 19.75,
+      "score_W": 25.125
+    },
+    {
+      "index": 139,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.25,
+      "score_R": 18.0,
+      "score_W": 25.75
+    },
+    {
+      "index": 140,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.375,
+      "score_R": 19.25,
+      "score_W": 25.5
+    },
+    {
+      "index": 141,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.125,
+      "score_R": 27.25,
+      "score_W": 21.0
+    },
+    {
+      "index": 142,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.25,
+      "score_R": 17.125,
+      "score_W": 20.125
+    },
+    {
+      "index": 143,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.125,
+      "score_R": 28.625,
+      "score_W": 23.125
+    },
+    {
+      "index": 144,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.625,
+      "score_R": 17.875,
+      "score_W": 20.75
+    },
+    {
+      "index": 145,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.875,
+      "score_R": 28.0,
+      "score_W": 20.0
+    },
+    {
+      "index": 146,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.625,
+      "score_R": 18.125,
+      "score_W": 19.25
+    },
+    {
+      "index": 147,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.75,
+      "score_R": 17.625,
+      "score_W": 20.375
+    },
+    {
+      "index": 148,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.0,
+      "score_R": 17.5,
+      "score_W": 21.0
+    },
+    {
+      "index": 149,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.375,
+      "score_R": 17.375,
+      "score_W": 19.375
+    },
+    {
+      "index": 150,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.125,
+      "score_R": 18.0,
+      "score_W": 25.75
+    },
+    {
+      "index": 151,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.375,
+      "score_R": 17.75,
+      "score_W": 20.5
+    },
+    {
+      "index": 152,
+      "gold": "W",
+      "prediction": "N",
+      "correct": false,
+      "score_N": 25.375,
+      "score_R": 19.0,
+      "score_W": 23.125
+    },
+    {
+      "index": 153,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.0,
+      "score_R": 27.375,
+      "score_W": 20.625
+    },
+    {
+      "index": 154,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.875,
+      "score_R": 17.125,
+      "score_W": 19.125
+    },
+    {
+      "index": 155,
+      "gold": "N",
+      "prediction": "W",
+      "correct": false,
+      "score_N": 17.375,
+      "score_R": 19.0,
+      "score_W": 26.0
+    },
+    {
+      "index": 156,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 20.375,
+      "score_R": 17.875,
+      "score_W": 24.5
+    },
+    {
+      "index": 157,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 21.875,
+      "score_R": 18.5,
+      "score_W": 25.375
+    },
+    {
+      "index": 158,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.75,
+      "score_R": 27.625,
+      "score_W": 21.125
+    },
+    {
+      "index": 159,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.375,
+      "score_R": 18.0,
+      "score_W": 20.5
+    },
+    {
+      "index": 160,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.5,
+      "score_R": 17.5,
+      "score_W": 19.625
+    },
+    {
+      "index": 161,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.75,
+      "score_R": 18.25,
+      "score_W": 25.25
+    },
+    {
+      "index": 162,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.75,
+      "score_R": 17.5,
+      "score_W": 20.875
+    },
+    {
+      "index": 163,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.875,
+      "score_R": 17.75,
+      "score_W": 26.125
+    },
+    {
+      "index": 164,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.875,
+      "score_R": 17.0,
+      "score_W": 19.5
+    },
+    {
+      "index": 165,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 19.875,
+      "score_R": 20.25,
+      "score_W": 25.25
+    },
+    {
+      "index": 166,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.125,
+      "score_R": 25.25,
+      "score_W": 19.625
+    },
+    {
+      "index": 167,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.75,
+      "score_R": 18.875,
+      "score_W": 21.75
+    },
+    {
+      "index": 168,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.5,
+      "score_R": 17.75,
+      "score_W": 24.75
+    },
+    {
+      "index": 169,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.25,
+      "score_R": 28.375,
+      "score_W": 21.0
+    },
+    {
+      "index": 170,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.25,
+      "score_R": 28.125,
+      "score_W": 22.25
+    },
+    {
+      "index": 171,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.5,
+      "score_R": 17.625,
+      "score_W": 21.0
+    },
+    {
+      "index": 172,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 19.875,
+      "score_R": 20.0,
+      "score_W": 26.625
+    },
+    {
+      "index": 173,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.0,
+      "score_R": 17.0,
+      "score_W": 25.625
+    },
+    {
+      "index": 174,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.0,
+      "score_R": 17.75,
+      "score_W": 26.0
+    },
+    {
+      "index": 175,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.0,
+      "score_R": 18.75,
+      "score_W": 24.625
+    },
+    {
+      "index": 176,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 19.0,
+      "score_R": 25.75,
+      "score_W": 21.25
+    },
+    {
+      "index": 177,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.875,
+      "score_R": 28.25,
+      "score_W": 21.25
+    },
+    {
+      "index": 178,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.25,
+      "score_R": 20.125,
+      "score_W": 22.25
+    },
+    {
+      "index": 179,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.875,
+      "score_R": 17.25,
+      "score_W": 18.25
+    },
+    {
+      "index": 180,
+      "gold": "R",
+      "prediction": "W",
+      "correct": false,
+      "score_N": 20.5,
+      "score_R": 22.0,
+      "score_W": 23.875
+    },
+    {
+      "index": 181,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.5,
+      "score_R": 19.125,
+      "score_W": 24.875
+    },
+    {
+      "index": 182,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.25,
+      "score_R": 16.5,
+      "score_W": 18.75
+    },
+    {
+      "index": 183,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 20.125,
+      "score_R": 19.0,
+      "score_W": 25.5
+    },
+    {
+      "index": 184,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 27.375,
+      "score_R": 17.5,
+      "score_W": 21.0
+    },
+    {
+      "index": 185,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.125,
+      "score_R": 17.625,
+      "score_W": 24.5
+    },
+    {
+      "index": 186,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.25,
+      "score_R": 16.0,
+      "score_W": 18.625
+    },
+    {
+      "index": 187,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.625,
+      "score_R": 18.75,
+      "score_W": 26.875
+    },
+    {
+      "index": 188,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.5,
+      "score_R": 27.625,
+      "score_W": 19.625
+    },
+    {
+      "index": 189,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.5,
+      "score_R": 27.875,
+      "score_W": 21.375
+    },
+    {
+      "index": 190,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.625,
+      "score_R": 26.0,
+      "score_W": 19.25
+    },
+    {
+      "index": 191,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.125,
+      "score_R": 27.125,
+      "score_W": 21.125
+    },
+    {
+      "index": 192,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.75,
+      "score_R": 28.0,
+      "score_W": 20.5
+    },
+    {
+      "index": 193,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.625,
+      "score_R": 17.5,
+      "score_W": 25.875
+    },
+    {
+      "index": 194,
+      "gold": "N",
+      "prediction": "W",
+      "correct": false,
+      "score_N": 19.5,
+      "score_R": 18.375,
+      "score_W": 25.125
+    },
+    {
+      "index": 195,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.375,
+      "score_R": 27.25,
+      "score_W": 20.625
+    },
+    {
+      "index": 196,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 19.0,
+      "score_R": 26.125,
+      "score_W": 20.375
+    },
+    {
+      "index": 197,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.0,
+      "score_R": 15.25,
+      "score_W": 17.875
+    },
+    {
+      "index": 198,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.875,
+      "score_R": 27.625,
+      "score_W": 21.125
+    },
+    {
+      "index": 199,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.125,
+      "score_R": 27.375,
+      "score_W": 20.875
+    },
+    {
+      "index": 200,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 19.5,
+      "score_R": 27.75,
+      "score_W": 23.125
+    },
+    {
+      "index": 201,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.625,
+      "score_R": 27.625,
+      "score_W": 19.625
+    },
+    {
+      "index": 202,
+      "gold": "R",
+      "prediction": "N",
+      "correct": false,
+      "score_N": 26.625,
+      "score_R": 19.75,
+      "score_W": 21.625
+    },
+    {
+      "index": 203,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.875,
+      "score_R": 18.875,
+      "score_W": 22.375
+    },
+    {
+      "index": 204,
+      "gold": "N",
+      "prediction": "W",
+      "correct": false,
+      "score_N": 22.0,
+      "score_R": 19.25,
+      "score_W": 25.125
+    },
+    {
+      "index": 205,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 21.75,
+      "score_R": 18.75,
+      "score_W": 24.125
+    },
+    {
+      "index": 206,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.875,
+      "score_R": 26.625,
+      "score_W": 19.5
+    },
+    {
+      "index": 207,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.75,
+      "score_R": 18.5,
+      "score_W": 26.125
+    },
+    {
+      "index": 208,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.0,
+      "score_R": 18.25,
+      "score_W": 25.5
+    },
+    {
+      "index": 209,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.75,
+      "score_R": 17.875,
+      "score_W": 21.625
+    },
+    {
+      "index": 210,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.375,
+      "score_R": 17.125,
+      "score_W": 20.75
+    },
+    {
+      "index": 211,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.875,
+      "score_R": 26.25,
+      "score_W": 19.25
+    },
+    {
+      "index": 212,
+      "gold": "W",
+      "prediction": "N",
+      "correct": false,
+      "score_N": 24.5,
+      "score_R": 17.625,
+      "score_W": 23.0
+    },
+    {
+      "index": 213,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.375,
+      "score_R": 27.125,
+      "score_W": 19.375
+    },
+    {
+      "index": 214,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.625,
+      "score_R": 28.5,
+      "score_W": 22.0
+    },
+    {
+      "index": 215,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.875,
+      "score_R": 17.875,
+      "score_W": 24.125
+    },
+    {
+      "index": 216,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 19.875,
+      "score_R": 25.875,
+      "score_W": 22.0
+    },
+    {
+      "index": 217,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.625,
+      "score_R": 15.0625,
+      "score_W": 17.875
+    },
+    {
+      "index": 218,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 19.0,
+      "score_R": 27.5,
+      "score_W": 22.0
+    },
+    {
+      "index": 219,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.875,
+      "score_R": 26.125,
+      "score_W": 19.5
+    },
+    {
+      "index": 220,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.375,
+      "score_R": 14.9375,
+      "score_W": 17.25
+    },
+    {
+      "index": 221,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.75,
+      "score_R": 18.0,
+      "score_W": 24.875
+    },
+    {
+      "index": 222,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.5,
+      "score_R": 26.0,
+      "score_W": 19.125
+    },
+    {
+      "index": 223,
+      "gold": "N",
+      "prediction": "W",
+      "correct": false,
+      "score_N": 18.625,
+      "score_R": 19.5,
+      "score_W": 24.75
+    },
+    {
+      "index": 224,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 20.875,
+      "score_R": 19.25,
+      "score_W": 24.875
+    },
+    {
+      "index": 225,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.0,
+      "score_R": 16.125,
+      "score_W": 18.25
+    },
+    {
+      "index": 226,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.5,
+      "score_R": 17.375,
+      "score_W": 24.5
+    },
+    {
+      "index": 227,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.125,
+      "score_R": 17.125,
+      "score_W": 25.5
+    },
+    {
+      "index": 228,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.5,
+      "score_R": 18.5,
+      "score_W": 25.875
+    },
+    {
+      "index": 229,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.25,
+      "score_R": 17.25,
+      "score_W": 20.375
+    },
+    {
+      "index": 230,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 20.75,
+      "score_R": 25.25,
+      "score_W": 24.0
+    },
+    {
+      "index": 231,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 20.375,
+      "score_R": 21.75,
+      "score_W": 24.25
+    },
+    {
+      "index": 232,
+      "gold": "R",
+      "prediction": "W",
+      "correct": false,
+      "score_N": 18.25,
+      "score_R": 20.125,
+      "score_W": 25.75
+    },
+    {
+      "index": 233,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.625,
+      "score_R": 17.125,
+      "score_W": 17.875
+    },
+    {
+      "index": 234,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.125,
+      "score_R": 27.375,
+      "score_W": 19.125
+    },
+    {
+      "index": 235,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.25,
+      "score_R": 17.375,
+      "score_W": 19.5
+    },
+    {
+      "index": 236,
+      "gold": "W",
+      "prediction": "N",
+      "correct": false,
+      "score_N": 25.625,
+      "score_R": 18.125,
+      "score_W": 21.75
+    },
+    {
+      "index": 237,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 19.0,
+      "score_R": 26.625,
+      "score_W": 24.625
+    },
+    {
+      "index": 238,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.5,
+      "score_R": 17.0,
+      "score_W": 18.0
+    },
+    {
+      "index": 239,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 20.125,
+      "score_R": 28.25,
+      "score_W": 22.75
+    },
+    {
+      "index": 240,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.25,
+      "score_R": 16.375,
+      "score_W": 19.25
+    },
+    {
+      "index": 241,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.875,
+      "score_R": 20.0,
+      "score_W": 22.625
+    },
+    {
+      "index": 242,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 16.75,
+      "score_R": 17.875,
+      "score_W": 24.375
+    },
+    {
+      "index": 243,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.375,
+      "score_R": 17.375,
+      "score_W": 24.5
+    },
+    {
+      "index": 244,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 21.5,
+      "score_R": 19.125,
+      "score_W": 25.375
+    },
+    {
+      "index": 245,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.875,
+      "score_R": 26.5,
+      "score_W": 20.125
+    },
+    {
+      "index": 246,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.625,
+      "score_R": 18.375,
+      "score_W": 20.125
+    },
+    {
+      "index": 247,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.875,
+      "score_R": 27.375,
+      "score_W": 19.625
+    },
+    {
+      "index": 248,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 19.625,
+      "score_R": 19.375,
+      "score_W": 24.5
+    },
+    {
+      "index": 249,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.375,
+      "score_R": 26.375,
+      "score_W": 20.875
+    },
+    {
+      "index": 250,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.375,
+      "score_R": 25.875,
+      "score_W": 20.875
+    },
+    {
+      "index": 251,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.375,
+      "score_R": 19.875,
+      "score_W": 26.0
+    },
+    {
+      "index": 252,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.125,
+      "score_R": 22.125,
+      "score_W": 26.0
+    },
+    {
+      "index": 253,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.75,
+      "score_R": 18.125,
+      "score_W": 26.0
+    },
+    {
+      "index": 254,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.0,
+      "score_R": 17.5,
+      "score_W": 26.125
+    },
+    {
+      "index": 255,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.625,
+      "score_R": 19.875,
+      "score_W": 26.0
+    },
+    {
+      "index": 256,
+      "gold": "N",
+      "prediction": "W",
+      "correct": false,
+      "score_N": 20.125,
+      "score_R": 19.5,
+      "score_W": 24.75
+    },
+    {
+      "index": 257,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 16.5,
+      "score_R": 19.0,
+      "score_W": 25.625
+    },
+    {
+      "index": 258,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.5,
+      "score_R": 18.625,
+      "score_W": 22.125
+    },
+    {
+      "index": 259,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 20.5,
+      "score_R": 17.875,
+      "score_W": 24.875
+    },
+    {
+      "index": 260,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.25,
+      "score_R": 15.3125,
+      "score_W": 18.0
+    },
+    {
+      "index": 261,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 19.375,
+      "score_R": 25.875,
+      "score_W": 21.375
+    },
+    {
+      "index": 262,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.125,
+      "score_R": 17.375,
+      "score_W": 26.125
+    },
+    {
+      "index": 263,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.875,
+      "score_R": 18.125,
+      "score_W": 25.875
+    },
+    {
+      "index": 264,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 20.25,
+      "score_R": 17.625,
+      "score_W": 24.625
+    },
+    {
+      "index": 265,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.625,
+      "score_R": 16.875,
+      "score_W": 19.5
+    },
+    {
+      "index": 266,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.375,
+      "score_R": 27.0,
+      "score_W": 19.375
+    },
+    {
+      "index": 267,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.5,
+      "score_R": 18.125,
+      "score_W": 27.5
+    },
+    {
+      "index": 268,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 20.375,
+      "score_R": 24.5,
+      "score_W": 23.875
+    },
+    {
+      "index": 269,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 19.25,
+      "score_R": 26.875,
+      "score_W": 22.5
+    },
+    {
+      "index": 270,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.25,
+      "score_R": 26.375,
+      "score_W": 20.0
+    },
+    {
+      "index": 271,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.625,
+      "score_R": 18.25,
+      "score_W": 20.875
+    },
+    {
+      "index": 272,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 27.0,
+      "score_R": 18.625,
+      "score_W": 22.25
+    },
+    {
+      "index": 273,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.25,
+      "score_R": 26.125,
+      "score_W": 22.625
+    },
+    {
+      "index": 274,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.25,
+      "score_R": 18.75,
+      "score_W": 20.875
+    },
+    {
+      "index": 275,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.25,
+      "score_R": 17.5,
+      "score_W": 20.375
+    },
+    {
+      "index": 276,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 19.0,
+      "score_R": 18.875,
+      "score_W": 26.125
+    },
+    {
+      "index": 277,
+      "gold": "N",
+      "prediction": "R",
+      "correct": false,
+      "score_N": 19.0,
+      "score_R": 26.25,
+      "score_W": 20.875
+    },
+    {
+      "index": 278,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.875,
+      "score_R": 27.75,
+      "score_W": 20.5
+    },
+    {
+      "index": 279,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 16.5,
+      "score_R": 16.25,
+      "score_W": 24.0
+    },
+    {
+      "index": 280,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.125,
+      "score_R": 17.875,
+      "score_W": 25.625
+    },
+    {
+      "index": 281,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.5,
+      "score_R": 28.0,
+      "score_W": 23.75
+    },
+    {
+      "index": 282,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 17.5,
+      "score_R": 16.875,
+      "score_W": 26.75
+    },
+    {
+      "index": 283,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 27.125,
+      "score_R": 18.0,
+      "score_W": 21.0
+    },
+    {
+      "index": 284,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.625,
+      "score_R": 28.25,
+      "score_W": 23.375
+    },
+    {
+      "index": 285,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.75,
+      "score_R": 27.625,
+      "score_W": 19.625
+    },
+    {
+      "index": 286,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.375,
+      "score_R": 28.875,
+      "score_W": 20.0
+    },
+    {
+      "index": 287,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.875,
+      "score_R": 26.75,
+      "score_W": 20.875
+    },
+    {
+      "index": 288,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 27.625,
+      "score_R": 18.0,
+      "score_W": 21.125
+    },
+    {
+      "index": 289,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 18.375,
+      "score_R": 26.5,
+      "score_W": 19.125
+    },
+    {
+      "index": 290,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 25.625,
+      "score_R": 16.25,
+      "score_W": 18.75
+    },
+    {
+      "index": 291,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 18.875,
+      "score_R": 18.0,
+      "score_W": 25.25
+    },
+    {
+      "index": 292,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 16.75,
+      "score_R": 17.375,
+      "score_W": 25.625
+    },
+    {
+      "index": 293,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.75,
+      "score_R": 26.125,
+      "score_W": 19.875
+    },
+    {
+      "index": 294,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 27.0,
+      "score_R": 18.5,
+      "score_W": 22.375
+    },
+    {
+      "index": 295,
+      "gold": "N",
+      "prediction": "N",
+      "correct": true,
+      "score_N": 26.5,
+      "score_R": 18.5,
+      "score_W": 21.875
+    },
+    {
+      "index": 296,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 20.0,
+      "score_R": 19.5,
+      "score_W": 25.625
+    },
+    {
+      "index": 297,
+      "gold": "W",
+      "prediction": "W",
+      "correct": true,
+      "score_N": 19.5,
+      "score_R": 18.25,
+      "score_W": 25.375
+    },
+    {
+      "index": 298,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 17.5,
+      "score_R": 28.0,
+      "score_W": 24.25
+    },
+    {
+      "index": 299,
+      "gold": "R",
+      "prediction": "R",
+      "correct": true,
+      "score_N": 16.875,
+      "score_R": 25.75,
+      "score_W": 19.375
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "stamp": "20261110-163940",
+  "seed": 42,
+  "run_tag": null,
+  "methods": [
+    "sequential_ft",
+    "ewc",
+    "replay",
+    "adapter"
+  ],
+  "tasks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "train_units": 1,
+  "eval_units": 1,
+  "test_groups": 2,
+  "evaluate_split": "test",
+  "adapter_inference": "route",
+  "allow_nonprimary_adapter_inference": false,
+  "ewc": {
+    "lambda": 100.0,
+    "normalize": "mean"
+  },
+  "replay": {
+    "per_domain": 60,
+    "sampling": "equal_steps",
+    "capacity": 360,
+    "mode": "domain_class_balanced",
+    "ratio": 3.0
+  },
+  "max_steps": null,
+  "gate_current_acc": null,
+  "stopped_methods": [],
+  "records": [
+    {
+      "label": "train_ewc_task2",
+      "cmd": "/root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 2 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean",
+      "returncode": 0,
+      "minutes": 5.7,
+      "log": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/logs/full_matrix/20261110-163940/train_ewc_task2.log",
+      "attempts": 1,
+      "kind": "train",
+      "method": "ewc",
+      "task": 2,
+      "model_dir": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/ewc_task2"
+    },
+    {
+      "label": "eval_ewc_task2",
+      "cmd": "/root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task2_cumulative.py --method ewc --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/ewc_task2 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental",
+      "returncode": 0,
+      "minutes": 0.6,
+      "log": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/logs/full_matrix/20261110-163940/eval_ewc_task2.log",
+      "attempts": 1,
+      "kind": "eval",
+      "method": "ewc",
+      "task": 2,
+      "result": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental/temporal_ewc_task2_cumulative_test.json"
+    }
+  ],
+  "mode": "full",
+  "retries": 1,
+  "retry_wait": 5,
+  "conflict_policy": "archive",
+  "state_input": null,
+  "single": "ewc:2"
+}

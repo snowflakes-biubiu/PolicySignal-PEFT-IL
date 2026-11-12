@@ -1,0 +1,31 @@
+$ /root/miniconda3/bin/python /root/CAPC-CG-Project/05_incremental_learning/scripts/evaluate/evaluate_task5_cumulative.py --method replay --model-path /root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/continual/replay_task5 --model-seed 42 --split test --limit 2 --output-dir /root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/eval
+
+数据检查通过：5 个任务均为 train=600 / test=300，val=120（每类 40），类别均衡、年份合法、文档和文本无交叉。
+基础模型: Qwen/Qwen2.5-1.5B-Instruct
+训练参数: Epoch=2, Rank=16, Alpha=32, LR=0.0002
+CUDA 可用: NVIDIA GeForce RTX 4090
+[人工调试豁免] CAPC_ALLOW_LOCAL_GPU 已显式设置，跳过本地 GPU 限制（自动化助手不得使用）
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:39,  8.57it/s]Loading weights:   8%|▊         | 27/338 [00:00<00:02, 141.32it/s]Loading weights:  21%|██        | 71/338 [00:00<00:00, 269.26it/s]Loading weights:  33%|███▎      | 112/338 [00:00<00:00, 322.76it/s]Loading weights:  47%|████▋     | 160/338 [00:00<00:00, 369.24it/s]Loading weights:  61%|██████    | 207/338 [00:00<00:00, 399.27it/s]Loading weights:  75%|███████▌  | 255/338 [00:00<00:00, 416.20it/s]Loading weights:  88%|████████▊ | 297/338 [00:00<00:00, 415.45it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 364.85it/s]
+[replay] 训练至 Task5，评估 T1_1949_1978 test (2 条)
+[replay] 训练至 Task5，评估 T2_1979_1992 test (2 条)
+[replay] 训练至 Task5，评估 T3_1993_2002 test (2 条)
+[replay] 训练至 Task5，评估 T4_2003_2012 test (2 条)
+[replay] 训练至 Task5，评估 T5_2013_2023 test (2 条)
+
+累计测试结果
+ACC=0.4000
+BWT=N/A
+Forgetting=N/A
+Missing same-method historical evaluation results for stages: [1].
+T1_1949_1978: ACC=0.5000, Macro-F1=0.2222, Kappa=0.0000, N/R/W-F1=[0.0, 0.6667, 0.0]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[0, 0, 0], [0, 1, 1], [0, 0, 0]]
+T2_1979_1992: ACC=0.5000, Macro-F1=0.2222, Kappa=0.0000, N/R/W-F1=[0.0, 0.0, 0.6667]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[0, 0, 0], [0, 0, 0], [0, 1, 1]]
+T3_1993_2002: ACC=0.0000, Macro-F1=0.0000, Kappa=0.0000, N/R/W-F1=[0.0, 0.0, 0.0]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[0, 0, 0], [0, 0, 0], [0, 2, 0]]
+T4_2003_2012: ACC=0.5000, Macro-F1=0.2222, Kappa=0.0000, N/R/W-F1=[0.0, 0.0, 0.6667]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[0, 0, 0], [0, 0, 0], [0, 1, 1]]
+T5_2013_2023: ACC=0.5000, Macro-F1=0.2222, Kappa=0.0000, N/R/W-F1=[0.6667, 0.0, 0.0]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[1, 1, 0], [0, 0, 0], [0, 0, 0]]
+JSON: /root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/eval/temporal_replay_task5_cumulative_test.json
+CSV:  /root/CAPC-CG-Project/05_incremental_learning/artifacts/smoke_tests/eval/temporal_replay_task5_cumulative_test_predictions.csv

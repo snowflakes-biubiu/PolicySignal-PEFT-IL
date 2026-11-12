@@ -1,0 +1,52 @@
+$ /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task4_cumulative.py --method ewc --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/ewc_task4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental
+
+段落全局唯一 5,400 条（强键）；文档跨(任务/划分) 339 篇（A3 允许，仅留痕）
+数据检查通过：6 个领域任务均为 train=600 / test=300（尚未构建 val，调参需先跑 temporal-val），类别均衡、年份合法、段落全局唯一（文档重叠按 A3 仅留痕）。
+基础模型: Qwen/Qwen2.5-1.5B-Instruct
+训练参数: Epoch=2, Rank=16, Alpha=32, LR=0.0002
+CUDA 可用: NVIDIA GeForce RTX 4090
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   1%|          | 3/338 [00:00<00:16, 19.99it/s]Loading weights:  16%|█▌        | 53/338 [00:00<00:01, 247.11it/s]Loading weights:  33%|███▎      | 111/338 [00:00<00:00, 374.51it/s]Loading weights:  48%|████▊     | 161/338 [00:00<00:00, 416.86it/s]Loading weights:  64%|██████▍   | 217/338 [00:00<00:00, 465.26it/s]Loading weights:  79%|███████▉  | 267/338 [00:00<00:00, 474.64it/s]Loading weights:  93%|█████████▎| 316/338 [00:00<00:00, 470.61it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 420.18it/s]
+[ewc] 训练至 Task4，评估 D1_经济与财税金融 test (300 条)
+  50/300
+  100/300
+  150/300
+  200/300
+  250/300
+  300/300
+[ewc] 训练至 Task4，评估 D2_教育 test (300 条)
+  50/300
+  100/300
+  150/300
+  200/300
+  250/300
+  300/300
+[ewc] 训练至 Task4，评估 D3_卫生健康与食药 test (300 条)
+  50/300
+  100/300
+  150/300
+  200/300
+  250/300
+  300/300
+[ewc] 训练至 Task4，评估 D4_农业与农村 test (300 条)
+  50/300
+  100/300
+  150/300
+  200/300
+  250/300
+  300/300
+
+累计测试结果
+ACC=0.8783
+BWT=0.011111111111111108
+Forgetting=0.0033333333333332993
+Complete: all earlier stages have same-method cumulative evaluations.
+D1_经济与财税金融: ACC=0.8400, Macro-F1=0.8365, Kappa=0.7600, N/R/W-F1=[0.8436, 0.8796, 0.7861]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[89, 7, 4], [4, 95, 1], [18, 14, 68]]
+D2_教育: ACC=0.8900, Macro-F1=0.8884, Kappa=0.8350, N/R/W-F1=[0.8826, 0.9412, 0.8415]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[94, 2, 4], [2, 96, 2], [17, 6, 77]]
+D3_卫生健康与食药: ACC=0.8867, Macro-F1=0.8851, Kappa=0.8300, N/R/W-F1=[0.8879, 0.9135, 0.8539]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[95, 4, 1], [4, 95, 1], [15, 9, 76]]
+D4_农业与农村: ACC=0.8967, Macro-F1=0.8954, Kappa=0.8450, N/R/W-F1=[0.8792, 0.9515, 0.8556]
+  混淆矩阵 (labels=['N', 'R', 'W']): [[91, 2, 7], [2, 98, 0], [14, 6, 80]]
+JSON: /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental/temporal_ewc_task4_cumulative_test.json
+CSV:  /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental/temporal_ewc_task4_cumulative_test_predictions.csv

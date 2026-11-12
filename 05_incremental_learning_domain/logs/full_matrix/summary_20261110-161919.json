@@ -1,0 +1,102 @@
+{
+  "stamp": "20261110-161919",
+  "seed": 42,
+  "run_tag": null,
+  "methods": [
+    "sequential_ft",
+    "ewc",
+    "replay",
+    "adapter"
+  ],
+  "tasks": [
+    1
+  ],
+  "train_units": 1,
+  "eval_units": 4,
+  "test_groups": 4,
+  "evaluate_split": "test",
+  "adapter_inference": "route",
+  "allow_nonprimary_adapter_inference": false,
+  "ewc": {
+    "lambda": 100.0,
+    "normalize": "mean"
+  },
+  "replay": {
+    "per_domain": 60,
+    "sampling": "equal_steps",
+    "capacity": 360,
+    "mode": "domain_class_balanced",
+    "ratio": 3.0
+  },
+  "max_steps": null,
+  "gate_current_acc": null,
+  "stopped_methods": [],
+  "records": [
+    {
+      "label": "train_sequential_ft_task1",
+      "cmd": "/root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task1.py --seed 42",
+      "returncode": 0,
+      "minutes": 2.2,
+      "log": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/logs/full_matrix/20261110-161919/train_sequential_ft_task1.log",
+      "attempts": 1,
+      "kind": "train",
+      "method": "sequential_ft",
+      "task": 1,
+      "model_dir": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task1_e2_r16_a32_lr2e-4"
+    },
+    {
+      "label": "eval_sequential_ft_task1",
+      "cmd": "/root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task1_cumulative.py --method sequential_ft --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task1_e2_r16_a32_lr2e-4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental",
+      "returncode": 0,
+      "minutes": 0.4,
+      "log": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/logs/full_matrix/20261110-161919/eval_sequential_ft_task1.log",
+      "attempts": 1,
+      "kind": "eval",
+      "method": "sequential_ft",
+      "task": 1,
+      "result": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental/temporal_sequential_ft_task1_cumulative_test.json"
+    },
+    {
+      "label": "eval_ewc_task1",
+      "cmd": "/root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task1_cumulative.py --method ewc --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task1_e2_r16_a32_lr2e-4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental",
+      "returncode": 0,
+      "minutes": 0.4,
+      "log": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/logs/full_matrix/20261110-161919/eval_ewc_task1.log",
+      "attempts": 1,
+      "kind": "eval",
+      "method": "ewc",
+      "task": 1,
+      "result": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental/temporal_ewc_task1_cumulative_test.json"
+    },
+    {
+      "label": "eval_replay_task1",
+      "cmd": "/root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task1_cumulative.py --method replay --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task1_e2_r16_a32_lr2e-4 --model-seed 42 --split test --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental",
+      "returncode": 0,
+      "minutes": 0.4,
+      "log": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/logs/full_matrix/20261110-161919/eval_replay_task1.log",
+      "attempts": 1,
+      "kind": "eval",
+      "method": "replay",
+      "task": 1,
+      "result": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental/temporal_replay_task1_cumulative_test.json"
+    },
+    {
+      "label": "eval_adapter_task1",
+      "cmd": "/root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/evaluate/evaluate_task1_cumulative.py --method adapter --model-path /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/models/qwen15b_domain_task1_e2_r16_a32_lr2e-4 --model-seed 42 --split test --adapter-inference route --output-dir /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental",
+      "returncode": 0,
+      "minutes": 0.4,
+      "log": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/logs/full_matrix/20261110-161919/eval_adapter_task1.log",
+      "attempts": 1,
+      "kind": "eval",
+      "method": "adapter",
+      "task": 1,
+      "result": "/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/results/domain_incremental/temporal_adapter_task1_cumulative_test.json"
+    }
+  ],
+  "mode": "full",
+  "retries": 1,
+  "retry_wait": 5,
+  "conflict_policy": "archive",
+  "state_input": null,
+  "single": null
+}

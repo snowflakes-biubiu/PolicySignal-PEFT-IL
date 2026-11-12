@@ -1,0 +1,29 @@
+==============================================================================
+矩阵计划（mode=full, seed=42, run_tag=-）
+  训练单元 21 个（T1 只训练一次，四方法共享）
+  评估调用 24 次 → 覆盖测试组 84 组（每个评估单元测 T1..T_i）
+  重试 2 次，冲突策略 archive
+==============================================================================
+  train_sequential_ft_task1    /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task1.py --seed 42
+  train_sequential_ft_task2    /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task2.py --seed 42
+  train_sequential_ft_task3    /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task3.py --seed 42
+  train_sequential_ft_task4    /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task4.py --seed 42
+  train_sequential_ft_task5    /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task5.py --seed 42
+  train_sequential_ft_task6    /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_task6.py --seed 42
+  train_ewc_task2              /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 2 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+  train_ewc_task3              /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 3 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+  train_ewc_task4              /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 4 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+  train_ewc_task5              /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 5 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+  train_ewc_task6              /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_ewc.py --task 6 --seed 42 --ewc-lambda 100.0 --ewc-normalize mean
+  train_replay_task2           /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 2 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+  train_replay_task3           /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 3 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+  train_replay_task4           /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 4 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+  train_replay_task5           /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 5 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+  train_replay_task6           /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_replay.py --task 6 --seed 42 --replay-capacity 300 --replay-ratio 3.0 --replay-mode class_balanced --replay-per-domain 60 --replay-sampling equal_steps
+  train_adapter_task2          /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 2 --seed 42
+  train_adapter_task3          /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 3 --seed 42
+  train_adapter_task4          /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 4 --seed 42
+  train_adapter_task5          /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 5 --seed 42
+  train_adapter_task6          /root/miniconda3/bin/python /root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/scripts/train/train_adapter_cl.py --task 6 --seed 42
+[错误] 已有编排进程在运行（pid 20500）：/root/autodl-tmp/CAPC-CG-Project/05_incremental_learning_domain/artifacts/.orchestrator.lock
+       确认无进程占用后可手动删除该锁文件再重试。

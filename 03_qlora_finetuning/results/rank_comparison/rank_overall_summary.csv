@@ -1,0 +1,4 @@
+﻿model,accuracy,correct_count,error_count
+rank4,0.86,258,42
+rank8,0.9,270,30
+rank16,0.9166666666666666,275,25
