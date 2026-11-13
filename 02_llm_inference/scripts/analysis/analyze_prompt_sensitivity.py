@@ -191,11 +191,11 @@ def main():
         print(f"\n--- {prompt_name} ---")
 
         print(
-            f"{'Gold\\\\Pred':<12}"
-            f"{'B':<8}"
-            f"{'C':<8}"
-            f"{'G':<8}"
-            f"{'Y':<8}"
+            ("Gold" + chr(92) + "Pred").ljust(12)
+            + "B".ljust(8)
+            + "C".ljust(8)
+            + "G".ljust(8)
+            + "Y".ljust(8)
         )
 
         for i, label in enumerate(LABELS):

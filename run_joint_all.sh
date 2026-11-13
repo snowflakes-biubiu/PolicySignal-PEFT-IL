@@ -17,8 +17,8 @@ STEP="${1:-check}"
 echo "===== 0. 环境自检 ====="
 python -c "import torch; assert torch.cuda.is_available(), 'CUDA 不可用'; import sys; print(' CUDA OK:', torch.cuda.get_device_name(0))" || exit 1
 for X in "$T" "$D"; do
-    n=$(ls "assets/$X"/data/*/*_train.jsonl 2>/dev/null | wc -l)
-    t=$(ls "assets/$X"/data/*/*_test.jsonl 2>/dev/null | wc -l)
+    n=$(ls "$X"/data/*/*_train.jsonl 2>/dev/null | wc -l)
+    t=$(ls "$X"/data/*/*_test.jsonl 2>/dev/null | wc -l)
     echo "  $X: train=$n test=$t"
     test -f "$X/scripts/train/train_joint.py" || { echo "  [错误] 缺少 train_joint.py"; exit 1; }
     test "$n" -ge 5 || { echo "  [错误] 训练数据文件不足"; exit 1; }
@@ -49,8 +49,8 @@ for X in "$T" "$D"; do
     python "$X/scripts/train/train_joint.py" --size 600 --prepare-only
     python "$X/scripts/train/train_joint.py" --size full --prepare-only
     for TAG in joint600 jointfull; do
-        GOT=$(sha256sum "assets/$X/joint_data/joint_${TAG}.jsonl" | awk '{print $1}')
-        WANT=$(cat "assets/$X/joint_data/${TAG}.sha256")
+        GOT=$(sha256sum "$X/data/joint/joint_${TAG}.jsonl" | awk '{print $1}')
+        WANT=$(cat "$X/data/joint/${TAG}.sha256")
         if [ "$GOT" != "$WANT" ]; then
             echo "  [错误] $X $TAG 与本地基准不一致"
             echo "    got =$GOT"
@@ -84,15 +84,15 @@ echo
 echo "===== 3. 评估（测试全部窗口/领域 test 集）====="
 mkdir -p "$T/results/jointfull" "$T/results/joint600" "$D/results/domain_incremental"
 python "$T/scripts/evaluate/evaluate_task5_cumulative.py" --method cumulative \
-    --model-path "assets/$T/models/cumulative_task5_jointfull" \
+    --model-path "assets/$T/models/joint/cumulative_task5_jointfull" \
     --output-dir "$T/results/jointfull"
 python "$T/scripts/evaluate/evaluate_task5_cumulative.py" --method cumulative \
-    --model-path "assets/$T/models/cumulative_task5_joint600" \
+    --model-path "assets/$T/models/joint/cumulative_task5_joint600" \
     --output-dir "$T/results/joint600"
 python "$D/scripts/evaluate/evaluate_task6_cumulative.py" --method cumulative \
-    --model-path "assets/$D/models/cumulative_task6_jointfull" --run-tag jointfull
+    --model-path "assets/$D/models/joint/cumulative_task6_jointfull" --run-tag jointfull
 python "$D/scripts/evaluate/evaluate_task6_cumulative.py" --method cumulative \
-    --model-path "assets/$D/models/cumulative_task6_joint600" --run-tag joint600
+    --model-path "assets/$D/models/joint/cumulative_task6_joint600" --run-tag joint600
 
 echo
 echo "===== 4. 核对结果文件 ====="
@@ -108,11 +108,11 @@ tar -czf "$OUT" \
     "$D/results/domain_incremental" \
     "$T/logs/joint_jointfull.log" "$T/logs/joint_joint600.log" \
     "$D/logs/joint_jointfull.log" "$D/logs/joint_joint600.log" \
-    "assets/$T/joint_data" "assets/$D/joint_data" \
-    "assets/$T/models/cumulative_task5_jointfull" \
-    "assets/$T/models/cumulative_task5_joint600" \
-    "assets/$D/models/cumulative_task6_jointfull" \
-    "assets/$D/models/cumulative_task6_joint600"
+    "$T/data/joint" "$D/data/joint" \
+    "assets/$T/models/joint/cumulative_task5_jointfull" \
+    "assets/$T/models/joint/cumulative_task5_joint600" \
+    "assets/$D/models/joint/cumulative_task6_jointfull" \
+    "assets/$D/models/joint/cumulative_task6_joint600"
 ls -lh "$OUT"
 sha256sum "$OUT"
 echo "完成。把 $OUT 拉回本地即可。"

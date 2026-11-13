@@ -29,7 +29,7 @@ TRAIN_FILE = str(Path(SNAPSHOT_DIR) / "task1_level1" / "train.parquet")
 
 MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 
-OUTPUT_DIR = r"03_qlora_finetuning\artifacts\smoke_tests"
+OUTPUT_DIR = "03_qlora_finetuning/artifacts/smoke_tests"
 
 LABELS = {"N", "R", "W"}
 
