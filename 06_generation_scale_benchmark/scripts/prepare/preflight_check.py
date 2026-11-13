@@ -108,14 +108,14 @@ def check_tokenizers(config: dict[str, Any], offline: bool) -> bool:
 
 
 def check_models(config: dict[str, Any]) -> None:
-    hub = Path.home() / ".cache" / "huggingface" / "hub"
+    roots = C.preprocess.hub_cache_roots()
     for model in sorted({run["model"] for run in config["runs"]}):
         cache_name = "models--" + model.replace("/", "--")
-        present = (hub / cache_name).is_dir()
+        present = any((root / cache_name).is_dir() for root in roots)
         add(
-            "OK" if present else "WARN",
+            "OK" if present else "INFO",
             f"模型缓存 {model}",
-            "已缓存" if present else "未缓存（云端首次运行需联网下载）",
+            "已缓存" if present else "未缓存（首次运行会联网下载，不阻断预检）",
         )
 
 
@@ -162,7 +162,11 @@ def main() -> int:
     parser.add_argument("--config", default=str(C.CONFIG_PATH))
     parser.add_argument("--offline", action="store_true", help="tokenizer 只读本地缓存")
     parser.add_argument("--skip-tokenizer", action="store_true")
-    parser.add_argument("--strict", action="store_true", help="WARN 也视为失败（云端正式运行用）")
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="收紧：非云端 GPU、tokenizer 不可用或标签非单 token 视为失败；模型未缓存只提示",
+    )
     parser.add_argument("--json", action="store_true", help="额外输出机器可读结果")
     args = parser.parse_args()
 
@@ -177,8 +181,9 @@ def main() -> int:
 
     failures = [item for item in RESULTS if item[0] == "FAIL"]
     warnings = [item for item in RESULTS if item[0] == "WARN"]
+    infos = [item for item in RESULTS if item[0] == "INFO"]
     print(
-        f"\n=== 汇总：FAIL={len(failures)} WARN={len(warnings)} "
+        f"\n=== 汇总：FAIL={len(failures)} WARN={len(warnings)} INFO={len(infos)} "
         f"OK={sum(1 for item in RESULTS if item[0] == 'OK')} ==="
     )
     if args.json:

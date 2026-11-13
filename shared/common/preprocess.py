@@ -12,6 +12,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from collections import Counter
 
@@ -26,22 +27,40 @@ TASK_LABELS = {
 USER_PREFIX = "待判断政策段落："
 
 
+def hub_cache_roots() -> list[Path]:
+    """HF hub 缓存根目录，按优先级去重：HF_HUB_CACHE → HF_HOME/hub → 默认。"""
+    roots: list[Path] = []
+    for env in ("HF_HUB_CACHE", "HUGGINGFACE_HUB_CACHE"):
+        value = os.environ.get(env, "").strip()
+        if value:
+            roots.append(Path(value).expanduser())
+    hf_home = os.environ.get("HF_HOME", "").strip()
+    if hf_home:
+        roots.append(Path(hf_home).expanduser() / "hub")
+    roots.append(Path.home() / ".cache" / "huggingface" / "hub")
+    unique: list[Path] = []
+    for root in roots:
+        if root not in unique:
+            unique.append(root)
+    return unique
+
+
 def find_snapshot() -> Path:
-    """定位 HuggingFace 本地缓存中的最新 snapshot 目录。"""
-    root = (
-        Path.home()
-        / ".cache"
-        / "huggingface"
-        / "hub"
-        / "datasets--Baron-Sun--CAPC-CG_V1.0"
-        / "snapshots"
+    """定位 HuggingFace 本地缓存中的最新 snapshot 目录（支持 HF_HOME）。"""
+    tried: list[str] = []
+    for root in hub_cache_roots():
+        snap_root = root / "datasets--Baron-Sun--CAPC-CG_V1.0" / "snapshots"
+        tried.append(str(snap_root))
+        if not snap_root.is_dir():
+            continue
+        snaps = [p for p in snap_root.iterdir() if p.is_dir()]
+        if not snaps:
+            continue
+        return max(snaps, key=lambda p: p.stat().st_mtime)
+    raise FileNotFoundError(
+        "未找到 CAPC-CG 数据集快照，已尝试:\n  " + "\n  ".join(tried)
+        + "\n请先下载数据集，或设置 HF_HOME / HF_HUB_CACHE。"
     )
-    if not root.exists():
-        raise FileNotFoundError(f"未找到 HF 缓存目录: {root}")
-    snaps = [p for p in root.iterdir() if p.is_dir()]
-    if not snaps:
-        raise FileNotFoundError("未找到任何数据集 snapshot")
-    return max(snaps, key=lambda p: p.stat().st_mtime)
 
 
 def _messages_to_list(messages):
