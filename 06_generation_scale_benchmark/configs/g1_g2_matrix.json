@@ -93,11 +93,11 @@
       "note": "α/r=1 与 α/r=2 在 bf16 下的稳定性"
     },
     {
-      "id": "G2-1_roberta_large_ft",
+      "id": "G2-1_chinese_roberta_large_ft",
       "group": "G2",
       "label": "编码器对照",
       "runner": "encoder",
-      "model": "FacebookAI/roberta-large",
+      "model": "hfl/chinese-roberta-wwm-ext-large",
       "precision": "bf16",
       "lr": 0.00002,
       "epochs": 3,
@@ -105,7 +105,7 @@
       "grad_accum": 2,
       "eval_batch_size": 16,
       "max_length": 512,
-      "note": "双向编码器全参微调，检验小模型 + LoRA 是否已胜过 0.33B 全参基线"
+      "note": "中文双向编码器（chinese-roberta-wwm-ext-large）全参微调，检验中文小模型 + LoRA 是否已胜过 0.33B 全参基线"
     },
     {
       "id": "G2-2_qwen3_1.7b_bf16_r16",
@@ -178,7 +178,7 @@
     },
     {
       "name": "编码器 vs 小模型 LoRA",
-      "baseline": "G2-1_roberta_large_ft",
+      "baseline": "G2-1_chinese_roberta_large_ft",
       "treatment": "G2-2_qwen3_1.7b_bf16_r16",
       "meaning": "双向编码器全参与 1.7B LoRA 的差距"
     },

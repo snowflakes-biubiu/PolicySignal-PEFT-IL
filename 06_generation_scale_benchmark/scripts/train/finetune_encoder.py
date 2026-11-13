@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""06 期 G2-1：双向编码器（RoBERTa-large）全参微调对照。
+"""06 期 G2-1：中文双向编码器（chinese-roberta-wwm-ext-large）全参微调对照。
 
 用途：检验「小模型 + LoRA」相对 0.33B 全参编码器的差距。除了模型结构与训练方式，
 数据划分、评估集、指标口径与 G1/G2 的 PEFT 组完全一致，产物 schema 对齐
@@ -7,7 +7,7 @@
 
 用法（云端 4090D，仓库根目录）：
   python 06_generation_scale_benchmark/scripts/train/finetune_encoder.py \
-      --exp-id G2-1_roberta_large_ft --model FacebookAI/roberta-large \
+      --exp-id G2-1_chinese_roberta_large_ft --model hfl/chinese-roberta-wwm-ext-large \
       --task task1_level1 --precision bf16 --lr 2e-5 --max-length 512
 """
 from __future__ import annotations
@@ -53,7 +53,7 @@ class TextDataset(Dataset):
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="06 期 G2-1 编码器全参微调对照")
     parser.add_argument("--exp-id", required=True)
-    parser.add_argument("--model", default="FacebookAI/roberta-large")
+    parser.add_argument("--model", default="hfl/chinese-roberta-wwm-ext-large")
     parser.add_argument("--task", choices=list(C.preprocess.TASK_LABELS), required=True)
     parser.add_argument("--precision", choices=["bf16", "fp16"], default="bf16")
     parser.add_argument("--lr", type=float, default=2e-5)

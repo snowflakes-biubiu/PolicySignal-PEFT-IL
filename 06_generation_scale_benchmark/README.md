@@ -15,7 +15,7 @@ G1/G2 回答两个衔接问题：
 1. **G1（代际锚定）**：`Qwen2.5-1.5B` → `Qwen3-1.7B` 的代际收益有多少？去掉 4-bit 量化、补齐 MLP、
    调整 rank / alpha 之后，最优 LoRA 配比是否改变？
 2. **G2（参数规模阶梯）**：在胜出配比下，`1.7B → 4B → 8B` 的效果-成本曲线如何？4B 能否逼近 8B，
-   0.33B 双向编码器（RoBERTa-large）与 1.7B LoRA 的差距有多大？
+   0.33B 中文双向编码器（chinese-roberta-wwm-ext-large）与 1.7B LoRA 的差距有多大？
 
 结论直接决定 **G3 样本量曲线用哪两个尺寸、哪套 LoRA 配比**，因此 G1/G2 不能跳步。
 
@@ -42,7 +42,7 @@ G1/G2 回答两个衔接问题：
 | G1-3 | G1 | Qwen3-1.7B | bf16 | r=8, α=16, attn+mlp | 2e-4 | 去量化 + 补 MLP 后 r=8 是否够 |
 | G1-4 | G1 | Qwen3-1.7B | bf16 | r=16, α=32, attn+mlp | 2e-4 | r=16 是否仍优于 r=8；G2-2 复用来源 |
 | G1-5 | G1 | Qwen3-1.7B | bf16 | r=16, α=16, attn+mlp | 2e-4 | α/r=1 vs 2 的稳定性 |
-| G2-1 | G2 | RoBERTa-large (0.33B) | bf16 | 全参微调，max_len=512 | 2e-5 | 编码器全参对照 |
+| G2-1 | G2 | 中文 RoBERTa-wwm-ext-large (0.33B) | bf16 | 全参微调，max_len=512 | 2e-5 | 中文编码器全参对照 |
 | G2-2 | G2 | Qwen3-1.7B | bf16 | 同 G1-4（复用，不重训） | 2e-4 | 小尺寸轻量端基线 |
 | G2-3 | G2 | Qwen3-4B | bf16 | r=16, α=32, attn+mlp | 2e-4 | 4B 能否逼近 8B |
 | G2-4 | G2 | Qwen3-8B | bf16 | r=16, α=32, attn+mlp，GC | 1e-4 | 24G 单卡上限；bs=2 × ga=8 |
@@ -72,7 +72,7 @@ G1/G2 回答两个衔接问题：
 │   ├── run_g1_g2_matrix.py             # 唯一编排入口（plan / run / summarize / all）
 │   ├── train/
 │   │   ├── run_peft_benchmark.py       # Qwen LoRA / QLoRA 单次训练 + 评估
-│   │   └── finetune_encoder.py         # G2-1 RoBERTa-large 全参微调
+│   │   └── finetune_encoder.py         # G2-1 中文 RoBERTa-wwm 全参微调
 │   ├── evaluate/summarize_results.py   # CSV + Markdown 对比报告（纯标准库）
 │   ├── prepare/preflight_check.py      # 数据/标签/模型/GPU/目录预检
 │   └── validation/selfcheck_units.py   # 纯逻辑自检（不加载模型）
@@ -144,9 +144,10 @@ PowerShell 下把 `python` 换成 `.\.venv\Scripts\python.exe`，其余参数一
 3. **长文本截断**：头尾各 50% 保留是折中方案，仍需在报告里统计 `train_truncated_count` /
    `eval_truncated_count`，若 L2 截断比例过高需单独说明。
 4. **8B 单卡余量小**：G2-4 峰值接近 24G，OOM 时按 §3 的降批方案处理，并记录实际生效参数。
-5. **编码器对照的 tokenizer 差异**：RoBERTa 用 `text`（去前缀）而非 Qwen 的 chat template，
+5. **编码器对照的 tokenizer 差异**：中文 RoBERTa 用 `text`（去前缀）而非 Qwen 的 chat template，
    两者输入长度与信息量不同，结论只用于“量级对照”，不做逐位公平性声明。
-6. **G2-1 首次运行需联网**下载 `FacebookAI/roberta-large`（约 1.4G）；离线环境请提前 `huggingface-cli download`。
+6. **G2-1 首次运行需联网**下载 `hfl/chinese-roberta-wwm-ext-large`（约 1.3G）；离线环境请提前 `huggingface-cli download`。
+   该模型是中文全词掩码 BERT-wwm 架构（词表 21128，24 层/1024 隐层 ≈ 0.33B），不是英文 RoBERTa 词表。
 7. **本机限制**：本地 1660 Ti 只允许 `py_compile`、`selfcheck_units.py`、`preflight_check.py`
    与 `summarize_results.py`；训练/评估入口有 `gpu_guard` 硬拦截。
 
