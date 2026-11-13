@@ -441,13 +441,14 @@ def evaluate_label_scores(
         input_ids, attn_mask = [], []
         for ids in batch_prompts:
             pad_n = max_len - len(ids)
-            input_ids.append([pad_id] * pad_n + ids)  # 左填充，末位为真实末 token
-            attn_mask.append([0] * pad_n + [1] * len(ids))
+            # 右填充：与训练 collate 完全一致，避免左填充导致 RoPE 位置整体偏移
+            input_ids.append(ids + [pad_id] * pad_n)
+            attn_mask.append([1] * len(ids) + [0] * pad_n)
 
         inp = torch.tensor(input_ids, dtype=torch.long, device=device)
         msk = torch.tensor(attn_mask, dtype=torch.long, device=device)
         logits = model(input_ids=inp, attention_mask=msk).logits
-        last_idx = msk.sum(dim=1) - 1
+        last_idx = msk.sum(dim=1) - 1  # 每条最后一个真实 token
         last_logits = logits[torch.arange(logits.size(0), device=device), last_idx]
         cand_logits = last_logits[:, candidate_ids].float()
         probs = torch.softmax(cand_logits, dim=-1).cpu().numpy()
