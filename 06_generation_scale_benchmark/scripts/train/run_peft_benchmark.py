@@ -216,6 +216,11 @@ def main() -> int:
         torch.cuda.max_memory_allocated() / (1024**3) if torch.cuda.is_available() else 0.0
     )
 
+    # Trainer 用 accelerate 包装了 forward，会把整段 [B, L, V] logits 转 fp32；
+    # 8B 在 bs8/seq768 下需要 3.7GB，会在评估阶段 OOM。解包后按原始 dtype 前向。
+    model = trainer.accelerator.unwrap_model(model)
+    torch.cuda.empty_cache()
+
     model.save_pretrained(paths["adapter_dir"])
     tokenizer.save_pretrained(paths["adapter_dir"])
     print(f"[保存] adapter -> {paths['adapter_dir']}")

@@ -404,6 +404,8 @@ def evaluate_label_scores(
 ) -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, float]]:
     """标签 token 受限分类评估：只比较候选标签 token 的 logits。"""
     model.eval()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()  # 释放训练残留，避免 8B 评估阶段 OOM
     label_token_ids: dict[str, int] = {}
     for label in labels:
         ids = tokenizer(label, add_special_tokens=False)["input_ids"]
