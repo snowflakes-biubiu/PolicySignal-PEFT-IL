@@ -14,6 +14,7 @@ because most scripts use paths relative to it.
 | `04_error_analysis/` | Error-analysis scripts, artifacts, analysis data, and results |
 | `05_incremental_learning_time/` | Temporal incremental learning: code, T1–T5 data, results, logs |
 | `05_incremental_learning_domain/` | Domain incremental learning: code, D1–D6 data, results, logs |
+| `06_generation_scale_benchmark/` | G1/G2 generation anchor + parameter-scale ladder: matrix config, code, results, logs |
 | `05_*/data/temporal/` | T1–T5 train/test jsonl (10 files, in git) |
 | `05_*/data/domain_incremental/` | D1–D6 train/test jsonl (12 files, in git) |
 | `05_*/data/joint/` | Joint-training merged sets, sampling manifests, sha256 baselines (in git) |
@@ -164,6 +165,24 @@ The original Hugging Face snapshot
 `d05965f169e6f7da33a25f667edf39add0339e2b`) is available locally at
 `assets/shared/datasets/raw/CAPC-CG_V1.0/`. The Hugging Face cache copy has been left
 intact.
+
+## Generation anchor and scale benchmark (06)
+
+`06_generation_scale_benchmark/` implements the G1 (Qwen2.5→Qwen3, QLoRA→bf16 LoRA,
+rank/alpha ablation) and G2 (1.7B/4B/8B ladder plus RoBERTa-large encoder control)
+designs. The matrix lives in `configs/g1_g2_matrix.json`; one entry point covers plan,
+smoke, full run and summarization:
+
+```powershell
+.\.venv\Scripts\python.exe 06_generation_scale_benchmark\scripts\validation\selfcheck_units.py
+.\.venv\Scripts\python.exe 06_generation_scale_benchmark\scripts\prepare\preflight_check.py --offline
+.\.venv\Scripts\python.exe 06_generation_scale_benchmark\scripts\run_g1_g2_matrix.py --mode plan
+```
+
+Training and evaluation must run on the cloud RTX 4090D; `scripts/gpu_guard.py` rejects
+local GPUs. G2-2 reuses G1-4 (same configuration) and each unit carries a configuration
+fingerprint so `--skip-existing` cannot silently reuse stale results. See the folder
+README for the decision gates into G3.
 
 ## Running experiments
 

@@ -1,0 +1,203 @@
+{
+  "version": "1.0",
+  "phase": "06_generation_scale_benchmark",
+  "title": "代际锚定（G1）与参数规模阶梯（G2）",
+  "source": "实验设计/实验设计表.xlsx · G1/G2 两段",
+  "data_split": "gold（task1_level1 600/300，task2_level2 1200/400）",
+  "seed": 42,
+  "max_length": 768,
+  "epochs": 3,
+  "batch_size": 4,
+  "grad_accum": 4,
+  "eval_batch_size": 8,
+  "lora_dropout": 0.05,
+  "warmup_ratio": 0.05,
+  "tasks": {
+    "task1_level1": {
+      "labels": ["W", "R", "N"],
+      "train_total": 600,
+      "train_per_class": 200,
+      "val_total": 300
+    },
+    "task2_level2": {
+      "labels": ["B", "Y", "C", "G"],
+      "train_total": 1200,
+      "train_per_class": 300,
+      "val_total": 400
+    }
+  },
+  "runs": [
+    {
+      "id": "G1-1_qwen25_1.5b_qlora_r16",
+      "group": "G1",
+      "label": "基线锚点",
+      "runner": "peft",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "precision": "4bit",
+      "lora_r": 16,
+      "lora_alpha": 32,
+      "target_scope": "attn",
+      "lr": 0.0002,
+      "note": "4-bit QLoRA 仅 q/k/v/o，复现 03 期配置作为跨代参照（3 epoch / max_len=768）"
+    },
+    {
+      "id": "G1-2_qwen3_1.7b_qlora_r16",
+      "group": "G1",
+      "label": "同配置换代",
+      "runner": "peft",
+      "model": "Qwen/Qwen3-1.7B",
+      "precision": "4bit",
+      "lora_r": 16,
+      "lora_alpha": 32,
+      "target_scope": "attn",
+      "lr": 0.0002,
+      "note": "与 G1-1 完全同配置，只看 Qwen2.5→Qwen3 代际增益；thinking=False"
+    },
+    {
+      "id": "G1-3_qwen3_1.7b_bf16_r8",
+      "group": "G1",
+      "label": "去量化+降秩",
+      "runner": "peft",
+      "model": "Qwen/Qwen3-1.7B",
+      "precision": "bf16",
+      "lora_r": 8,
+      "lora_alpha": 16,
+      "target_scope": "attn_mlp",
+      "lr": 0.0002,
+      "note": "去掉 4-bit 量化并补齐 MLP 后，r=8 是否已足够"
+    },
+    {
+      "id": "G1-4_qwen3_1.7b_bf16_r16",
+      "group": "G1",
+      "label": "去量化+原秩",
+      "runner": "peft",
+      "model": "Qwen/Qwen3-1.7B",
+      "precision": "bf16",
+      "lora_r": 16,
+      "lora_alpha": 32,
+      "target_scope": "attn_mlp",
+      "lr": 0.0002,
+      "note": "r=16/α=32 在 bf16 下是否仍优于 r=8；同时作为 G2-2 的复用来源"
+    },
+    {
+      "id": "G1-5_qwen3_1.7b_bf16_r16a16",
+      "group": "G1",
+      "label": "缩放比消融",
+      "runner": "peft",
+      "model": "Qwen/Qwen3-1.7B",
+      "precision": "bf16",
+      "lora_r": 16,
+      "lora_alpha": 16,
+      "target_scope": "attn_mlp",
+      "lr": 0.0002,
+      "note": "α/r=1 与 α/r=2 在 bf16 下的稳定性"
+    },
+    {
+      "id": "G2-1_roberta_large_ft",
+      "group": "G2",
+      "label": "编码器对照",
+      "runner": "encoder",
+      "model": "FacebookAI/roberta-large",
+      "precision": "bf16",
+      "lr": 0.00002,
+      "epochs": 3,
+      "batch_size": 8,
+      "grad_accum": 2,
+      "eval_batch_size": 16,
+      "max_length": 512,
+      "note": "双向编码器全参微调，检验小模型 + LoRA 是否已胜过 0.33B 全参基线"
+    },
+    {
+      "id": "G2-2_qwen3_1.7b_bf16_r16",
+      "group": "G2",
+      "label": "小尺寸",
+      "runner": "peft",
+      "reuse": "G1-4_qwen3_1.7b_bf16_r16",
+      "model": "Qwen/Qwen3-1.7B",
+      "precision": "bf16",
+      "lora_r": 16,
+      "lora_alpha": 32,
+      "target_scope": "attn_mlp",
+      "lr": 0.0002,
+      "note": "与 G1-4 同配置，不重复训练；汇总时按 G2-2 别名复用 G1-4 结果"
+    },
+    {
+      "id": "G2-3_qwen3_4b_bf16_r16",
+      "group": "G2",
+      "label": "中尺寸",
+      "runner": "peft",
+      "model": "Qwen/Qwen3-4B",
+      "precision": "bf16",
+      "lora_r": 16,
+      "lora_alpha": 32,
+      "target_scope": "attn_mlp",
+      "lr": 0.0002,
+      "note": "重点观察 4B 能否逼近 8B，作为论文主力候选"
+    },
+    {
+      "id": "G2-4_qwen3_8b_bf16_r16",
+      "group": "G2",
+      "label": "大尺寸",
+      "runner": "peft",
+      "model": "Qwen/Qwen3-8B",
+      "precision": "bf16",
+      "lora_r": 16,
+      "lora_alpha": 32,
+      "target_scope": "attn_mlp",
+      "lr": 0.0001,
+      "batch_size": 2,
+      "grad_accum": 8,
+      "gradient_checkpointing": true,
+      "note": "单卡 24G 上限；开启梯度检查点，画 G2 效果-效率帕累托"
+    }
+  ],
+  "comparisons": [
+    {
+      "name": "代际增益（同 QLoRA 配置）",
+      "baseline": "G1-1_qwen25_1.5b_qlora_r16",
+      "treatment": "G1-2_qwen3_1.7b_qlora_r16",
+      "meaning": "Qwen2.5-1.5B → Qwen3-1.7B 的净代际收益"
+    },
+    {
+      "name": "去量化 + 补 MLP（QLoRA→bf16 LoRA）",
+      "baseline": "G1-2_qwen3_1.7b_qlora_r16",
+      "treatment": "G1-4_qwen3_1.7b_bf16_r16",
+      "meaning": "4-bit 量化损失 + 仅 attn 的容量损失"
+    },
+    {
+      "name": "秩消融（r=8 vs r=16，bf16+MLP）",
+      "baseline": "G1-3_qwen3_1.7b_bf16_r8",
+      "treatment": "G1-4_qwen3_1.7b_bf16_r16",
+      "meaning": "去量化后是否仍需 r=16"
+    },
+    {
+      "name": "缩放比消融（α/r=2 vs α/r=1）",
+      "baseline": "G1-5_qwen3_1.7b_bf16_r16a16",
+      "treatment": "G1-4_qwen3_1.7b_bf16_r16",
+      "meaning": "同秩下缩放系数的稳定性"
+    },
+    {
+      "name": "编码器 vs 小模型 LoRA",
+      "baseline": "G2-1_roberta_large_ft",
+      "treatment": "G2-2_qwen3_1.7b_bf16_r16",
+      "meaning": "双向编码器全参与 1.7B LoRA 的差距"
+    },
+    {
+      "name": "参数阶梯 1.7B→4B",
+      "baseline": "G2-2_qwen3_1.7b_bf16_r16",
+      "treatment": "G2-3_qwen3_4b_bf16_r16",
+      "meaning": "2.4× 参数带来的收益与成本"
+    },
+    {
+      "name": "参数阶梯 4B→8B",
+      "baseline": "G2-3_qwen3_4b_bf16_r16",
+      "treatment": "G2-4_qwen3_8b_bf16_r16",
+      "meaning": "4B 是否已逼近 8B，决定论文主力尺寸"
+    }
+  ],
+  "gates": {
+    "G1_complete": "G1-1..G1-5 在 L1/L2 两任务均有 summary.json，且标签单 token 预检通过",
+    "G2_complete": "G2-1..G2-4 在 L1/L2 两任务均有 summary.json（G2-2 可由 G1-4 复用）",
+    "enter_G3": "G1 选出胜出配比（scope/rank/alpha）→ G2 选出主力尺寸（兼顾 4B 与 8B 的帕累托）→ 才可进入 G3 样本量曲线"
+  }
+}

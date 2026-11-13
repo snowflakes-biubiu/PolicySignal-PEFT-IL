@@ -21,6 +21,9 @@ assets/
 │   └── intermediate/
 │       ├── domain/                     标题抽取与领域标注中间产物（79 MB）
 │       └── domain_v14/                 v14 版候选池（73 MB）
+├── 06_generation_scale_benchmark/
+│   ├── models/<exp_id>__<task>/        G1/G2 适配器或编码器全参模型（不入库）
+│   └── smoke_tests/                    冒烟产物（results / models 隔离，不入库）
 ├── shared/datasets/                    全量语料（raw 498 MB + processed_readable 6.8 GB）
 ├── archives/                           打包备份（6 个 tar.gz，725 MB）
 └── README.md                           ← 唯一入库的文件
