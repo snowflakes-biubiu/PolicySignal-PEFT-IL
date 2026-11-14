@@ -58,8 +58,8 @@ def test_config_resolution() -> None:
     eight_b = next(r for r in matrix["runs"] if r["id"].startswith("G2-4"))
     resolved = C.resolve_run(matrix, eight_b)
     check(
-        resolved["batch_size"] == 2 and resolved["grad_accum"] == 8,
-        "G2-4 覆盖批量与累积（2×8）",
+        resolved["batch_size"] == 2 and resolved["grad_accum"] == 2,
+        "G2-4 覆盖批量与累积（2×2，有效 batch 4）",
     )
     check(resolved["gradient_checkpointing"] is True, "G2-4 开启梯度检查点")
 

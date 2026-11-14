@@ -1,0 +1,136 @@
+{
+  "exp_id": "G1-1_qwen25_1.5b_qlora_r16",
+  "group": "G1",
+  "label": "基线锚点",
+  "model": "/root/autodl-tmp/hf_models/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "task": "task2_level2",
+  "precision": "4bit",
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "target_scope": "attn",
+  "lr": 0.0002,
+  "epochs": 3,
+  "batch_size": 4,
+  "grad_accum": 1,
+  "eval_batch_size": 8,
+  "max_length": 768,
+  "seed": 42,
+  "enable_thinking": false,
+  "gradient_checkpointing": false,
+  "smoke": false,
+  "runner": "peft",
+  "task_samples": {
+    "train": 1200,
+    "val": 400
+  },
+  "train_truncated_count": 6,
+  "warmup_steps": 45,
+  "global_step": 900,
+  "examples_seen": 3600,
+  "trainable_params": 4358144,
+  "total_params": 1548072448,
+  "trainable_params_pct": 0.2815,
+  "train_loss": 0.5532,
+  "train_time_sec": 204.27,
+  "peak_train_vram_gb": 19.41,
+  "eval_time_sec": 9.29,
+  "infer_samples_per_sec": 43.04,
+  "peak_eval_vram_gb": 9.83,
+  "eval_truncated_count": 4,
+  "accuracy": 0.87,
+  "macro_f1": 0.8701,
+  "cohen_kappa": 0.8267,
+  "labels": [
+    "B",
+    "Y",
+    "C",
+    "G"
+  ],
+  "metrics_detail": {
+    "accuracy": 0.87,
+    "cohen_kappa": 0.8266666666666667,
+    "macro_f1": 0.8700931981910043,
+    "per_class": {
+      "B": {
+        "precision": 0.9183673469387755,
+        "recall": 0.9,
+        "f1": 0.9090909090909091
+      },
+      "Y": {
+        "precision": 0.9494949494949495,
+        "recall": 0.94,
+        "f1": 0.9447236180904524
+      },
+      "C": {
+        "precision": 0.8285714285714286,
+        "recall": 0.87,
+        "f1": 0.848780487804878
+      },
+      "G": {
+        "precision": 0.7857142857142857,
+        "recall": 0.77,
+        "f1": 0.7777777777777778
+      }
+    }
+  },
+  "predictions_csv": "/root/CAPC-CG-Project-06/06_generation_scale_benchmark/results/G1-1_qwen25_1.5b_qlora_r16__task2_level2/predictions.csv",
+  "adapter_dir": "/root/CAPC-CG-Project-06/assets/06_generation_scale_benchmark/models/G1-1_qwen25_1.5b_qlora_r16__task2_level2/adapter",
+  "fingerprint": "fc1549ca77132e94",
+  "code_version": "69bf270c9fc12810",
+  "data": {
+    "snapshot": "local",
+    "snapshot_path": "/root/autodl-tmp/hf_models/hub/datasets--Baron-Sun--CAPC-CG_V1.0/snapshots/local",
+    "splits": {
+      "task1_level1/train": {
+        "n": 600,
+        "labels": {
+          "N": 200,
+          "R": 200,
+          "W": 200
+        }
+      },
+      "task1_level1/validation": {
+        "n": 300,
+        "labels": {
+          "N": 100,
+          "R": 100,
+          "W": 100
+        }
+      },
+      "task2_level2/train": {
+        "n": 1200,
+        "labels": {
+          "B": 300,
+          "C": 300,
+          "G": 300,
+          "Y": 300
+        }
+      },
+      "task2_level2/validation": {
+        "n": 400,
+        "labels": {
+          "B": 100,
+          "C": 100,
+          "G": 100,
+          "Y": 100
+        }
+      }
+    }
+  },
+  "provenance": {
+    "python": "3.12.3",
+    "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "transformers": "5.17.0",
+    "peft": "0.21.2",
+    "accelerate": "1.15.0",
+    "bitsandbytes": "0.50.2",
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "gpu_total_gb": 23.52,
+    "base_model": "/root/autodl-tmp/hf_models/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "base_model_revision": "unavailable"
+  },
+  "finished_at": "20261114-020606"
+}

@@ -1,0 +1,130 @@
+{
+  "exp_id": "G1-4_qwen3_1.7b_bf16_r16",
+  "group": "G1",
+  "label": "去量化+原秩",
+  "model": "/root/autodl-tmp/ms/Qwen3-1.7B",
+  "task": "task1_level1",
+  "precision": "bf16",
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "target_scope": "attn_mlp",
+  "lr": 0.0002,
+  "epochs": 3,
+  "batch_size": 4,
+  "grad_accum": 1,
+  "eval_batch_size": 8,
+  "max_length": 768,
+  "seed": 42,
+  "enable_thinking": false,
+  "gradient_checkpointing": false,
+  "smoke": false,
+  "runner": "peft",
+  "task_samples": {
+    "train": 600,
+    "val": 300
+  },
+  "train_truncated_count": 4,
+  "warmup_steps": 22,
+  "global_step": 450,
+  "examples_seen": 1800,
+  "trainable_params": 17432576,
+  "total_params": 1738007552,
+  "trainable_params_pct": 1.003,
+  "train_loss": 0.4956,
+  "train_time_sec": 120.66,
+  "peak_train_vram_gb": 19.8,
+  "eval_time_sec": 8.02,
+  "infer_samples_per_sec": 37.39,
+  "peak_eval_vram_gb": 11.719,
+  "eval_truncated_count": 3,
+  "accuracy": 0.95,
+  "macro_f1": 0.95,
+  "cohen_kappa": 0.925,
+  "labels": [
+    "W",
+    "R",
+    "N"
+  ],
+  "metrics_detail": {
+    "accuracy": 0.95,
+    "cohen_kappa": 0.9249999999999999,
+    "macro_f1": 0.9500472660331359,
+    "per_class": {
+      "W": {
+        "precision": 0.9313725490196079,
+        "recall": 0.95,
+        "f1": 0.9405940594059405
+      },
+      "R": {
+        "precision": 0.9696969696969697,
+        "recall": 0.96,
+        "f1": 0.964824120603015
+      },
+      "N": {
+        "precision": 0.9494949494949495,
+        "recall": 0.94,
+        "f1": 0.9447236180904524
+      }
+    }
+  },
+  "predictions_csv": "/root/CAPC-CG-Project-06/06_generation_scale_benchmark/results/G1-4_qwen3_1.7b_bf16_r16__task1_level1/predictions.csv",
+  "adapter_dir": "/root/CAPC-CG-Project-06/assets/06_generation_scale_benchmark/models/G1-4_qwen3_1.7b_bf16_r16__task1_level1/adapter",
+  "fingerprint": "0f722fba056ac70b",
+  "code_version": "69bf270c9fc12810",
+  "data": {
+    "snapshot": "local",
+    "snapshot_path": "/root/autodl-tmp/hf_models/hub/datasets--Baron-Sun--CAPC-CG_V1.0/snapshots/local",
+    "splits": {
+      "task1_level1/train": {
+        "n": 600,
+        "labels": {
+          "N": 200,
+          "R": 200,
+          "W": 200
+        }
+      },
+      "task1_level1/validation": {
+        "n": 300,
+        "labels": {
+          "N": 100,
+          "R": 100,
+          "W": 100
+        }
+      },
+      "task2_level2/train": {
+        "n": 1200,
+        "labels": {
+          "B": 300,
+          "C": 300,
+          "G": 300,
+          "Y": 300
+        }
+      },
+      "task2_level2/validation": {
+        "n": 400,
+        "labels": {
+          "B": 100,
+          "C": 100,
+          "G": 100,
+          "Y": 100
+        }
+      }
+    }
+  },
+  "provenance": {
+    "python": "3.12.3",
+    "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "transformers": "5.17.0",
+    "peft": "0.21.2",
+    "accelerate": "1.15.0",
+    "bitsandbytes": "0.50.2",
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "gpu_total_gb": 23.52,
+    "base_model": "/root/autodl-tmp/ms/Qwen3-1.7B",
+    "base_model_revision": "unavailable"
+  },
+  "finished_at": "20261114-015058"
+}

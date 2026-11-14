@@ -1,0 +1,30 @@
+/root/miniconda3/bin/python /root/CAPC-CG-Project-06/06_generation_scale_benchmark/scripts/train/finetune_encoder.py --exp-id G2-1_chinese_roberta_large_ft --model /root/autodl-tmp/ms/chinese-roberta-wwm-ext-large --task task1_level1 --seed 42 --results-root /root/CAPC-CG-Project-06/06_generation_scale_benchmark/results --model-root /root/CAPC-CG-Project-06/assets/06_generation_scale_benchmark/models --group G2 --label 编码器对照 --precision bf16 --lr 2e-05 --epochs 3 --batch-size 8 --grad-accum 1 --eval-batch-size 16 --max-length 512 --skip-existing --smoke
+
+[SMOKE] 训练 2 条 / 评估 2 条，1 步
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 38218.01it/s]
+[transformers] [1mBertForSequenceClassification LOAD REPORT[0m from: /root/autodl-tmp/ms/chinese-roberta-wwm-ext-large
+Key                                        | Status     | 
+-------------------------------------------+------------+-
+cls.seq_relationship.bias                  | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED | 
+cls.predictions.transform.dense.bias       | UNEXPECTED | 
+cls.predictions.transform.dense.weight     | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | 
+cls.seq_relationship.weight                | UNEXPECTED | 
+cls.predictions.bias                       | UNEXPECTED | 
+cls.predictions.decoder.weight             | UNEXPECTED | 
+classifier.bias                            | MISSING    | 
+classifier.weight                          | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': None, 'bos_token_id': None}.
+[模型] /root/autodl-tmp/ms/chinese-roberta-wwm-ext-large 全参 325,525,507，精度=bf16
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  2.84it/s]                                             100%|██████████| 1/1 [00:00<00:00,  2.84it/s]                                             100%|██████████| 1/1 [00:00<00:00,  2.84it/s]100%|██████████| 1/1 [00:00<00:00,  2.80it/s]
+{'loss': '1.115', 'grad_norm': '12.5', 'learning_rate': '0', 'epoch': '1'}
+{'train_runtime': '0.3578', 'train_samples_per_second': '22.36', 'train_steps_per_second': '2.795', 'train_loss': '1.115', 'epoch': '1'}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:01<00:00,  1.54s/it]Writing model shards: 100%|██████████| 1/1 [00:01<00:00,  1.54s/it]
+[保存] 模型 -> /root/CAPC-CG-Project-06/assets/06_generation_scale_benchmark/smoke_tests/models/G2-1_chinese_roberta_large_ft__task1_level1/model
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 2683.50it/s]
+[DONE] G2-1_chinese_roberta_large_ft | task1_level1 | Acc=0.5000 | MF1=0.2222 | Kappa=0.0000 | Train=0.5s (6.076GB) | Infer=85.04 samples/s

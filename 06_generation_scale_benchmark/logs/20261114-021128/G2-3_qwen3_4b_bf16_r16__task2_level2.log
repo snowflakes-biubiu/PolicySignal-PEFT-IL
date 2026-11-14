@@ -1,0 +1,33 @@
+/root/miniconda3/bin/python /root/CAPC-CG-Project-06/06_generation_scale_benchmark/scripts/train/run_peft_benchmark.py --exp-id G2-3_qwen3_4b_bf16_r16 --model /root/autodl-tmp/ms/Qwen3-4B --task task2_level2 --seed 42 --results-root /root/CAPC-CG-Project-06/06_generation_scale_benchmark/results --model-root /root/CAPC-CG-Project-06/assets/06_generation_scale_benchmark/models --group G2 --label 中尺寸 --precision bf16 --lora-r 16 --lora-alpha 32 --lora-dropout 0.05 --target-scope attn_mlp --lr 0.0002 --epochs 3 --batch-size 4 --grad-accum 1 --eval-batch-size 8 --max-length 768 --warmup-ratio 0.05 --skip-existing
+
+[数据] task=task2_level2 train=1200 val=400 标签=['B', 'Y', 'C', 'G'] 训练截断=6
+Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]Loading weights:   0%|          | 1/398 [00:00<01:00,  6.53it/s]Loading weights:   4%|▍         | 16/398 [00:00<00:05, 71.68it/s]Loading weights:   9%|▉         | 36/398 [00:00<00:03, 114.51it/s]Loading weights:  12%|█▏        | 49/398 [00:00<00:03, 112.37it/s]Loading weights:  17%|█▋        | 67/398 [00:00<00:02, 133.29it/s]Loading weights:  20%|██        | 81/398 [00:00<00:02, 127.66it/s]Loading weights:  24%|██▍       | 96/398 [00:00<00:02, 133.87it/s]Loading weights:  28%|██▊       | 113/398 [00:00<00:02, 137.63it/s]Loading weights:  32%|███▏      | 127/398 [00:01<00:02, 132.87it/s]Loading weights:  37%|███▋      | 146/398 [00:01<00:01, 142.66it/s]Loading weights:  40%|████      | 161/398 [00:01<00:01, 138.89it/s]Loading weights:  45%|████▍     | 179/398 [00:01<00:01, 143.54it/s]Loading weights:  49%|████▊     | 194/398 [00:01<00:01, 139.54it/s]Loading weights:  53%|█████▎    | 212/398 [00:01<00:01, 143.52it/s]Loading weights:  57%|█████▋    | 227/398 [00:01<00:01, 137.84it/s]Loading weights:  62%|██████▏   | 245/398 [00:01<00:01, 143.06it/s]Loading weights:  65%|██████▌   | 260/398 [00:01<00:00, 138.31it/s]Loading weights:  70%|██████▉   | 278/398 [00:02<00:00, 143.14it/s]Loading weights:  74%|███████▎  | 293/398 [00:02<00:00, 139.00it/s]Loading weights:  78%|███████▊  | 311/398 [00:02<00:00, 143.30it/s]Loading weights:  82%|████████▏ | 326/398 [00:02<00:00, 137.61it/s]Loading weights:  86%|████████▋ | 344/398 [00:02<00:00, 142.34it/s]Loading weights:  90%|█████████ | 359/398 [00:02<00:00, 136.58it/s]Loading weights:  94%|█████████▍| 375/398 [00:02<00:00, 142.28it/s]Loading weights:  98%|█████████▊| 390/398 [00:02<00:00, 131.35it/s]Loading weights: 100%|██████████| 398/398 [00:02<00:00, 134.59it/s]
+[模型] /root/autodl-tmp/ms/Qwen3-4B 精度=bf16 可训练=33,030,144 (0.8145%)
+  0%|          | 0/900 [00:00<?, ?it/s]  0%|          | 1/900 [00:01<17:11,  1.15s/it]Traceback (most recent call last):
+  File "/root/CAPC-CG-Project-06/06_generation_scale_benchmark/scripts/train/run_peft_benchmark.py", line 285, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/root/CAPC-CG-Project-06/06_generation_scale_benchmark/scripts/train/run_peft_benchmark.py", line 211, in main
+    train_result = trainer.train()
+                   ^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 1520, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 1602, in _inner_training_loop
+    self._run_epoch(
+  File "/root/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 1842, in _run_epoch
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 2044, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/root/miniconda3/lib/python3.12/site-packages/accelerate/accelerator.py", line 2861, in backward
+    loss.backward(**kwargs)
+  File "/root/miniconda3/lib/python3.12/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/root/miniconda3/lib/python3.12/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/root/miniconda3/lib/python3.12/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 940.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 240.62 MiB is free. Including non-PyTorch memory, this process has 23.27 GiB memory in use. Of the allocated memory 21.44 GiB is allocated by PyTorch, and 1.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  0%|          | 1/900 [00:01<24:55,  1.66s/it]

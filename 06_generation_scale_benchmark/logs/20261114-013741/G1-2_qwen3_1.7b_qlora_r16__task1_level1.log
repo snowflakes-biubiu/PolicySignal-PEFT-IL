@@ -1,0 +1,6 @@
+/root/miniconda3/bin/python /root/CAPC-CG-Project-06/06_generation_scale_benchmark/scripts/train/run_peft_benchmark.py --exp-id G1-2_qwen3_1.7b_qlora_r16 --model /root/autodl-tmp/ms/Qwen3-1.7B --task task1_level1 --seed 42 --results-root /root/CAPC-CG-Project-06/06_generation_scale_benchmark/results --model-root /root/CAPC-CG-Project-06/assets/06_generation_scale_benchmark/models --group G1 --label 同配置换代 --precision 4bit --lora-r 16 --lora-alpha 32 --lora-dropout 0.05 --target-scope attn --lr 0.0002 --epochs 3 --batch-size 4 --grad-accum 1 --eval-batch-size 8 --max-length 768 --warmup-ratio 0.05 --skip-existing
+
+[冲突] /root/CAPC-CG-Project-06/06_generation_scale_benchmark/results/G1-2_qwen3_1.7b_qlora_r16__task1_level1/summary.json 已存在但指纹不一致
+  已存: ef976d91f1fbd6d8
+  本次: 0d5880463ab942d3
+  如需重跑请加 --overwrite（旧目录会被改名备份）

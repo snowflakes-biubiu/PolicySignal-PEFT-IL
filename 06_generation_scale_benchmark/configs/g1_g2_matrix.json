@@ -8,19 +8,28 @@
   "max_length": 768,
   "epochs": 3,
   "batch_size": 4,
-  "grad_accum": 4,
+  "grad_accum": 1,
   "eval_batch_size": 8,
   "lora_dropout": 0.05,
   "warmup_ratio": 0.05,
   "tasks": {
     "task1_level1": {
-      "labels": ["W", "R", "N"],
+      "labels": [
+        "W",
+        "R",
+        "N"
+      ],
       "train_total": 600,
       "train_per_class": 200,
       "val_total": 300
     },
     "task2_level2": {
-      "labels": ["B", "Y", "C", "G"],
+      "labels": [
+        "B",
+        "Y",
+        "C",
+        "G"
+      ],
       "train_total": 1200,
       "train_per_class": 300,
       "val_total": 400
@@ -99,10 +108,10 @@
       "runner": "encoder",
       "model": "hfl/chinese-roberta-wwm-ext-large",
       "precision": "bf16",
-      "lr": 0.00002,
+      "lr": 2e-05,
       "epochs": 3,
       "batch_size": 8,
-      "grad_accum": 2,
+      "grad_accum": 1,
       "eval_batch_size": 16,
       "max_length": 512,
       "note": "中文双向编码器（chinese-roberta-wwm-ext-large）全参微调，检验中文小模型 + LoRA 是否已胜过 0.33B 全参基线"
@@ -132,7 +141,8 @@
       "lora_alpha": 32,
       "target_scope": "attn_mlp",
       "lr": 0.0002,
-      "note": "重点观察 4B 能否逼近 8B，作为论文主力候选"
+      "note": "重点观察 4B 能否逼近 8B，作为论文主力候选；4B bf16 在 24G 上 bs4 无 GC 会 OOM，故开启梯度检查点（有效 batch 仍为 4）",
+      "gradient_checkpointing": true
     },
     {
       "id": "G2-4_qwen3_8b_bf16_r16",
@@ -146,9 +156,10 @@
       "target_scope": "attn_mlp",
       "lr": 0.0001,
       "batch_size": 2,
-      "grad_accum": 8,
+      "grad_accum": 2,
       "gradient_checkpointing": true,
-      "note": "单卡 24G 上限；开启梯度检查点，画 G2 效果-效率帕累托"
+      "note": "单卡 24G 上限；开启梯度检查点，画 G2 效果-效率帕累托；评估 bs 降到 4，避免 8B 评估阶段 OOM",
+      "eval_batch_size": 4
     }
   ],
   "comparisons": [

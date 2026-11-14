@@ -1,0 +1,129 @@
+{
+  "exp_id": "G2-1_chinese_roberta_large_ft",
+  "group": "G2",
+  "label": "编码器对照",
+  "runner": "encoder",
+  "model": "/root/autodl-tmp/ms/chinese-roberta-wwm-ext-large",
+  "task": "task1_level1",
+  "precision": "bf16",
+  "lr": 2e-05,
+  "epochs": 3,
+  "batch_size": 8,
+  "grad_accum": 1,
+  "eval_batch_size": 16,
+  "max_length": 512,
+  "seed": 42,
+  "smoke": false,
+  "lora_r": 0,
+  "lora_alpha": 0,
+  "lora_dropout": 0.0,
+  "target_scope": "full",
+  "gradient_checkpointing": false,
+  "task_samples": {
+    "train": 600,
+    "val": 300
+  },
+  "train_truncated_count": 0,
+  "warmup_steps": 13,
+  "global_step": 225,
+  "examples_seen": 1800,
+  "trainable_params": 325525507,
+  "total_params": 325525507,
+  "trainable_params_pct": 100.0,
+  "train_loss": 0.3133,
+  "train_time_sec": 30.92,
+  "peak_train_vram_gb": 8.353,
+  "eval_time_sec": 1.16,
+  "infer_samples_per_sec": 259.06,
+  "peak_eval_vram_gb": 4.336,
+  "eval_truncated_count": 0,
+  "accuracy": 0.9433,
+  "macro_f1": 0.9435,
+  "cohen_kappa": 0.915,
+  "labels": [
+    "W",
+    "R",
+    "N"
+  ],
+  "metrics_detail": {
+    "accuracy": 0.9433333333333334,
+    "cohen_kappa": 0.915,
+    "macro_f1": 0.9434974810662929,
+    "per_class": {
+      "W": {
+        "precision": 0.9056603773584906,
+        "recall": 0.96,
+        "f1": 0.9320388349514563
+      },
+      "R": {
+        "precision": 0.95,
+        "recall": 0.95,
+        "f1": 0.9500000000000001
+      },
+      "N": {
+        "precision": 0.9787234042553191,
+        "recall": 0.92,
+        "f1": 0.9484536082474226
+      }
+    }
+  },
+  "predictions_csv": "/root/CAPC-CG-Project-06/06_generation_scale_benchmark/results/G2-1_chinese_roberta_large_ft__task1_level1/predictions.csv",
+  "model_dir": "/root/CAPC-CG-Project-06/assets/06_generation_scale_benchmark/models/G2-1_chinese_roberta_large_ft__task1_level1/model",
+  "fingerprint": "8a7aaf5525bb0307",
+  "code_version": "1d2cbea76e12b86b",
+  "data": {
+    "snapshot": "local",
+    "snapshot_path": "/root/autodl-tmp/hf_models/hub/datasets--Baron-Sun--CAPC-CG_V1.0/snapshots/local",
+    "splits": {
+      "task1_level1/train": {
+        "n": 600,
+        "labels": {
+          "N": 200,
+          "R": 200,
+          "W": 200
+        }
+      },
+      "task1_level1/validation": {
+        "n": 300,
+        "labels": {
+          "N": 100,
+          "R": 100,
+          "W": 100
+        }
+      },
+      "task2_level2/train": {
+        "n": 1200,
+        "labels": {
+          "B": 300,
+          "C": 300,
+          "G": 300,
+          "Y": 300
+        }
+      },
+      "task2_level2/validation": {
+        "n": 400,
+        "labels": {
+          "B": 100,
+          "C": 100,
+          "G": 100,
+          "Y": 100
+        }
+      }
+    }
+  },
+  "provenance": {
+    "python": "3.12.3",
+    "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "transformers": "5.17.0",
+    "peft": "0.21.2",
+    "accelerate": "1.15.0",
+    "bitsandbytes": "0.50.2",
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "gpu_total_gb": 23.52,
+    "base_model": "/root/autodl-tmp/ms/chinese-roberta-wwm-ext-large",
+    "base_model_revision": "unavailable"
+  },
+  "finished_at": "20261114-021210"
+}
