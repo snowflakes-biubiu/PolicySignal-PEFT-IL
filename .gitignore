@@ -39,6 +39,8 @@ secrets.*
 # ============================================================
 _remote_results/
 _remote_models/
+# 云端环境专属的配置覆盖（只改 model 本地路径），不入库
+*.local.json
 _joint_results/
 _cloud_upload/
 _cloud_upload.tar.gz
