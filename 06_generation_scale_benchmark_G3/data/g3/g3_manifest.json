@@ -1,0 +1,215 @@
+{
+  "version": "2.0",
+  "stage": "G3",
+  "seed": 42,
+  "boundary": {
+    "task1_level1": 200,
+    "task2_level2": 300
+  },
+  "sources": {
+    "task1_level1": {
+      "corpus": "C:\\Users\\snowf\\.cache\\huggingface\\hub\\datasets--Baron-Sun--CAPC-CG_V1.0\\snapshots\\d05965f169e6f7da33a25f667edf39add0339e2b\\data\\CN_DOCS_FINAL_complete.parquet",
+      "column": "R_1",
+      "documents": 310748,
+      "pool_per_class": {
+        "N": 529693,
+        "R": 25738,
+        "W": 291566
+      }
+    },
+    "task2_level2": {
+      "corpus": "C:\\Users\\snowf\\.cache\\huggingface\\hub\\datasets--Baron-Sun--CAPC-CG_V1.0\\snapshots\\d05965f169e6f7da33a25f667edf39add0339e2b\\data\\CN_DOCS_FINAL_complete.parquet",
+      "column": "R_2",
+      "documents": 164543,
+      "pool_per_class": {
+        "B": 147495,
+        "C": 98443,
+        "G": 64255,
+        "Y": 134504
+      }
+    }
+  },
+  "gold_val_overlap": {
+    "task1_level1": {
+      "W": 1,
+      "R": 12,
+      "N": 6
+    },
+    "task2_level2": {
+      "B": 1,
+      "Y": 2,
+      "C": 8,
+      "G": 6
+    }
+  },
+  "splits": [
+    {
+      "task": "task1_level1",
+      "per_class": 50,
+      "total": 150,
+      "regime": "pure_gold",
+      "gold_count": 150,
+      "silver_count": 0,
+      "silver_ratio": 0.0,
+      "gold_val_overlap": 5,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_50.jsonl",
+      "sha256": "0b8014e285c19e09"
+    },
+    {
+      "task": "task1_level1",
+      "per_class": 100,
+      "total": 300,
+      "regime": "pure_gold",
+      "gold_count": 300,
+      "silver_count": 0,
+      "silver_ratio": 0.0,
+      "gold_val_overlap": 9,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_100.jsonl",
+      "sha256": "2c5a5425c63d5ef0"
+    },
+    {
+      "task": "task1_level1",
+      "per_class": 150,
+      "total": 450,
+      "regime": "pure_gold",
+      "gold_count": 450,
+      "silver_count": 0,
+      "silver_ratio": 0.0,
+      "gold_val_overlap": 13,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_150.jsonl",
+      "sha256": "212fbfe4f8ae7b94"
+    },
+    {
+      "task": "task1_level1",
+      "per_class": 200,
+      "total": 600,
+      "regime": "pure_gold",
+      "gold_count": 600,
+      "silver_count": 0,
+      "silver_ratio": 0.0,
+      "gold_val_overlap": 19,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_200.jsonl",
+      "sha256": "c672536a6881de6a"
+    },
+    {
+      "task": "task1_level1",
+      "per_class": 400,
+      "total": 1200,
+      "regime": "gold_plus_silver",
+      "gold_count": 600,
+      "silver_count": 600,
+      "silver_ratio": 0.5,
+      "gold_val_overlap": 19,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_400.jsonl",
+      "sha256": "9ea641b94e106482"
+    },
+    {
+      "task": "task1_level1",
+      "per_class": 600,
+      "total": 1800,
+      "regime": "gold_plus_silver",
+      "gold_count": 600,
+      "silver_count": 1200,
+      "silver_ratio": 0.6667,
+      "gold_val_overlap": 19,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_600.jsonl",
+      "sha256": "d20617a9ff110dc9"
+    },
+    {
+      "task": "task1_level1",
+      "per_class": 1000,
+      "total": 3000,
+      "regime": "gold_plus_silver",
+      "gold_count": 600,
+      "silver_count": 2400,
+      "silver_ratio": 0.8,
+      "gold_val_overlap": 19,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_1000.jsonl",
+      "sha256": "75c769ad8d085f72"
+    },
+    {
+      "task": "task2_level2",
+      "per_class": 75,
+      "total": 300,
+      "regime": "pure_gold",
+      "gold_count": 300,
+      "silver_count": 0,
+      "silver_ratio": 0.0,
+      "gold_val_overlap": 2,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_75.jsonl",
+      "sha256": "6852a5242cfcd00e"
+    },
+    {
+      "task": "task2_level2",
+      "per_class": 150,
+      "total": 600,
+      "regime": "pure_gold",
+      "gold_count": 600,
+      "silver_count": 0,
+      "silver_ratio": 0.0,
+      "gold_val_overlap": 10,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_150.jsonl",
+      "sha256": "c255f5f19939ee2d"
+    },
+    {
+      "task": "task2_level2",
+      "per_class": 225,
+      "total": 900,
+      "regime": "pure_gold",
+      "gold_count": 900,
+      "silver_count": 0,
+      "silver_ratio": 0.0,
+      "gold_val_overlap": 14,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_225.jsonl",
+      "sha256": "32c8655ebfa8f189"
+    },
+    {
+      "task": "task2_level2",
+      "per_class": 300,
+      "total": 1200,
+      "regime": "pure_gold",
+      "gold_count": 1200,
+      "silver_count": 0,
+      "silver_ratio": 0.0,
+      "gold_val_overlap": 17,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_300.jsonl",
+      "sha256": "d7d94ea5b9be7cef"
+    },
+    {
+      "task": "task2_level2",
+      "per_class": 500,
+      "total": 2000,
+      "regime": "gold_plus_silver",
+      "gold_count": 1200,
+      "silver_count": 800,
+      "silver_ratio": 0.4,
+      "gold_val_overlap": 17,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_500.jsonl",
+      "sha256": "7a712468be27c729"
+    },
+    {
+      "task": "task2_level2",
+      "per_class": 800,
+      "total": 3200,
+      "regime": "gold_plus_silver",
+      "gold_count": 1200,
+      "silver_count": 2000,
+      "silver_ratio": 0.625,
+      "gold_val_overlap": 17,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_800.jsonl",
+      "sha256": "2681520f8523dd92"
+    },
+    {
+      "task": "task2_level2",
+      "per_class": 1200,
+      "total": 4800,
+      "regime": "gold_plus_silver",
+      "gold_count": 1200,
+      "silver_count": 3600,
+      "silver_ratio": 0.75,
+      "gold_val_overlap": 17,
+      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_1200.jsonl",
+      "sha256": "6e78f5409900ae45"
+    }
+  ]
+}

@@ -4,8 +4,8 @@
 不加载模型权重、不做任何 GPU 计算，可在本地安全运行（只做条件判断与 tokenizer 编码）。
 
 用法：
-  python 06_generation_scale_benchmark/scripts/prepare/preflight_check.py --offline
-  python 06_generation_scale_benchmark/scripts/prepare/preflight_check.py --strict   # 云端正式运行前
+  python 06_generation_scale_benchmark_G1_G2/scripts/prepare/preflight_check.py --offline
+  python 06_generation_scale_benchmark_G1_G2/scripts/prepare/preflight_check.py --strict   # 云端正式运行前
 """
 from __future__ import annotations
 

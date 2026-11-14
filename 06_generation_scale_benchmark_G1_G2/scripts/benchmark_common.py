@@ -59,11 +59,11 @@ sys.path.insert(0, str(PROJECT_ROOT / "shared" / "common"))
 import metrics as M  # noqa: E402
 import preprocess  # noqa: E402
 
-BENCH_ROOT = PROJECT_ROOT / "06_generation_scale_benchmark"
+BENCH_ROOT = PROJECT_ROOT / "06_generation_scale_benchmark_G1_G2"
 CONFIG_PATH = BENCH_ROOT / "configs" / "g1_g2_matrix.json"
 RESULTS_ROOT = BENCH_ROOT / "results"
 LOG_ROOT = BENCH_ROOT / "logs"
-ASSETS_ROOT = PROJECT_ROOT / "assets" / "06_generation_scale_benchmark"
+ASSETS_ROOT = PROJECT_ROOT / "assets" / "06_generation_scale_benchmark_G1_G2"
 MODEL_ROOT = ASSETS_ROOT / "models"
 SMOKE_ROOT = ASSETS_ROOT / "smoke_tests"
 

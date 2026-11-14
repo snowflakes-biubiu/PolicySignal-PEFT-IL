@@ -6,7 +6,7 @@
 `run_peft_benchmark.py`，可直接并入同一张对比表。
 
 用法（云端 4090D，仓库根目录）：
-  python 06_generation_scale_benchmark/scripts/train/finetune_encoder.py \
+  python 06_generation_scale_benchmark_G1_G2/scripts/train/finetune_encoder.py \
       --exp-id G2-1_chinese_roberta_large_ft --model hfl/chinese-roberta-wwm-ext-large \
       --task task1_level1 --precision bf16 --lr 2e-5 --max-length 512
 """

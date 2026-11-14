@@ -1,0 +1,77 @@
+{
+  "version": "2.0",
+  "phase": "06_generation_scale_benchmark",
+  "stage": "G3",
+  "title": "G3 样本量 Scaling 实验（纯金标准学习曲线 + R1/R2 扩增曲线）",
+  "seed": 42,
+  "max_length": 768,
+  "epochs": 3,
+  "batch_size": 4,
+  "grad_accum": 1,
+  "eval_batch_size": 8,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "target_scope": "attn_mlp",
+  "warmup_ratio": 0.05,
+  "models": [
+    {
+      "id": "chinese_roberta_large",
+      "label": "编码器全参 (0.33B)",
+      "runner": "encoder",
+      "model": "hfl/chinese-roberta-wwm-ext-large",
+      "precision": "bf16",
+      "lr": 2e-05,
+      "batch_size": 8,
+      "grad_accum": 1,
+      "eval_batch_size": 16,
+      "max_length": 512,
+      "gradient_checkpointing": false,
+      "reuse_gold_exp_id": "G2-1_chinese_roberta_large_ft"
+    },
+    {
+      "id": "qwen3_1.7b_bf16_r8",
+      "label": "轻量主力 (1.7B r8)",
+      "runner": "peft",
+      "model": "Qwen/Qwen3-1.7B",
+      "precision": "bf16",
+      "lr": 0.0002,
+      "batch_size": 4,
+      "grad_accum": 1,
+      "eval_batch_size": 8,
+      "max_length": 768,
+      "gradient_checkpointing": false,
+      "reuse_gold_exp_id": "G1-3_qwen3_1.7b_bf16_r8"
+    },
+    {
+      "id": "qwen3_4b_bf16_r8",
+      "label": "中尺寸主力 (4B r8)",
+      "runner": "peft",
+      "model": "Qwen/Qwen3-4B",
+      "precision": "bf16",
+      "lr": 0.0002,
+      "batch_size": 4,
+      "grad_accum": 1,
+      "eval_batch_size": 8,
+      "max_length": 768,
+      "gradient_checkpointing": true,
+      "reuse_gold_exp_id": null
+    }
+  ],
+  "tasks": {
+    "task1_level1": {
+      "labels": ["W", "R", "N"],
+      "gold_per_class": 200,
+      "val_total": 300,
+      "gold_tiers": [50, 100, 150, 200],
+      "silver_tiers": [400, 600, 1000]
+    },
+    "task2_level2": {
+      "labels": ["B", "Y", "C", "G"],
+      "gold_per_class": 300,
+      "val_total": 400,
+      "gold_tiers": [75, 150, 225, 300],
+      "silver_tiers": [500, 800, 1200]
+    }
+  }
+}

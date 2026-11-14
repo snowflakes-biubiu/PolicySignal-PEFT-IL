@@ -31,7 +31,7 @@ G1/G2 回答两个衔接问题：
 | Qwen3 模式 | `enable_thinking=False`，避免 `<think>` 段破坏单 token 监督 |
 | 默认超参 | 3 epoch、bs=4、ga=1（有效 4，与 03 期基线对齐）、lr=2e-4、cosine、warmup 5%、dropout 0.05、seed=42 |
 | 硬件 | 仅云端 RTX 4090D（本地 1660 Ti 被 `gpu_guard` 拒绝） |
-| 产物 | 指标/预测 → `results/<exp>__<task>/`（入库）；adapter/模型 → `assets/06_generation_scale_benchmark/`（不入库） |
+| 产物 | 指标/预测 → `results/<exp>__<task>/`（入库）；adapter/模型 → `assets/06_generation_scale_benchmark_G1_G2/`（不入库） |
 
 ## 3. 实验矩阵
 
@@ -74,7 +74,7 @@ G1/G2 回答两个衔接问题：
 ## 4. 目录结构
 
 ```
-06_generation_scale_benchmark/
+06_generation_scale_benchmark_G1_G2/
 ├── README.md
 ├── configs/g1_g2_matrix.json           # 矩阵、对照项、门禁的唯一来源
 ├── scripts/
@@ -96,35 +96,35 @@ G1/G2 回答两个衔接问题：
 ```
 results/<exp_id>__<task>/summary.json        # 指标 + 效率 + 环境 + 指纹 + 数据快照
 results/<exp_id>__<task>/predictions.csv     # gold / pred / correct / text / prob_<label>
-assets/06_generation_scale_benchmark/models/<exp_id>__<task>/adapter/   # PEFT
-assets/06_generation_scale_benchmark/models/<exp_id>__<task>/model/     # 编码器
+assets/06_generation_scale_benchmark_G1_G2/models/<exp_id>__<task>/adapter/   # PEFT
+assets/06_generation_scale_benchmark_G1_G2/models/<exp_id>__<task>/model/     # 编码器
 ```
 
 ## 5. 运行流程（云端 4090D）
 
 ```bash
 # 0) 本地即可做：语法 + 纯逻辑自检（不加载模型、不占 GPU）
-python -m py_compile 06_generation_scale_benchmark/scripts/**/*.py
-python 06_generation_scale_benchmark/scripts/validation/selfcheck_units.py
+python -m py_compile 06_generation_scale_benchmark_G1_G2/scripts/**/*.py
+python 06_generation_scale_benchmark_G1_G2/scripts/validation/selfcheck_units.py
 
 # 1) 云端预检：数据规模、标签单 token、模型缓存、GPU 型号、目录可写
-python 06_generation_scale_benchmark/scripts/prepare/preflight_check.py --strict
+python 06_generation_scale_benchmark_G1_G2/scripts/prepare/preflight_check.py --strict
 
 # 2) 计划预览：确认 18 个单元 / 16 次训练 / 2 个复用
-python 06_generation_scale_benchmark/scripts/run_g1_g2_matrix.py --mode plan
+python 06_generation_scale_benchmark_G1_G2/scripts/run_g1_g2_matrix.py --mode plan
 
-# 3) 冒烟：每模型 2 条样本、1 步，产物隔离在 assets/06_generation_scale_benchmark/smoke_tests/
-python 06_generation_scale_benchmark/scripts/run_g1_g2_matrix.py --mode run --smoke --only G1-4 G2-1
+# 3) 冒烟：每模型 2 条样本、1 步，产物隔离在 assets/06_generation_scale_benchmark_G1_G2/smoke_tests/
+python 06_generation_scale_benchmark_G1_G2/scripts/run_g1_g2_matrix.py --mode run --smoke --only G1-4 G2-1
 
 # 4) 正式全量（训练完自动汇总）
-python 06_generation_scale_benchmark/scripts/run_g1_g2_matrix.py --mode all
+python 06_generation_scale_benchmark_G1_G2/scripts/run_g1_g2_matrix.py --mode all
 
 # 5) 断点续跑 / 局部重跑
-python 06_generation_scale_benchmark/scripts/run_g1_g2_matrix.py --mode all --state logs/<stamp>/summary_<stamp>.json
-python 06_generation_scale_benchmark/scripts/run_g1_g2_matrix.py --mode all --only G2-3 G2-4 --task task1_level1
+python 06_generation_scale_benchmark_G1_G2/scripts/run_g1_g2_matrix.py --mode all --state logs/<stamp>/summary_<stamp>.json
+python 06_generation_scale_benchmark_G1_G2/scripts/run_g1_g2_matrix.py --mode all --only G2-3 G2-4 --task task1_level1
 
 # 6) 只重算汇总（本地可跑，不碰 GPU）
-python 06_generation_scale_benchmark/scripts/evaluate/summarize_results.py
+python 06_generation_scale_benchmark_G1_G2/scripts/evaluate/summarize_results.py
 ```
 
 PowerShell 下把 `python` 换成 `.\.venv\Scripts\python.exe`，其余参数一致。
@@ -133,7 +133,7 @@ PowerShell 下把 `python` 换成 `.\.venv\Scripts\python.exe`，其余参数一
 `--skip-existing` 只在指纹一致时跳过；不一致会直接报冲突，需显式 `--overwrite`（旧结果自动改名
 `.bak-<时间戳>` 备份），避免“换了参数却复用了旧指标”。
 
-**冒烟隔离**：`--smoke` 时结果固定写到 `assets/06_generation_scale_benchmark/smoke_tests/`，
+**冒烟隔离**：`--smoke` 时结果固定写到 `assets/06_generation_scale_benchmark_G1_G2/smoke_tests/`，
 不会污染 `results/`，也不会覆盖正式 adapter。
 
 **云端模型路径覆盖**：如果实例把模型放在本地目录（例如 ModelScope 下载到
@@ -141,11 +141,11 @@ PowerShell 下把 `python` 换成 `.\.venv\Scripts\python.exe`，其余参数一
 仓库里的主配置仍保留可移植的 HF id：
 
 ```bash
-cp 06_generation_scale_benchmark/configs/g1_g2_matrix.json \
-   06_generation_scale_benchmark/configs/g1_g2_matrix.local.json
+cp 06_generation_scale_benchmark_G1_G2/configs/g1_g2_matrix.json \
+   06_generation_scale_benchmark_G1_G2/configs/g1_g2_matrix.local.json
 # 将 9 条 run 的 model 改成实例上的绝对路径后：
-python 06_generation_scale_benchmark/scripts/run_g1_g2_matrix.py \
-  --mode all --config 06_generation_scale_benchmark/configs/g1_g2_matrix.local.json
+python 06_generation_scale_benchmark_G1_G2/scripts/run_g1_g2_matrix.py \
+  --mode all --config 06_generation_scale_benchmark_G1_G2/configs/g1_g2_matrix.local.json
 ```
 
 `.local.json` 属于环境差异，不要提交；`summary.json` 的 `model` 字段会记录当次实际使用的路径。

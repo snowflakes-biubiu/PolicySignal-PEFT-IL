@@ -4,10 +4,10 @@
 一次运行 = 一个 (实验编号 × 任务)。产物：
   results/<exp_id>__<task>/summary.json      全部指标、效率、环境与指纹
   results/<exp_id>__<task>/predictions.csv   逐条预测（gold/pred/prob_*）
-  assets/06_generation_scale_benchmark/models/<exp_id>__<task>/adapter/
+  assets/06_generation_scale_benchmark_G1_G2/models/<exp_id>__<task>/adapter/
 
 用法（云端 4090D，仓库根目录）：
-  python 06_generation_scale_benchmark/scripts/train/run_peft_benchmark.py \
+  python 06_generation_scale_benchmark_G1_G2/scripts/train/run_peft_benchmark.py \
       --exp-id G1-4_qwen3_1.7b_bf16_r16 --model Qwen/Qwen3-1.7B \
       --task task1_level1 --precision bf16 --lora-r 16 --lora-alpha 32 \
       --target-scope attn_mlp --lr 2e-4 --skip-existing

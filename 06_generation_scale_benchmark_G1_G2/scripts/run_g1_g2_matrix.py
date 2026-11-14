@@ -6,16 +6,16 @@
 
 用法（仓库根目录）：
   # 1) 只打印计划，确认参数
-  python 06_generation_scale_benchmark/scripts/run_g1_g2_matrix.py --mode plan
+  python 06_generation_scale_benchmark_G1_G2/scripts/run_g1_g2_matrix.py --mode plan
   # 2) 冒烟（2 条样本、1 步；产物隔离在 assets/.../smoke_tests/）
-  python 06_generation_scale_benchmark/scripts/run_g1_g2_matrix.py --mode run --smoke
+  python 06_generation_scale_benchmark_G1_G2/scripts/run_g1_g2_matrix.py --mode run --smoke
   # 3) 正式全量
-  python 06_generation_scale_benchmark/scripts/run_g1_g2_matrix.py --mode all
+  python 06_generation_scale_benchmark_G1_G2/scripts/run_g1_g2_matrix.py --mode all
   # 4) 只跑某个实验 / 某任务
-  python 06_generation_scale_benchmark/scripts/run_g1_g2_matrix.py --mode all --only G1-3 G2-3
-  python 06_generation_scale_benchmark/scripts/run_g1_g2_matrix.py --mode all --task task2_level2
+  python 06_generation_scale_benchmark_G1_G2/scripts/run_g1_g2_matrix.py --mode all --only G1-3 G2-3
+  python 06_generation_scale_benchmark_G1_G2/scripts/run_g1_g2_matrix.py --mode all --task task2_level2
   # 5) 断点续跑（已成功的单元自动跳过）
-  python 06_generation_scale_benchmark/scripts/run_g1_g2_matrix.py --mode all --state logs/summary_<stamp>.json
+  python 06_generation_scale_benchmark_G1_G2/scripts/run_g1_g2_matrix.py --mode all --state logs/summary_<stamp>.json
 """
 from __future__ import annotations
 

@@ -14,7 +14,9 @@ because most scripts use paths relative to it.
 | `04_error_analysis/` | Error-analysis scripts, artifacts, analysis data, and results |
 | `05_incremental_learning_time/` | Temporal incremental learning: code, T1–T5 data, results, logs |
 | `05_incremental_learning_domain/` | Domain incremental learning: code, D1–D6 data, results, logs |
-| `06_generation_scale_benchmark/` | G1/G2 generation anchor + parameter-scale ladder: matrix config, code, results, logs |
+| `06_generation_scale_benchmark_G1_G2/` | G1/G2 generation anchor + parameter-scale ladder: matrix config, code, results, logs |
+| `06_generation_scale_benchmark_G3/` | G3 sample-size scaling: pure-gold + R1/R2 silver tiers, code, data, results |
+| `06_generation_scale_benchmark_G4/` | G4 placeholder (multi-seed + reasoning), design pending |
 | `05_*/data/temporal/` | T1–T5 train/test jsonl (10 files, in git) |
 | `05_*/data/domain_incremental/` | D1–D6 train/test jsonl (12 files, in git) |
 | `05_*/data/joint/` | Joint-training merged sets, sampling manifests, sha256 baselines (in git) |
@@ -168,21 +170,35 @@ intact.
 
 ## Generation anchor and scale benchmark (06)
 
-`06_generation_scale_benchmark/` implements the G1 (Qwen2.5→Qwen3, QLoRA→bf16 LoRA,
+`06_generation_scale_benchmark_G1_G2/` implements the G1 (Qwen2.5→Qwen3, QLoRA→bf16 LoRA,
 rank/alpha ablation) and G2 (1.7B/4B/8B ladder plus RoBERTa-large encoder control)
 designs. The matrix lives in `configs/g1_g2_matrix.json`; one entry point covers plan,
 smoke, full run and summarization:
 
 ```powershell
-.\.venv\Scripts\python.exe 06_generation_scale_benchmark\scripts\validation\selfcheck_units.py
-.\.venv\Scripts\python.exe 06_generation_scale_benchmark\scripts\prepare\preflight_check.py --offline
-.\.venv\Scripts\python.exe 06_generation_scale_benchmark\scripts\run_g1_g2_matrix.py --mode plan
+.\.venv\Scripts\python.exe 06_generation_scale_benchmark_G1_G2\scripts\validation\selfcheck_units.py
+.\.venv\Scripts\python.exe 06_generation_scale_benchmark_G1_G2\scripts\prepare\preflight_check.py --offline
+.\.venv\Scripts\python.exe 06_generation_scale_benchmark_G1_G2\scripts\run_g1_g2_matrix.py --mode plan
 ```
 
 Training and evaluation must run on the cloud RTX 4090D; `scripts/gpu_guard.py` rejects
 local GPUs. G2-2 reuses G1-4 (same configuration) and each unit carries a configuration
 fingerprint so `--skip-existing` cannot silently reuse stale results. See the folder
 README for the decision gates into G3.
+
+`06_generation_scale_benchmark_G3/` implements the sample-size curves: nested pure-gold
+tiers (L1 50/100/150/200, L2 75/150/225/300 per class) followed by R_1/R_2 silver
+expansion (L1 400/600/1000, L2 500/800/1200). The 14 training files and their manifest
+are committed; the build script keeps the gold boundary (L1 200, L2 300) and enforces
+zero silver leakage into the validation set.
+
+```powershell
+.\.venv\Scripts\python.exe 06_generation_scale_benchmark_G3\scripts\validation\selfcheck_g3.py
+.\.venv\Scripts\python.exe 06_generation_scale_benchmark_G3\scripts\run_g3_scaling.py --mode plan
+```
+
+`06_generation_scale_benchmark_G4/` is a placeholder only: its design depends on the G3
+optimum and on how the "audience/tone" reasoning is produced, so no code is committed yet.
 
 ## Running experiments
 

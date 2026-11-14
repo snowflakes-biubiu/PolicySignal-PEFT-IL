@@ -1,7 +1,7 @@
 # 06 期 G1/G2 结果对比报告
 
 - 生成时间：2026-11-14 10:01:34
-- 结果目录：`C:\Users\snowf\CAPC-CG-Project\06_generation_scale_benchmark\results`
+- 结果目录：`C:\Users\snowf\CAPC-CG-Project\06_generation_scale_benchmark_G1_G2\results`
 - 矩阵完成度：**18/18**（含复用单元）
 - 已汇总记录：18 条（含 G2-2 复用 G1-4 的别名行）
 
