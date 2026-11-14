@@ -138,7 +138,7 @@ def run_worker(args: argparse.Namespace) -> int:
 
     cfg = G.read_json(args.config)
     model_spec = next(m for m in cfg["models"] if m["id"] == args.model_id)
-    task = args.task
+    task = args.task[0] if isinstance(args.task, (list, tuple)) else args.task
     task_spec = cfg["tasks"][task]
     per_class = int(args.per_class)
     gold_per_class = int(task_spec["gold_per_class"])
