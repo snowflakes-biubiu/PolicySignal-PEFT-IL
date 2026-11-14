@@ -334,7 +334,7 @@ def build_tiers(
                 "silver_count": silver_n,
                 "silver_ratio": round(silver_n / len(selected), 4),
                 "gold_val_overlap": tier_overlap,
-                "file": str(out_path.relative_to(G.PROJECT_ROOT)),
+                "file": out_path.relative_to(G.PROJECT_ROOT).as_posix(),
                 "sha256": digest,
             }
         )

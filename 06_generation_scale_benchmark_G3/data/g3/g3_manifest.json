@@ -52,7 +52,7 @@
       "silver_count": 0,
       "silver_ratio": 0.0,
       "gold_val_overlap": 5,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_50.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task1_level1/train_per_class_50.jsonl",
       "sha256": "0b8014e285c19e09"
     },
     {
@@ -64,7 +64,7 @@
       "silver_count": 0,
       "silver_ratio": 0.0,
       "gold_val_overlap": 9,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_100.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task1_level1/train_per_class_100.jsonl",
       "sha256": "2c5a5425c63d5ef0"
     },
     {
@@ -76,7 +76,7 @@
       "silver_count": 0,
       "silver_ratio": 0.0,
       "gold_val_overlap": 13,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_150.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task1_level1/train_per_class_150.jsonl",
       "sha256": "212fbfe4f8ae7b94"
     },
     {
@@ -88,7 +88,7 @@
       "silver_count": 0,
       "silver_ratio": 0.0,
       "gold_val_overlap": 19,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_200.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task1_level1/train_per_class_200.jsonl",
       "sha256": "c672536a6881de6a"
     },
     {
@@ -100,7 +100,7 @@
       "silver_count": 600,
       "silver_ratio": 0.5,
       "gold_val_overlap": 19,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_400.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task1_level1/train_per_class_400.jsonl",
       "sha256": "9ea641b94e106482"
     },
     {
@@ -112,7 +112,7 @@
       "silver_count": 1200,
       "silver_ratio": 0.6667,
       "gold_val_overlap": 19,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_600.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task1_level1/train_per_class_600.jsonl",
       "sha256": "d20617a9ff110dc9"
     },
     {
@@ -124,7 +124,7 @@
       "silver_count": 2400,
       "silver_ratio": 0.8,
       "gold_val_overlap": 19,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task1_level1\\train_per_class_1000.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task1_level1/train_per_class_1000.jsonl",
       "sha256": "75c769ad8d085f72"
     },
     {
@@ -136,7 +136,7 @@
       "silver_count": 0,
       "silver_ratio": 0.0,
       "gold_val_overlap": 2,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_75.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task2_level2/train_per_class_75.jsonl",
       "sha256": "6852a5242cfcd00e"
     },
     {
@@ -148,7 +148,7 @@
       "silver_count": 0,
       "silver_ratio": 0.0,
       "gold_val_overlap": 10,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_150.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task2_level2/train_per_class_150.jsonl",
       "sha256": "c255f5f19939ee2d"
     },
     {
@@ -160,7 +160,7 @@
       "silver_count": 0,
       "silver_ratio": 0.0,
       "gold_val_overlap": 14,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_225.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task2_level2/train_per_class_225.jsonl",
       "sha256": "32c8655ebfa8f189"
     },
     {
@@ -172,7 +172,7 @@
       "silver_count": 0,
       "silver_ratio": 0.0,
       "gold_val_overlap": 17,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_300.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task2_level2/train_per_class_300.jsonl",
       "sha256": "d7d94ea5b9be7cef"
     },
     {
@@ -184,7 +184,7 @@
       "silver_count": 800,
       "silver_ratio": 0.4,
       "gold_val_overlap": 17,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_500.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task2_level2/train_per_class_500.jsonl",
       "sha256": "7a712468be27c729"
     },
     {
@@ -196,7 +196,7 @@
       "silver_count": 2000,
       "silver_ratio": 0.625,
       "gold_val_overlap": 17,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_800.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task2_level2/train_per_class_800.jsonl",
       "sha256": "2681520f8523dd92"
     },
     {
@@ -208,7 +208,7 @@
       "silver_count": 3600,
       "silver_ratio": 0.75,
       "gold_val_overlap": 17,
-      "file": "06_generation_scale_benchmark_G3\\data\\g3\\task2_level2\\train_per_class_1200.jsonl",
+      "file": "06_generation_scale_benchmark_G3/data/g3/task2_level2/train_per_class_1200.jsonl",
       "sha256": "6e78f5409900ae45"
     }
   ]
