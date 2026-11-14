@@ -197,8 +197,14 @@ zero silver leakage into the validation set.
 .\.venv\Scripts\python.exe 06_generation_scale_benchmark_G3\scripts\run_g3_scaling.py --mode plan
 ```
 
+G3 finished all 42 units on 2026-11-14. Level-1 saturates at 100–200/class (4B 0.9667 at
+200) and no silver tier beats that point; Level-2 peaks at 500/class with 4B (0.8825) and
+falls back at 1200, while the encoder degrades from 0.875 to 0.8425 over the same range.
+Full curves are in `06_generation_scale_benchmark_G3/results/g3_scaling_report.md`.
+
 `06_generation_scale_benchmark_G4/` is a placeholder only: its design depends on the G3
 optimum and on how the "audience/tone" reasoning is produced, so no code is committed yet.
+G3 recommends L1 = 4B / 200 per class and L2 = 4B / 500 per class for G4-1.
 
 ## Running experiments
 
