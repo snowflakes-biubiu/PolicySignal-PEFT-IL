@@ -1,0 +1,43 @@
+﻿exp_id,task,regime,model_id,model_label,per_class,train_samples,accuracy,macro_f1,cohen_kappa,bottleneck_class,bottleneck_f1,train_time_sec,peak_train_vram_gb,infer_samples_per_sec,train_loss,source,delta_acc,delta_bottleneck_f1
+G3_chinese_roberta_large_n50,task1_level1,pure_gold,chinese_roberta_large,编码器全参 (0.33B),50,150,0.7867,0.7878,0.68,W,0.7321,7.87,8.353,266.19,0.5895,run,,
+G3_qwen3_1.7b_bf16_r8_n50,task1_level1,pure_gold,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),50,150,0.8333,0.8344,0.75,W,0.7961,31.81,19.68,39.25,1.0767,run,,
+G3_qwen3_4b_bf16_r8_n50,task1_level1,pure_gold,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),50,150,0.8833,0.8841,0.825,W,0.8545,86.73,13.469,16.94,0.7777,run,,
+G3_chinese_roberta_large_n100,task1_level1,pure_gold,chinese_roberta_large,编码器全参 (0.33B),100,300,0.9033,0.9028,0.855,W,0.8732,15.57,8.353,263.72,0.4368,run,0.1166,0.1411
+G3_qwen3_1.7b_bf16_r8_n100,task1_level1,pure_gold,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),100,300,0.9267,0.9267,0.89,W,0.9091,61.51,19.674,39.14,0.9901,run,0.0934,0.113
+G3_qwen3_4b_bf16_r8_n100,task1_level1,pure_gold,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),100,300,0.94,0.9399,0.91,W,0.9246,172.93,13.475,17.02,0.5589,run,0.0567,0.0701
+G3_chinese_roberta_large_n150,task1_level1,pure_gold,chinese_roberta_large,编码器全参 (0.33B),150,450,0.94,0.9402,0.91,W,0.9231,23.12,8.353,264.35,0.3291,run,0.0367,0.0499
+G3_qwen3_1.7b_bf16_r8_n150,task1_level1,pure_gold,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),150,450,0.93,0.9299,0.895,W,0.9091,88.83,19.674,39.19,0.7868,run,0.0033,0.0
+G3_qwen3_4b_bf16_r8_n150,task1_level1,pure_gold,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),150,450,0.9433,0.9433,0.915,W,0.9307,251.61,13.47,17.0,0.4241,run,0.0033,0.0061
+G3_chinese_roberta_large_n200,task1_level1,pure_gold,chinese_roberta_large,编码器全参 (0.33B),200,600,0.9433,0.9435,0.915,W,0.932,30.92,8.353,259.06,0.3133,reuse:G2-1_chinese_roberta_large_ft,0.0033,0.0089
+G3_qwen3_1.7b_bf16_r8_n200,task1_level1,pure_gold,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),200,600,0.9567,0.9567,0.935,W,0.951,121.71,19.678,37.3,0.5371,reuse:G1-3_qwen3_1.7b_bf16_r8,0.0267,0.0419
+G3_qwen3_4b_bf16_r8_n200,task1_level1,pure_gold,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),200,600,0.9667,0.9667,0.95,W,0.9552,338.54,13.47,17.0,0.4421,run,0.0234,0.0245
+G3_chinese_roberta_large_n400,task1_level1,gold_plus_silver,chinese_roberta_large,编码器全参 (0.33B),400,1200,0.9567,0.9565,0.935,W,0.9442,60.45,8.353,262.51,0.2758,run,0.0134,0.0122
+G3_qwen3_1.7b_bf16_r8_n400,task1_level1,gold_plus_silver,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),400,1200,0.9533,0.9532,0.93,W,0.9442,252.42,19.673,39.12,0.5048,run,-0.0034,-0.0068
+G3_qwen3_4b_bf16_r8_n400,task1_level1,gold_plus_silver,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),400,1200,0.9533,0.9532,0.93,W,0.9394,721.13,13.47,16.99,0.3978,run,-0.0134,-0.0158
+G3_chinese_roberta_large_n600,task1_level1,gold_plus_silver,chinese_roberta_large,编码器全参 (0.33B),600,1800,0.9533,0.9532,0.93,W,0.9406,90.63,8.353,261.87,0.2702,run,-0.0034,-0.0036
+G3_qwen3_1.7b_bf16_r8_n600,task1_level1,gold_plus_silver,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),600,1800,0.9433,0.9432,0.915,W,0.9278,387.28,19.672,39.13,0.437,run,-0.01,-0.0164
+G3_qwen3_4b_bf16_r8_n600,task1_level1,gold_plus_silver,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),600,1800,0.96,0.9599,0.94,W,0.9495,1110.14,13.473,17.01,0.3611,run,0.0067,0.0101
+G3_chinese_roberta_large_n1000,task1_level1,gold_plus_silver,chinese_roberta_large,编码器全参 (0.33B),1000,3000,0.9433,0.943,0.915,W,0.9254,150.34,8.353,262.91,0.2616,run,-0.01,-0.0152
+G3_qwen3_1.7b_bf16_r8_n1000,task1_level1,gold_plus_silver,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),1000,3000,0.9467,0.9465,0.92,W,0.9333,652.74,19.679,39.17,0.3701,run,0.0034,0.0055
+G3_qwen3_4b_bf16_r8_n1000,task1_level1,gold_plus_silver,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),1000,3000,0.9567,0.9564,0.935,W,0.943,1879.58,13.47,17.01,0.3102,run,-0.0033,-0.0065
+G3_chinese_roberta_large_n75,task2_level2,pure_gold,chinese_roberta_large,编码器全参 (0.33B),75,300,0.795,0.7946,0.7267,G,0.6854,15.46,8.353,264.34,0.5575,run,,
+G3_qwen3_1.7b_bf16_r8_n75,task2_level2,pure_gold,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),75,300,0.765,0.7641,0.6867,G,0.7337,54.27,19.674,42.31,1.0126,run,,
+G3_qwen3_4b_bf16_r8_n75,task2_level2,pure_gold,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),75,300,0.7775,0.7744,0.7033,G,0.6851,151.95,13.473,18.41,1.0007,run,,
+G3_chinese_roberta_large_n150,task2_level2,pure_gold,chinese_roberta_large,编码器全参 (0.33B),150,600,0.83,0.8292,0.7733,G,0.7312,30.55,8.353,263.38,0.4541,run,0.035,0.0458
+G3_qwen3_1.7b_bf16_r8_n150,task2_level2,pure_gold,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),150,600,0.8175,0.8167,0.7567,G,0.7447,108.76,19.673,42.28,0.9386,run,0.0525,0.011
+G3_qwen3_4b_bf16_r8_n150,task2_level2,pure_gold,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),150,600,0.83,0.8286,0.7733,G,0.7513,301.58,13.473,18.41,0.7216,run,0.0525,0.0662
+G3_chinese_roberta_large_n225,task2_level2,pure_gold,chinese_roberta_large,编码器全参 (0.33B),225,900,0.8675,0.8668,0.8233,G,0.7831,45.33,8.353,264.64,0.4492,run,0.0375,0.0519
+G3_qwen3_1.7b_bf16_r8_n225,task2_level2,pure_gold,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),225,900,0.8625,0.8623,0.8167,G,0.8144,159.26,19.681,42.32,0.7238,run,0.045,0.0697
+G3_qwen3_4b_bf16_r8_n225,task2_level2,pure_gold,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),225,900,0.86,0.8602,0.8133,G,0.802,448.56,13.471,18.43,0.7017,run,0.03,0.0507
+G3_chinese_roberta_large_n300,task2_level2,pure_gold,chinese_roberta_large,编码器全参 (0.33B),300,1200,0.875,0.8746,0.8333,G,0.8229,60.85,8.353,260.07,0.4,reuse:G2-1_chinese_roberta_large_ft,0.0075,0.0398
+G3_qwen3_1.7b_bf16_r8_n300,task2_level2,pure_gold,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),300,1200,0.8725,0.8713,0.83,G,0.7957,215.13,19.673,40.94,0.6421,reuse:G1-3_qwen3_1.7b_bf16_r8,0.01,-0.0187
+G3_qwen3_4b_bf16_r8_n300,task2_level2,pure_gold,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),300,1200,0.8625,0.8618,0.8167,G,0.7938,597.72,13.469,18.41,0.5702,run,0.0025,-0.0082
+G3_chinese_roberta_large_n500,task2_level2,gold_plus_silver,chinese_roberta_large,编码器全参 (0.33B),500,2000,0.87,0.8701,0.8267,G,0.802,100.34,8.353,262.4,0.4132,run,-0.005,-0.0209
+G3_qwen3_1.7b_bf16_r8_n500,task2_level2,gold_plus_silver,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),500,2000,0.8575,0.8581,0.81,G,0.8195,384.12,19.672,42.31,0.6271,run,-0.015,0.0238
+G3_qwen3_4b_bf16_r8_n500,task2_level2,gold_plus_silver,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),500,2000,0.8825,0.8831,0.8433,G,0.835,1094.39,13.47,18.45,0.5741,run,0.02,0.0412
+G3_chinese_roberta_large_n800,task2_level2,gold_plus_silver,chinese_roberta_large,编码器全参 (0.33B),800,3200,0.8725,0.8728,0.83,G,0.8374,160.24,8.353,262.46,0.4052,run,0.0025,0.0354
+G3_qwen3_1.7b_bf16_r8_n800,task2_level2,gold_plus_silver,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),800,3200,0.8675,0.8685,0.8233,G,0.8293,633.75,19.677,42.32,0.5391,run,0.01,0.0098
+G3_qwen3_4b_bf16_r8_n800,task2_level2,gold_plus_silver,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),800,3200,0.8675,0.8682,0.8233,G,0.8436,1811.69,13.469,18.48,0.5217,run,-0.015,0.0086
+G3_chinese_roberta_large_n1200,task2_level2,gold_plus_silver,chinese_roberta_large,编码器全参 (0.33B),1200,4800,0.8425,0.8407,0.79,G,0.8177,239.78,8.353,262.7,0.4009,run,-0.03,-0.0197
+G3_qwen3_1.7b_bf16_r8_n1200,task2_level2,gold_plus_silver,qwen3_1.7b_bf16_r8,轻量主力 (1.7B r8),1200,4800,0.8625,0.8633,0.8167,G,0.8341,972.2,19.673,42.28,0.5165,run,-0.005,0.0048
+G3_qwen3_4b_bf16_r8_n1200,task2_level2,gold_plus_silver,qwen3_4b_bf16_r8,中尺寸主力 (4B r8),1200,4800,0.8725,0.8735,0.83,G,0.8381,2792.03,13.469,18.38,0.5043,run,0.005,-0.0055

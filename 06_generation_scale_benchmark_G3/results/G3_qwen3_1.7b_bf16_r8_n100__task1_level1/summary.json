@@ -1,0 +1,64 @@
+{
+  "exp_id": "G3_qwen3_1.7b_bf16_r8_n100",
+  "stage": "G3",
+  "model_id": "qwen3_1.7b_bf16_r8",
+  "model_label": "轻量主力 (1.7B r8)",
+  "model": "/root/autodl-tmp/ms/Qwen3-1.7B",
+  "runner": "peft",
+  "task": "task1_level1",
+  "regime": "pure_gold",
+  "per_class": 100,
+  "train_samples": 300,
+  "val_samples": 300,
+  "gold_samples": 600,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "target_scope": "attn_mlp",
+  "precision": "bf16",
+  "trainable_params": 8716288,
+  "total_params": 1729291264,
+  "trainable_params_pct": 0.504,
+  "train_time_sec": 61.51,
+  "peak_train_vram_gb": 19.674,
+  "eval_time_sec": 7.66,
+  "infer_samples_per_sec": 39.14,
+  "peak_eval_vram_gb": 11.622,
+  "eval_truncated_count": 3,
+  "accuracy": 0.9267,
+  "macro_f1": 0.9267,
+  "cohen_kappa": 0.89,
+  "train_loss": 0.9901,
+  "global_step": 225,
+  "labels": [
+    "W",
+    "R",
+    "N"
+  ],
+  "metrics_detail": {
+    "accuracy": 0.9266666666666666,
+    "cohen_kappa": 0.8899999999999998,
+    "macro_f1": 0.9267069786910369,
+    "per_class": {
+      "W": {
+        "precision": 0.9183673469387755,
+        "recall": 0.9,
+        "f1": 0.9090909090909091
+      },
+      "R": {
+        "precision": 0.9595959595959596,
+        "recall": 0.95,
+        "f1": 0.9547738693467336
+      },
+      "N": {
+        "precision": 0.9029126213592233,
+        "recall": 0.93,
+        "f1": 0.916256157635468
+      }
+    }
+  },
+  "seed": 42,
+  "data_sha": "2c5a5425c63d5ef0",
+  "fingerprint": "55bdfe0497d36015",
+  "source": "run",
+  "finished_at": "20261114-111544"
+}

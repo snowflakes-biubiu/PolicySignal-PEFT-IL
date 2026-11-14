@@ -1,0 +1,70 @@
+{
+  "exp_id": "G3_chinese_roberta_large_n500",
+  "stage": "G3",
+  "model_id": "chinese_roberta_large",
+  "model_label": "编码器全参 (0.33B)",
+  "model": "/root/autodl-tmp/ms/chinese-roberta-wwm-ext-large",
+  "runner": "encoder",
+  "task": "task2_level2",
+  "regime": "gold_plus_silver",
+  "per_class": 500,
+  "train_samples": 2000,
+  "val_samples": 400,
+  "gold_samples": 1200,
+  "lora_r": 0,
+  "lora_alpha": 0,
+  "target_scope": "full",
+  "precision": "bf16",
+  "trainable_params": 325526532,
+  "total_params": 325526532,
+  "trainable_params_pct": 100.0,
+  "train_time_sec": 100.34,
+  "peak_train_vram_gb": 8.353,
+  "eval_time_sec": 1.52,
+  "infer_samples_per_sec": 262.4,
+  "peak_eval_vram_gb": 4.336,
+  "eval_truncated_count": 0,
+  "accuracy": 0.87,
+  "macro_f1": 0.8701,
+  "cohen_kappa": 0.8267,
+  "train_loss": 0.4132,
+  "global_step": 750,
+  "labels": [
+    "B",
+    "Y",
+    "C",
+    "G"
+  ],
+  "metrics_detail": {
+    "accuracy": 0.87,
+    "cohen_kappa": 0.8266666666666667,
+    "macro_f1": 0.8700609876299837,
+    "per_class": {
+      "B": {
+        "precision": 0.93,
+        "recall": 0.93,
+        "f1": 0.93
+      },
+      "Y": {
+        "precision": 0.9175257731958762,
+        "recall": 0.89,
+        "f1": 0.9035532994923858
+      },
+      "C": {
+        "precision": 0.8207547169811321,
+        "recall": 0.87,
+        "f1": 0.8446601941747572
+      },
+      "G": {
+        "precision": 0.8144329896907216,
+        "recall": 0.79,
+        "f1": 0.802030456852792
+      }
+    }
+  },
+  "seed": 42,
+  "data_sha": "7a712468be27c729",
+  "fingerprint": "fac48fc9694c4f10",
+  "source": "run",
+  "finished_at": "20261114-134310"
+}

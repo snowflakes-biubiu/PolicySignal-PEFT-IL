@@ -1,0 +1,64 @@
+{
+  "exp_id": "G3_qwen3_4b_bf16_r8_n600",
+  "stage": "G3",
+  "model_id": "qwen3_4b_bf16_r8",
+  "model_label": "中尺寸主力 (4B r8)",
+  "model": "/root/autodl-tmp/ms/Qwen3-4B",
+  "runner": "peft",
+  "task": "task1_level1",
+  "regime": "gold_plus_silver",
+  "per_class": 600,
+  "train_samples": 1800,
+  "val_samples": 300,
+  "gold_samples": 600,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "target_scope": "attn_mlp",
+  "precision": "bf16",
+  "trainable_params": 16515072,
+  "total_params": 4038983168,
+  "trainable_params_pct": 0.4089,
+  "train_time_sec": 1110.14,
+  "peak_train_vram_gb": 13.473,
+  "eval_time_sec": 17.64,
+  "infer_samples_per_sec": 17.01,
+  "peak_eval_vram_gb": 15.996,
+  "eval_truncated_count": 3,
+  "accuracy": 0.96,
+  "macro_f1": 0.9599,
+  "cohen_kappa": 0.94,
+  "train_loss": 0.3611,
+  "global_step": 1350,
+  "labels": [
+    "W",
+    "R",
+    "N"
+  ],
+  "metrics_detail": {
+    "accuracy": 0.96,
+    "cohen_kappa": 0.94,
+    "macro_f1": 0.959947736067139,
+    "per_class": {
+      "W": {
+        "precision": 0.9591836734693877,
+        "recall": 0.94,
+        "f1": 0.9494949494949495
+      },
+      "R": {
+        "precision": 0.9702970297029703,
+        "recall": 0.98,
+        "f1": 0.9751243781094527
+      },
+      "N": {
+        "precision": 0.9504950495049505,
+        "recall": 0.96,
+        "f1": 0.9552238805970149
+      }
+    }
+  },
+  "seed": 42,
+  "data_sha": "d20617a9ff110dc9",
+  "fingerprint": "04476d0d6065ec5d",
+  "source": "run",
+  "finished_at": "20261114-125520"
+}
